@@ -1,0 +1,410 @@
+/* PepsiCo-Style Consumer Brands Showcase */
+.b2c-portal {
+  background-color: #0b1120;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Brand Selector Strip */
+.b2c-brand-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+}
+
+.b2c-brand-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.b2c-brand-tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.b2c-brand-tab.active {
+  background: #ffffff;
+  color: #111a2e;
+  border-color: #ffffff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.b2c-brand-tab-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* PepsiCo-Style Hero Stage */
+.b2c-hero-stage {
+  position: relative;
+  min-height: 580px;
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background 0.6s ease;
+}
+
+.b2c-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.b2c-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.b2c-hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.b2c-hero-tagline {
+  font-size: 1.4rem;
+  color: #f1f5f9;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.b2c-hero-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.b2c-hero-img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b2c-hero-img {
+  max-height: 480px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.5));
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.b2c-hero-bg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Feature Spotlight Grid */
+.b2c-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 20;
+}
+
+.b2c-highlight-card {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.35s ease;
+}
+
+.b2c-highlight-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.b2c-highlight-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.b2c-highlight-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.b2c-highlight-desc {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.55;
+}
+
+/* Product Showcase Grid (The Shelf) */
+.b2c-shelf-section {
+  padding: 6rem 0;
+  background: #0f172a;
+}
+
+.b2c-shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.25rem;
+}
+
+.b2c-product-card {
+  background: #1e293b;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.b2c-product-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.b2c-product-card-img-wrap {
+  height: 280px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(15, 23, 42, 0.6) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.b2c-product-card-img {
+  max-height: 220px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.4));
+}
+
+.b2c-product-card:hover .b2c-product-card-img {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.b2c-product-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.b2c-product-card-flavor {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.b2c-product-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.b2c-product-card-desc {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.b2c-product-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+}
+
+.b2c-product-card-vol {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+}
+
+/* Hypermarket / Retailer Marquee */
+.b2c-retailers-section {
+  padding: 5rem 0;
+  background: #090e1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.b2c-retailers-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #64748b;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.b2c-retailers-marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: scrollMarquee 28s linear infinite;
+}
+
+.b2c-retailer-logo-box {
+  width: 170px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.b2c-retailer-logo-box:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.b2c-retailer-logo-img {
+  max-width: 130px;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+/* Lifestyle / Flavor Gallery Carousel */
+.b2c-gallery-section {
+  padding: 6rem 0;
+  background: #0f172a;
+}
+
+.b2c-gallery-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+  scrollbar-width: none;
+}
+
+.b2c-gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.b2c-gallery-card {
+  flex-shrink: 0;
+  width: 320px;
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.b2c-gallery-card:hover {
+  transform: scale(1.04);
+}
+
+.b2c-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .b2c-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+  .b2c-hero-desc {
+    margin: 0 auto 2rem auto;
+  }
+  .b2c-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+  .b2c-hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .b2c-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  .b2c-hero-title {
+    font-size: 2.25rem;
+  }
+}

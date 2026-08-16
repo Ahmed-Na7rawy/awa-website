@@ -20,8 +20,25 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
               Three Decades of Food Technology Leadership
             </h1>
             <p className="section-desc">
-              Pioneering custom functional ingredient blends, global raw material sourcing, precision manufacturing, and cold chain logistics across Egypt and the MENA region.
+              At AWA Group, everything we do starts with research. Understanding the Egyptian market, and what quality means within it, is the foundation for every solution we develop. We hold research and quality control to the same standard across Egypt and internationally.
             </p>
+            <div style={{ marginTop: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+              <img
+                src="/images/pages/about/signature.png"
+                alt="Wael Ghandour Signature"
+                style={{
+                  height: '52px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)',
+                  opacity: 0.95
+                }}
+              />
+              <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.25)', paddingLeft: '1rem' }}>
+                <div style={{ color: '#FFFFFF', fontWeight: 800, fontSize: '0.95rem' }}>Wael Ghandour</div>
+                <div style={{ color: '#4ADE80', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>CEO, AWA Group</div>
+              </div>
+            </div>
           </div>
           <div>
             <div style={{
