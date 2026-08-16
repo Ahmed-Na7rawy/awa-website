@@ -41,10 +41,10 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
             </div>
           </div>
           <div>
-            <div style={{
+            <div className="zoom-on-hover" style={{
               width: '100%',
               borderRadius: 'var(--radius-lg)',
-              overflow: 'hidden',
+              position: 'relative',
               boxShadow: 'var(--shadow-lg)',
               border: '1px solid rgba(255, 255, 255, 0.15)'
             }}>
@@ -53,6 +53,15 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
                 alt="AWA Group Corporate Leadership"
                 style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'center 10%' }}
               />
+              <div className="floating-badge-card">
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(74, 222, 128, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4ADE80' }}>
+                  <ShieldCheck size={22} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#FFFFFF' }}>30+ Years Food Tech</div>
+                  <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.7)' }}>Pioneering Quality Since 1993</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
