@@ -1,5 +1,5 @@
-import React from 'react';
-import { Mail, Phone, MapPin, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, ChevronDown, Menu, X, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
 import { NAV_LINKS, COMPANY_CONTACT } from '../data/siteData';
 
 interface NavbarProps {
@@ -9,10 +9,10 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQuote }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -27,32 +27,33 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
   };
 
   return (
-    <header>
-      {/* Top Contact Bar */}
+    <header style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
+      {/* Editorial Top Contact & Metadata Bar */}
       <div className="top-bar">
-        <div className="container top-bar-inner">
+        <div className="container-wide top-bar-inner">
           <div className="top-bar-contacts">
             <a href={`mailto:${COMPANY_CONTACT.email}`} className="top-bar-item">
-              <Mail size={14} />
+              <Mail size={13} />
               <span>{COMPANY_CONTACT.email}</span>
             </a>
             <a href={`tel:${COMPANY_CONTACT.phoneAlex.split('/')[0].trim()}`} className="top-bar-item">
-              <Phone size={14} />
-              <span>Alex: {COMPANY_CONTACT.phoneAlex}</span>
+              <Phone size={13} />
+              <span>Alex HQ: {COMPANY_CONTACT.phoneAlex}</span>
             </a>
-            <span className="top-bar-item" style={{ display: 'none', lg: 'inline-flex' }}>
-              <MapPin size={14} />
-              <span>Alexandria & Cairo, Egypt</span>
-            </span>
+            <div className="top-bar-item" style={{ gap: '0.4rem', color: '#94A3B8' }}>
+              <Globe size={13} color="#4ADE80" />
+              <span>Alexandria & Cairo Facilities, Egypt</span>
+            </div>
           </div>
           <div className="top-bar-links">
-            <span className="top-bar-item" style={{ fontSize: '0.75rem', opacity: 0.8 }}>
-              ISO 9001 & FSSC 22000 Certified
-            </span>
+            <div className="top-bar-item" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
+              <ShieldCheck size={13} />
+              <span>ISO 9001, FSSC 22000 & Halal Certified</span>
+            </div>
             <button 
               onClick={() => handleNavClick('careers')} 
               className="top-bar-item"
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', fontSize: '0.825rem' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
             >
               Careers
             </button>
@@ -66,29 +67,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
           <div 
             className="brand-logo-wrap" 
             onClick={() => handleNavClick('home')}
-            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0, marginLeft: '0.5rem' }}
           >
             <img 
               src="/images/awa_group.png" 
-              alt="AWA Group" 
+              alt="AWA Group Logo" 
               className="brand-logo-img"
-              style={{ height: '40px', width: 'auto', objectFit: 'contain', display: 'block' }}
               onError={(e) => {
-                // Fallback to text if image fails
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', whiteSpace: 'nowrap' }}>
-              <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#111a2e', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-                AWA <span style={{ color: '#128d46' }}>GROUP</span>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span className="brand-title">
+                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
               </span>
-              <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>
+              <span className="brand-sub">
                 Food Solutions & Sourcing
               </span>
             </div>
           </div>
 
-          {/* Desktop Nav Items */}
+          {/* Desktop Navigation */}
           <ul className="nav-menu">
             {NAV_LINKS.map((link) => (
               <li 
@@ -100,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                   className="nav-link"
                 >
                   {link.label}
-                  {link.children && <ChevronDown size={14} style={{ opacity: 0.7 }} />}
+                  {link.children && <ChevronDown size={14} style={{ opacity: 0.6 }} />}
                 </button>
 
                 {link.children && (
@@ -110,9 +108,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                         <button
                           onClick={() => handleNavClick(child.id, child.subId)}
                           className="dropdown-link"
-                          style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none' }}
+                          style={{ width: '100%', border: 'none', background: 'none' }}
                         >
-                          {child.label}
+                          <span>{child.label}</span>
+                          <ArrowRight size={12} style={{ opacity: 0.5 }} />
                         </button>
                       </li>
                     ))}
@@ -122,37 +121,37 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             ))}
           </ul>
 
-          {/* Actions */}
+          {/* Action CTAs */}
           <div className="nav-actions">
             <button 
               onClick={onOpenQuote}
               className="btn btn-primary btn-sm"
-              style={{ display: 'none', sm: 'inline-flex' }}
             >
-              Request Quote
+              <span>Request Solution Quote</span>
               <ArrowRight size={14} />
             </button>
             <button 
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(true)}
-              aria-label="Toggle navigation"
+              aria-label="Toggle Navigation Drawer"
             >
-              <Menu size={24} />
+              <Menu size={26} />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Navigation */}
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
             <div className="brand-logo-wrap" onClick={() => handleNavClick('home')}>
-              <img src="/images/awa_group.png" alt="AWA Group" style={{ height: '36px' }} />
-              <span style={{ fontWeight: 800, color: '#111a2e' }}>AWA GROUP</span>
+              <span className="brand-title">
+                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
+              </span>
             </div>
-            <button onClick={() => setMobileMenuOpen(false)} style={{ color: '#64748b' }}>
-              <X size={24} />
+            <button onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-muted)' }}>
+              <X size={26} />
             </button>
           </div>
 
@@ -162,12 +161,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 <button
                   onClick={() => handleNavClick(link.id)}
                   className={`mobile-nav-link ${currentPage === link.id ? 'active' : ''}`}
-                  style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none' }}
+                  style={{ width: '100%', textAlign: 'left', background: 'none' }}
                 >
-                  <span>{link.label}</span>
+                  {link.label}
                 </button>
                 {link.children && (
-                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '0.5rem' }}>
+                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.2rem', margin: '0.4rem 0' }}>
                     {link.children.map((child, idx) => (
                       <button
                         key={idx}
@@ -176,12 +175,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                           textAlign: 'left',
                           padding: '0.4rem 0.5rem',
                           fontSize: '0.875rem',
-                          color: '#64748b',
+                          color: 'var(--text-muted)',
                           background: 'none',
-                          border: 'none'
+                          border: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.4rem'
                         }}
                       >
-                        • {child.label}
+                        <span style={{ color: 'var(--primary)' }}>•</span> {child.label}
                       </button>
                     ))}
                   </div>
@@ -190,16 +192,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             ))}
           </ul>
 
-          <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid #e2e8f0' }}>
+          <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
             <button 
               onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
               className="btn btn-primary"
               style={{ width: '100%', marginBottom: '1rem' }}
             >
-              Get In Touch
+              Get Technical Quote
             </button>
-            <div style={{ fontSize: '0.8rem', color: '#64748b', textAlign: 'center' }}>
-              Alex: {COMPANY_CONTACT.phoneAlex}
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center' }}>
+              Alexandria HQ: {COMPANY_CONTACT.phoneAlex}
             </div>
           </div>
         </div>

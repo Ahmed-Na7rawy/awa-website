@@ -1,6 +1,6 @@
 import React from 'react';
-import { ShieldCheck, Award, Target, Eye, CheckCircle2, Factory, Users, Globe2, Building } from 'lucide-react';
-import { CERTIFICATIONS, ABOUT_CERTS, ABOUT_LOGOS } from '../data/siteData';
+import { ShieldCheck, Target, Eye, CheckCircle2, Factory, Globe2, Building } from 'lucide-react';
+import { CERTIFICATIONS, ABOUT_CERTS } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 
 interface AboutProps {
@@ -10,176 +10,127 @@ interface AboutProps {
 
 export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => {
   return (
-    <div>
-      {/* Header Banner */}
-      <section className="page-banner">
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '2.5rem', alignItems: 'center' }}>
+    <div className="about-page">
+      {/* Editorial Header Banner */}
+      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '3.5rem', alignItems: 'center' }}>
           <div>
-            <span className="badge badge-dark">Since 1993</span>
-            <h1 className="page-banner-title">About AWA Group</h1>
-            <p className="page-banner-subtitle">
-              Three decades of leadership in food science, ingredient trading, precision manufacturing, and supply chain logistics across the MENA region.
+            <div className="eyebrow eyebrow-dark">Established 1993</div>
+            <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
+              Three Decades of Food Technology Leadership
+            </h1>
+            <p className="section-desc">
+              Pioneering custom functional ingredient blends, global raw material sourcing, precision manufacturing, and cold chain logistics across Egypt and the MENA region.
             </p>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          <div>
             <div style={{
               width: '100%',
-              maxWidth: '340px',
-              height: '320px',
-              borderRadius: '24px',
+              borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
-              boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(18, 141, 70, 0.3)',
-              border: '2px solid rgba(255, 255, 255, 0.15)',
-              position: 'relative'
+              boxShadow: 'var(--shadow-lg)',
+              border: '1px solid rgba(255, 255, 255, 0.15)'
             }}>
               <img
                 src="/images/pages/home/Image2-3.jpg"
-                alt="About AWA Food Solutions Leadership"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'top center',
-                  display: 'block'
-                }}
+                alt="AWA Group Corporate Leadership"
+                style={{ width: '100%', height: '320px', objectFit: 'cover' }}
               />
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to top, rgba(17, 26, 46, 0.35) 0%, transparent 40%)'
-              }}></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Overview & History */}
+      {/* Corporate Overview & Timeline Narrative */}
       <section className="section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+          <div className="editorial-grid">
             <div>
-              <span className="badge">Our Heritage</span>
-              <h2 className="section-title">A Legacy of Innovation & Food Science Excellence</h2>
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.25rem' }}>
-                Established in 1993 in Alexandria, Egypt, <strong>AWA Group</strong> has evolved from a specialized trading firm into a diversified industrial powerhouse covering ingredients distribution, custom food application R&D, temperature-controlled logistics, and retail brand manufacturing.
+              <div className="eyebrow">Our Heritage & Legacy</div>
+              <h2 className="section-title">Bridging Global Food Science with Regional Scale</h2>
+              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
+                Established in 1993 in Alexandria, Egypt, <strong>AWA Group</strong> has evolved from a specialized trading firm into a premier industrial group spanning ingredient distribution, custom food application R&D, temperature-controlled logistics, and consumer brand manufacturing.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                In 2009, <strong>AWA Food Solutions</strong> was founded to focus on advanced functional ingredient blends, hydrocolloid systems, and customized recipe formulations for the dairy, meat, bakery, and beverage sectors.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                In 2009, <strong>AWA Food Solutions</strong> was established to focus on advanced functional hydrocolloid systems, texturizers, emulsifiers, and customized recipe formulations for the dairy, meat, bakery, and beverage sectors.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                Today, our New Borg El-Arab City production complex operates under strict international certifications (FSSC 22000, ISO 9001, ISO 14001, ISO 45001), serving leading multinational and local FMCG manufacturers.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '2rem' }}>
+                Today, our New Borg El-Arab City production complex operates under strict international safety standards (FSSC 22000, ISO 9001, ISO 14001, ISO 45001, Halal), partnering with leading multinational and regional food manufacturers.
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <button onClick={() => onNavigate('solutions')} className="btn btn-primary">
-                  Explore Our Solutions
+                  Explore Solutions Matrix
                 </button>
                 <button onClick={onOpenQuote} className="btn btn-secondary">
-                  Work With Us
+                  Work With Our Technical Team
                 </button>
               </div>
             </div>
 
-            <div style={{ position: 'relative' }}>
+            <div className="editorial-img-container">
               <img 
                 src="/images/pages/about/image10.jpg" 
-                alt="AWA History & Laboratory" 
-                style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', objectFit: 'cover' }}
+                alt="AWA Research & Development Facilities" 
+                className="editorial-img"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/about/image9.jpg';
                 }}
               />
-              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.25rem' }}>
-                <img 
-                  src="/images/pages/about/image9.jpg" 
-                  alt="AWA Research" 
-                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }} 
-                />
-                <img 
-                  src="/images/pages/about/image_9.jpg" 
-                  alt="AWA Pilot Plant" 
-                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }} 
-                />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Vision, Mission & Values */}
-      <section className="section section-alt pattern-grid">
+      <section className="section section-stone">
         <div className="container">
-          <div className="cards-3col">
+          <div className="section-header text-center">
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Strategic Foundation</div>
+            <h2 className="section-title">Our Vision, Mission & Core Values</h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* Vision */}
-            <div className="premium-card" style={{ padding: '2.5rem 2rem' }}>
-              <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '12px',
-                background: 'var(--primary-light)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--primary)',
-                marginBottom: '1.5rem'
-              }}>
-                <Eye size={28} />
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <Eye size={26} />
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Our Vision</h3>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Our Vision</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65' }}>
                 To be the most trusted and innovative food solutions and ingredients partner across the Middle East and Africa, setting benchmarks for quality, food safety, and tailored technological support.
               </p>
             </div>
 
             {/* Mission */}
-            <div className="premium-card" style={{ padding: '2.5rem 2rem' }}>
-              <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '12px',
-                background: 'var(--primary-light)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--primary)',
-                marginBottom: '1.5rem'
-              }}>
-                <Target size={28} />
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <Target size={26} />
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Our Mission</h3>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                To empower food manufacturers with high-performance ingredients, state-of-the-art pilot formulation labs, agile logistics, and sustainable practices that enhance consumer well-being and market success.
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Our Mission</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65' }}>
+                To empower food manufacturers with high-performance ingredients, state-of-the-art pilot formulation labs, agile logistics, and sustainable practices that enhance consumer well-being.
               </p>
             </div>
 
-            {/* Core Values */}
-            <div className="premium-card" style={{ padding: '2.5rem 2rem' }}>
-              <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '12px',
-                background: 'var(--primary-light)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--primary)',
-                marginBottom: '1.5rem'
-              }}>
-                <ShieldCheck size={28} />
+            {/* Values */}
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <ShieldCheck size={26} />
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Core Values</h3>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', color: '#64748b', fontSize: '0.9rem' }}>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Core Values</h3>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', color: 'var(--text-main)', fontSize: '0.9rem' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} color="#128d46" /> Scientific Rigor & Innovation
+                  <CheckCircle2 size={16} color="var(--primary)" /> Scientific Rigor & Formulation Excellence
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} color="#128d46" /> Uncompromised Quality & Safety
+                  <CheckCircle2 size={16} color="var(--primary)" /> Uncompromised Quality & Safety Standards
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} color="#128d46" /> Customer-Centric Collaboration
+                  <CheckCircle2 size={16} color="var(--primary)" /> Long-Term Client Partnership
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} color="#128d46" /> Sustainable & Ethical Operation
+                  <CheckCircle2 size={16} color="var(--primary)" /> Environmental & Operational Stewardship
                 </li>
               </ul>
             </div>
@@ -187,79 +138,62 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
         </div>
       </section>
 
-      {/* Facilities & Infrastructure */}
+      {/* Facilities Infrastructure */}
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="badge">Infrastructure</span>
+            <div className="eyebrow">Strategic Footprint</div>
             <h2 className="section-title">World-Class Facilities Across Egypt</h2>
             <p className="section-desc">
-              Strategic locations ensuring swift response, pilot testing, and rapid distribution nationwide.
+              Strategic locations ensuring rapid formulation response, pilot laboratory testing, and seamless supply chain distribution nationwide.
             </p>
           </div>
 
-          <div className="cards-3col">
-            <div className="pillar-card premium-card">
-              <div style={{ padding: '2rem' }}>
-                <Building size={32} color="#128d46" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Alexandria Headquarters</h3>
-                <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                  243 Horreya Road, Sporting, Alexandria. Executive management, international procurement, and commercial leadership.
-                </p>
-                <span className="badge" style={{ margin: 0 }}>Executive Office</span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <Building size={32} color="var(--primary)" style={{ marginBottom: '1rem' }} />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Alexandria Headquarters</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                243 Horreya Road, Sporting, Alexandria. Executive management, global procurement, and commercial leadership.
+              </p>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)' }}>
+                Executive Headquarters
               </div>
             </div>
 
-            <div className="pillar-card premium-card">
-              <div style={{ padding: '2rem' }}>
-                <Factory size={32} color="#128d46" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Borg El-Arab Plant</h3>
-                <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                  4th Industrial Zone, New Borg El-Arab City. Automated blending lines, clean packaging zones, chemical & microbiological labs.
-                </p>
-                <span className="badge" style={{ margin: 0 }}>Manufacturing & R&D</span>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <Factory size={32} color="var(--primary)" style={{ marginBottom: '1rem' }} />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Borg El-Arab Plant</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                4th Industrial Zone, New Borg El-Arab City. Automated blending lines, clean packaging zones, and pilot formulation labs.
+              </p>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)' }}>
+                Manufacturing & R&D Complex
               </div>
             </div>
 
-            <div className="pillar-card premium-card">
-              <div style={{ padding: '2rem' }}>
-                <Globe2 size={32} color="#128d46" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Cairo Commercial Hub</h3>
-                <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                  15 Abd Elwahab Selim El-bishry St., Sheraton, Cairo. Sales support, client application demo center, and distribution logistics.
-                </p>
-                <span className="badge" style={{ margin: 0 }}>Commercial Center</span>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <Globe2 size={32} color="var(--primary)" style={{ marginBottom: '1rem' }} />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Cairo Commercial Hub</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                15 Abd Elwahab Selim El-bishry St., Sheraton, Cairo. Commercial sales support, application demo center, and distribution logistics.
+              </p>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)' }}>
+                Commercial Hub & Logistics
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Corporate Accreditations and Certifications Marquee */}
-      <section className="section section-dark glowing-bg">
+      {/* Certifications Marquee */}
+      <section className="section section-dark">
         <div className="container">
-          <div className="section-header">
-            <span className="badge badge-dark">Certified Standards</span>
-            <h2 className="section-title">International Certifications & Accreditations</h2>
-            <p className="section-desc">
-              All facilities adhere to rigorous international management and food safety standards.
-            </p>
+          <div className="section-header text-center">
+            <div className="eyebrow eyebrow-dark" style={{ justifyContent: 'center' }}>Certified Standards</div>
+            <h2 className="section-title">International Quality & Food Safety Certifications</h2>
           </div>
-
-          <div style={{ marginBottom: '2.5rem' }}>
-            <PartnerMarquee
-              title="Official Certification Seals"
-              items={ABOUT_CERTS}
-              speed="normal"
-            />
-          </div>
-
-          <PartnerMarquee
-            title="Affiliated Industry Accreditation Bodies"
-            items={ABOUT_LOGOS}
-            speed="slow"
-            reverse={true}
-          />
+          <PartnerMarquee logos={ABOUT_CERTS.map((c) => c.img)} />
         </div>
       </section>
     </div>

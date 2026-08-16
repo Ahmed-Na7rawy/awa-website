@@ -1,6 +1,6 @@
-import React from 'react';
-import { SOLUTIONS_LIST, SolutionItem } from '../data/siteData';
-import { CheckCircle2, ArrowRight, FlaskConical, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { SOLUTIONS_LIST } from '../data/siteData';
+import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award } from 'lucide-react';
 
 interface SolutionsProps {
   initialSubId?: string;
@@ -9,9 +9,9 @@ interface SolutionsProps {
 }
 
 export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQuote, onNavigate }) => {
-  const [activeTab, setActiveTab] = React.useState<string>(initialSubId || 'all');
+  const [activeTab, setActiveTab] = useState<string>(initialSubId || 'all');
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (initialSubId) {
       setActiveTab(initialSubId);
     }
@@ -22,141 +22,144 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
     : SOLUTIONS_LIST.filter(s => s.id === activeTab || s.category.toLowerCase().includes(activeTab.toLowerCase()));
 
   return (
-    <div>
-      {/* Banner */}
-      <section className="page-banner">
+    <div className="solutions-page">
+      {/* Header Banner */}
+      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
         <div className="container">
-          <span className="badge badge-dark">
-            <Sparkles size={14} /> Formulation & R&D
-          </span>
-          <h1 className="page-banner-title">Food Solutions & Application Center</h1>
-          <p className="page-banner-subtitle">
-            Tailor-made functional stabilizer systems, texture modifiers, and custom ingredient formulation backed by pilot plant testing.
+          <div className="eyebrow eyebrow-dark">Formulation & R&D Center</div>
+          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
+            Food Solutions & Application Center
+          </h1>
+          <p className="section-desc" style={{ maxWidth: '720px' }}>
+            Custom functional hydrocolloid stabilizer systems, emulsifiers, texture modifiers, and specialized recipe formulations backed by pilot plant testing.
           </p>
         </div>
       </section>
 
-      {/* R&D Overview Section */}
+      {/* R&D Development Process Flow */}
       <section className="section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+          <div className="section-header text-center">
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Structured R&D Methodology</div>
+            <h2 className="section-title">From Concept to Commercial Production</h2>
+            <p className="section-desc">
+              How our application scientists collaborate with food processors to deliver reliable, scalable food systems.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.5rem', marginBottom: '4.5rem' }}>
+            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>01</div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Challenge Audit</h4>
+              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Analyze texture, syneresis, cost targets, or shelf-life challenges.</p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>02</div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Formulation</h4>
+              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Design custom functional stabilizer & emulsifier blends.</p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>03</div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Pilot Lab Trials</h4>
+              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Test on pilot equipment (cheese cookers, cutters, homogenizers).</p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>04</div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Sensory & QA</h4>
+              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Validate rheology, taste, stability, and microbiology.</p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>05</div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Plant Scale-Up</h4>
+              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Support full industrial plant trials and batch startup.</p>
+            </div>
+          </div>
+
+          <div className="editorial-grid">
             <div>
-              <span className="badge">State-Of-The-Art Lab</span>
-              <h2 className="section-title">Bridging Science & Culinary Perfection</h2>
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.25rem' }}>
-                At AWA Food Solutions, our in-house <strong>Application Center</strong> mimics full-scale industrial production. We partner with clients to troubleshoot texture issues, improve yield, extend shelf life, replace costly raw materials, and formulate brand new recipes.
+              <div className="eyebrow">Application Lab Capabilities</div>
+              <h2 className="section-title">Bridging Science & Industrial Culinary Performance</h2>
+              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
+                At AWA Food Solutions, our in-house <strong>Application Center</strong> replicates industrial processing conditions. We partner with client R&D teams to optimize meltability in processed cheese, water binding in meat systems, volume stability in bakery, and turbidity in beverages.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.75rem' }}>
-                Our team of dedicated food technologists, chemical analysts, and microbiologists work across pilot processing lines including processed cheese cookers, emulsifying cutters, bakery ovens, and beverage homogenizers.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
+                Our scientists utilize high-shear homogenizers, rheometers, texture analyzers, and pilot pasteurizers to ensure seamless transition from laboratory to high-capacity production lines.
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <button onClick={onOpenQuote} className="btn btn-primary">
-                  <Sparkles size={16} /> Request Custom Trial
+                  Request Trial Sample
                 </button>
                 <button onClick={() => onNavigate('contact')} className="btn btn-secondary">
-                  Visit Application Lab
+                  Visit Application Center
                 </button>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div className="editorial-img-container">
               <img 
                 src="/images/pages/solutions/Image26.jpg" 
-                alt="AWA Application Center Lab" 
-                style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', objectFit: 'cover' }}
+                alt="AWA Application Center Laboratory" 
+                className="editorial-img"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/rnd.jpg';
                 }}
               />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <img 
-                  src="/images/pages/solutions/Image23.jpg" 
-                  alt="AWA Pilot Testing" 
-                  style={{ width: '100%', height: '130px', objectFit: 'cover', borderRadius: '12px' }} 
-                />
-                <img 
-                  src="/images/pages/solutions/Image2-6.jpg" 
-                  alt="AWA Solutions Banner" 
-                  style={{ width: '100%', height: '130px', objectFit: 'cover', borderRadius: '12px' }} 
-                />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Solutions Gallery & Category Tabs */}
-      <section className="section section-alt pattern-grid">
+      {/* Solutions Matrix & Category Filters */}
+      <section className="section section-stone">
         <div className="container">
           <div className="section-header">
-            <span className="badge">Categories</span>
-            <h2 className="section-title">Specialized Industry Solutions</h2>
+            <div className="eyebrow">Category Matrix</div>
+            <h2 className="section-title">Specialized Food Industry Blends</h2>
             <p className="section-desc">
-              Select a category to explore our tailored functional blends and application expertise.
+              Filter by matrix sector to inspect tailored functional blends and technical application capabilities.
             </p>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="tabs-nav" style={{ justifyContent: 'center' }}>
-            <button
-              onClick={() => setActiveTab('all')}
-              className={`tab-btn ${activeTab === 'all' ? 'active' : ''}`}
-            >
-              All Solutions ({SOLUTIONS_LIST.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('dairy')}
-              className={`tab-btn ${activeTab === 'dairy' ? 'active' : ''}`}
-            >
-              Dairy & Cheese
-            </button>
-            <button
-              onClick={() => setActiveTab('meat')}
-              className={`tab-btn ${activeTab === 'meat' ? 'active' : ''}`}
-            >
-              Meat & Poultry
-            </button>
-            <button
-              onClick={() => setActiveTab('bakery')}
-              className={`tab-btn ${activeTab === 'bakery' ? 'active' : ''}`}
-            >
-              Bakery & Pastry
-            </button>
-            <button
-              onClick={() => setActiveTab('beverage')}
-              className={`tab-btn ${activeTab === 'beverage' ? 'active' : ''}`}
-            >
-              Beverages & Mixes
-            </button>
-            <button
-              onClick={() => setActiveTab('sauces')}
-              className={`tab-btn ${activeTab === 'sauces' ? 'active' : ''}`}
-            >
-              Sauces & Dressings
-            </button>
-            <button
-              onClick={() => setActiveTab('rnd')}
-              className={`tab-btn ${activeTab === 'rnd' ? 'active' : ''}`}
-            >
-              Application Center
-            </button>
+          {/* Category Filter Pills */}
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+            {[
+              { id: 'all', label: 'All Solutions' },
+              { id: 'dairy', label: 'Dairy & Cheese' },
+              { id: 'meat', label: 'Meat & Poultry' },
+              { id: 'bakery', label: 'Bakery & Pastry' },
+              { id: 'beverage', label: 'Beverages & Mixes' },
+              { id: 'sauces', label: 'Sauces & Dressings' },
+              { id: 'rnd', label: 'Application Center' }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`btn ${activeTab === tab.id ? 'btn-primary' : 'btn-secondary'}`}
+                style={{ borderRadius: 'var(--radius-full)', padding: '0.55rem 1.4rem', fontSize: '0.875rem' }}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
-          {/* Solutions Grid */}
-          <div className="cards-3col">
+          {/* Solutions Cards Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {filteredSolutions.map((sol) => (
               <div
                 key={sol.id}
-                className="premium-card"
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
+                  background: '#FFFFFF',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid var(--border-color)',
                   overflow: 'hidden',
-                  border: '1px solid #e2e8f0',
-                  boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  boxShadow: 'var(--shadow-subtle)'
                 }}
               >
                 <div style={{ height: '220px', overflow: 'hidden' }}>
@@ -170,24 +173,24 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
                   />
                 </div>
                 <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <span className="badge" style={{ alignSelf: 'flex-start', marginBottom: '0.75rem' }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--primary)', marginBottom: '0.5rem' }}>
                     {sol.category}
-                  </span>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>
+                  </div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
                     {sol.title}
                   </h3>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
                     {sol.description}
                   </p>
 
-                  <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '1rem', marginBottom: '1.5rem' }}>
-                    <strong style={{ fontSize: '0.85rem', color: '#111a2e', display: 'block', marginBottom: '0.5rem' }}>
+                  <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
+                    <div style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
                       Key Capabilities:
-                    </strong>
+                    </div>
                     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                       {sol.details.map((d, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', fontSize: '0.825rem', color: '#475569' }}>
-                          <CheckCircle2 size={14} color="#128d46" style={{ minWidth: '14px', marginTop: '2px' }} />
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+                          <CheckCircle2 size={14} color="var(--primary)" style={{ minWidth: '14px', marginTop: '3px' }} />
                           <span>{d}</span>
                         </li>
                       ))}
@@ -197,9 +200,10 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
                   <button
                     onClick={onOpenQuote}
                     className="btn btn-primary btn-sm"
-                    style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
+                    style={{ marginTop: 'auto', width: '100%' }}
                   >
-                    Request Formulation Sample <ArrowRight size={14} />
+                    <span>Request Formulation Specs</span>
+                    <ArrowRight size={14} />
                   </button>
                 </div>
               </div>

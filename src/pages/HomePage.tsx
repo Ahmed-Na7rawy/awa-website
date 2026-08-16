@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -8,21 +8,19 @@ import {
   Globe, 
   Truck, 
   Factory,
-  Award,
   ShieldCheck,
-  Building2,
-  Sparkles,
+  Award,
   Zap,
-  TrendingUp
+  Building2,
+  ChevronDown
 } from 'lucide-react';
 import { 
   HERO_SLIDES, 
   STATS, 
   CORE_PILLARS, 
   FOOD_SECTORS, 
-  CERTIFICATIONS, 
-  CLIENT_LOGOS,
-  PARTNER_LOGOS
+  PRODUCTS_LIST,
+  CERTIFICATIONS
 } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 
@@ -32,10 +30,11 @@ interface HomeProps {
 }
 
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activePillarIndex, setActivePillarIndex] = useState(0);
 
-  // Auto-play slider
-  React.useEffect(() => {
+  // Auto-play hero slider
+  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 7000);
@@ -45,19 +44,21 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
 
+  const activePillar = CORE_PILLARS[activePillarIndex];
+
   const getPillarIcon = (iconName: string) => {
     switch (iconName) {
-      case 'FlaskConical': return <FlaskConical size={26} />;
-      case 'Globe': return <Globe size={26} />;
-      case 'Truck': return <Truck size={26} />;
-      case 'Factory': return <Factory size={26} />;
-      default: return <Award size={26} />;
+      case 'FlaskConical': return <FlaskConical size={24} />;
+      case 'Globe': return <Globe size={24} />;
+      case 'Truck': return <Truck size={24} />;
+      case 'Factory': return <Factory size={24} />;
+      default: return <Award size={24} />;
     }
   };
 
   return (
     <div className="home-page">
-      {/* 1. Hero Carousel */}
+      {/* 1. Cinematic Hero Section */}
       <section className="hero-slider">
         {HERO_SLIDES.map((slide, idx) => (
           <div
@@ -68,17 +69,16 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="hero-overlay">
               <div className="container">
                 <div className="hero-content">
-                  <div className="badge badge-dark anim-fade-in" style={{ animationDelay: '0.1s' }}>
-                    <Sparkles size={14} />
+                  <div className="eyebrow eyebrow-dark anim-fade-in">
                     <span>{slide.badge}</span>
                   </div>
-                  <h1 className="hero-title anim-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <h1 className="hero-title anim-slide-up">
                     {slide.title}
                   </h1>
-                  <p className="hero-subtitle anim-slide-up" style={{ animationDelay: '0.35s' }}>
+                  <p className="hero-subtitle anim-slide-up">
                     {slide.subtitle}
                   </p>
-                  <div className="hero-buttons anim-slide-up" style={{ animationDelay: '0.5s' }}>
+                  <div className="hero-buttons anim-slide-up">
                     <button
                       onClick={() => onNavigate(slide.ctaPrimaryTarget)}
                       className="btn btn-primary"
@@ -99,11 +99,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           </div>
         ))}
 
-        {/* Hero Decorative Floating Lights */}
-        <div className="hero-glow-1"></div>
-        <div className="hero-glow-2"></div>
-
-        {/* Controls */}
+        {/* Slide Controls */}
         <div className="hero-controls">
           <button onClick={prevSlide} className="hero-btn-arrow" aria-label="Previous Slide">
             <ChevronLeft size={20} />
@@ -124,93 +120,92 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 2. Key Stats Ribbon with Glassmorphism */}
-      <div className="container stats-ribbon">
-        <div className="stats-card glassmorphic hover-glow">
-          {STATS.map((stat, idx) => (
-            <div key={idx} className="stat-item">
-              <div className="stat-value gradient-text">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
-              <div className="stat-detail">{stat.detail}</div>
-            </div>
-          ))}
+      {/* 2. Full-Bleed High Contrast Stats Strip */}
+      <section className="stats-strip">
+        <div className="container">
+          <div className="stats-grid">
+            {STATS.map((stat, idx) => (
+              <div key={idx} className="stat-item">
+                <div className="stat-value">{stat.value}</div>
+                <div className="stat-label">{stat.label}</div>
+                <div className="stat-detail">{stat.detail}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* 3. About Brief Section */}
+      {/* 3. Continuous Story: Editorial Company Manifesto */}
       <section className="section">
         <div className="container">
-          <div className="about-grid">
-            <div className="about-text-col">
-              <span className="badge">
-                <Zap size={14} /> Who We Are
-              </span>
+          <div className="editorial-grid">
+            <div>
+              <div className="eyebrow">Who We Are</div>
               <h2 className="section-title">
-                Pioneering Food Technology & Supply Chain Excellence in Egypt
+                Pioneering Food Technology & Supply Chain Excellence in Egypt Since 1993
               </h2>
-              <p className="lead-paragraph">
-                Founded in 1993, <strong>AWA Group</strong> has grown to become Egypt’s foremost supplier of innovative food systems, custom functional blends, and top-tier ingredients. We empower food manufacturers with deep technical knowledge, world-class application testing, and robust end-to-end supply chain infrastructure.
+              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
+                Founded in 1993, <strong>AWA Group</strong> has grown to become Egypt’s foremost supplier of innovative food systems, custom functional blends, and top-tier raw ingredients. We empower food manufacturers with deep technical knowledge, world-class application testing, and robust end-to-end supply chain infrastructure.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '2rem' }}>
-                Operating from our modern headquarters in Alexandria, Cairo commercial offices, and state-of-the-art manufacturing plants in New Borg El-Arab City, we bridge global food science with local industrial needs.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '2rem' }}>
+                Operating from our Alexandria headquarters, Cairo commercial offices, and state-of-the-art manufacturing plants in New Borg El-Arab City, we bridge global food science with local industrial needs.
               </p>
 
-              <div className="features-2col">
-                <div className="feature-item-pill">
-                  <CheckCircle2 color="#128d46" size={22} className="feature-icon" />
+              <div className="feature-checklist">
+                <div className="feature-check-item">
+                  <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong className="feature-title">Dedicated R&D Labs</strong>
-                    <span className="feature-sub">Custom formulation & pilot testing</span>
+                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Dedicated R&D Labs</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Custom formulation & pilot testing</span>
                   </div>
                 </div>
-                <div className="feature-item-pill">
-                  <CheckCircle2 color="#128d46" size={22} className="feature-icon" />
+                <div className="feature-check-item">
+                  <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong className="feature-title">Global Direct Sourcing</strong>
-                    <span className="feature-sub">40+ certified global suppliers</span>
+                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Global Direct Sourcing</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>40+ certified global suppliers</span>
                   </div>
                 </div>
-                <div className="feature-item-pill">
-                  <CheckCircle2 color="#128d46" size={22} className="feature-icon" />
+                <div className="feature-check-item">
+                  <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong className="feature-title">Cold Logistics Fleet</strong>
-                    <span className="feature-sub">Climate-controlled transport</span>
+                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Cold Logistics Fleet</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Temperature-controlled transport</span>
                   </div>
                 </div>
-                <div className="feature-item-pill">
-                  <CheckCircle2 color="#128d46" size={22} className="feature-icon" />
+                <div className="feature-check-item">
+                  <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong className="feature-title">FSSC 22000 & ISO</strong>
-                    <span className="feature-sub">Highest global food safety standard</span>
+                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>FSSC 22000 & ISO</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Highest global food safety standard</span>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
                 <button onClick={() => onNavigate('about')} className="btn btn-primary">
-                  Read Company Profile <ArrowRight size={16} />
+                  Read Corporate Profile <ArrowRight size={16} />
                 </button>
                 <button onClick={onOpenQuote} className="btn btn-secondary">
-                  Contact Technical Team
+                  Contact Technical Experts
                 </button>
               </div>
             </div>
 
-            <div className="about-visual-col">
-              <div className="image-frame-premium">
-                <img 
-                  src="/images/pages/home/about.jpg" 
-                  alt="AWA Food Solutions Facility"
-                  className="about-featured-img"
-                />
-                <div className="floating-badge-card glassmorphic float-animation">
-                  <div className="floating-badge-icon">
-                    <ShieldCheck size={28} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#111a2e' }}>100% Guaranteed</div>
-                    <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Food Safety & Traceability</div>
-                  </div>
+            <div className="editorial-img-container">
+              <img 
+                src="/images/pages/home/about.jpg" 
+                alt="AWA Food Solutions Innovation Facility"
+                className="editorial-img"
+                style={{ minHeight: '460px' }}
+              />
+              <div className="editorial-caption-box">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
+                  <ShieldCheck size={22} color="#4ADE80" />
+                  <span style={{ fontWeight: 800, fontSize: '1.05rem', color: '#FFFFFF' }}>100% Quality Assurance</span>
+                </div>
+                <div style={{ fontSize: '0.825rem', color: '#CBD5E1' }}>
+                  Complete traceability, stringent sensory analysis, and pilot lab validation for every batch.
                 </div>
               </div>
             </div>
@@ -218,48 +213,69 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 4. Core Business Pillars */}
-      <section className="section section-alt pattern-grid">
+      {/* 4. Interactive 4-Pillar Division Showcase */}
+      <section className="section section-stone">
         <div className="container">
           <div className="section-header">
-            <span className="badge">Four Strategic Divisions</span>
-            <h2 className="section-title">Comprehensive Food Industry Capabilities</h2>
+            <div className="eyebrow">Four Strategic Divisions</div>
+            <h2 className="section-title">Comprehensive Food Industry Infrastructure</h2>
             <p className="section-desc">
-              From laboratory concept formulation to raw material sourcing, temperature-controlled distribution, and end manufacturing.
+              From laboratory concept formulation to raw material sourcing, temperature-controlled distribution, and end consumer manufacturing.
             </p>
           </div>
 
-          <div className="pillars-grid">
-            {CORE_PILLARS.map((pillar) => (
-              <div key={pillar.id} className="pillar-card premium-card">
-                <div className="pillar-img-wrap">
-                  <img src={pillar.image} alt={pillar.title} className="pillar-img" />
-                  <div className="pillar-img-overlay"></div>
-                  <div className="pillar-icon-badge">
+          <div className="pillars-editorial">
+            <div className="pillar-tab-list">
+              {CORE_PILLARS.map((pillar, idx) => (
+                <div
+                  key={pillar.id}
+                  className={`pillar-tab-item ${activePillarIndex === idx ? 'active' : ''}`}
+                  onClick={() => setActivePillarIndex(idx)}
+                >
+                  <div className="pillar-tab-icon">
                     {getPillarIcon(pillar.icon)}
                   </div>
+                  <div>
+                    <div className="pillar-tab-title">{pillar.title}</div>
+                    <div className="pillar-tab-sub">{pillar.subtitle}</div>
+                  </div>
                 </div>
-                <div className="pillar-body">
-                  <h3 className="pillar-title">{pillar.title}</h3>
-                  <div className="pillar-subtitle">{pillar.subtitle}</div>
-                  <p className="pillar-desc">{pillar.description}</p>
-                  <ul className="pillar-features">
-                    {pillar.features.map((f, idx) => (
-                      <li key={idx}>
-                        <CheckCircle2 size={15} color="#128d46" /> <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => onNavigate(pillar.page)}
-                    className="btn btn-secondary btn-sm"
-                    style={{ width: '100%', marginTop: 'auto' }}
-                  >
-                    <span>{pillar.actionText}</span> <ArrowRight size={14} />
-                  </button>
+              ))}
+            </div>
+
+            <div className="pillar-display-card">
+              <img 
+                src={activePillar.image} 
+                alt={activePillar.title} 
+                className="pillar-display-img"
+              />
+              <div className="pillar-display-body">
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
+                  {activePillar.title}
+                </h3>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.65', marginBottom: '1.5rem' }}>
+                  {activePillar.description}
+                </p>
+                <div style={{ fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  Key Divisional Capabilities:
                 </div>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '2rem' }}>
+                  {activePillar.features.map((feature, idx) => (
+                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.925rem', color: 'var(--text-main)' }}>
+                      <CheckCircle2 size={16} color="var(--primary)" /> <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => onNavigate(activePillar.page)}
+                  className="btn btn-primary"
+                  style={{ width: '100%' }}
+                >
+                  <span>{activePillar.actionText}</span>
+                  <ArrowRight size={16} />
+                </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -268,194 +284,117 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="badge">Industries & Applications</span>
+            <div className="eyebrow">Industries & Applications</div>
             <h2 className="section-title">Specialized Food Matrix Solutions</h2>
             <p className="section-desc">
               We provide tailored functional blends and ingredient systems designed specifically for diverse processing conditions.
             </p>
           </div>
 
-          <div className="sectors-grid">
+          <div className="sectors-row-grid">
             {FOOD_SECTORS.map((sector, idx) => (
-              <div key={idx} className="sector-card interactive-hover">
-                <div className="sector-icon-box">
-                  <img src={sector.icon} alt={sector.name} className="sector-icon-img" />
+              <div key={idx} className="sector-editorial-card">
+                <div className="sector-icon-wrap">
+                  <img src={sector.icon} alt={sector.name} style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
                 </div>
-                <div>
-                  <h4 className="sector-name">{sector.name}</h4>
-                  <p className="sector-desc">{sector.desc}</p>
-                </div>
+                <h4 className="sector-name">{sector.name}</h4>
+                <p className="sector-desc">{sector.desc}</p>
+                <button 
+                  onClick={() => onNavigate('solutions')}
+                  style={{ 
+                    marginTop: 'auto', 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.4rem', 
+                    color: 'var(--primary)', 
+                    fontWeight: 700, 
+                    fontSize: '0.875rem' 
+                  }}
+                >
+                  <span>Explore Formulations</span>
+                  <ArrowRight size={14} />
+                </button>
               </div>
             ))}
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
             <button onClick={() => onNavigate('solutions')} className="btn btn-primary">
-              View Detailed Applications & Formulations <ArrowRight size={16} />
+              <span>View Full Applications Matrix</span>
+              <ArrowRight size={16} />
             </button>
           </div>
         </div>
       </section>
 
-      {/* 6. Featured Consumer & Retail Brands */}
-      <section className="section section-dark glowing-bg">
+      {/* 6. B2C Consumer Brands Showcase */}
+      <section className="section section-stone">
         <div className="container">
           <div className="section-header">
-            <span className="badge badge-dark">
-              <TrendingUp size={14} /> Consumer Brands
-            </span>
-            <h2 className="section-title">Market-Leading Retail Innovations</h2>
+            <div className="eyebrow">Consumer Products</div>
+            <h2 className="section-title">AWA Retail & FMCG Brand Portfolio</h2>
             <p className="section-desc">
-              In addition to B2B food solutions, AWA manufactures beloved consumer brands available in hypermarkets, cafes, and restaurants across the region.
+              Developed and manufactured in our Borg El-Arab facilities to deliver taste, quality, and convenience to retail consumers.
             </p>
           </div>
 
-          <div className="cards-3col">
-            {/* Sweet & Slim */}
-            <div className="brand-showcase-card">
-              <div className="brand-img-container">
-                <img 
-                  src="/images/pages/products/sweetslim.png" 
-                  alt="Sweet & Slim" 
-                  className="brand-img-fluid"
-                />
-              </div>
-              <div className="brand-card-content">
-                <h3 className="brand-card-title">Sweet & Slim®</h3>
-                <p className="brand-card-desc">
-                  Egypt's premier zero-calorie sweetener formulated with high-purity sucralose and dietary fibers. Aspartame-free, heat-stable, and diabetic-safe.
-                </p>
-                <button 
-                  onClick={() => onNavigate('products', 'sweet-and-slim')} 
-                  className="btn btn-outline-white btn-sm"
-                  style={{ width: '100%', marginTop: 'auto' }}
-                >
-                  Learn More & Formats
-                </button>
-              </div>
-            </div>
-
-            {/* SquEasy */}
-            <div className="brand-showcase-card">
-              <div className="brand-img-container">
-                <img 
-                  src="/images/pages/products/SquEasy.png" 
-                  alt="SquEasy Purées" 
-                  className="brand-img-fluid"
-                />
-              </div>
-              <div className="brand-card-content">
-                <h3 className="brand-card-title">SquEasy® Purées</h3>
-                <p className="brand-card-desc">
-                  Rich fruit and sauce purées in ergonomic squeeze bottles. The choice of top baristas, bakeries, and ice cream parlors for decorating and flavor infusion.
-                </p>
-                <button 
-                  onClick={() => onNavigate('products', 'squeasy')} 
-                  className="btn btn-outline-white btn-sm"
-                  style={{ width: '100%', marginTop: 'auto' }}
-                >
-                  Explore Flavor Range
-                </button>
-              </div>
-            </div>
-
-            {/* Yalla Series */}
-            <div className="brand-showcase-card">
-              <div className="brand-img-container">
-                <img 
-                  src="/images/pages/products/frapit.jpg" 
-                  alt="Yalla Frapp It & Drinks" 
-                  className="brand-img-fluid"
-                  style={{ borderRadius: '12px' }}
-                />
-              </div>
-              <div className="brand-card-content">
-                <h3 className="brand-card-title">Yalla® Beverage Bases</h3>
-                <p className="brand-card-desc">
-                  Instant gourmet frappe powders, smoothie bases, and iced coffee blends formulated for maximum yield, creamy foam stability, and intense taste.
-                </p>
-                <button 
-                  onClick={() => onNavigate('products', 'yalla-drinks')} 
-                  className="btn btn-outline-white btn-sm"
-                  style={{ width: '100%', marginTop: 'auto' }}
-                >
-                  View Beverage Solutions
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Certifications & Quality Commitment */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="badge">Safety & Certifications</span>
-            <h2 className="section-title">International Quality Standards</h2>
-            <p className="section-desc">
-              AWA Group maintains stringent quality assurance, environmental care, and occupational health systems certified by global auditing bodies.
-            </p>
-          </div>
-
-          <div className="cert-grid">
-            {CERTIFICATIONS.map((cert, idx) => (
-              <div key={idx} className="cert-card premium-hover">
-                <img src={cert.img} alt={cert.name} className="cert-img" />
-                <div className="cert-name">{cert.name}</div>
-                <div className="cert-label">{cert.label}</div>
+          <div className="b2c-brand-grid">
+            {PRODUCTS_LIST.filter(p => p.category === 'retail').map((brand) => (
+              <div key={brand.id} className="b2c-brand-card">
+                <div className="b2c-img-wrap">
+                  <img src={brand.image} alt={brand.name} className="b2c-img" />
+                </div>
+                <div className="b2c-body">
+                  <div className="b2c-tag">{brand.brand || 'Consumer Brand'}</div>
+                  <h3 className="b2c-title">{brand.name}</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                    {brand.description}
+                  </p>
+                  <button
+                    onClick={() => onNavigate('products', brand.id)}
+                    className="btn btn-secondary btn-sm"
+                    style={{ width: '100%' }}
+                  >
+                    <span>View Product Line</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 8. Moving Carousel / Marquee for Partners & Clients */}
-      <section className="section section-alt">
+      {/* 7. Partner & Client Marquee */}
+      <section className="section" style={{ padding: '4.5rem 0' }}>
         <div className="container">
-          <div className="section-header" style={{ marginBottom: '2.5rem' }}>
-            <span className="badge">Trust & Network</span>
-            <h2 className="section-title">Trusted By Food Industry Leaders</h2>
-            <p className="section-desc">
-              Powering world-class food processing through strategic alliances with international chemical innovators and premier FMCG brands.
-            </p>
+          <div className="section-header text-center" style={{ marginBottom: '2.5rem' }}>
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Global Ecosystem</div>
+            <h2 className="section-title" style={{ fontSize: '2rem' }}>Trusted by Leading Regional Food Manufacturers</h2>
           </div>
-
-          {/* Infinite Moving Partner Carousel */}
-          <PartnerMarquee
-            title="Strategic Global Supply Partners"
-            items={PARTNER_LOGOS}
-            speed="normal"
-          />
-
-          {/* Infinite Moving Client Carousel (Reversed for dynamic visual contrast) */}
-          <PartnerMarquee
-            title="Key Industrial Clients & FMCG Manufacturers"
-            items={CLIENT_LOGOS}
-            speed="slow"
-            reverse={true}
-          />
+          <PartnerMarquee />
         </div>
       </section>
 
-      {/* 9. Final Call to Action */}
-      <section className="cta-banner-premium">
-        <div className="container" style={{ maxWidth: '850px', position: 'relative', zIndex: 2 }}>
-          <div className="badge badge-dark" style={{ marginBottom: '1.25rem' }}>
-            <Sparkles size={14} /> Start Your Formulation
+      {/* 8. High-Impact Closing Call to Action */}
+      <section className="cta-banner">
+        <div className="container cta-inner">
+          <div style={{ maxWidth: '680px' }}>
+            <div className="eyebrow eyebrow-dark">Partner With AWA</div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1rem' }}>
+              Ready to Upgrade Your Food Formulations & Supply Chain?
+            </h2>
+            <p style={{ color: '#CBD5E1', fontSize: '1.1rem', lineHeight: '1.65' }}>
+              Contact our application scientists and supply chain specialists today to discuss technical formulations, sample requests, or bulk ingredient contracts.
+            </p>
           </div>
-          <h2 className="cta-title">
-            Ready to Innovate Your Next Food Product?
-          </h2>
-          <p className="cta-desc">
-            Partner with our application centers and food scientists. We formulate, test, optimize, and supply the highest quality ingredient systems.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flexShrink: 0 }}>
             <button onClick={onOpenQuote} className="btn btn-cta-primary">
-              Request Free Formulation Sample
+              <span>Request Solution Quote</span>
+              <ArrowRight size={16} />
             </button>
             <button onClick={() => onNavigate('contact')} className="btn btn-outline-white">
-              Contact Our Sales Offices
+              Contact Alexandria Headquarters
             </button>
           </div>
         </div>
