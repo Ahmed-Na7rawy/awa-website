@@ -40,13 +40,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
               <Phone size={13} />
               <span>Alex HQ: {COMPANY_CONTACT.phoneAlex}</span>
             </a>
-            <div className="top-bar-item top-bar-hide-mobile" style={{ gap: '0.4rem', color: '#94A3B8' }}>
+            <div className="top-bar-item top-bar-hide-laptop" style={{ gap: '0.4rem', color: '#94A3B8' }}>
               <Globe size={13} color="#4ADE80" />
               <span>Alexandria & Cairo Facilities, Egypt</span>
             </div>
           </div>
           <div className="top-bar-links">
-            <div className="top-bar-item top-bar-hide-mobile" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
+            <div className="top-bar-item top-bar-hide-laptop" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
               <ShieldCheck size={13} />
               <span>ISO 9001, FSSC 22000 & Halal Certified</span>
             </div>

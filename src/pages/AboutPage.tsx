@@ -51,7 +51,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
               <img
                 src="/images/pages/home/Image2-3.jpg"
                 alt="AWA Group Corporate Leadership"
-                style={{ width: '100%', height: '320px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '360px', objectFit: 'cover', objectPosition: 'center 10%' }}
               />
             </div>
           </div>
