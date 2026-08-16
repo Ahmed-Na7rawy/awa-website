@@ -20,6 +20,12 @@
   overflow-x: auto;
 }
 
+@media (max-width: 768px) {
+  .b2c-brand-nav {
+    top: 68px !important;
+  }
+}
+
 .b2c-brand-tab {
   display: flex;
   align-items: center;

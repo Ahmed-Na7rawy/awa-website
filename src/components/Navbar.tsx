@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
   };
 
   return (
-    <header style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
+    <header className="site-header">
       {/* Editorial Top Contact & Metadata Bar */}
       <div className="top-bar">
         <div className="container-wide top-bar-inner">
@@ -40,13 +40,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
               <Phone size={13} />
               <span>Alex HQ: {COMPANY_CONTACT.phoneAlex}</span>
             </a>
-            <div className="top-bar-item" style={{ gap: '0.4rem', color: '#94A3B8' }}>
+            <div className="top-bar-item top-bar-hide-mobile" style={{ gap: '0.4rem', color: '#94A3B8' }}>
               <Globe size={13} color="#4ADE80" />
               <span>Alexandria & Cairo Facilities, Egypt</span>
             </div>
           </div>
           <div className="top-bar-links">
-            <div className="top-bar-item" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
+            <div className="top-bar-item top-bar-hide-mobile" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
               <ShieldCheck size={13} />
               <span>ISO 9001, FSSC 22000 & Halal Certified</span>
             </div>
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
           <div 
@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className="brand-text-wrap">
               <span className="brand-title">
                 AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
               </span>
@@ -86,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             </div>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation Menu */}
           <ul className="nav-menu">
             {NAV_LINKS.map((link) => (
               <li 
@@ -121,27 +121,27 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             ))}
           </ul>
 
-          {/* Action CTAs */}
+          {/* Header Action Buttons */}
           <div className="nav-actions">
             <button 
               onClick={onOpenQuote}
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm nav-cta-btn"
             >
-              <span>Request Solution Quote</span>
+              <span>Request Quote</span>
               <ArrowRight size={14} />
             </button>
             <button 
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(true)}
-              aria-label="Toggle Navigation Drawer"
+              aria-label="Toggle Mobile Navigation Drawer"
             >
-              <Menu size={26} />
+              <Menu size={24} />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Overlay */}
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
@@ -150,7 +150,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
               </span>
             </div>
-            <button onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-muted)' }}>
+            <button 
+              onClick={() => setMobileMenuOpen(false)} 
+              aria-label="Close navigation"
+              style={{ color: 'var(--text-muted)', padding: '0.4rem', cursor: 'pointer' }}
+            >
               <X size={26} />
             </button>
           </div>
@@ -166,21 +170,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                   {link.label}
                 </button>
                 {link.children && (
-                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.2rem', margin: '0.4rem 0' }}>
+                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem', margin: '0.4rem 0' }}>
                     {link.children.map((child, idx) => (
                       <button
                         key={idx}
                         onClick={() => handleNavClick(child.id, child.subId)}
                         style={{
                           textAlign: 'left',
-                          padding: '0.4rem 0.5rem',
+                          padding: '0.5rem 0.5rem',
                           fontSize: '0.875rem',
                           color: 'var(--text-muted)',
                           background: 'none',
                           border: 'none',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '0.4rem'
+                          gap: '0.4rem',
+                          width: '100%'
                         }}
                       >
                         <span style={{ color: 'var(--primary)' }}>•</span> {child.label}
@@ -196,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             <button 
               onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
               className="btn btn-primary"
-              style={{ width: '100%', marginBottom: '1rem' }}
+              style={{ width: '100%', marginBottom: '1rem', padding: '0.85rem' }}
             >
               Get Technical Quote
             </button>
