@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
           <div className="nav-actions">
             <button 
               onClick={onOpenQuote}
-              className="btn btn-primary btn-sm nav-cta-btn"
+              className="nav-cta-btn"
             >
               <span>Request Quote</span>
               <ArrowRight size={14} />
