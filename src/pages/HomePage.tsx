@@ -20,6 +20,7 @@ import {
   CORE_PILLARS, 
   FOOD_SECTORS, 
   PRODUCTS_LIST,
+  CLIENT_LOGOS,
   CERTIFICATIONS
 } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
@@ -372,7 +373,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="eyebrow" style={{ justifyContent: 'center' }}>Global Ecosystem</div>
             <h2 className="section-title" style={{ fontSize: '2rem' }}>Trusted by Leading Regional Food Manufacturers</h2>
           </div>
-          <PartnerMarquee />
+          <PartnerMarquee items={CLIENT_LOGOS} />
         </div>
       </section>
 
