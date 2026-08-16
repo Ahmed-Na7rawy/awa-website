@@ -18,8 +18,27 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
             <span className="badge badge-dark">Since 1993</span>
             <h1 className="page-banner-title">About AWA Group</h1>
             <p className="page-banner-subtitle">
-              Three decades of leadership in food science, ingredient trading, precision manufacturing, and supply chain logistics across the MENA region.
+              At AWA Group, everything we do starts with research. Understanding the Egyptian market, and what quality means within it, is the foundation for every solution we develop.
+              <br /><br />
+              We hold research and quality control to the same standard. That is the principle behind our work, and it is the one we carry forward as we grow beyond Egypt.
             </p>
+            <div style={{ marginTop: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+              <img
+                src="/images/pages/about/signature.png"
+                alt="Wael Ghandour Signature"
+                style={{
+                  height: '52px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)',
+                  opacity: 0.95
+                }}
+              />
+              <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.25)', paddingLeft: '1rem' }}>
+                <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>Wael Ghandour</div>
+                <div style={{ color: '#34d399', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>CEO, AWA Group</div>
+              </div>
+            </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
             <div style={{
@@ -70,6 +89,19 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
                 Today, our New Borg El-Arab City production complex operates under strict international certifications (FSSC 22000, ISO 9001, ISO 14001, ISO 45001), serving leading multinational and local FMCG manufacturers.
               </p>
 
+              {/* CEO Signature */}
+              <div style={{ margin: '1.75rem 0 2rem 0', display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1rem 1.25rem', background: '#f8fafc', borderRadius: '16px', border: '1px solid #e2e8f0', width: 'fit-content' }}>
+                <img
+                  src="/images/pages/about/signature.png"
+                  alt="Wael Ghandour - CEO, AWA Group"
+                  style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+                <div style={{ borderLeft: '2px solid #cbd5e1', paddingLeft: '1.25rem' }}>
+                  <div style={{ fontWeight: 800, color: '#111a2e', fontSize: '0.95rem' }}>Mr. Wael Ghandour</div>
+                  <div style={{ fontSize: '0.8rem', color: '#128d46', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>CEO, AWA Group</div>
+                </div>
+              </div>
+
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <button onClick={() => onNavigate('solutions')} className="btn btn-primary">
                   Explore Our Solutions
@@ -81,24 +113,24 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
             </div>
 
             <div style={{ position: 'relative' }}>
-              <img 
-                src="/images/pages/about/image10.jpg" 
-                alt="AWA History & Laboratory" 
+              <img
+                src="/images/pages/about/image10.jpg"
+                alt="AWA History & Laboratory"
                 style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', objectFit: 'cover' }}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/about/image9.jpg';
                 }}
               />
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1.25rem' }}>
-                <img 
-                  src="/images/pages/about/image9.jpg" 
-                  alt="AWA Research" 
-                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }} 
+                <img
+                  src="/images/pages/about/image9.jpg"
+                  alt="AWA Research"
+                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }}
                 />
-                <img 
-                  src="/images/pages/about/image_9.jpg" 
-                  alt="AWA Pilot Plant" 
-                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }} 
+                <img
+                  src="/images/pages/about/image_9.jpg"
+                  alt="AWA Pilot Plant"
+                  style={{ width: '50%', height: '140px', objectFit: 'cover', borderRadius: '12px' }}
                 />
               </div>
             </div>
