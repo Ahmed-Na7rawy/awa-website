@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
 import { SOLUTIONS_LIST } from '../data/siteData';
-import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award } from 'lucide-react';
+import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Sparkles, Layers, FileText } from 'lucide-react';
 
 interface SolutionsProps {
   initialSubId?: string;
@@ -10,6 +13,7 @@ interface SolutionsProps {
 
 export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQuote, onNavigate }) => {
   const [activeTab, setActiveTab] = useState<string>(initialSubId || 'all');
+  const sectionRef1 = useScrollReveal();
 
   useEffect(() => {
     if (initialSubId) {
@@ -19,88 +23,86 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
 
   const filteredSolutions = activeTab === 'all' 
     ? SOLUTIONS_LIST 
-    : SOLUTIONS_LIST.filter(s => s.id === activeTab || s.category.toLowerCase().includes(activeTab.toLowerCase()));
+    : SOLUTIONS_LIST.filter(s => 
+        s.id.toLowerCase().includes(activeTab.toLowerCase()) || 
+        s.category.toLowerCase().includes(activeTab.toLowerCase()) ||
+        (activeTab === 'sauces' && s.category.toLowerCase() === 'culinary') ||
+        (activeTab === 'beverage' && s.category.toLowerCase() === 'beverages')
+      );
 
   return (
     <div className="solutions-page">
       {/* Header Banner */}
-      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
-        <div className="container">
-          <div className="eyebrow eyebrow-dark">Formulation & R&D Center</div>
-          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
-            Food Solutions & Application Center
-          </h1>
-          <p className="section-desc" style={{ maxWidth: '720px' }}>
-            Custom functional hydrocolloid stabilizer systems, emulsifiers, texture modifiers, and specialized recipe formulations backed by pilot plant testing.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Formulation & R&D Center"
+        title="Food Solutions & Application Center"
+        subtitle="Custom functional hydrocolloid stabilizer systems, emulsifiers, texture modifiers, and specialized recipe formulations backed by pilot plant testing."
+        backgroundImage="/images/pages/solutions/Image26.jpg"
+      />
 
       {/* R&D Development Process Flow */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
-          <div className="section-header text-center">
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>Structured R&D Methodology</div>
-            <h2 className="section-title">From Concept to Commercial Production</h2>
-            <p className="section-desc">
-              How our application scientists collaborate with food processors to deliver reliable, scalable food systems.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.5rem', marginBottom: '4.5rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>01</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Challenge Audit</h4>
-              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Analyze texture, syneresis, cost targets, or shelf-life challenges.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>02</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Formulation</h4>
-              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Design custom functional stabilizer & emulsifier blends.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>03</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Pilot Lab Trials</h4>
-              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Test on pilot equipment (cheese cookers, cutters, homogenizers).</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>04</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Sensory & QA</h4>
-              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Validate rheology, taste, stability, and microbiology.</p>
-            </div>
-
-            <div style={{ background: '#FFFFFF', padding: '1.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.4rem' }}>05</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.4rem' }}>Plant Scale-Up</h4>
-              <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Support full industrial plant trials and batch startup.</p>
-            </div>
-          </div>
-
           <div className="editorial-grid">
-            <div>
-              <div className="eyebrow">Application Lab Capabilities</div>
-              <h2 className="section-title">Bridging Science & Industrial Culinary Performance</h2>
-              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
-                At AWA Food Solutions, our in-house <strong>Application Center</strong> replicates industrial processing conditions. We partner with client R&D teams to optimize meltability in processed cheese, water binding in meat systems, volume stability in bakery, and turbidity in beverages.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
-                Our scientists utilize high-shear homogenizers, rheometers, texture analyzers, and pilot pasteurizers to ensure seamless transition from laboratory to high-capacity production lines.
+            <div className="reveal-fade-left">
+              <div className="eyebrow">Formulation Methodology</div>
+              <h2 className="section-title">From Concept to Factory Floor Execution</h2>
+              <p className="section-desc">
+                Our New Borg El-Arab R&D application center bridges the gap between laboratory bench science and full-scale factory production.
               </p>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <button onClick={onOpenQuote} className="btn btn-primary">
-                  Request Trial Sample
-                </button>
-                <button onClick={() => onNavigate('contact')} className="btn btn-secondary">
-                  Visit Application Center
-                </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '2rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
+                    1
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>Challenge Assessment & Target Formulation</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      Understanding client texture, meltability, cost reduction, or clean-label requirements.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
+                    2
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>Pilot Plant Simulation & Small Batches</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      Mini dairy cookers, bakery test ovens, and meat emulsifiers prevent costly factory downtime.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
+                    3
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>Sensory, Rheology & TPA Validation</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      Instrumental texture profile analysis (TPA) and spectrophotometer color benchmarking.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
+                    4
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>On-Site Plant Commissioning</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      AWA food engineers assist on the client's manufacturing line to ensure flawless commercial execution.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="editorial-img-container">
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/solutions/Image26.jpg" 
                 alt="AWA Application Center Laboratory" 
@@ -121,94 +123,132 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
             <div className="eyebrow">Category Matrix</div>
             <h2 className="section-title">Specialized Food Industry Blends</h2>
             <p className="section-desc">
-              Filter by matrix sector to inspect tailored functional blends and technical application capabilities.
+              Filter by matrix sector to inspect tailored functional blends, stabilizer formulations, and technical application capabilities.
             </p>
           </div>
 
           {/* Category Filter Pills */}
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
             {[
-              { id: 'all', label: 'All Solutions' },
+              { id: 'all', label: 'All Solutions (20)' },
               { id: 'dairy', label: 'Dairy & Cheese' },
               { id: 'meat', label: 'Meat & Poultry' },
               { id: 'bakery', label: 'Bakery & Pastry' },
-              { id: 'beverage', label: 'Beverages & Mixes' },
+              { id: 'beverage', label: 'Beverages & Juices' },
               { id: 'sauces', label: 'Sauces & Dressings' },
-              { id: 'rnd', label: 'Application Center' }
+              { id: 'bio', label: 'Bio & Oleoresins' },
+              { id: 'soapwort', label: 'AWABEY Soapwort' },
+              { id: 'rnd', label: 'R&D Application Center' },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`btn ${activeTab === tab.id ? 'btn-primary' : 'btn-secondary'}`}
-                style={{ borderRadius: 'var(--radius-full)', padding: '0.55rem 1.4rem', fontSize: '0.875rem' }}
+                style={{
+                  borderRadius: 'var(--radius-full)',
+                  padding: '0.6rem 1.4rem',
+                  fontSize: '0.875rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
               >
                 {tab.label}
               </button>
             ))}
           </div>
 
-          {/* Solutions Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            {filteredSolutions.map((sol) => (
-              <div
-                key={sol.id}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid var(--border-color)',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  boxShadow: 'var(--shadow-subtle)'
-                }}
-              >
-                <div style={{ height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src={sol.image}
-                    alt={sol.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/pages/home/s1.jpg';
-                    }}
-                  />
-                </div>
-                <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--primary)', marginBottom: '0.5rem' }}>
-                    {sol.category}
-                  </div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                    {sol.title}
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                    {sol.description}
-                  </p>
-
-                  <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
-                    <div style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                      Key Capabilities:
+          {/* Dynamic Solutions Cards Grid with AnimatePresence */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+                gap: '2rem',
+              }}
+            >
+              {filteredSolutions.map((sol) => (
+                <div
+                  key={sol.id}
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: 'var(--radius-lg)',
+                    border: '1.5px solid var(--border-color)',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: 'var(--shadow-subtle)',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                  }}
+                >
+                  <div style={{ height: '210px', overflow: 'hidden', background: '#F1F5F9', position: 'relative' }}>
+                    <img
+                      src={sol.image}
+                      alt={sol.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/images/pages/products/industrial.jpg';
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      left: '1rem',
+                      padding: '0.3rem 0.8rem',
+                      borderRadius: '9999px',
+                      background: 'rgba(15, 23, 42, 0.85)',
+                      backdropFilter: 'blur(12px)',
+                      color: '#FFFFFF',
+                      fontSize: '0.725rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.06em'
+                    }}>
+                      {sol.category}
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                      {sol.details.map((d, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--text-main)' }}>
-                          <CheckCircle2 size={14} color="var(--primary)" style={{ minWidth: '14px', marginTop: '3px' }} />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
 
-                  <button
-                    onClick={onOpenQuote}
-                    className="btn btn-primary btn-sm"
-                    style={{ marginTop: 'auto', width: '100%' }}
-                  >
-                    <span>Request Formulation Specs</span>
-                    <ArrowRight size={14} />
-                  </button>
+                  <div style={{ padding: '1.85rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--dark-navy)', marginBottom: '0.65rem', lineHeight: 1.3 }}>
+                      {sol.title}
+                    </h3>
+
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                      {sol.description}
+                    </p>
+
+                    <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
+                      <div style={{ fontSize: '0.775rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--dark-navy)', letterSpacing: '0.04em', marginBottom: '0.65rem' }}>
+                        Key Formulation Capabilities:
+                      </div>
+                      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: 0, margin: 0 }}>
+                        {sol.details.map((d, idx) => (
+                          <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.825rem', color: 'var(--text-main)', lineHeight: 1.45 }}>
+                            <CheckCircle2 size={15} color="var(--primary)" style={{ minWidth: '15px', marginTop: '2px', flexShrink: 0 }} />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <button
+                      onClick={onOpenQuote}
+                      className="btn btn-primary btn-sm"
+                      style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}
+                    >
+                      <FileText size={15} />
+                      <span>Request Formulation Specs (TDS)</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
     </div>

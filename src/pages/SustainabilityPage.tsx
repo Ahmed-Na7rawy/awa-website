@@ -1,4 +1,6 @@
 import React from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
 import { Leaf, BarChart3, Users2, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface SustainabilityProps {
@@ -6,25 +8,22 @@ interface SustainabilityProps {
 }
 
 export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote }) => {
+  const sectionRef1 = useScrollReveal();
+  const sectionRef2 = useScrollReveal();
   return (
     <div className="sustainability-page">
       {/* Header Banner */}
-      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
-        <div className="container">
-          <div className="eyebrow eyebrow-dark">ESG & Responsibility</div>
-          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
-            Sustainability & ESG Commitment
-          </h1>
-          <p className="section-desc" style={{ maxWidth: '720px' }}>
-            Operating responsibly through our 3 Core Pillars: Assess, Monitor, and Engage across raw material sourcing, production energy efficiency, and community well-being.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="ESG & Responsibility"
+        title="Sustainability & ESG Commitment"
+        subtitle="Operating responsibly through our 3 Core Pillars: Assess, Monitor, and Engage across raw material sourcing, production energy efficiency, and community well-being."
+        backgroundImage="/images/pages/sustainability/esg.jpg"
+      />
 
       {/* ESG Framework */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
-          <div className="section-header text-center">
+          <div className="section-header text-center reveal-fade-up">
             <div className="eyebrow" style={{ justifyContent: 'center' }}>Our Framework</div>
             <h2 className="section-title">The Three Pillars of AWA Sustainability</h2>
             <p className="section-desc">
@@ -34,7 +33,7 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* Assess */}
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Leaf size={26} />
               </div>
@@ -53,7 +52,7 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
             </div>
 
             {/* Monitor */}
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.1s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <BarChart3 size={26} />
               </div>
@@ -72,7 +71,7 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
             </div>
 
             {/* Engage */}
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Users2 size={26} />
               </div>
@@ -94,10 +93,10 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
       </section>
 
       {/* Sustainable Clean Label Innovation */}
-      <section className="section section-stone">
+      <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
           <div className="editorial-grid">
-            <div>
+            <div className="reveal-fade-left">
               <div className="eyebrow">Nutritional Health Innovation</div>
               <h2 className="section-title">Enabling Healthier Diets with Sugar & Fat Reduction</h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
@@ -112,7 +111,7 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
               </button>
             </div>
 
-            <div className="editorial-img-container">
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/sustainability/esg.jpg" 
                 alt="AWA ESG Green Commitment" 

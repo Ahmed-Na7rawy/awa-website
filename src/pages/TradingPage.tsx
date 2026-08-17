@@ -1,4 +1,6 @@
 import React from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
 import { Globe, ShieldCheck, CheckCircle2, ArrowRight, Database } from 'lucide-react';
 import { PARTNER_LOGOS } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
@@ -8,6 +10,9 @@ interface TradingProps {
 }
 
 export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
+  const sectionRef1 = useScrollReveal();
+  const sectionRef2 = useScrollReveal();
+
   const categories = [
     {
       title: 'Hydrocolloids & Texture Stabilizers',
@@ -62,23 +67,18 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
   return (
     <div className="trading-page">
       {/* Header Banner */}
-      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
-        <div className="container">
-          <div className="eyebrow eyebrow-dark">Global Procurement & Sourcing</div>
-          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
-            Direct Raw Material Sourcing & Trading
-          </h1>
-          <p className="section-desc" style={{ maxWidth: '720px' }}>
-            Direct distribution agreements with top chemical & food ingredient manufacturers across Europe, the Americas, and Asia.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Global Procurement & Sourcing"
+        title="Direct Raw Material Sourcing & Trading"
+        subtitle="Direct distribution agreements with top chemical & food ingredient manufacturers across Europe, the Americas, and Asia."
+        backgroundImage="/images/pages/trading/Image11.jpg"
+      />
 
       {/* Trading Overview */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
           <div className="editorial-grid">
-            <div>
+            <div className="reveal-fade-left">
               <div className="eyebrow">Reliable Supply Chain</div>
               <h2 className="section-title">Seamless Raw Material Procurement For Regional Manufacturers</h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
@@ -94,7 +94,7 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
               </button>
             </div>
 
-            <div className="editorial-img-container">
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/trading/Image11.jpg" 
                 alt="AWA Raw Material Warehousing & Trading" 
@@ -109,9 +109,9 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
       </section>
 
       {/* Ingredient Catalog Grid */}
-      <section className="section section-stone">
+      <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal-fade-up">
             <div className="eyebrow">Product Portfolio</div>
             <h2 className="section-title">Core Trading Categories</h2>
             <p className="section-desc">
@@ -123,6 +123,7 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
             {categories.map((cat, idx) => (
               <div
                 key={idx}
+                className="reveal-fade-up"
                 style={{
                   background: '#FFFFFF',
                   padding: '2.5rem',

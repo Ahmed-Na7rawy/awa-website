@@ -5,10 +5,10 @@ import { NAV_LINKS, COMPANY_CONTACT } from '../data/siteData';
 interface NavbarProps {
   currentPage: string;
   onNavigate: (pageId: string, subId?: string) => void;
-  onOpenQuote: () => void;
+  onOpenQuote?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQuote }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -121,15 +121,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             ))}
           </ul>
 
-          {/* Header Action Buttons */}
+          {/* Clean Mobile Toggle */}
           <div className="nav-actions">
-            <button 
-              onClick={onOpenQuote}
-              className="nav-cta-btn"
-            >
-              <span>Request Quote</span>
-              <ArrowRight size={14} />
-            </button>
             <button 
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(true)}
@@ -153,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             <button 
               onClick={() => setMobileMenuOpen(false)} 
               aria-label="Close navigation"
-              style={{ color: 'var(--text-muted)', padding: '0.4rem', cursor: 'pointer' }}
+              style={{ color: 'var(--text-muted)', padding: '0.4rem', cursor: 'pointer', background: 'none', border: 'none' }}
             >
               <X size={26} />
             </button>
@@ -161,54 +154,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
 
           <ul className="mobile-nav-list">
             {NAV_LINKS.map((link) => (
-              <li key={link.id}>
-                <button
+              <li key={link.id} className="mobile-nav-item">
+                <button 
                   onClick={() => handleNavClick(link.id)}
                   className={`mobile-nav-link ${currentPage === link.id ? 'active' : ''}`}
-                  style={{ width: '100%', textAlign: 'left', background: 'none' }}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {link.children && <ChevronDown size={16} />}
                 </button>
                 {link.children && (
-                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem', margin: '0.4rem 0' }}>
+                  <ul className="mobile-subnav">
                     {link.children.map((child, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => handleNavClick(child.id, child.subId)}
-                        style={{
-                          textAlign: 'left',
-                          padding: '0.5rem 0.5rem',
-                          fontSize: '0.875rem',
-                          color: 'var(--text-muted)',
-                          background: 'none',
-                          border: 'none',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                          width: '100%'
-                        }}
-                      >
-                        <span style={{ color: 'var(--primary)' }}>•</span> {child.label}
-                      </button>
+                      <li key={idx}>
+                        <button
+                          onClick={() => handleNavClick(child.id, child.subId)}
+                          className="mobile-subnav-link"
+                        >
+                          {child.label}
+                        </button>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 )}
               </li>
             ))}
           </ul>
-
-          <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
-            <button 
-              onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
-              className="btn btn-primary"
-              style={{ width: '100%', marginBottom: '1rem', padding: '0.85rem' }}
-            >
-              Get Technical Quote
-            </button>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-              Alexandria HQ: {COMPANY_CONTACT.phoneAlex}
-            </div>
-          </div>
         </div>
       </div>
     </header>

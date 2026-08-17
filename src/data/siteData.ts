@@ -43,9 +43,6 @@ export const NAV_LINKS = [
     children: [
       { label: 'Industrial Ingredients', id: 'products', subId: 'industrial' },
       { label: 'Consumer & Retail Brands', id: 'products', subId: 'retail' },
-      { label: 'Sweet & Slim', id: 'products', subId: 'sweet-and-slim' },
-      { label: 'SquEasy Purées', id: 'products', subId: 'squeasy' },
-      { label: 'Yalla Drinks Series', id: 'products', subId: 'yalla-drinks' },
     ]
   },
   { label: 'Sustainability', id: 'sustainability' },
@@ -203,121 +200,266 @@ export const PARTNER_LOGOS = [
 ];
 
 export const SOLUTIONS_LIST: SolutionItem[] = [
+  // DAIRY & CHEESE (Catalogue Pages 11, 17)
   {
-    id: 'dairy',
-    title: 'Dairy & Cheese Solutions',
+    id: 'dairy-processed-cheese',
+    title: 'Processed Cheese Stabilizer & Emulsifying Salts',
     category: 'Dairy',
     image: '/images/pages/solutions/Image20.jpg',
-    description: 'Advanced functional blends for processed cheese triangles, blocks, shredded mozzarella, labneh, UHT creams, and set/stirred yogurts. Designed for optimal meltability, stretch, firmness, and cost-efficiency.',
+    description: 'Specialized polyphosphate and sodium citrate emulsifying salt complexes designed for processed cheese triangles, blocks, and slice-on-slice formats with customized firmness and meltability.',
     details: [
-      'Emulsifying salts for processed cheese with tailored firmness and melting',
-      'Yogurt texture stabilizers preventing syneresis and boosting mouthfeel',
-      'Analogue and hybrid cheese systems with excellent stretch and browning',
-      'UHT whipping and cooking cream stabilizer systems'
+      'Tailored creaming and melting index for triangle and block cheese',
+      'Prevents oil separation and syneresis during hot filling and cooling',
+      'Enables high moisture binding (up to 65%) with firm slicing texture',
+      'Full compatibility with vegetable fat, butterfat, and milk powder formulas'
     ]
   },
   {
-    id: 'meat',
-    title: 'Meat & Poultry Processing Systems',
+    id: 'dairy-mozzarella-analogue',
+    title: 'Mozzarella & Pizza Cheese Texture Systems',
+    category: 'Dairy',
+    image: '/images/pages/solutions/Image28.jpg',
+    description: 'Engineered stabilizer matrices and modified starches for analogue and hybrid mozzarella cheese, delivering superior stretch, shredding elasticity, and controlled blister browning.',
+    details: [
+      'Imitation & analogue mozzarella stabilizer blends with high fat emulsification',
+      'Food-grade anti-caking starches for pre-shredded retail & food service bags',
+      'Heat-stable protein networks preventing oiling-off on high-temperature pizza decks',
+      'Exceptional freeze-thaw recovery with zero crumbly texture upon baking'
+    ]
+  },
+  {
+    id: 'dairy-soft-feta',
+    title: 'Soft & Feta Cheese Coagulation Stabilizers',
+    category: 'Dairy',
+    image: '/images/pages/solutions/dairy.jpg',
+    description: 'Hydrocolloid and calcium-optimized stabilizer blends for ultrafiltrated (UF) Feta, white brined cheese, and spreadable cream cheese.',
+    details: [
+      'Enhances curd firmness, total dry matter recovery, and commercial yield',
+      'Prevents whey syneresis throughout 12-month vacuum or brine shelf life',
+      'Microbial rennet and natural lactic acid culture boosters',
+      'Protective cheese coating wax and antifungal surface treatment'
+    ]
+  },
+  {
+    id: 'dairy-icecream-yoghurt',
+    title: 'Ice Cream, Yoghurt & Whipping Cream Systems',
+    category: 'Dairy',
+    image: '/images/pages/solutions/Image27.jpg',
+    description: 'Synergistic stabilizer-emulsifier complexes for set/stirred yoghurt, UHT whipping cream, and ice cream overrun control.',
+    details: [
+      'Prevents whey separation in fruit-on-bottom and stirred yoghurts',
+      'Overrun enhancers for ice cream ensuring slow melt-down and micro-ice crystals',
+      'High-stability emulsifiers for 35% dairy and non-dairy whipping creams',
+      'Modified starches, pectin complexes, and low-calorie sweetener solutions'
+    ]
+  },
+
+  // MEAT & POULTRY (Catalogue Pages 14, 18)
+  {
+    id: 'meat-emulsified',
+    title: 'Luncheon, Sausage & Frankfurters Emulsion Systems',
     category: 'Meat',
     image: '/images/pages/solutions/Image21.jpg',
-    description: 'High-performance binder, curing, and texture systems for frankfurters, luncheon, beef burgers, nuggets, and tumbling marinades to improve water retention and yield.',
+    description: 'High-performance phosphate salt complexes, vegetable dietary fibers, and functional soy proteins engineered to optimize water and fat binding in cooked emulsion meats.',
     details: [
-      'Phosphate and phosphate-free water retention systems',
-      'Soy, pea, and animal protein functional blends',
-      'Clean label microbial shelf-life extenders',
-      'Custom seasoning, spice oleoresins, and flavor boosters'
+      'Sodium and potassium food-grade phosphate salt blends (1:5:5 emulsification)',
+      'High-tensile slicing improvers for ultra-thin luncheon and mortadella slicing',
+      'Natural colorants (carmine, paprika) maintaining stable shade post-cooking',
+      'Preservative blends preventing slime and microbial spoilage in cold storage'
     ]
   },
   {
-    id: 'bakery',
-    title: 'Bakery & Confectionery Innovations',
+    id: 'meat-burgers-minced',
+    title: 'Beef Burger, Kofta & Minced Meat Texture Improvers',
+    category: 'Meat',
+    image: '/images/pages/solutions/meat.jpg',
+    description: 'Functional vegetable proteins (Soy TVP, ISP 90%), potato starches, and natural binder systems for formed beef patties, meatballs, and oriental kofta.',
+    details: [
+      'Minimizes cooking loss and diameter shrinkage on industrial grill lines',
+      'Soy TVP (Textured Vegetable Protein) providing meaty fibrous texture',
+      'Clean label hydrolyzed collagen and vegetable dietary fiber matrices',
+      'Authentic oriental spice notes: Alexandria Sausage, Burger, Kofta & Sujuk'
+    ]
+  },
+  {
+    id: 'meat-cured-poultry',
+    title: 'Poultry Tumbling Marinades & Curing Systems',
+    category: 'Meat',
+    image: '/images/pages/solutions/Image29.jpg',
+    description: 'Yield-enhancing injection and vacuum-tumbling brine systems for chicken breasts, nuggets, salami, pastrami (Bastirma), and bacon.',
+    details: [
+      'Instant-dissolving tumbling phosphate brines boosting yield by 15% - 30%',
+      'Curing accelerators ensuring deep, uniform cured pink color development',
+      'Liquid Bastirma and Pastrami spice blends with rapid penetration',
+      'Antioxidant blends preventing warmed-over flavor (WOF) and lipid oxidation'
+    ]
+  },
+
+  // BAKERY & PASTRY (Catalogue Pages 12, 17)
+  {
+    id: 'bakery-improvers',
+    title: 'Enzymatic Flour Improvers & Vital Wheat Gluten',
     category: 'Bakery',
     image: '/images/pages/solutions/Image22.jpg',
-    description: 'Specialty enzymes, emulsifiers, and hydrocolloid blends engineered to improve dough elasticity, crumb softness, volume, and extended shelf life.',
+    description: 'High-activity fungal alpha-amylase, xylanase, and ascorbic acid flour improver complexes for industrial sandwich bread, toast, and baguettes.',
     details: [
-      'Modular bread and toast improvers',
-      'Cake gels and sponge cake emulsifier systems',
-      'Bake-stable fruit fillings and chocolate creams',
-      'Anti-staling enzyme complexes'
+      'Improves dough machinability, gas retention, and oven spring volume',
+      'Extends crumb softness and freshness up to 30 days ambient shelf life',
+      'Vital wheat gluten (75% - 80% protein) boosting weak commercial flours',
+      'Anti-staling maltogenic enzyme systems delaying starch retrogradation'
     ]
   },
   {
-    id: 'beverage',
-    title: 'Beverage & Flavor Systems',
+    id: 'bakery-cake-mixes',
+    title: 'Ready Industrial Cake Mixes & Emulsifier Gels',
+    category: 'Bakery',
+    image: '/images/pages/solutions/bakery.jpg',
+    description: 'All-in-one industrial cake bases, sponge cake emulsifiers (DATEM, SSL, PGE), and specialty baking powders for industrial bakeries.',
+    details: [
+      'Ready-to-use sponge, muffin, pound cake, and chocolate brownie pre-mixes',
+      'Distilled monoglyceride and polyglycerol ester aerating cake gels',
+      'Controlled double-acting chemical leavening raising agents',
+      'Cost-saving egg replacers and fat mimetics preserving moisture'
+    ]
+  },
+  {
+    id: 'bakery-fillings-biscuit',
+    title: 'Biscuit Improvers & Bake-Stable Fillings',
+    category: 'Bakery',
+    image: '/images/pages/solutions/confectionery.jpg',
+    description: 'Rheology modifiers for hard & soft dough biscuits, cookies, wafers, and temperature-tolerant fruit & chocolate bakery fillings.',
+    details: [
+      'Controls biscuit dough spread, crispiness, and oven stack height',
+      'Bake-stable fruit jams and chocolate creams that resist boiling-out at 200°C',
+      'High-grade Dutch cocoa powders and natural bourbon vanilla extracts',
+      'Sorbitol and low-calorie polyol systems for sugar-free bakery lines'
+    ]
+  },
+
+  // BEVERAGES & JUICES (Catalogue Pages 13, 19)
+  {
+    id: 'beverage-cloud-stabilizers',
+    title: 'Fruit Juice Clouding & Pulp Suspension Stabilizers',
     category: 'Beverages',
     image: '/images/pages/solutions/Image24.jpg',
-    description: 'Stabilizers for cloud stability, pulp suspension, juice drinks, energy drinks, and flavored instant powdered beverage mixes with supreme solubility.',
+    description: 'Natural citrus oil weighting emulsions and hydrocolloid suspension matrices ensuring uniform turbidity and long-term cloud stability in bottled juices.',
     details: [
-      'Hydrocolloid stabilizers for fruit juices and nectars',
-      'Clouding agents and weighing emulsions for citrus drinks',
-      'High-intensity sweetener blends with balanced taste profiles',
-      'Instant beverage powders with instant dispersion'
+      'Prevents ringing, neck oiling, and bottom sediment in fruit nectars',
+      'Cold-soluble xanthan and carboxymethylcellulose (CMC) viscosity blends',
+      'Natural water-soluble food colorants (Beta-Carotene, Anthocyanins)',
+      'Heat-pasteurization and UV-light stable formulations'
     ]
   },
   {
-    id: 'sauces',
-    title: 'Sauces, Dressings & Culinary',
+    id: 'beverage-powder-mixes',
+    title: 'Instant Powder Drink Bases & Energy Formulations',
+    category: 'Beverages',
+    image: '/images/pages/solutions/beverages.jpg',
+    description: 'Complete spray-dried powder beverage formulations for instant fruit drinks, malt beverages, sports hydration, and carbonated soft drinks.',
+    details: [
+      'Instant cold-water dissolution without lump formation in 15 seconds',
+      'Acidity regulator matrices (Citric Acid, Malic Acid, Sodium Citrate)',
+      'Synergistic high-intensity sweetener blends (Sucralose, Stevia, Acesulfame-K)',
+      'Vitamin and mineral fortification complexes for functional energy drinks'
+    ]
+  },
+
+  // SAUCES, DRESSINGS & CONDIMENTS (Catalogue Pages 14, 18)
+  {
+    id: 'sauces-mayo-eggless',
+    title: 'Mayonnaise Stabilizers & Vegan Egg Replacers',
     category: 'Culinary',
     image: '/images/pages/solutions/Image25.jpg',
-    description: 'Cold-process and hot-process stabilizer blends for mayonnaise, ketchup, mustard, salad dressings, and culinary gravies with high shear and freeze-thaw stability.',
+    description: 'Cold-process stabilizer systems and functional plant proteins designed for full-fat (65%), light (30%), and 100% vegan eggless mayonnaise.',
     details: [
-      'Cold-soluble starch and gum blends for eggless mayonnaise',
-      'Ketchup and tomato paste viscosity stabilizers',
-      'Heat-stable cooking sauces and marinades',
-      'Dip and condiment texture enhancers'
+      'Complete egg yolk replacement with silky gloss and authentic creamy mouthfeel',
+      'High shear stability under colloid mills and continuous homogenizers',
+      'Prevents phase separation and syneresis at pH 3.2 – 3.8',
+      'Microencapsulated fat powders and flavor enhancers'
     ]
   },
   {
-    id: 'rnd',
-    title: 'Application Center & Pilot R&D',
+    id: 'sauces-ketchup-dressings',
+    title: 'Ketchup, Tomato Paste Extenders & Salad Dressings',
+    category: 'Culinary',
+    image: '/images/pages/solutions/sauces.jpg',
+    description: 'Modified waxy maize starches, tomato paste replacers, and thixotropic hydrocolloid blends for ketchup, dipping sauces, and culinary dressings.',
+    details: [
+      'Tomato paste replacers reducing raw material cost while preserving rich body',
+      'Thixotropic shear-thinning behavior for easy bottle pouring and clinging cling',
+      'Thermal stability in hot-filled barbecue, pizza sauces, and instant soups',
+      'Food-grade acidulates and preservative systems (Sodium Benzoate / Sorbate)'
+    ]
+  },
+
+  // AWA BIO INGREDIENTS & NATURAL EXTRACTS (Catalogue Pages 21–29)
+  {
+    id: 'bio-oleoresins-oils',
+    title: 'Pure Spice Oleoresins & Essential Oils',
+    category: 'Bio',
+    image: '/images/pages/solutions/Image30.jpg',
+    description: '100% pure concentrated liquid extracts of spices and herbs. Volatile and non-volatile aroma components providing instant flavor release and microbiological sterility.',
+    details: [
+      '18+ Single Oleoresins: Black Pepper, Capsicum (Chili), Paprika, Garlic, Onion, Ginger, Cumin, Cardamom, Turmeric, Rosemary',
+      'Steam-distilled essential oils delivering authentic volatile signature top-notes',
+      'Standardized color & pungency tested on advanced spectrophotometers',
+      'Completely free from salmonella, mold spores, and agricultural filth'
+    ]
+  },
+  {
+    id: 'bio-liquid-blends-hydrops',
+    title: 'Liquid Seasoning Blends & Spice Hydrops™',
+    category: 'Bio',
+    image: '/images/pages/solutions/Image31.jpg',
+    description: 'Ready-to-inject liquid spice blends for meat processing, sauces, and noodle seasonings, plus water-soluble cell-wall Spice Hydrops™.',
+    details: [
+      'Ready Liquid Blends: Alexandrian Sausage, Beef Burger, Kofta, Bastirma, Turkish Sujuk, Pizza, Tandoori & Noodle Seasoning',
+      'Spice Hydrops™: Pure water-dispersible cell-wall extracts for clear drinks & brines',
+      'Natural antioxidants (Rosemary, Green Tea, Mixed Tocopherols) preventing rancidity',
+      'Extended 24-month shelf life with zero moisture condensation'
+    ]
+  },
+
+  // AWABEY SOAPWORT EXTRACT (Catalogue Pages 31–34)
+  {
+    id: 'soapwort-halva-extract',
+    title: 'AWABEY Soapwort Extract (Çöven Suyu 3°–45° Brix)',
+    category: 'Soapwort',
+    image: '/images/pages/solutions/Image32.jpg',
+    description: 'Manufactured through Turkish extraction technology producing 7 MT/day of pure Soapwort Extract (Çöven Suyu) for halva, tahini, Melvin, and confectionery.',
+    details: [
+      '100% natural Turkish raw materials concentrated from 3° Brix to 45° Brix',
+      'Essential natural foaming and whitening agent for sesame halva & tahini',
+      'Allergen-Free certification compliant with World Health Organization (WHO)',
+      'Packed in 30 kg industrial buckets with 24-month shelf stability'
+    ]
+  },
+
+  // R&D PILOT APPLICATION CENTER (Catalogue Pages 35–36)
+  {
+    id: 'rnd-pilot-plant',
+    title: 'Pilot Plant Testing & Recipe Simulation',
     category: 'R&D',
     image: '/images/pages/solutions/Image26.jpg',
-    description: 'Equipped with pilot-scale processing machinery, mini dairy plants, meat emulsifiers, bakery ovens, and analytical testing equipment to test formulations in real production conditions.',
+    description: 'Our New Borg El-Arab R&D application center is equipped with mini pilot production units to simulate industrial dairy, meat, bakery, and beverage lines.',
     details: [
-      'Recipe benchmarking & reverse engineering',
-      'Pilot-scale testing mimicking industrial processing',
-      'Sensory panel evaluations & texture analysis',
-      'Microbiological shelf-life testing and challenge studies'
+      'Pilot-scale high-shear mixers, cheese cookers, bakery ovens, and beverage carbonators',
+      'Small batch trial production preventing costly full-scale factory downtime',
+      'Comprehensive recipe benchmarking, cost reduction, and clean label reformulation',
+      'Technical on-site plant support and operator training provided across MENA'
     ]
   },
   {
-    id: 'texture-modifiers',
-    title: 'Texture & Viscosity Systems',
-    category: 'Texture',
-    image: '/images/pages/solutions/Image27.jpg',
-    description: 'Bespoke rheology and mouthfeel modifiers ensuring uniform suspension, creamy mouthfeel, and thermal stability in hot or cold processed foods.',
+    id: 'rnd-analytical-sensory',
+    title: 'Instrumental Rheology & Sensory Profiling',
+    category: 'R&D',
+    image: '/images/pages/solutions/Image33.jpg',
+    description: 'State-of-the-art analytical testing suite including texture analyzers, spectrophotometers, moisture meters, and trained sensory discrimination panels.',
     details: [
-      'Custom hydrocolloid synergy testing',
-      'Shear-thinning and thixotropic texture control',
-      'Gelling and elasticity modulation',
-      'Cost reduction through functional ingredient optimization'
-    ]
-  },
-  {
-    id: 'pilot-testing',
-    title: 'Sensory & Analytical Evaluation',
-    category: 'Pilot Trials',
-    image: '/images/pages/solutions/Image28.jpg',
-    description: 'Full scientific characterization including texture profiling, moisture retention, pH mapping, and trained sensory panel testing.',
-    details: [
-      'Texture analyzer profile mapping (TPA)',
-      'Viscosity measurement under temperature gradients',
-      'Sensory ranking and triangular discrimination tests',
-      'Accelerated temperature shelf-life studies'
-    ]
-  },
-  {
-    id: 'blending-innovation',
-    title: 'Custom Pre-Mix & Blending Technologies',
-    category: 'Formulation',
-    image: '/images/pages/solutions/Image29.jpg',
-    description: 'All-in-one pre-mixes combining functional hydrocolloids, proteins, seasonings, and active enzymes in homogenous powder systems.',
-    details: [
-      'Eliminates factory weighing errors for plant operators',
-      'Micro-dosed active ingredient homogeneity',
-      'Custom batch packaging matching client batch sizes',
-      'Reduces inventory SKU complexity'
+      'Texture Profile Analysis (TPA) for cheese meltability, crumb softness & meat bite',
+      'Spectrophotometer color consistency and CIELAB color coordinate mapping',
+      'Microbiological challenge testing and accelerated thermal shelf-life studies',
+      'Certificate of Analysis (COA) and complete technical specification dossiers'
     ]
   }
 ];

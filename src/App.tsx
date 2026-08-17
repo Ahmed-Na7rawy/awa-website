@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
+import { BackToTop } from './components/BackToTop';
+import { FloatingSocialBar } from './components/FloatingSocialBar';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -19,6 +21,19 @@ export function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [subPageId, setSubPageId] = useState<string | undefined>(undefined);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Scroll progress tracker
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavigate = (pageId: string, subId?: string) => {
     setCurrentPage(pageId);
@@ -102,17 +117,23 @@ export function App() {
 
   return (
     <div className="app-root">
+      {/* Scroll Progress Bar */}
+      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
+
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
-        onOpenQuote={() => setIsQuoteModalOpen(true)}
       />
 
       <main>
-        {renderCurrentPage()}
+        <div className="page-transition-wrapper" key={currentPage}>
+          {renderCurrentPage()}
+        </div>
       </main>
 
       <Footer onNavigate={handleNavigate} />
+      <BackToTop />
+      <FloatingSocialBar />
 
       <QuoteModal
         isOpen={isQuoteModalOpen}

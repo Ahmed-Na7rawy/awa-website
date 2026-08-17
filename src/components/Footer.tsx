@@ -106,18 +106,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('products', 'sweet-and-slim')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  Sweet & Slim® Brand
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('products', 'squeasy')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  SquEasy® Fruit Purées
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('products', 'yalla-drinks')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  Yalla® Beverage Powders
+                <button onClick={() => handleNav('products', 'retail')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                  Consumer & Retail Brands
                 </button>
               </li>
             </ul>

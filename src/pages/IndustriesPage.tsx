@@ -1,4 +1,6 @@
 import React from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
 import { Settings, Cpu, Sparkles, ArrowRight } from 'lucide-react';
 
 interface IndustriesProps {
@@ -7,26 +9,23 @@ interface IndustriesProps {
 }
 
 export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavigate }) => {
+  const sectionRef1 = useScrollReveal();
+  const sectionRef2 = useScrollReveal();
   return (
     <div className="industries-page">
       {/* Header Banner */}
-      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
-        <div className="container">
-          <div className="eyebrow eyebrow-dark">Industrial Infrastructure</div>
-          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
-            Manufacturing Plants & Precision Production
-          </h1>
-          <p className="section-desc" style={{ maxWidth: '720px' }}>
-            Automated blending complexes and clean packaging facilities in New Borg El-Arab City serving regional food processors and consumer retail markets.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Industrial Infrastructure"
+        title="Manufacturing Plants & Precision Production"
+        subtitle="Automated blending complexes and clean packaging facilities in New Borg El-Arab City serving regional food processors and consumer retail markets."
+        backgroundImage="/images/pages/industries/image33.jpg"
+      />
 
       {/* Main Overview */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
           <div className="editorial-grid">
-            <div>
+            <div className="reveal-fade-left">
               <div className="eyebrow">New Borg El-Arab Plant</div>
               <h2 className="section-title">Automated Production Lines Engineered for Food Purity</h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
@@ -47,7 +46,7 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
               </div>
             </div>
 
-            <div className="editorial-img-container">
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/industries/image33.jpg" 
                 alt="AWA Borg El Arab Manufacturing Plant" 
@@ -62,9 +61,9 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
       </section>
 
       {/* Manufacturing Capabilities */}
-      <section className="section section-stone">
+      <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal-fade-up">
             <div className="eyebrow">Production Capabilities</div>
             <h2 className="section-title">Industrial Processing Lines</h2>
             <p className="section-desc">
@@ -73,7 +72,7 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Settings size={26} />
               </div>
@@ -86,7 +85,7 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
               </div>
             </div>
 
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.1s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Cpu size={26} />
               </div>
@@ -99,7 +98,7 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
               </div>
             </div>
 
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Sparkles size={26} />
               </div>

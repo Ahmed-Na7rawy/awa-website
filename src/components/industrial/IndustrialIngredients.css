@@ -1,0 +1,454 @@
+/* ═══════════════════════════════════════════════════════════════════ */
+/* AWA INDUSTRIAL INGREDIENTS & SOLUTIONS - B2B DESIGN SYSTEM          */
+/* Pure Light Mode, High-Contrast Typography, World-Class Engineering  */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.industrial-root {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* 1. Hero Section */
+.ind-hero-section {
+  position: relative;
+  padding: 5rem 1.5rem 4.5rem 1.5rem;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.ind-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.ind-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1.5px solid #0284C7;
+  color: #0284C7;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.1);
+}
+
+.ind-hero-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #0F172A;
+  margin-bottom: 1.25rem;
+  max-width: 960px;
+}
+
+.ind-hero-desc {
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 780px;
+  margin-bottom: 2.5rem;
+}
+
+.ind-stats-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.ind-stat-card {
+  padding: 1.25rem 1rem;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.ind-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: #0284C7;
+}
+
+.ind-stat-number {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #0284C7;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.ind-stat-label {
+  font-size: 0.725rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0F172A;
+}
+
+.ind-stat-sub {
+  font-size: 0.675rem;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+/* 2. Group Divisions Bar */
+.ind-divisions-section {
+  padding: 3.5rem 1.5rem;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ind-divisions-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.ind-division-card {
+  padding: 1.5rem 1.25rem;
+  border-radius: 22px;
+  background: #F8FAFC;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ind-division-card:hover,
+.ind-division-card.active {
+  background: #FFFFFF;
+  border-color: #0284C7;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.12);
+}
+
+.ind-division-badge {
+  font-size: 0.675rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0284C7;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.ind-division-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin-bottom: 0.35rem;
+}
+
+.ind-division-desc {
+  font-size: 0.775rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+/* 3. Sectors Applications Explorer */
+.ind-sectors-section {
+  padding: 5.5rem 1.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.ind-sector-tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1.5rem 0.25rem;
+  scrollbar-width: none;
+}
+
+.ind-sector-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ind-sector-tab-btn {
+  padding: 0.75rem 1.35rem;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  color: #0F172A;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.ind-sector-tab-btn:hover {
+  border-color: #0284C7;
+  transform: translateY(-2px);
+}
+
+.ind-sector-tab-btn.active {
+  background: #0F172A;
+  color: #FFFFFF !important;
+  border-color: #0F172A;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.2);
+}
+
+.ind-sector-main-stage {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+  background: #FFFFFF;
+  border-radius: 30px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+}
+
+.ind-category-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #E0F2FE;
+  color: #0369A1;
+  margin-bottom: 0.75rem;
+}
+
+.ind-sector-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.ind-sector-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.ind-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.ind-solution-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.ind-sector-img-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 420px;
+  background: #F1F5F9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ind-sector-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. Bio Ingredients & Natural Extracts Matrix */
+.ind-bio-section {
+  padding: 5rem 1.5rem;
+  background: #F1F5F9;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ind-bio-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.ind-bio-card {
+  padding: 2rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ind-bio-badge {
+  font-size: 0.725rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 0.5rem;
+}
+
+.ind-bio-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
+}
+
+.ind-bio-desc {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.ind-bio-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.ind-bio-chip {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+/* 5. Soapwort Technology (AWABEY) Feature */
+.ind-soapwort-section {
+  padding: 5.5rem 1.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.ind-soapwort-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.ind-soapwort-card {
+  padding: 2.5rem;
+  border-radius: 28px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+}
+
+/* 6. R&D Pilot Plant & Certified Quality */
+.ind-rd-section {
+  padding: 5rem 1.5rem;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ind-certs-grid {
+  max-width: 1240px;
+  margin: 2.5rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.ind-cert-box {
+  padding: 1.5rem 1rem;
+  border-radius: 20px;
+  background: #F8FAFC;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.ind-cert-code {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #0284C7;
+  margin-bottom: 0.25rem;
+}
+
+.ind-cert-name {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .ind-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .ind-divisions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ind-sector-main-stage {
+    grid-template-columns: 1fr;
+  }
+  .ind-bio-grid {
+    grid-template-columns: 1fr;
+  }
+  .ind-soapwort-grid {
+    grid-template-columns: 1fr;
+  }
+  .ind-certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ind-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ind-divisions-grid {
+    grid-template-columns: 1fr;
+  }
+  .ind-solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .ind-certs-grid {
+    grid-template-columns: 1fr;
+  }
+}
