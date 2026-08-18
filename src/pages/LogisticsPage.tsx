@@ -1,49 +1,51 @@
 import React from 'react';
-import { Truck, Warehouse, ShieldCheck, ThermometerSnowflake, Clock, MapPin, ArrowRight } from 'lucide-react';
-import { COMPANY_CONTACT } from '../data/siteData';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
+import { Truck, ThermometerSnowflake, Clock, ArrowRight } from 'lucide-react';
 
 interface LogisticsProps {
   onOpenQuote: () => void;
 }
 
 export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
+  const sectionRef1 = useScrollReveal();
+  const sectionRef2 = useScrollReveal();
+  const sectionRef3 = useScrollReveal();
   return (
-    <div>
-      {/* Banner */}
-      <section className="page-banner">
-        <div className="container">
-          <span className="badge badge-dark">Supply Chain & Freight</span>
-          <h1 className="page-banner-title">Cold Chain & Integrated Logistics</h1>
-          <p className="page-banner-subtitle">
-            Specialized temperature-controlled warehousing, customs clearance, and nationwide delivery for sensitive food ingredients.
-          </p>
-        </div>
-      </section>
+    <div className="logistics-page">
+      {/* Header Banner */}
+      <PageHero
+        eyebrow="Supply Chain & Logistics Division"
+        title="Cold Chain & Integrated Logistics Infrastructure"
+        subtitle="Specialized multi-temperature warehousing, rapid customs clearance, and nationwide climate-controlled fleet distribution for sensitive food raw materials."
+        backgroundImage="/images/pages/logistics/Image30.jpg"
+      />
 
       {/* Main Logistics Overview */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
-            <div>
-              <span className="badge">Cold Chain Excellence</span>
-              <h2 className="section-title">Preserving Ingredient Purity From Port to Plant</h2>
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.25rem' }}>
-                Food ingredients like enzymes, cultures, functional proteins, and flavors demand meticulous thermal management. AWA Group’s dedicated logistics division ensures uninterrupted cold chains, fast maritime clearance, and rapid dispatch across all Egyptian governorates.
+          <div className="editorial-grid">
+            <div className="reveal-fade-left">
+              <div className="eyebrow">Cold Chain Integrity</div>
+              <h2 className="section-title">Preserving Ingredient Purity From Port of Entry to Plant Floor</h2>
+              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
+                Food ingredients like enzymes, bacterial cultures, functional proteins, and liquid flavors demand precise thermal control. AWA Group’s logistics division ensures unbroken cold chains, fast maritime port clearance, and rapid dispatch across all Egyptian industrial zones.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                Our logistics hubs in Alexandria Port vicinity and Cairo are monitored 24/7 with digital data loggers, humidity controls, and backup power generators.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
+                Our logistics complexes in Alexandria Port vicinity and Cairo are monitored 24/7 with digital telemetry, humidity regulators, and automated backup power generators.
               </p>
 
               <button onClick={onOpenQuote} className="btn btn-primary">
-                Inquire About Logistics Services <ArrowRight size={16} />
+                <span>Inquire About Supply Chain Services</span>
+                <ArrowRight size={16} />
               </button>
             </div>
 
-            <div>
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/logistics/Image30.jpg" 
-                alt="AWA Logistics Warehouse" 
-                style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', objectFit: 'cover' }}
+                alt="AWA Logistics Warehouse Facility" 
+                className="editorial-img"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/logistics.jpg';
                 }}
@@ -53,79 +55,85 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
         </div>
       </section>
 
-      {/* Logistics Capabilities Grid */}
-      <section className="section section-alt">
+      {/* Core Logistics Capabilities */}
+      <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
-          <div className="section-header">
-            <span className="badge">Services</span>
+          <div className="section-header reveal-fade-up">
+            <div className="eyebrow">Services & Technical Specs</div>
             <h2 className="section-title">Full-Spectrum Supply Chain Capabilities</h2>
             <p className="section-desc">
-              Tailored storage and transport solutions compliant with NFSA and international food safety protocols.
+              Tailored storage and transport solutions fully compliant with NFSA and international food safety protocols.
             </p>
           </div>
 
-          <div className="cards-3col">
-            <div style={{ background: '#ffffff', padding: '2.5rem 2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <div className="reveal-fade-up" style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <ThermometerSnowflake size={26} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Multi-Temperature Warehousing</h3>
-              <p style={{ color: '#64748b', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                Dedicated zones for ambient (+15°C to +25°C), chilled (+2°C to +8°C), and frozen storage (-18°C) equipped with real-time temperature telemetry.
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Multi-Temperature Warehousing</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
+                Dedicated zones for ambient (+15°C to +25°C), chilled (+2°C to +8°C), and deep frozen storage (-18°C) equipped with real-time temperature data logging.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', padding: '2.5rem 2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.5rem' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.1s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Truck size={26} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Refrigerated Fleet Distribution</h3>
-              <p style={{ color: '#64748b', fontSize: '0.925rem', lineHeight: '1.6' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Refrigerated Fleet Distribution</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
                 Modern fleet of insulated and reefer trucks delivering directly to manufacturing plants and regional fulfillment centers across Egypt.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', padding: '2.5rem 2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.5rem' }}>
+            <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Clock size={26} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.75rem' }}>Fast Customs Clearance</h3>
-              <p style={{ color: '#64748b', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                Decades of expertise navigating Egyptian food authority regulations (NFSA), GOEIC inspections, and port quarantine protocols for swift port release.
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Fast Customs Clearance</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
+                Decades of expertise navigating Egyptian food authority regulations (NFSA), GOEIC inspections, and port quarantine protocols for rapid container release.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Warehouse Image Showcase */}
-      <section className="section">
+      {/* Warehouse Logistics Showcase */}
+      <section className="section" ref={sectionRef3}>
         <div className="container">
-          <div className="cards-2col">
-            <div>
-              <img 
-                src="/images/pages/logistics/Image31.jpg" 
-                alt="AWA Distribution Center" 
-                style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px' }}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem' }}>
+            <div className="reveal-fade-up">
+              <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
+                <img 
+                  src="/images/pages/logistics/Image31.jpg" 
+                  alt="AWA Distribution Center High Density Racking" 
+                  className="reveal-zoom"
+                  style={{ width: '100%', height: '320px', objectFit: 'cover' }}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/logistics/Image2-7.jpg';
                 }}
               />
-              <h4 style={{ marginTop: '1rem', fontSize: '1.1rem', fontWeight: 700 }}>High-Density Racking & Pallet Management</h4>
-              <p style={{ color: '#64748b', fontSize: '0.9rem' }}>FIFO inventory systems with complete batch lot tracking.</p>
+              </div>
+              <h4 style={{ marginTop: '1.25rem', fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>High-Density Racking & Pallet Management</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>FIFO inventory management systems with complete batch lot traceability.</p>
             </div>
 
-            <div>
-              <img 
-                src="/images/pages/logistics/Image32.jpg" 
-                alt="AWA Cold Storage" 
-                style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px' }}
+            <div className="reveal-fade-up" style={{ animationDelay: '0.2s' }}>
+              <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
+                <img 
+                  src="/images/pages/logistics/Image32.jpg" 
+                  alt="AWA Cold Storage Sanitation" 
+                  className="reveal-zoom"
+                  style={{ width: '100%', height: '320px', objectFit: 'cover' }}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/logistics.jpg';
                 }}
               />
-              <h4 style={{ marginTop: '1rem', fontSize: '1.1rem', fontWeight: 700 }}>Strict Sanitation & Pest Management</h4>
-              <p style={{ color: '#64748b', fontSize: '0.9rem' }}>ISO 22000 compliant hygiene protocols across all loading docks.</p>
+              </div>
+              <h4 style={{ marginTop: '1.25rem', fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>Strict Sanitation & Hygiene Protocols</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>FSSC 22000 compliant hygiene controls across all loading docks and cold cells.</p>
             </div>
           </div>
         </div>

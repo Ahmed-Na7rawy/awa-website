@@ -1,18 +1,18 @@
-import React from 'react';
-import { Mail, Phone, MapPin, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, ChevronDown, Menu, X, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
 import { NAV_LINKS, COMPANY_CONTACT } from '../data/siteData';
 
 interface NavbarProps {
   currentPage: string;
   onNavigate: (pageId: string, subId?: string) => void;
-  onOpenQuote: () => void;
+  onOpenQuote?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQuote }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -27,32 +27,33 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
   };
 
   return (
-    <header>
-      {/* Top Contact Bar */}
+    <header className="site-header">
+      {/* Editorial Top Contact & Metadata Bar */}
       <div className="top-bar">
-        <div className="container top-bar-inner">
+        <div className="container-wide top-bar-inner">
           <div className="top-bar-contacts">
             <a href={`mailto:${COMPANY_CONTACT.email}`} className="top-bar-item">
-              <Mail size={14} />
+              <Mail size={13} />
               <span>{COMPANY_CONTACT.email}</span>
             </a>
             <a href={`tel:${COMPANY_CONTACT.phoneAlex.split('/')[0].trim()}`} className="top-bar-item">
-              <Phone size={14} />
-              <span>Alex: {COMPANY_CONTACT.phoneAlex}</span>
+              <Phone size={13} />
+              <span>Alex HQ: {COMPANY_CONTACT.phoneAlex}</span>
             </a>
-            <span className="top-bar-item" style={{ display: 'none', lg: 'inline-flex' }}>
-              <MapPin size={14} />
-              <span>Alexandria & Cairo, Egypt</span>
-            </span>
+            <div className="top-bar-item top-bar-hide-laptop" style={{ gap: '0.4rem', color: '#94A3B8' }}>
+              <Globe size={13} color="#4ADE80" />
+              <span>Alexandria & Cairo Facilities, Egypt</span>
+            </div>
           </div>
           <div className="top-bar-links">
-            <span className="top-bar-item" style={{ fontSize: '0.75rem', opacity: 0.8 }}>
-              ISO 9001 & FSSC 22000 Certified
-            </span>
+            <div className="top-bar-item top-bar-hide-laptop" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
+              <ShieldCheck size={13} />
+              <span>ISO 9001, FSSC 22000 & Halal Certified</span>
+            </div>
             <button 
               onClick={() => handleNavClick('careers')} 
               className="top-bar-item"
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', fontSize: '0.825rem' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
             >
               Careers
             </button>
@@ -60,35 +61,32 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
           <div 
             className="brand-logo-wrap" 
             onClick={() => handleNavClick('home')}
-            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0, marginLeft: '0.5rem' }}
           >
             <img 
               src="/images/awa_group.png" 
-              alt="AWA Group" 
+              alt="AWA Group Logo" 
               className="brand-logo-img"
-              style={{ height: '40px', width: 'auto', objectFit: 'contain', display: 'block' }}
               onError={(e) => {
-                // Fallback to text if image fails
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', whiteSpace: 'nowrap' }}>
-              <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#111a2e', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-                AWA <span style={{ color: '#128d46' }}>GROUP</span>
+            <div className="brand-text-wrap">
+              <span className="brand-title">
+                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
               </span>
-              <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>
+              <span className="brand-sub">
                 Food Solutions & Sourcing
               </span>
             </div>
           </div>
 
-          {/* Desktop Nav Items */}
+          {/* Desktop Navigation Menu */}
           <ul className="nav-menu">
             {NAV_LINKS.map((link) => (
               <li 
@@ -100,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                   className="nav-link"
                 >
                   {link.label}
-                  {link.children && <ChevronDown size={14} style={{ opacity: 0.7 }} />}
+                  {link.children && <ChevronDown size={14} style={{ opacity: 0.6 }} />}
                 </button>
 
                 {link.children && (
@@ -110,7 +108,67 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                         <button
                           onClick={() => handleNavClick(child.id, child.subId)}
                           className="dropdown-link"
-                          style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none' }}
+                          style={{ width: '100%', border: 'none', background: 'none' }}
+                        >
+                          <span>{child.label}</span>
+                          <ArrowRight size={12} style={{ opacity: 0.5 }} />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* Clean Mobile Toggle */}
+          <div className="nav-actions">
+            <button 
+              className="mobile-toggle"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Toggle Mobile Navigation Drawer"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer Overlay */}
+      <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
+        <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
+          <div className="mobile-drawer-header">
+            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')}>
+              <span className="brand-title">
+                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
+              </span>
+            </div>
+            <button 
+              onClick={() => setMobileMenuOpen(false)} 
+              aria-label="Close navigation"
+              style={{ color: 'var(--text-muted)', padding: '0.4rem', cursor: 'pointer', background: 'none', border: 'none' }}
+            >
+              <X size={26} />
+            </button>
+          </div>
+
+          <ul className="mobile-nav-list">
+            {NAV_LINKS.map((link) => (
+              <li key={link.id} className="mobile-nav-item">
+                <button 
+                  onClick={() => handleNavClick(link.id)}
+                  className={`mobile-nav-link ${currentPage === link.id ? 'active' : ''}`}
+                >
+                  <span>{link.label}</span>
+                  {link.children && <ChevronDown size={16} />}
+                </button>
+                {link.children && (
+                  <ul className="mobile-subnav">
+                    {link.children.map((child, idx) => (
+                      <li key={idx}>
+                        <button
+                          onClick={() => handleNavClick(child.id, child.subId)}
+                          className="mobile-subnav-link"
                         >
                           {child.label}
                         </button>
@@ -121,87 +179,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
               </li>
             ))}
           </ul>
-
-          {/* Actions */}
-          <div className="nav-actions">
-            <button 
-              onClick={onOpenQuote}
-              className="btn btn-primary btn-sm"
-              style={{ display: 'none', sm: 'inline-flex' }}
-            >
-              Request Quote
-              <ArrowRight size={14} />
-            </button>
-            <button 
-              className="mobile-toggle"
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label="Toggle navigation"
-            >
-              <Menu size={24} />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Drawer Menu */}
-      <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-        <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
-          <div className="mobile-drawer-header">
-            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')}>
-              <img src="/images/awa_group.png" alt="AWA Group" style={{ height: '36px' }} />
-              <span style={{ fontWeight: 800, color: '#111a2e' }}>AWA GROUP</span>
-            </div>
-            <button onClick={() => setMobileMenuOpen(false)} style={{ color: '#64748b' }}>
-              <X size={24} />
-            </button>
-          </div>
-
-          <ul className="mobile-nav-list">
-            {NAV_LINKS.map((link) => (
-              <li key={link.id}>
-                <button
-                  onClick={() => handleNavClick(link.id)}
-                  className={`mobile-nav-link ${currentPage === link.id ? 'active' : ''}`}
-                  style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none' }}
-                >
-                  <span>{link.label}</span>
-                </button>
-                {link.children && (
-                  <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '0.5rem' }}>
-                    {link.children.map((child, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => handleNavClick(child.id, child.subId)}
-                        style={{
-                          textAlign: 'left',
-                          padding: '0.4rem 0.5rem',
-                          fontSize: '0.875rem',
-                          color: '#64748b',
-                          background: 'none',
-                          border: 'none'
-                        }}
-                      >
-                        • {child.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid #e2e8f0' }}>
-            <button 
-              onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
-              className="btn btn-primary"
-              style={{ width: '100%', marginBottom: '1rem' }}
-            >
-              Get In Touch
-            </button>
-            <div style={{ fontSize: '0.8rem', color: '#64748b', textAlign: 'center' }}>
-              Alex: {COMPANY_CONTACT.phoneAlex}
-            </div>
-          </div>
         </div>
       </div>
     </header>

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Briefcase, Send, CheckCircle2, Award, HeartHandshake, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, CheckCircle2, Award, HeartHandshake, Sparkles } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 
 export const CareersPage: React.FC = () => {
-  const [submitted, setSubmitted] = React.useState(false);
-  const [careerForm, setCareerForm] = React.useState({
+  const [submitted, setSubmitted] = useState(false);
+  const [careerForm, setCareerForm] = useState({
     fullName: '',
     email: '',
     phone: '',
@@ -53,22 +53,24 @@ export const CareersPage: React.FC = () => {
     },
     {
       title: 'Supply Chain & Cold Logistics Coordinator',
-      location: 'Alexandria Office',
+      location: 'Alexandria Headquarters',
       department: 'Logistics & Operations',
       type: 'Full-Time',
-      desc: 'Coordinating reefer fleet distribution, temperature monitoring, and warehouse FIFO dispatch.'
+      desc: 'Coordinating reefer fleet distribution, temperature telemetry, and warehouse FIFO dispatch.'
     }
   ];
 
   return (
-    <div>
-      {/* Banner */}
-      <section className="page-banner">
+    <div className="careers-page">
+      {/* Header Banner */}
+      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
         <div className="container">
-          <span className="badge badge-dark">Join Our Team</span>
-          <h1 className="page-banner-title">Careers at AWA Group</h1>
-          <p className="page-banner-subtitle">
-            Be part of a passionate team driving food science, cutting-edge ingredient solutions, and sustainable growth across Egypt.
+          <div className="eyebrow eyebrow-dark">Join Our Team</div>
+          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
+            Careers at AWA Group
+          </h1>
+          <p className="section-desc" style={{ maxWidth: '720px' }}>
+            Be part of a passionate team driving food science, cutting-edge ingredient formulations, and sustainable industrial growth across Egypt and the region.
           </p>
         </div>
       </section>
@@ -76,67 +78,66 @@ export const CareersPage: React.FC = () => {
       {/* Why Work With Us */}
       <section className="section">
         <div className="container">
-          <div className="section-header">
-            <span className="badge">Culture & Growth</span>
+          <div className="section-header text-center">
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Culture & Growth</div>
             <h2 className="section-title">Why Build Your Career At AWA?</h2>
-            <p className="section-desc">
-              We invest in talent, provide world-class laboratory environments, and cultivate an inspiring culture of innovation.
-            </p>
           </div>
 
-          <div className="cards-3col">
-            <div style={{ background: '#ffffff', padding: '2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.25rem' }}>
-                <Sparkles size={24} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <Sparkles size={26} />
               </div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Continuous Scientific Learning</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                Access to cutting-edge pilot equipment, international supplier seminars, and hands-on food formulation mentorship.
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Scientific Learning</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                Access to state-of-the-art pilot lab equipment, international supplier technical seminars, and hands-on formulation mentorship.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', padding: '2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.25rem' }}>
-                <Award size={24} />
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <Award size={26} />
               </div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Competitive Rewards</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                Attractive compensation packages, medical insurance, transportation assistance, and performance-based bonuses.
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Competitive Rewards</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                Competitive salary structures, comprehensive medical coverage, transportation support, and performance bonus incentives.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', padding: '2rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1.25rem' }}>
-                <HeartHandshake size={24} />
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                <HeartHandshake size={26} />
               </div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Dynamic Work Culture</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                A respectful, inclusive, and collaborative environment where your ideas directly shape leading food products.
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Collaborative Culture</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                A respectful, inclusive industrial environment where your innovation directly shapes food products consumed by millions.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Open Opportunities & Application Form */}
-      <section className="section section-alt">
+      {/* Openings & Application Form */}
+      <section className="section section-stone">
         <div className="container">
-          <div className="contact-grid">
-            {/* Openings list */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem' }}>
+            {/* Job Openings */}
             <div>
-              <span className="badge">Current Opportunities</span>
-              <h2 className="section-title" style={{ fontSize: '2rem' }}>Featured Job Openings</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
+              <div className="eyebrow">Current Vacancies</div>
+              <h2 className="section-title" style={{ fontSize: '2.2rem' }}>Featured Opportunities</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
                 {openings.map((job, idx) => (
-                  <div key={idx} style={{ background: '#ffffff', padding: '1.75rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                  <div key={idx} style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                      <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#111a2e' }}>{job.title}</h4>
-                      <span className="badge" style={{ margin: 0, fontSize: '0.75rem' }}>{job.type}</span>
+                      <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>{job.title}</h4>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--primary)', background: 'var(--primary-light)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-full)' }}>
+                        {job.type}
+                      </span>
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: '#128d46', fontWeight: 600, marginBottom: '0.5rem' }}>
+                    <div style={{ fontSize: '0.825rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '0.75rem' }}>
                       {job.department} • {job.location}
                     </div>
-                    <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: '1.5' }}>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
                       {job.desc}
                     </p>
                   </div>
@@ -144,66 +145,66 @@ export const CareersPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Application form */}
-            <div className="contact-card">
-              <span className="badge">Direct Application</span>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#111a2e', marginBottom: '1.5rem' }}>
+            {/* Direct Application Form */}
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: 'fit-content' }}>
+              <div className="eyebrow">Direct Application</div>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '1.5rem' }}>
                 Submit Your Resume
               </h3>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                  <CheckCircle2 size={54} color="#128d46" style={{ margin: '0 auto 1rem' }} />
-                  <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111a2e', marginBottom: '0.5rem' }}>Application Received!</h4>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                    Thank you for your interest in AWA Group. Our HR talent acquisition team will review your profile and reach out if your qualifications match our current vacancies.
+                  <CheckCircle2 size={54} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>Application Received!</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                    Thank you for your interest in AWA Group. Our HR talent team will review your qualifications and reach out.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label className="form-label">Full Name *</label>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>Full Name *</label>
                     <input
                       type="text"
                       required
-                      className="form-input"
                       placeholder="e.g. Sara Mahmoud"
                       value={careerForm.fullName}
                       onChange={(e) => setCareerForm({ ...careerForm, fullName: e.target.value })}
+                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
                     />
                   </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Email Address *</label>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>Email Address *</label>
                     <input
                       type="email"
                       required
-                      className="form-input"
                       placeholder="sara@example.com"
                       value={careerForm.email}
                       onChange={(e) => setCareerForm({ ...careerForm, email: e.target.value })}
+                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
                     />
                   </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Phone Number *</label>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>Phone Number *</label>
                     <input
                       type="tel"
                       required
-                      className="form-input"
                       placeholder="+20 1X XXXX XXXX"
                       value={careerForm.phone}
                       onChange={(e) => setCareerForm({ ...careerForm, phone: e.target.value })}
+                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
                     />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                    <div className="form-group">
-                      <label className="form-label">Target Department</label>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>Target Department</label>
                       <select
-                        className="form-select"
                         value={careerForm.department}
                         onChange={(e) => setCareerForm({ ...careerForm, department: e.target.value })}
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
                       >
                         <option value="R&D / Food Science">R&D / Food Science</option>
                         <option value="Quality Assurance / QC">Quality Assurance / QC</option>
@@ -213,12 +214,12 @@ export const CareersPage: React.FC = () => {
                       </select>
                     </div>
 
-                    <div className="form-group">
-                      <label className="form-label">Years of Experience</label>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>Years of Experience</label>
                       <select
-                        className="form-select"
                         value={careerForm.experience}
                         onChange={(e) => setCareerForm({ ...careerForm, experience: e.target.value })}
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
                       >
                         <option value="Fresh Graduate">Fresh Graduate</option>
                         <option value="1-3 years">1-3 years</option>
@@ -228,23 +229,24 @@ export const CareersPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Cover Note / LinkedIn or Portfolio URL</label>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>LinkedIn Profile / Cover Note</label>
                     <textarea
-                      className="form-textarea"
-                      placeholder="Paste your LinkedIn profile link or briefly summarize your background..."
+                      placeholder="Paste your LinkedIn link or introduce your professional background..."
                       rows={3}
                       value={careerForm.message}
                       onChange={(e) => setCareerForm({ ...careerForm, message: e.target.value })}
+                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', fontFamily: 'inherit' }}
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                    <Send size={16} /> Submit Career Profile
+                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
+                    <span>Submit Candidate Profile</span>
+                    <Send size={16} />
                   </button>
 
-                  <p style={{ fontSize: '0.75rem', color: '#94a3b8', textAlign: 'center', marginTop: '0.75rem' }}>
-                    You can also email your CV directly to <strong style={{ color: '#128d46' }}>careers@awa-group.net</strong> or {COMPANY_CONTACT.email}
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '0.5rem' }}>
+                    Or email your CV directly to <strong style={{ color: 'var(--primary)' }}>{COMPANY_CONTACT.email}</strong>
                   </p>
                 </form>
               )}

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Globe, ShieldCheck, CheckCircle2, ArrowRight, Truck, Database, Sparkles } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PageHero } from '../components/PageHero';
+import { Globe, ShieldCheck, CheckCircle2, ArrowRight, Database } from 'lucide-react';
 import { PARTNER_LOGOS } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 
@@ -8,6 +10,9 @@ interface TradingProps {
 }
 
 export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
+  const sectionRef1 = useScrollReveal();
+  const sectionRef2 = useScrollReveal();
+
   const categories = [
     {
       title: 'Hydrocolloids & Texture Stabilizers',
@@ -39,7 +44,7 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
         'Distilled Monoglycerides (DMG / E471)',
         'Sodium Stearoyl Lactylate (SSL / E481)',
         'Polysorbate 60 & 80 (Tween Series)',
-        'DATEM (Diacetyl Tartaric Acid Esters of Mono- and Diglycerides)',
+        'DATEM (Diacetyl Tartaric Acid Esters)',
         'Sodium Tripolyphosphate (STPP)',
         'Tetrasodium Pyrophosphate (TSPP)',
         'Sodium Hexametaphosphate (SHMP)'
@@ -52,52 +57,48 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
         'Acesulfame Potassium (Ace-K)',
         'Sodium Saccharin & Aspartame',
         'Whey Protein Concentrates (WPC 80 / WPC 35)',
-        'Soy Protein Isolate (SPI 90%) & Soy Protein Concentrates',
+        'Soy Protein Isolate (SPI 90%) & Concentrates',
         'Titanium Dioxide & Natural Food Colors',
-        'Enzyme Preparations (Fungal Alpha-Amylase, Lipase, Protease)'
+        'Enzyme Preparations (Alpha-Amylase, Lipase)'
       ]
     }
   ];
 
   return (
-    <div>
-      {/* Banner */}
-      <section className="page-banner">
-        <div className="container">
-          <span className="badge badge-dark">
-            <Sparkles size={14} /> Global Procurement
-          </span>
-          <h1 className="page-banner-title">Global Ingredient Trading</h1>
-          <p className="page-banner-subtitle">
-            Direct partnerships with top chemical & food ingredient manufacturers across Europe, the Americas, and Asia.
-          </p>
-        </div>
-      </section>
+    <div className="trading-page">
+      {/* Header Banner */}
+      <PageHero
+        eyebrow="Global Procurement & Sourcing"
+        title="Direct Raw Material Sourcing & Trading"
+        subtitle="Direct distribution agreements with top chemical & food ingredient manufacturers across Europe, the Americas, and Asia."
+        backgroundImage="/images/pages/trading/Image11.jpg"
+      />
 
       {/* Trading Overview */}
-      <section className="section">
+      <section className="section" ref={sectionRef1}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
-            <div>
-              <span className="badge">Reliable Supply</span>
-              <h2 className="section-title">Seamless Raw Material Procurement For Egyptian Manufacturers</h2>
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.25rem' }}>
-                With three decades of market presence, AWA Group provides unhindered access to high-purity food additives, functional hydrocolloids, and preservatives. We manage all international shipping, currency hedging, regulatory compliance, and quality auditing.
+          <div className="editorial-grid">
+            <div className="reveal-fade-left">
+              <div className="eyebrow">Reliable Supply Chain</div>
+              <h2 className="section-title">Seamless Raw Material Procurement For Regional Manufacturers</h2>
+              <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
+                With three decades of market presence, AWA Group provides unhindered access to high-purity food additives, functional hydrocolloids, and preservatives. We handle international logistics, currency hedging, regulatory compliance, and quality auditing.
               </p>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                Our strategic buffer stock stored in Alexandria and Cairo warehouses guarantees continuous supply to your production lines, eliminating downtime caused by global shipping disruptions.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
+                Our strategic buffer inventory stored in Alexandria and Cairo warehouses guarantees continuous supply to your production lines, eliminating downtime caused by global shipping disruptions.
               </p>
 
               <button onClick={onOpenQuote} className="btn btn-primary">
-                Request Ingredient Specification & Quote <ArrowRight size={16} />
+                <span>Request Ingredient Quotation</span>
+                <ArrowRight size={16} />
               </button>
             </div>
 
-            <div>
+            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
                 src="/images/pages/trading/Image11.jpg" 
-                alt="AWA Ingredient Sourcing" 
-                style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-xl)', objectFit: 'cover' }}
+                alt="AWA Raw Material Warehousing & Trading" 
+                className="editorial-img"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/blending.jpg';
                 }}
@@ -108,34 +109,34 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
       </section>
 
       {/* Ingredient Catalog Grid */}
-      <section className="section section-alt">
+      <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
-          <div className="section-header">
-            <span className="badge">Product Portfolio</span>
+          <div className="section-header reveal-fade-up">
+            <div className="eyebrow">Product Portfolio</div>
             <h2 className="section-title">Core Trading Categories</h2>
             <p className="section-desc">
               All ingredients are supplied with Certificate of Analysis (COA), MSDS, Halal, Kosher, and ISO certifications.
             </p>
           </div>
 
-          <div className="cards-2col">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
             {categories.map((cat, idx) => (
               <div
                 key={idx}
-                className="premium-card"
+                className="reveal-fade-up"
                 style={{
-                  background: '#ffffff',
+                  background: '#FFFFFF',
                   padding: '2.5rem',
-                  borderRadius: '16px',
-                  border: '1px solid #e2e8f0',
-                  boxShadow: 'var(--shadow-sm)'
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'var(--shadow-subtle)'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.5rem' }}>
                   <div style={{
                     width: '44px',
                     height: '44px',
-                    borderRadius: '10px',
+                    borderRadius: 'var(--radius-sm)',
                     background: 'var(--primary-light)',
                     display: 'flex',
                     alignItems: 'center',
@@ -144,13 +145,13 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
                   }}>
                     <Database size={22} />
                   </div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#111a2e' }}>{cat.title}</h3>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--dark-navy)' }}>{cat.title}</h3>
                 </div>
 
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                   {cat.items.map((item, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.925rem', color: '#475569' }}>
-                      <CheckCircle2 size={16} color="#128d46" style={{ minWidth: '16px' }} />
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.925rem', color: 'var(--text-main)' }}>
+                      <CheckCircle2 size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -161,21 +162,14 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
         </div>
       </section>
 
-      {/* Partner Moving Carousel */}
+      {/* Global Partner Marquee */}
       <section className="section">
         <div className="container">
-          <div className="section-header">
-            <span className="badge">Global Network</span>
+          <div className="section-header text-center">
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Global Sourcing Network</div>
             <h2 className="section-title">Strategic Sourcing Partners</h2>
-            <p className="section-desc">
-              We collaborate with globally recognized ingredient producers to bring top-tier science to Egypt.
-            </p>
           </div>
-
-          <PartnerMarquee
-            items={PARTNER_LOGOS}
-            speed="normal"
-          />
+          <PartnerMarquee items={PARTNER_LOGOS} speed="normal" />
         </div>
       </section>
     </div>
