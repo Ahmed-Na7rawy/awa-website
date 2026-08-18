@@ -53,42 +53,116 @@ export const NAV_LINKS = [
 
 export const HERO_SLIDES = [
   {
-    image: '/images/pages/home/slider1.jpg',
-    badge: 'Innovating Food Technology Since 1993',
-    title: 'Transforming The Food Industry With Advanced Solutions',
-    subtitle: 'From functional ingredient systems and custom blending to state-of-the-art R&D application labs.',
-    ctaPrimary: 'Explore Solutions',
+    image: '/images/pages/industries/image33.jpg',
+    badge: 'Industrial Food Solutions & Scale',
+    title: 'Engineering Next-Generation Food Solutions & Industrial Ingredients',
+    subtitle: 'From advanced functional compounding and custom blending to state-of-the-art R&D application pilot plants in Borg El-Arab.',
+    ctaPrimary: 'Partner With Our Food Scientists',
     ctaPrimaryTarget: 'solutions',
-    ctaSecondary: 'Contact Us',
+    ctaSecondary: 'Explore Industrial Portfolio',
+    ctaSecondaryTarget: 'products',
+  },
+  {
+    image: '/images/pages/home/s2.jpg',
+    badge: 'Application Center & Sensory Science',
+    title: 'Where Advanced Food Science Meets Industrial Formulation',
+    subtitle: 'Equipped with rheological texture analyzers, pilot dairy and meat processors, and accelerated shelf-life validation suites.',
+    ctaPrimary: 'R&D Application Center',
+    ctaPrimaryTarget: 'solutions',
+    ctaSecondary: 'Request Formulation Trial',
     ctaSecondaryTarget: 'contact',
   },
   {
-    image: '/images/pages/home/slider2.jpg',
-    badge: 'Global Supply Chain & Trading',
-    title: 'End-to-End Ingredient Sourcing & Cold Logistics',
-    subtitle: 'Connecting world-class ingredient manufacturers with premier food producers across Egypt and the Middle East.',
-    ctaPrimary: 'Trading Portfolio',
+    image: '/images/pages/home/s3.jpg',
+    badge: 'Global Sourcing & Cold Infrastructure',
+    title: 'End-to-End Raw Material Procurement & Cold-Chain Logistics',
+    subtitle: 'Connecting leading global ingredient producers across 30+ countries with 15,000 MT temperature-controlled storage and nationwide distribution.',
+    ctaPrimary: 'Global Trading Lines',
     ctaPrimaryTarget: 'trading',
-    ctaSecondary: 'Logistics Network',
+    ctaSecondary: 'Logistics Infrastructure',
     ctaSecondaryTarget: 'logistics',
-  },
-  {
-    image: '/images/pages/home/slider3.webp',
-    badge: 'Tailored Formulations & Quality Assured',
-    title: 'Your Dedicated Partner In Product Formulation',
-    subtitle: 'FSSC 22000 & ISO 9001 certified facilities dedicated to quality, texture perfection, and extended shelf life.',
-    ctaPrimary: 'Our Industries',
-    ctaPrimaryTarget: 'industries',
-    ctaSecondary: 'Discover Products',
-    ctaSecondaryTarget: 'products',
   },
 ];
 
 export const STATS = [
-  { value: '30+', label: 'Years of Excellence', detail: 'Pioneering since 1993' },
-  { value: '500+', label: 'Formulations Developed', detail: 'Tailored recipe solutions' },
-  { value: '40+', label: 'Global Sourcing Partners', detail: 'Worldwide ingredient leaders' },
-  { value: '100%', label: 'Quality Assured', detail: 'ISO 9001 & FSSC 22000 certified' },
+  { value: '33+', label: 'Years of Industrial Leadership', detail: 'Founded in 1993 in Alexandria' },
+  { value: '500+', label: 'Formulations Developed', detail: 'Tailored functional systems' },
+  { value: '15.5', label: 'MT / Hour Mixing Capacity', detail: 'Powder & liquid compounding lines' },
+  { value: '15,000', label: 'Metric Tons Storage', detail: 'Multi-temperature facilities' },
+];
+
+export interface ValueChainStage {
+  step: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  image: string;
+  metrics: string;
+  capabilities: string[];
+}
+
+export const VALUE_CHAIN_STAGES: ValueChainStage[] = [
+  {
+    step: '01',
+    title: 'Global Sourcing & Direct Trading',
+    subtitle: 'Worldwide Procurement of High-Purity Food Ingredients',
+    description: 'Direct procurement partnerships with certified manufacturers in over 30 countries. We source hydrocolloids, emulsifiers, modified starches, preservatives, plant proteins, and specialty cocoa derivatives with full COA traceability.',
+    icon: 'Globe',
+    image: '/images/pages/industries/Image7.jpg',
+    metrics: '30+ Origin Countries • Spot & Contract Supply',
+    capabilities: ['Certified Supplier Auditing', 'Comprehensive Technical Dossiers', 'Halal & Kosher Compliance', 'Bulk Import Logistics']
+  },
+  {
+    step: '02',
+    title: 'Application R&D & Sensory Labs',
+    subtitle: 'Pilot-Scale Formulation & Rheological Testing',
+    description: 'Our world-class application center replicates client factory conditions. We utilize texture profile analyzers (TPA), spectrophotometers, pilot dairy vats, and bakery test ovens to optimize mouthfeel, meltability, and shelf stability.',
+    icon: 'FlaskConical',
+    image: '/images/pages/home/s2.jpg',
+    metrics: 'Dedicated Pilot Labs • 500+ Tailored Recipes',
+    capabilities: ['Texture Profile Analysis (TPA)', 'Syneresis & Shelf-Life Studies', 'Cost-Optimized Recipe Engineering', 'Clean-Label Conversion']
+  },
+  {
+    step: '03',
+    title: 'High-Capacity Compounding & Blending',
+    subtitle: 'Precision Automated Powder & Liquid Production',
+    description: 'Equipped with 5.5 MT/hour dry powder blenders, 10 MT/hour liquid compounding tanks, and automated micro-ingredient dosing in New Borg El-Arab City ensuring batch-to-batch homogeneity.',
+    icon: 'Factory',
+    image: '/images/pages/industries/image33.jpg',
+    metrics: '15.5 MT/HR Capacity • Cleanroom Environment',
+    capabilities: ['Dust-Free Pneumatic Conveying', 'Micro-Dosing Automation', 'Liquid & Powder Homogenization', 'Custom Batch Packaging']
+  },
+  {
+    step: '04',
+    title: 'Quality Assurance & Food Safety',
+    subtitle: 'FSSC 22000 & ISO 9001 Batch Certification',
+    description: 'Every incoming raw material and finished blend undergoes rigorous microbiological, physical, and chemical assay testing in our internal laboratories before release.',
+    icon: 'ShieldCheck',
+    image: '/images/pages/home/about.jpg',
+    metrics: '100% Batch Traceability • Zero Chemical Cyclamates',
+    capabilities: ['Microbiological Assay Testing', 'Heavy Metal & Moisture Profiling', 'ISO 9001:2015 & FSSC 22000 Certified', 'Batch Release COA Protocol']
+  },
+  {
+    step: '05',
+    title: 'Cold-Chain Logistics & Distribution',
+    subtitle: '15,000 MT Temperature-Controlled Warehousing',
+    description: 'Modern multi-temperature bonded storage in Alexandria, Cairo, and Borg El-Arab backed by our dedicated refrigerated distribution fleet ensuring rapid, uninterrupted supply to factories.',
+    icon: 'Truck',
+    image: '/images/pages/home/s3.jpg',
+    metrics: '15,000 MT Storage • 24/48hr Regional Dispatch',
+    capabilities: ['Multi-Temperature Ambient & Cold Storage', 'Bonded Customs Clearance', 'Refrigerated GPS Fleet', 'Just-In-Time Plant Delivery']
+  },
+  {
+    step: '06',
+    title: 'Retail FMCG & Contract Packaging',
+    subtitle: 'Commercial Brand Development & Co-Packing',
+    description: 'High-speed automated packaging lines for retail table-top sweeteners (Sweet & Slim), barista dessert purées (SquEasy), and instant specialty beverage powders (Yalla Drinks).',
+    icon: 'PackageCheck',
+    image: '/images/pages/home/s4.jpg',
+    metrics: '3 Market-Leading Brands • High-Speed Form-Fill-Seal',
+    capabilities: ['Precision Sachet Stick Packing', 'No-Drip Silicone Bottle Bottling', 'Multi-Head Powder Canning', 'Private Label FMCG Co-Manufacturing']
+  }
 ];
 
 export const CORE_PILLARS = [
@@ -97,7 +171,7 @@ export const CORE_PILLARS = [
     title: 'Solutions & Innovation',
     subtitle: 'Application Centers & Custom Formulation',
     description: 'Our world-class application lab and food scientists develop tailor-made recipes, stabilization systems, and texture enhancers for all dairy, bakery, meat, and beverage sectors.',
-    image: '/images/pages/home/rnd.jpg',
+    image: '/images/pages/home/s2.jpg',
     icon: 'FlaskConical',
     actionText: 'Discover Solutions',
     page: 'solutions',
@@ -108,7 +182,7 @@ export const CORE_PILLARS = [
     title: 'Global Trading',
     subtitle: 'Premium Ingredient Sourcing',
     description: 'Exclusive partnerships with leading global manufacturers providing high-purity preservatives, hydrocolloids, emulsifiers, acidulants, proteins, and specialty additives.',
-    image: '/images/pages/home/blending.jpg',
+    image: '/images/pages/industries/Image7.jpg',
     icon: 'Globe',
     actionText: 'View Ingredient Lines',
     page: 'trading',
@@ -119,7 +193,7 @@ export const CORE_PILLARS = [
     title: 'Logistics & Cold Chain',
     subtitle: 'Temperature Controlled Infrastructure',
     description: 'Fully integrated supply chain management featuring modern warehousing, bonded customs clearance, and refrigerated distribution fleets guaranteeing product integrity.',
-    image: '/images/pages/home/logistics.jpg',
+    image: '/images/pages/home/s3.jpg',
     icon: 'Truck',
     actionText: 'Explore Logistics',
     page: 'logistics',
@@ -130,7 +204,7 @@ export const CORE_PILLARS = [
     title: 'Industries & Manufacturing',
     subtitle: 'Precision Blending & Packaging',
     description: 'Modern manufacturing plants in New Borg El-Arab City producing functional powder blends, nutraceuticals, liquid syrups, and consumer retail innovations.',
-    image: '/images/pages/home/customercare.jpg',
+    image: '/images/pages/industries/image33.jpg',
     icon: 'Factory',
     actionText: 'Explore Manufacturing',
     page: 'industries',
@@ -139,14 +213,54 @@ export const CORE_PILLARS = [
 ];
 
 export const FOOD_SECTORS = [
-  { name: 'Dairy & Cheese', icon: '/images/pages/home/icons/cheese.png', desc: 'Processed cheese, yogurt, UHT milk, desserts & whipped creams.' },
-  { name: 'Meat & Poultry', icon: '/images/pages/home/icons/meat.png', desc: 'Sausages, burgers, luncheon, nuggets & marinated cuts.' },
-  { name: 'Bakery & Pastry', icon: '/images/pages/home/icons/breads.png', desc: 'Bread improvers, sponge cakes, fillings & glaze systems.' },
-  { name: 'Biscuits & Cookies', icon: '/images/pages/home/icons/cookies.png', desc: 'Texture modifiers, fat replacers & specialty leavening.' },
-  { name: 'Beverages & Juices', icon: '/images/pages/home/icons/cocktail.png', desc: 'Emulsions, clouding agents, juice concentrates & blends.' },
-  { name: 'Ice Cream & Frozen', icon: '/images/pages/home/icons/ice-cream.png', desc: 'Melt-down resistance, overrun stability & creaminess enhancers.' },
-  { name: 'Sauces & Condiments', icon: '/images/pages/home/icons/chili-sauce.png', desc: 'Mayonnaise, ketchup, dressings & cold-process thickeners.' },
-  { name: 'Proteins & Nutrition', icon: '/images/pages/home/icons/proteins.png', desc: 'Whey protein concentrates, plant proteins & nutraceutical blends.' },
+  { 
+    id: 'dairy',
+    name: 'Dairy & Cheese Systems', 
+    icon: '/images/pages/home/icons/cheese.png',
+    image: '/images/pages/home/s1.jpg',
+    desc: 'Stabilizer blends for processed cheese blocks, cream cheese, labneh, stirred yogurt, and UHT dairy creams.',
+    highlights: ['Syneresis Prevention', 'Melt & Stretch Optimization', 'Yield Maximization', 'Fat & Solids Replacement']
+  },
+  { 
+    id: 'meat',
+    name: 'Meat & Savory Systems', 
+    icon: '/images/pages/home/icons/meat.png', 
+    image: '/images/pages/home/s2.jpg',
+    desc: 'Functional protein blends, phosphates, texturizers, and antimicrobial shelf-life extenders for poultry, beef, and processed cuts.',
+    highlights: ['Water Binding 1:5', 'Cooking Loss Reduction', 'Emulsion Stability', 'Bite & Firmness Enhancement']
+  },
+  { 
+    id: 'bakery',
+    name: 'Bakery & Confectionery', 
+    icon: '/images/pages/home/icons/breads.png', 
+    image: '/images/pages/solutions/Image24.jpg',
+    desc: 'Enzyme-based bread improvers, anti-staling systems, sponge cake emulsifiers, and moisture-retaining glazes.',
+    highlights: ['Crumb Softness Extension', 'Volume & Oven Spring', 'Sugar Reduction Systems', 'Freeze-Thaw Stability']
+  },
+  { 
+    id: 'sauces',
+    name: 'Sauces, Dressings & Culinary', 
+    icon: '/images/pages/home/icons/chili-sauce.png', 
+    image: '/images/pages/products/SquEasy.png',
+    desc: 'Cold-process modified starches, hydrocolloid texturizers, and emulsifiers for mayonnaise, ketchup, and salad dressings.',
+    highlights: ['Shear & Thermal Stability', 'No-Drip Squeeze Viscosity', 'Oil Droplet Suspension', 'Low-Fat Formulation']
+  },
+  { 
+    id: 'beverages',
+    name: 'Beverages, Frappes & Syrups', 
+    icon: '/images/pages/home/icons/cocktail.png', 
+    image: '/images/pages/products/frapit.jpg',
+    desc: 'Instant barista beverage bases, clouding agents, foaming boosters, and premium natural flavor essences.',
+    highlights: ['Dense Microfoam Overrun', 'Instant Hot & Cold Dissolution', 'Natural Clouding Agents', 'Zero Syneresis in Acidic Media']
+  },
+  { 
+    id: 'proteins',
+    name: 'Plant Proteins & Biotechnology', 
+    icon: '/images/pages/home/icons/proteins.png', 
+    image: '/images/pages/about/bg_about.jpg',
+    desc: 'Non-GMO soy protein isolates (90%), textured vegetable protein (TVP), and AWABEY natural soapwort extracts.',
+    highlights: ['90%+ Isolated Soy Protein', 'Clean-Label Foaming Saponins', 'Meat Analogue Textures', 'Hypoallergenic Emulsions']
+  },
 ];
 
 export const CERTIFICATIONS = [

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -7,21 +7,19 @@ import {
   FlaskConical, 
   Globe, 
   Truck, 
-  Factory,
-  ShieldCheck,
-  Award,
-  Zap,
-  Building2,
-  ChevronDown
+  Factory, 
+  ShieldCheck, 
+  Award, 
+  PackageCheck, 
+  Check
 } from 'lucide-react';
 import { 
   HERO_SLIDES, 
   STATS, 
-  CORE_PILLARS, 
+  VALUE_CHAIN_STAGES, 
   FOOD_SECTORS, 
   PRODUCTS_LIST,
-  CLIENT_LOGOS,
-  CERTIFICATIONS
+  CLIENT_LOGOS
 } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -49,13 +47,11 @@ const AnimatedStat: React.FC<{ value: string; label: string; detail: string; del
 
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activePillarIndex, setActivePillarIndex] = useState(0);
-  const [pillarTransitioning, setPillarTransitioning] = useState(false);
 
   const statsRef = useScrollReveal();
   const manifestoRef = useScrollReveal();
-  const pillarsRef = useScrollReveal();
-  const sectorsRef = useScrollReveal();
+  const valueChainRef = useScrollReveal();
+  const matrixRef = useScrollReveal();
   const brandsRef = useScrollReveal();
   const marqueeRef = useScrollReveal();
   const ctaRef = useScrollReveal();
@@ -64,30 +60,21 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 7000);
+    }, 7500);
     return () => clearInterval(timer);
   }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
 
-  const activePillar = CORE_PILLARS[activePillarIndex];
-
-  const handlePillarChange = (idx: number) => {
-    if (idx === activePillarIndex) return;
-    setPillarTransitioning(true);
-    setTimeout(() => {
-      setActivePillarIndex(idx);
-      setPillarTransitioning(false);
-    }, 250);
-  };
-
-  const getPillarIcon = (iconName: string) => {
+  const getStageIcon = (iconName: string) => {
     switch (iconName) {
-      case 'FlaskConical': return <FlaskConical size={24} />;
       case 'Globe': return <Globe size={24} />;
-      case 'Truck': return <Truck size={24} />;
+      case 'FlaskConical': return <FlaskConical size={24} />;
       case 'Factory': return <Factory size={24} />;
+      case 'ShieldCheck': return <ShieldCheck size={24} />;
+      case 'Truck': return <Truck size={24} />;
+      case 'PackageCheck': return <PackageCheck size={24} />;
       default: return <Award size={24} />;
     }
   };
@@ -96,12 +83,11 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const featuredBrand = retailBrands[0];
   const secondaryBrands = retailBrands.slice(1);
 
-  // Slide progress for hero
-  const slideProgress = ((currentSlide + 1) / HERO_SLIDES.length) * 100;
-
   return (
     <div className="home-page">
-      {/* 1. Cinematic Hero Section with Ken Burns */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 1. CINEMATIC B2B HERO SECTION                      */}
+      {/* ═══════════════════════════════════════════════════ */}
       <section className="hero-slider">
         {HERO_SLIDES.map((slide, idx) => (
           <div
@@ -112,19 +98,19 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="hero-overlay">
               <div className="container">
                 <div className="hero-content">
-                  {/* Executive Company Name & Slogan Badge */}
+                  {/* Executive Company Name & Regional Slogan Badge */}
                   <div 
                     className="hero-corp-badge"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.85rem',
-                      background: 'rgba(15, 23, 42, 0.7)',
-                      backdropFilter: 'blur(14px)',
+                      background: 'rgba(8, 14, 26, 0.75)',
+                      backdropFilter: 'blur(16px)',
                       padding: '0.5rem 1.35rem 0.5rem 0.85rem',
                       borderRadius: '50px',
                       border: '1px solid rgba(255, 255, 255, 0.25)',
-                      marginBottom: '1.25rem',
+                      marginBottom: '1.5rem',
                       animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both' : 'none'
                     }}
                   >
@@ -134,10 +120,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                       style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
                     />
                     <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.1 }}>
+                      <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.08em', textTransform: 'uppercase', lineHeight: 1.1 }}>
                         AWA GROUP
                       </span>
-                      <span style={{ fontSize: '0.7rem', color: '#4ADE80', fontWeight: 700, letterSpacing: '0.02em' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#4ADE80', fontWeight: 700, letterSpacing: '0.02em' }}>
                         Your Regional Sustainable Partner
                       </span>
                     </div>
@@ -146,15 +132,18 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <div className="eyebrow eyebrow-dark" style={{ animationDelay: '0.2s', animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both' : 'none' }}>
                     <span>{slide.badge}</span>
                   </div>
+
                   <h1 className="hero-title" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both' : 'none' }}>
                     {slide.title}
                   </h1>
+
                   <p className="hero-subtitle" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' : 'none' }}>
                     {slide.subtitle}
                   </p>
+
                   <div className="hero-buttons" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both' : 'none' }}>
                     <button
-                      onClick={() => onNavigate(slide.ctaPrimaryTarget)}
+                      onClick={onOpenQuote}
                       className="btn btn-primary"
                     >
                       <span>{slide.ctaPrimary}</span>
@@ -173,26 +162,53 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           </div>
         ))}
 
-        {/* Slide Controls with Progress */}
+        {/* Hero Vertical Slider Controls */}
         <div className="hero-controls">
           <button onClick={prevSlide} className="hero-btn-arrow" aria-label="Previous Slide">
             <ChevronLeft size={20} />
           </button>
-          <div className="hero-progress-bar">
-            <div className="hero-progress-fill" style={{ width: `${slideProgress}%` }} />
+          <div className="hero-slide-counter">
+            <span className="hero-slide-current">{String(currentSlide + 1).padStart(2, '0')}</span>
+            <span className="hero-slide-sep">/</span>
+            <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>{String(HERO_SLIDES.length).padStart(2, '0')}</span>
           </div>
           <button onClick={nextSlide} className="hero-btn-arrow" aria-label="Next Slide">
             <ChevronRight size={20} />
           </button>
-          <div className="hero-slide-counter">
-            <span className="hero-slide-current">{String(currentSlide + 1).padStart(2, '0')}</span>
-            <span className="hero-slide-sep">/</span>
-            <span className="hero-slide-total">{String(HERO_SLIDES.length).padStart(2, '0')}</span>
+        </div>
+
+        {/* Integrated Executive Proof Bar */}
+        <div className="hero-proof-bar">
+          <div className="container">
+            <div className="hero-proof-grid">
+              <div className="hero-proof-item">
+                <div className="hero-proof-val">1993</div>
+                <div className="hero-proof-lbl">Founded in Alexandria, Egypt</div>
+              </div>
+              <div className="hero-proof-item">
+                <div className="hero-proof-val">15.5 MT</div>
+                <div className="hero-proof-lbl">Hourly Powder & Liquid Mixing</div>
+              </div>
+              <div className="hero-proof-item">
+                <div className="hero-proof-val">15,000 MT</div>
+                <div className="hero-proof-lbl">Multi-Temperature Warehousing</div>
+              </div>
+              <div className="hero-proof-item">
+                <div className="hero-proof-val">500+</div>
+                <div className="hero-proof-lbl">Custom Industrial Recipes</div>
+              </div>
+              <div className="hero-proof-item">
+                <div className="hero-proof-val">FSSC</div>
+                <div className="hero-proof-lbl">22000 & ISO 9001 Certified</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Stats Strip with Count-Up Animation */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 2. STATS STRIP WITH LIVE COUNT-UP                  */}
+      {/* ═══════════════════════════════════════════════════ */}
       <section className="stats-strip" ref={statsRef}>
         <div className="container">
           <div className="stats-grid">
@@ -209,77 +225,82 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 3. Editorial Company Manifesto with Scroll Reveal */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 3. EDITORIAL CORPORATE AUTHORITY & SCALE SECTION   */}
+      {/* ═══════════════════════════════════════════════════ */}
       <section className="section" ref={manifestoRef}>
         <div className="container">
           <div className="editorial-grid">
             <div className="reveal-fade-left">
-              <div className="eyebrow">Who We Are</div>
-              <h2 className="section-title">
-                Pioneering Food Technology & Supply Chain Excellence in Egypt Since 1993
+              <div className="eyebrow">Corporate Scale & Authority</div>
+              <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', lineHeight: 1.18, marginBottom: '1.5rem' }}>
+                Bridging Global Food Science With Industrial Scale Across The Middle East
               </h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
-                Founded in 1993, <strong>AWA Group</strong> has grown to become Egypt's foremost supplier of innovative food systems, custom functional blends, and top-tier raw ingredients. We empower food manufacturers with deep technical knowledge, world-class application testing, and robust end-to-end supply chain infrastructure.
+                Founded in 1993, <strong>AWA Group</strong> is an established food science and manufacturing powerhouse. We partner with the world's most demanding food brands, dairy conglomerates, industrial bakeries, and meat processors to engineer custom functional ingredient matrices and secure direct global supply chains.
               </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '2rem' }}>
-                Operating from our Alexandria headquarters, Cairo commercial offices, and state-of-the-art manufacturing plants in New Borg El-Arab City, we bridge global food science with local industrial needs.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.975rem', lineHeight: '1.75', marginBottom: '2rem' }}>
+                Operating from our headquarters in Alexandria, commercial offices in Cairo, and high-capacity automated production facilities in New Borg El-Arab City, our multi-disciplinary team of food scientists, rheologists, and chemical engineers turn formulation challenges into competitive market advantages.
               </p>
 
-              <div className="feature-checklist">
+              {/* Verified Capabilities Checklist */}
+              <div className="feature-checklist" style={{ gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '2.5rem' }}>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Dedicated R&D Labs</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Custom formulation & pilot testing</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Pilot Formulation Labs</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Replicating client factory conditions</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Global Direct Sourcing</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>40+ certified global suppliers</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Direct Global Sourcing</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Audited producers in 30+ countries</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>Cold Logistics Fleet</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Temperature-controlled transport</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Automated Compounding</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>5.5 MT/hr powder & 10 MT/hr liquid</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 700, fontSize: '0.925rem' }}>FSSC 22000 & ISO</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Highest global food safety standard</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>FSSC 22000 & Halal</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Rigorous batch-by-batch release COA</span>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <button onClick={() => onNavigate('about')} className="btn btn-primary">
-                  Read Corporate Profile <ArrowRight size={16} />
+                  <span>Explore Group Profile</span>
+                  <ArrowRight size={16} />
                 </button>
                 <button onClick={onOpenQuote} className="btn btn-secondary">
-                  Contact Technical Experts
+                  Schedule Technical Consultation
                 </button>
               </div>
             </div>
 
+            {/* Visual Editorial Image Column */}
             <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
-                src="/images/pages/home/about.jpg" 
-                alt="AWA Food Solutions Innovation Facility"
+                src="/images/pages/home/s2.jpg" 
+                alt="AWA Group R&D Application & Formulation Center"
                 className="editorial-img"
-                style={{ minHeight: '460px' }}
+                style={{ minHeight: '500px', objectFit: 'cover' }}
               />
               <div className="editorial-caption-box">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
-                  <ShieldCheck size={22} color="#4ADE80" />
-                  <span style={{ fontWeight: 800, fontSize: '1.05rem', color: '#FFFFFF' }}>100% Quality Assurance</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem' }}>
+                  <ShieldCheck size={24} color="#4ADE80" />
+                  <span style={{ fontWeight: 900, fontSize: '1.1rem', color: '#FFFFFF' }}>Borg El-Arab Application Center</span>
                 </div>
-                <div style={{ fontSize: '0.825rem', color: '#CBD5E1' }}>
-                  Complete traceability, stringent sensory analysis, and pilot lab validation for every batch.
+                <div style={{ fontSize: '0.85rem', color: '#CBD5E1', lineHeight: '1.6' }}>
+                  Equipped with texture analyzers, spectrophotometers, pilot dairy vats, and accelerated thermal stability test suites.
                 </div>
               </div>
             </div>
@@ -287,100 +308,99 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 4. Interactive 4-Pillar Division Showcase */}
-      <section className="section section-stone" ref={pillarsRef}>
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 4. THE 6-STAGE INDUSTRIAL VALUE CHAIN (01 TO 06)   */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <section className="value-chain-section" ref={valueChainRef}>
         <div className="container">
-          <div className="section-header reveal-fade-up">
-            <div className="eyebrow">Four Strategic Divisions</div>
-            <h2 className="section-title">Comprehensive Food Industry Infrastructure</h2>
-            <p className="section-desc">
-              From laboratory concept formulation to raw material sourcing, temperature-controlled distribution, and end consumer manufacturing.
+          <div className="section-header text-center reveal-fade-up">
+            <div className="eyebrow eyebrow-dark" style={{ justifyContent: 'center' }}>Integrated Food Architecture</div>
+            <h2 className="section-title" style={{ color: '#FFFFFF', fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
+              The AWA Industrial Value Chain
+            </h2>
+            <p className="section-desc" style={{ color: '#94A3B8', margin: '0 auto', maxWidth: '760px' }}>
+              How AWA Group empowers industrial food manufacturers end-to-end: from global raw material procurement to custom pilot formulation, high-capacity blending, and temperature-controlled logistics.
             </p>
           </div>
 
-          <div className="pillars-editorial reveal-fade-up reveal-delay-2">
-            <div className="pillar-tab-list">
-              {CORE_PILLARS.map((pillar, idx) => (
-                <div
-                  key={pillar.id}
-                  className={`pillar-tab-item ${activePillarIndex === idx ? 'active' : ''}`}
-                  onClick={() => handlePillarChange(idx)}
-                >
-                  <div className="pillar-tab-icon">
-                    {getPillarIcon(pillar.icon)}
-                  </div>
-                  <div>
-                    <div className="pillar-tab-title">{pillar.title}</div>
-                    <div className="pillar-tab-sub">{pillar.subtitle}</div>
+          <div className="value-chain-grid">
+            {VALUE_CHAIN_STAGES.map((stage, idx) => (
+              <div 
+                key={stage.step}
+                className="value-chain-card reveal-fade-up"
+                style={{ transitionDelay: `${0.1 + idx * 0.1}s` }}
+              >
+                <div className="value-chain-header">
+                  <span className="value-chain-step">{stage.step}</span>
+                  <div className="value-chain-icon-wrap">
+                    {getStageIcon(stage.icon)}
                   </div>
                 </div>
-              ))}
-            </div>
 
-            <div className={`pillar-display-card ${pillarTransitioning ? 'pillar-transitioning' : ''}`}>
-              <img 
-                src={activePillar.image} 
-                alt={activePillar.title} 
-                className="pillar-display-img"
-              />
-              <div className="pillar-display-body">
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                  {activePillar.title}
-                </h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.65', marginBottom: '1.5rem' }}>
-                  {activePillar.description}
-                </p>
-                <div style={{ fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                  Key Divisional Capabilities:
+                <h3 className="value-chain-title">{stage.title}</h3>
+                <div className="value-chain-subtitle">{stage.subtitle}</div>
+                <p className="value-chain-desc">{stage.description}</p>
+
+                <div className="value-chain-metrics-tag">
+                  {stage.metrics}
                 </div>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '2rem' }}>
-                  {activePillar.features.map((feature, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.925rem', color: 'var(--text-main)' }}>
-                      <CheckCircle2 size={16} color="var(--primary)" /> <span>{feature}</span>
+
+                <ul className="value-chain-caps">
+                  {stage.capabilities.map((cap, cIdx) => (
+                    <li key={cIdx} className="value-chain-cap-item">
+                      <Check size={14} color="#4ADE80" style={{ flexShrink: 0 }} />
+                      <span>{cap}</span>
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => onNavigate(activePillar.page)}
-                  className="btn btn-primary"
-                  style={{ width: '100%' }}
-                >
-                  <span>{activePillar.actionText}</span>
-                  <ArrowRight size={16} />
-                </button>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Food Sectors — Visual Showcase */}
-      <section className="section" ref={sectorsRef}>
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 5. SPECIALIZED FOOD MATRIX SOLUTIONS (ASYMMETRIC)  */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <section className="matrix-asymmetric-section" ref={matrixRef}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow">Industries & Applications</div>
-            <h2 className="section-title">Specialized Food Matrix Solutions</h2>
+            <div className="eyebrow">Industry Sectors & Matrix Solutions</div>
+            <h2 className="section-title">Specialized Food Matrix Formulations</h2>
             <p className="section-desc">
-              We provide tailored functional blends and ingredient systems designed specifically for diverse processing conditions.
+              Tailored functional stabilizer systems, protein networks, emulsifiers, and shelf-life extenders designed for specific industrial processing conditions.
             </p>
           </div>
 
-          <div className="sectors-visual-grid">
+          <div className="matrix-editorial-grid">
             {FOOD_SECTORS.map((sector, idx) => (
               <div 
-                key={idx} 
-                className={`sector-visual-card reveal-fade-up`}
-                style={{ transitionDelay: `${0.1 + idx * 0.05}s` }}
-                onClick={() => onNavigate('solutions')}
+                key={sector.id}
+                className="matrix-editorial-card reveal-fade-up"
+                style={{ transitionDelay: `${0.1 + idx * 0.08}s`, cursor: 'pointer' }}
+                onClick={() => onNavigate('solutions', sector.id)}
               >
-                <div className="sector-visual-icon">
-                  <img src={sector.icon} alt={sector.name} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                <div className="matrix-card-img-wrap">
+                  <img src={sector.image} alt={sector.name} className="matrix-card-img" />
+                  <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#FFFFFF', padding: '0.4rem', borderRadius: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                    <img src={sector.icon} alt={sector.name} style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+                  </div>
                 </div>
-                <h4 className="sector-visual-name">{sector.name}</h4>
-                <p className="sector-visual-desc">{sector.desc}</p>
-                <div className="sector-visual-link">
-                  <span>Explore</span>
-                  <ArrowRight size={14} />
+
+                <div className="matrix-card-body">
+                  <h3 className="matrix-card-title">{sector.name}</h3>
+                  <p className="matrix-card-desc">{sector.desc}</p>
+
+                  <div className="matrix-pill-list">
+                    {sector.highlights.map((h, hIdx) => (
+                      <span key={hIdx} className="matrix-pill">{h}</span>
+                    ))}
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 800, fontSize: '0.875rem', marginTop: 'auto' }}>
+                    <span>Explore Formulation Systems</span>
+                    <ArrowRight size={15} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -388,14 +408,16 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 6. B2C Consumer Brands — Editorial Portfolio */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 6. B2C & FMCG BRAND PORTFOLIO                      */}
+      {/* ═══════════════════════════════════════════════════ */}
       <section className="section section-dark" ref={brandsRef}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow eyebrow-dark">Consumer Products</div>
+            <div className="eyebrow eyebrow-dark">Consumer Products & Co-Manufacturing</div>
             <h2 className="section-title">AWA Retail & FMCG Brand Portfolio</h2>
             <p className="section-desc">
-              Developed and manufactured in our Borg El-Arab facilities to deliver taste, quality, and convenience to retail consumers.
+              Developed and manufactured in our Borg El-Arab facilities to deliver taste, zero-calorie wellness, and barista-grade convenience to retail and foodservice markets.
             </p>
           </div>
 
@@ -410,7 +432,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 />
               </div>
               <div className="brand-featured-content">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.15rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.15rem', flexWrap: 'wrap' }}>
                   {featuredBrand.logo && (
                     <div style={{ background: '#FFFFFF', padding: '0.35rem 0.85rem', borderRadius: '10px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
                       <img src={featuredBrand.logo} alt={featuredBrand.name} style={{ height: '28px', maxWidth: '130px', objectFit: 'contain' }} />
@@ -447,7 +469,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <img src={brand.image} alt={brand.name} className="brand-secondary-img" />
                 </div>
                 <div className="brand-secondary-body">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.85rem', flexWrap: 'wrap' }}>
                     {brand.logo && (
                       <div style={{ background: '#FFFFFF', padding: '0.25rem 0.65rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                         <img src={brand.logo} alt={brand.name} style={{ height: '22px', maxWidth: '100px', objectFit: 'contain' }} />
@@ -474,7 +496,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             ))}
           </div>
 
-          {/* 6.1 Interactive Corporate & Brand Ecosystem Marquee / Grid */}
+          {/* Operating Companies & Brands Ecosystem Bar */}
           <div style={{ marginTop: '3.5rem', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4ADE80' }}>
@@ -533,12 +555,17 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 7. Partner & Client Marquee */}
-      <section className="section" style={{ padding: '4.5rem 0' }} ref={marqueeRef}>
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 7. TRUSTED BY LEADING REGIONAL FOOD MANUFACTURERS  */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <section className="section" style={{ padding: '5rem 0', background: '#F8FAFC' }} ref={marqueeRef}>
         <div className="container">
-          <div className="section-header text-center reveal-fade-up" style={{ marginBottom: '2.5rem' }}>
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>Global Ecosystem</div>
-            <h2 className="section-title" style={{ fontSize: '2rem' }}>Trusted by Leading Regional Food Manufacturers</h2>
+          <div className="section-header text-center reveal-fade-up" style={{ marginBottom: '2.75rem' }}>
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Enterprise Partnerships</div>
+            <h2 className="section-title" style={{ fontSize: '2.25rem' }}>Trusted by Leading Regional Food Manufacturers</h2>
+            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '680px' }}>
+              We supply custom stabilization systems and functional ingredients to the Middle East's premier industrial food and beverage brands.
+            </p>
           </div>
           <div className="reveal-fade-up reveal-delay-1">
             <PartnerMarquee items={CLIENT_LOGOS} />
@@ -546,26 +573,40 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 8. High-Impact Closing Call to Action */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 8. EXECUTIVE B2B CLOSING CALL TO ACTION            */}
+      {/* ═══════════════════════════════════════════════════ */}
       <section className="cta-banner" ref={ctaRef}>
-        <div className="container cta-inner">
-          <div style={{ maxWidth: '680px' }} className="reveal-fade-left">
-            <div className="eyebrow eyebrow-dark">Partner With AWA</div>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1rem' }}>
-              Ready to Upgrade Your Food Formulations & Supply Chain?
-            </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.1rem', lineHeight: '1.65' }}>
-              Contact our application scientists and supply chain specialists today to discuss technical formulations, sample requests, or bulk ingredient contracts.
-            </p>
-          </div>
-          <div className="reveal-fade-right reveal-delay-2" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flexShrink: 0 }}>
-            <button onClick={onOpenQuote} className="btn btn-cta-primary">
-              <span>Request Solution Quote</span>
-              <ArrowRight size={16} />
-            </button>
-            <button onClick={() => onNavigate('contact')} className="btn btn-outline-white">
-              Contact Alexandria Headquarters
-            </button>
+        <div className="container">
+          <div className="cta-inner">
+            <div className="reveal-fade-left">
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4ADE80', marginBottom: '0.5rem' }}>
+                Start Your Formulation Trial
+              </div>
+              <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 900, lineHeight: 1.2, marginBottom: '0.75rem' }}>
+                Engineer Better Food Solutions With AWA Group
+              </h2>
+              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '640px', lineHeight: 1.7 }}>
+                Whether you need specialized texture stabilization, cost-optimized dairy recipes, plant-based protein isolates, or guaranteed cold-chain delivery, our technical team is ready to assist.
+              </p>
+            </div>
+            <div className="reveal-fade-right" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <button 
+                onClick={onOpenQuote}
+                className="btn btn-cta-primary"
+                style={{ padding: '1rem 2rem', fontSize: '1rem' }}
+              >
+                <span>Partner With AWA</span>
+                <ArrowRight size={18} />
+              </button>
+              <button 
+                onClick={() => onNavigate('solutions')}
+                className="btn btn-outline-white"
+                style={{ padding: '1rem 2rem', fontSize: '1rem' }}
+              >
+                <span>Explore Solutions Matrix</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
