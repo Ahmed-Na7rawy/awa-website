@@ -31,6 +31,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
       id: 'additives',
       name: 'AWA Food Additives Co.',
       est: 'Est. 1993',
+      logo: '/images/logos/awa group logo no background.png',
       tagline: 'Global Raw Materials Sourcing & Bulk Trading',
       desc: 'The foundational pillar of AWA Group. Engaging in the worldwide procurement, supply chain logistics, and distribution of high-purity food chemicals, natural starches, hydrocolloids, and certified processing aids for top industrial manufacturers.',
       icon: <PackageCheck size={28} color="#0284C7" />,
@@ -42,6 +43,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
       id: 'solutions',
       name: 'AWA Food Solutions',
       est: 'Est. 2010',
+      logo: '/images/logos/awa group logo no background.png',
       tagline: 'Custom Functional Blends & Pilot R&D Center',
       desc: 'State-of-the-art compounding unit developing tailored stabilizer systems, emulsifiers, shelf-life extenders, and flavor pre-mixes formulated to exact client technical specifications and processing conditions.',
       icon: <Microscope size={28} color="#10B981" />,
@@ -53,6 +55,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
       id: 'bio',
       name: 'AWA Bio Ingredients',
       est: 'Est. 2020',
+      logo: '/images/logos/awa group logo no background.png',
       tagline: 'Natural Oleoresins, Essential Oils & Extracts',
       desc: 'Pioneering green biotechnology extraction of high-potency spice oleoresins, certified pure essential oils, and antioxidant botanical extracts delivering authentic flavor profiles with clean-label transparency.',
       icon: <Leaf size={28} color="#8B5CF6" />,
@@ -64,6 +67,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
       id: 'awabey',
       name: 'AWABEY Joint Venture',
       est: 'Est. 2020',
+      logo: '/images/logos/Bey Logo.png',
       tagline: 'Natural Soapwort Extract (Radix Saponariae)',
       desc: 'Exclusive joint venture utilizing modern extraction technology to produce premium-grade Soapwort root extract for traditional confectionery (Halawa Tahinia, Turkish Delight) and foaming beverage systems.',
       icon: <Droplets size={28} color="#F59E0B" />,
@@ -75,6 +79,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
       id: 'awasoy',
       name: 'AWASOY Protein Systems',
       est: 'Est. 2015',
+      logo: '/images/logos/soy.png',
       tagline: 'Isolated & Textured Plant-Based Protein',
       desc: 'Dedicated plant-protein division providing non-GMO functional soy protein isolates (90% protein), textured soy flour, and soy concentrates engineered for meat extension, dietary nutrition, and vegan formulations.',
       icon: <Layers size={28} color="#EC4899" />,
@@ -501,17 +506,20 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
                   }}
                 >
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
                       <div style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '16px',
-                        background: '#F1F5F9',
+                        height: '56px',
+                        minWidth: '85px',
+                        padding: '0.35rem 0.75rem',
+                        borderRadius: '14px',
+                        background: '#FFFFFF',
+                        border: '1.5px solid var(--border-color)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.06)'
                       }}>
-                        {current.icon}
+                        <img src={current.logo} alt={current.name} style={{ maxHeight: '42px', maxWidth: '110px', objectFit: 'contain' }} />
                       </div>
                       <div>
                         <h3 style={{ fontSize: '1.6rem', fontWeight: 900, color: 'var(--dark-navy)', marginBottom: '0.2rem' }}>

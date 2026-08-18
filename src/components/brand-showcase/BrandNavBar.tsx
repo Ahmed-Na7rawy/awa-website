@@ -17,21 +17,26 @@ export const BrandNavBar: React.FC<BrandNavBarProps> = ({
   onSelectBrand,
   onOpenQuote,
 }) => {
-  const brands: { id: 'squeasy' | 'sweet-and-slim' | 'yalla-drinks'; name: string; tag: string; color: string }[] = [
-    { id: 'squeasy', name: 'SquEasy', tag: 'Culinary Pastes', color: '#EA580C' },
-    { id: 'sweet-and-slim', name: 'Sweet & Slim', tag: '0 Cal & Mints', color: '#10B981' },
-    { id: 'yalla-drinks', name: 'Yalla Drinks', tag: 'Instant Barista', color: '#0284C7' },
+  const brands: { id: 'squeasy' | 'sweet-and-slim' | 'yalla-drinks'; name: string; tag: string; color: string; logo: string }[] = [
+    { id: 'squeasy', name: 'SquEasy', tag: 'Culinary Pastes', color: '#EA580C', logo: '/images/logos/squeasy logo.png' },
+    { id: 'sweet-and-slim', name: 'Sweet & Slim', tag: '0 Cal & Mints', color: '#10B981', logo: '/images/logos/Sweet&slim logo.png' },
+    { id: 'yalla-drinks', name: 'Yalla Drinks', tag: 'Instant Barista', color: '#0284C7', logo: '/images/logos/yalla drinks.png' },
   ];
+
+  const currentBrandObj = brands.find((b) => b.id === activeBrandId) || brands[0];
 
   return (
     <nav className="fmcg-nav-bar">
       <div className="fmcg-nav-container">
-        {/* Left: Brand Identity */}
-        <div className="fmcg-nav-brand">
-          <span
-            className="fmcg-nav-dot"
-            style={{ backgroundColor: currentBrand.theme.primary, color: currentBrand.theme.primary }}
-          />
+        {/* Left: Brand Identity with Official Logo */}
+        <div className="fmcg-nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ background: '#FFFFFF', padding: '0.2rem 0.6rem', borderRadius: '8px', display: 'flex', alignItems: 'center', boxShadow: '0 2px 6px rgba(0,0,0,0.1)' }}>
+            <img 
+              src={currentBrandObj.logo} 
+              alt={currentBrand.brandName} 
+              style={{ height: '22px', maxWidth: '80px', objectFit: 'contain' }}
+            />
+          </div>
           <span className="fmcg-nav-title">{currentBrand.brandName}</span>
           <span className="fmcg-nav-tag">AWA Retail FMCG</span>
         </div>

@@ -112,7 +112,38 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="hero-overlay">
               <div className="container">
                 <div className="hero-content">
-                  <div className="eyebrow eyebrow-dark" style={{ animationDelay: '0.2s', animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both' : 'none' }}>
+                  {/* Executive Company Name & Slogan Badge */}
+                  <div 
+                    className="hero-corp-badge"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.85rem',
+                      background: 'rgba(15, 23, 42, 0.7)',
+                      backdropFilter: 'blur(14px)',
+                      padding: '0.5rem 1.35rem 0.5rem 0.85rem',
+                      borderRadius: '50px',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
+                      marginBottom: '1.25rem',
+                      animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both' : 'none'
+                    }}
+                  >
+                    <img 
+                      src="/images/logos/awa group logo no background.png" 
+                      alt="AWA Group" 
+                      style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                      <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.1 }}>
+                        AWA GROUP
+                      </span>
+                      <span style={{ fontSize: '0.7rem', color: '#4ADE80', fontWeight: 700, letterSpacing: '0.02em' }}>
+                        Your Regional Sustainable Partner
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="eyebrow eyebrow-dark" style={{ animationDelay: '0.2s', animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both' : 'none' }}>
                     <span>{slide.badge}</span>
                   </div>
                   <h1 className="hero-title" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both' : 'none' }}>
@@ -379,7 +410,14 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 />
               </div>
               <div className="brand-featured-content">
-                <div className="b2c-tag" style={{ color: '#4ADE80' }}>{featuredBrand.brand || 'Consumer Brand'}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.15rem' }}>
+                  {featuredBrand.logo && (
+                    <div style={{ background: '#FFFFFF', padding: '0.35rem 0.85rem', borderRadius: '10px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                      <img src={featuredBrand.logo} alt={featuredBrand.name} style={{ height: '28px', maxWidth: '130px', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  <span className="b2c-tag" style={{ color: '#4ADE80', margin: 0 }}>{featuredBrand.brand || 'Consumer Brand'}</span>
+                </div>
                 <h3 style={{ fontSize: '2rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '0.75rem', lineHeight: 1.2 }}>
                   {featuredBrand.name}
                 </h3>
@@ -409,7 +447,14 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <img src={brand.image} alt={brand.name} className="brand-secondary-img" />
                 </div>
                 <div className="brand-secondary-body">
-                  <div className="b2c-tag" style={{ color: '#4ADE80' }}>{brand.brand || 'Consumer Brand'}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.85rem' }}>
+                    {brand.logo && (
+                      <div style={{ background: '#FFFFFF', padding: '0.25rem 0.65rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                        <img src={brand.logo} alt={brand.name} style={{ height: '22px', maxWidth: '100px', objectFit: 'contain' }} />
+                      </div>
+                    )}
+                    <span className="b2c-tag" style={{ color: '#4ADE80', margin: 0 }}>{brand.brand || 'Consumer Brand'}</span>
+                  </div>
                   <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '0.5rem' }}>
                     {brand.name}
                   </h4>
@@ -427,6 +472,63 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* 6.1 Interactive Corporate & Brand Ecosystem Marquee / Grid */}
+          <div style={{ marginTop: '3.5rem', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '2rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4ADE80' }}>
+                Group Operating Companies & Consumer Brands
+              </div>
+              <h4 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 800, marginTop: '0.25rem' }}>
+                One Cohesive Food Science & Manufacturing Powerhouse
+              </h4>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', alignItems: 'center' }}>
+              {[
+                { name: 'AWA Group', logo: '/images/logos/awa group logo no background.png', type: 'Parent Group', bg: '#FFFFFF' },
+                { name: 'AWABEY Soapwort', logo: '/images/logos/Bey Logo.png', type: 'Joint Venture', bg: '#FFFFFF' },
+                { name: 'AWASOY Protein', logo: '/images/logos/soy.png', type: 'Plant Proteins', bg: '#FFFFFF' },
+                { name: 'Sweet & Slim', logo: '/images/logos/Sweet&slim logo.png', type: 'Diet Sweeteners', bg: '#FFFFFF' },
+                { name: 'SquEasy', logo: '/images/logos/squeasy logo.png', type: 'Dessert Purées', bg: '#FFFFFF' },
+                { name: 'Yalla Drinks', logo: '/images/logos/yalla drinks.png', type: 'Cafe Beverage Systems', bg: '#FFFFFF' },
+              ].map((co, idx) => (
+                <div 
+                  key={idx}
+                  style={{
+                    background: co.bg,
+                    borderRadius: '16px',
+                    padding: '1rem 0.85rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '95px',
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.12)',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                    cursor: 'default'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(0,0,0,0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
+                  }}
+                >
+                  <img 
+                    src={co.logo} 
+                    alt={co.name} 
+                    style={{ maxHeight: '38px', maxWidth: '130px', width: 'auto', objectFit: 'contain', marginBottom: '0.35rem' }} 
+                  />
+                  <span style={{ fontSize: '0.675rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    {co.type}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

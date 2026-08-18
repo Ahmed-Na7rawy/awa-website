@@ -274,6 +274,7 @@ interface YallaBeverageRange {
   name: string;
   subtitle: string;
   badge: string;
+  logo: string;
   bannerImage: string;
   themeColor: string;
   bgGradient: string;
@@ -287,6 +288,7 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
     name: 'Yalla Frapp It',
     subtitle: 'Ice-Blended Café Frappes & Specialty Iced Lattes',
     badge: 'Specialty Coffee Line',
+    logo: '/images/logos/Untitled-2-0٢.png',
     bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_41_27-Photoroom (1).png',
     themeColor: '#0284C7',
     bgGradient: 'linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)',
@@ -298,6 +300,7 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
     name: 'Yalla Smoozy',
     subtitle: 'Real Fruit Powder Coolers & Tropical Smoothies',
     badge: 'Real Fruit Series',
+    logo: '/images/logos/yalla smoozy.png',
     bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_38_08-Photoroom.png',
     themeColor: '#E11D48',
     bgGradient: 'linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%)',
@@ -306,13 +309,14 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
   },
   {
     id: 'koffi',
-    name: 'Yalla Koffi',
+    name: 'Yalla Koffi & Choco',
     subtitle: 'Specialty 3-in-1 Instant Hot Lattes & Mochas',
     badge: 'Hot Specialty Coffee',
+    logo: '/images/logos/yalla koffi.png',
     bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_37_55-Photoroom.png',
     themeColor: '#D97706',
     bgGradient: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
-    description: 'Rich, comforting hot specialty coffees including Golden Caramel Latte, Mocha Latte, Hazelnut Latte, and Caffè Latte. Steaming thick foam head in 10 seconds.',
+    description: 'Rich, comforting hot specialty coffees including Golden Caramel Latte, Mocha Latte, Hazelnut Latte, and Dutch Chocolate. Steaming thick foam head in 10 seconds.',
     highlights: ['Just Add Hot Water', 'Dutch Cocoa & Caramel', 'Creamy Overrun Foam', 'Morning & Afternoon Boost'],
   },
 ];
@@ -689,19 +693,25 @@ export const YallaFlavorSplashShowcase: React.FC<YallaFlavorSplashShowcaseProps>
 
               {/* Right: Lineup Info */}
               <div>
-                <div style={{
-                  display: 'inline-block',
-                  padding: '0.25rem 0.75rem',
-                  borderRadius: '8px',
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  textTransform: 'uppercase',
-                  background: '#F8FAFC',
-                  color: activeRange.themeColor,
-                  border: `1px solid ${activeRange.themeColor}33`,
-                  marginBottom: '0.75rem',
-                }}>
-                  {activeRange.badge}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
+                  <div style={{
+                    display: 'inline-block',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '8px',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    background: '#F8FAFC',
+                    color: activeRange.themeColor,
+                    border: `1px solid ${activeRange.themeColor}33`,
+                  }}>
+                    {activeRange.badge}
+                  </div>
+                  {activeRange.logo && (
+                    <div style={{ background: '#FFFFFF', padding: '0.25rem 0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', alignItems: 'center' }}>
+                      <img src={activeRange.logo} alt={activeRange.name} style={{ height: '24px', maxWidth: '100px', objectFit: 'contain' }} />
+                    </div>
+                  )}
                 </div>
 
                 <h4 style={{ fontSize: '1.85rem', fontWeight: 900, color: '#0F172A', lineHeight: 1.2, marginBottom: '0.5rem' }}>

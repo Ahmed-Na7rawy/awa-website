@@ -12,6 +12,7 @@ export interface ProductItem {
   name: string;
   category: 'industrial' | 'retail';
   brand?: string;
+  logo?: string;
   image: string;
   description: string;
   features: string[];
@@ -470,6 +471,7 @@ export const PRODUCTS_LIST: ProductItem[] = [
     name: 'Sweet & Slim (Zero Calorie Sweeteners)',
     category: 'retail',
     brand: 'Sweet & Slim',
+    logo: '/images/logos/Sweet&slim logo.png',
     image: '/images/pages/products/sweetslim.png',
     description: 'Premier low and zero-calorie table-top sweetener formulated with sucralose and natural fibers, offering pure sugar-like taste without the bitter aftertaste or glycemic spike.',
     features: [
@@ -498,6 +500,7 @@ export const PRODUCTS_LIST: ProductItem[] = [
     name: 'SquEasy Fruit & Dessert Purées',
     category: 'retail',
     brand: 'SquEasy',
+    logo: '/images/logos/squeasy logo.png',
     image: '/images/pages/products/SquEasy.png',
     description: 'Premium fruit and flavor purees in easy-squeeze bottles designed for baristas, pastry chefs, and home mixologists for coffees, waffles, frappes, and ice cream toppings.',
     features: [
@@ -520,7 +523,8 @@ export const PRODUCTS_LIST: ProductItem[] = [
     id: 'yalla-drinks',
     name: 'Yalla Drinks Series (Frapp It, Smoozy, Koffi)',
     category: 'retail',
-    brand: 'Yalla',
+    brand: 'Yalla Drinks',
+    logo: '/images/logos/yalla drinks.png',
     image: '/images/pages/products/frapit.jpg',
     description: 'Complete cafe-style instant beverage powder line including iced frappes, smoothie bases, hot chocolates, and specialty iced coffee mixes for food service and retail.',
     features: [

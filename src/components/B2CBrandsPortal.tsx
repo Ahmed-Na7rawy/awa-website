@@ -72,9 +72,16 @@ export const B2CBrandsPortal: React.FC<B2CBrandsPortalProps> = ({ initialBrandId
         <div className="container">
           <div className="b2c-hero-grid">
             <div>
-              <div className="b2c-hero-badge">
-                <Award size={15} />
-                <span>{currentBrand.badge}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+                {currentBrand.logo && (
+                  <div style={{ background: '#FFFFFF', padding: '0.4rem 0.9rem', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.15)' }}>
+                    <img src={currentBrand.logo} alt={currentBrand.name} style={{ height: '32px', maxWidth: '140px', objectFit: 'contain' }} />
+                  </div>
+                )}
+                <div className="b2c-hero-badge" style={{ margin: 0 }}>
+                  <Award size={15} />
+                  <span>{currentBrand.badge}</span>
+                </div>
               </div>
               <h1 className="b2c-hero-title">{currentBrand.name}</h1>
               <p className="b2c-hero-tagline">{currentBrand.tagline}</p>
