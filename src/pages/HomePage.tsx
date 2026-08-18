@@ -77,7 +77,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       tag: 'FORMULATE',
       title: 'Application Pilot Labs & Sensory Rheology',
       desc: 'Our Alexandria & Borg El-Arab pilot centers replicate client industrial cooking, UHT pasteurization, extrusion, and homogenization environments.',
-      image: '/images/pages/home/s2.jpg',
+      image: '/images/pages/home/pilot-plant-dairy-testing.jpg',
       caps: ['Pilot Dairy Vats', 'Texture Profiling Analyzers', 'Syneresis & Shelf-Life Testing']
     },
     {
@@ -121,7 +121,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       num: '01',
       title: 'Science-Led Formulation',
       desc: 'We do not simply sell ingredients; our in-house food scientists and rheologists design custom functional formulas that solve syneresis, texture, and stability challenges in your specific production lines.',
-      image: '/images/pages/home/s2.jpg',
+      image: '/images/pages/home/sensory-rheology-lab.jpg',
       stat: '500+ Custom Recipes'
     },
     {
@@ -371,7 +371,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 className="editorial-collage-main"
               />
               <img 
-                src="/images/pages/home/s2.jpg" 
+                src="/images/pages/home/food-chemistry-formulation.jpg" 
                 alt="AWA Application Lab Trials"
                 className="editorial-collage-sub"
               />
