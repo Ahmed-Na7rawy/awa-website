@@ -280,7 +280,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="hero-cinematic-media reveal-fade-right reveal-delay-1">
               <div className="hero-cinematic-img-frame">
                 <img 
-                  src="/images/pages/home/s2.jpg" 
+                  src="/images/pages/home/hero-food-science-lab.jpg" 
                   alt="AWA Group Food Science Application Laboratory" 
                   className="hero-cinematic-img"
                 />
