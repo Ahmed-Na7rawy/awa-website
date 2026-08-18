@@ -41,7 +41,6 @@ const AnimatedStatCard: React.FC<{ value: string; label: string; detail: string;
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   // State for interactive components
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const [activeBrandTab, setActiveBrandTab] = useState(0);
   const [activeWhyIndex, setActiveWhyIndex] = useState(0);
   const [activeStickyStep, setActiveStickyStep] = useState(0);
 
@@ -53,12 +52,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const bentoRef = useScrollReveal();
   const carouselRef = useScrollReveal();
   const galleryRef = useScrollReveal();
-  const brandsRef = useScrollReveal();
   const whyAwaRef = useScrollReveal();
   const timelineRef = useScrollReveal();
   const statementRef = useScrollReveal();
   const marqueeRef = useScrollReveal();
-  const ctaRef = useScrollReveal();
 
   // Carousel navigation
   const totalCarouselSlides = FOOD_SECTORS.length;
@@ -117,55 +114,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
-
-  // Interactive Brand Portfolio Data
-  const brandPortfolioData = [
-    {
-      id: 'sweet-and-slim',
-      name: 'Sweet & Slim',
-      category: 'Zero-Calorie Diet Sweeteners',
-      logo: '/images/logos/Sweet&slim logo.png',
-      image: '/images/pages/products/retail/sweet-slim/picture5.png',
-      desc: 'Egypt’s premier zero-calorie aspartame and sucralose formulation. Formulated to offer genuine sugar sweetness without aftertaste, heat-stable for cooking and hot beverages.',
-      stats: ['#1 Diet Sweetener Choice', 'Heat-Stable to 220°C', 'Over 10 Million Sachets Sold']
-    },
-    {
-      id: 'squeasy',
-      name: 'SquEasy Dessert Purées',
-      category: 'Ambient Dessert & Beverage Purées',
-      logo: '/images/logos/squeasy logo.png',
-      image: '/images/pages/products/retail/squeasy/cover.png',
-      desc: 'Ambient, squeeze-ready fruit purées and dessert toppings crafted for baristas, dessert chefs, and home culinary enthusiasts without artificial gelatin.',
-      stats: ['Natural Fruit Bases', 'Ambient Shelf-Life', 'Barista & Dessert Grade']
-    },
-    {
-      id: 'yalla-drinks',
-      name: 'Yalla Drinks Universe',
-      category: 'Cafe Beverage & Frappe Bases',
-      logo: '/images/logos/yalla drinks.png',
-      image: '/images/pages/products/frapit.jpg',
-      desc: 'Instant frappe powders, flavored smoothie bases, and iced tea solutions engineered for quick-serve hospitality chains and cafes requiring consistent foam and suspension.',
-      stats: ['Rapid Dispersion', 'Rich Velvety Texture', 'Foodservice Tailored']
-    },
-    {
-      id: 'awabey',
-      name: 'AWABEY Soapwort Extract',
-      category: 'Natural Foam Stabilizers',
-      logo: '/images/logos/Bey Logo.png',
-      image: '/images/pages/solutions/dairy.jpg',
-      desc: 'A joint venture extracting premium Saponaria officinalis to supply natural, high-stability foam for Middle Eastern halva, confectionery, and dairy delights.',
-      stats: ['100% Natural Extract', 'Thermal Stability', 'Traditional Halva Standard']
-    },
-    {
-      id: 'awasoy',
-      name: 'AWASOY Plant Proteins',
-      category: 'Functional Soy & Pea Proteins',
-      logo: '/images/logos/soy.png',
-      image: '/images/pages/industries/image33.jpg',
-      desc: 'High-purity isolated soy and plant protein compounding delivering high water retention, emulsification, and firm texture for processed meat and vegan matrices.',
-      stats: ['90%+ Protein Purity', 'High Gel Strength', 'Cost-Optimized Formulation']
-    }
-  ];
 
   // "Why AWA" Interactive Showcase Data
   const whyAwaData = [
@@ -684,109 +632,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 9. INTERACTIVE BRAND PORTFOLIO WITH TABS           */}
-      {/* ═══════════════════════════════════════════════════ */}
-      <section className="brands-portfolio-section" ref={brandsRef}>
-        <div className="container">
-          <div className="section-header text-center reveal-fade-up">
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>Consumer Products & Co-Manufacturing</div>
-            <h2 className="section-title">AWA Retail & FMCG Brand Portfolio</h2>
-            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '700px' }}>
-              Formulated and manufactured in our Borg El-Arab facilities to deliver taste, zero-calorie wellness, and barista-grade convenience.
-            </p>
-          </div>
-
-          {/* Interactive Tab Bar */}
-          <div className="brand-tab-bar reveal-fade-up reveal-delay-1">
-            {brandPortfolioData.map((brand, bIdx) => (
-              <button
-                key={brand.id}
-                onClick={() => setActiveBrandTab(bIdx)}
-                className={`brand-tab-btn ${activeBrandTab === bIdx ? 'active' : ''}`}
-              >
-                {brand.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Featured Brand Stage Card */}
-          {brandPortfolioData[activeBrandTab] && (
-            <div className="brand-stage-card reveal-fade-up">
-              <div className="brand-stage-img-wrap">
-                <img 
-                  src={brandPortfolioData[activeBrandTab].image} 
-                  alt={brandPortfolioData[activeBrandTab].name} 
-                  className="brand-stage-img"
-                />
-              </div>
-
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
-                  <div style={{ background: '#FFFFFF', padding: '0.4rem 0.95rem', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'inline-flex', alignItems: 'center' }}>
-                    <img 
-                      src={brandPortfolioData[activeBrandTab].logo} 
-                      alt={brandPortfolioData[activeBrandTab].name} 
-                      style={{ height: '30px', maxWidth: '130px', objectFit: 'contain' }}
-                    />
-                  </div>
-                  <span style={{ fontSize: '0.775rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)' }}>
-                    {brandPortfolioData[activeBrandTab].category}
-                  </span>
-                </div>
-
-                <h3 style={{ fontSize: '2.25rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: '0.85rem', lineHeight: 1.15 }}>
-                  {brandPortfolioData[activeBrandTab].name}
-                </h3>
-
-                <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.75', marginBottom: '2rem' }}>
-                  {brandPortfolioData[activeBrandTab].desc}
-                </p>
-
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-                  {brandPortfolioData[activeBrandTab].stats.map((st, stIdx) => (
-                    <div key={stIdx} style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-color)', padding: '0.5rem 0.95rem', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                      ✓ {st}
-                    </div>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => onNavigate('products', brandPortfolioData[activeBrandTab].id)}
-                  className="btn btn-primary"
-                >
-                  <span>Explore {brandPortfolioData[activeBrandTab].name} Line</span>
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Operating Companies & Brands Logo Strip */}
-          <div className="brand-logo-grid-light">
-            {[
-              { name: 'AWA Group', logo: '/images/logos/awa group logo no background.png', type: 'Parent Group' },
-              { name: 'AWABEY Soapwort', logo: '/images/logos/Bey Logo.png', type: 'Joint Venture' },
-              { name: 'AWASOY Protein', logo: '/images/logos/soy.png', type: 'Plant Proteins' },
-              { name: 'Sweet & Slim', logo: '/images/logos/Sweet&slim logo.png', type: 'Diet Sweeteners' },
-              { name: 'SquEasy', logo: '/images/logos/squeasy logo.png', type: 'Dessert Purées' },
-              { name: 'Yalla Drinks', logo: '/images/logos/yalla drinks.png', type: 'Cafe Beverage Systems' },
-            ].map((co, idx) => (
-              <div key={idx} className="brand-logo-item-light">
-                <img 
-                  src={co.logo} 
-                  alt={co.name} 
-                  style={{ maxHeight: '36px', maxWidth: '120px', width: 'auto', objectFit: 'contain', marginBottom: '0.35rem' }} 
-                />
-                <span style={{ fontSize: '0.675rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  {co.type}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════ */}
       {/* 10. INTERACTIVE "WHY AWA" HOVER SHOWCASE           */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="why-awa-section" ref={whyAwaRef}>
@@ -907,43 +752,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           </div>
           <div className="reveal-fade-up reveal-delay-1">
             <PartnerMarquee items={CLIENT_LOGOS} />
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════ */}
-      {/* 14. SOPHISTICATED LIGHT CTA BANNER                 */}
-      {/* ═══════════════════════════════════════════════════ */}
-      <section className="cta-light-section" ref={ctaRef}>
-        <div className="container">
-          <div className="cta-light-inner">
-            <div className="reveal-fade-left">
-              <div className="eyebrow" style={{ marginBottom: '0.5rem' }}>
-                Formulation Partnership
-              </div>
-              <h2 className="cta-light-title">
-                Engineer Better Food Solutions With AWA Group
-              </h2>
-              <p className="cta-light-desc">
-                Whether you need specialized texture stabilization, cost-optimized dairy recipes, plant-based protein isolates, or guaranteed cold-chain delivery, our technical team is ready to assist.
-              </p>
-            </div>
-            <div className="cta-light-actions reveal-fade-right">
-              <button 
-                onClick={onOpenQuote}
-                className="btn btn-primary"
-              >
-                <span>Partner With AWA</span>
-                <ArrowRight size={16} />
-              </button>
-              <button 
-                onClick={() => onNavigate('solutions')}
-                className="btn btn-secondary"
-              >
-                <span>Explore Our Capabilities</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
           </div>
         </div>
       </section>
