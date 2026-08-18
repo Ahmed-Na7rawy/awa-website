@@ -192,7 +192,15 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
 
   return (
     <div className="about-page" style={{ background: '#FFFFFF' }}>
-      <section className="hero-cinematic-section" ref={heroRef} style={{ borderBottom: '1px solid var(--border-color)' }}>
+      <section 
+        className="hero-cinematic-section" 
+        ref={heroRef} 
+        style={{ 
+          background: 'radial-gradient(ellipse at 15% 25%, rgba(0, 168, 79, 0.12) 0%, transparent 60%), linear-gradient(135deg, rgba(0, 168, 79, 0.07) 0%, #FFFFFF 50%, rgba(0, 168, 79, 0.04) 100%)',
+          borderBottom: '1px solid var(--border-color)',
+          position: 'relative'
+        }}
+      >
         <div className="hero-cinematic-bg-grid" />
         <div className="container">
           <div className="hero-cinematic-grid">
