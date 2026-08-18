@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, CheckCircle2, Sparkles, Coffee, Droplets, IceCream, Layers, ArrowRight } from 'lucide-react';
+import { Zap, CheckCircle2, Coffee, Droplets, IceCream, Layers, ArrowRight } from 'lucide-react';
 import './BrandShowcase.css';
 
 interface FloatingGraphicItem {
@@ -16,7 +16,7 @@ interface FloatingGraphicItem {
 interface YallaFlavor {
   id: string;
   name: string;
-  category: 'frappe' | 'smoothie' | 'choco';
+  category: 'frappe' | 'smoothie' | 'choco' | 'iced-tea';
   categoryLabel: string;
   boxImage: string;
   sachetImage: string;
@@ -37,16 +37,16 @@ interface YallaFlavor {
 const YALLA_FLAVORS_DATA: YallaFlavor[] = [
   {
     id: 'spanish-latte',
-    name: 'Spanish Latte',
+    name: 'Spanish Latte Frappe',
     category: 'frappe',
-    categoryLabel: 'Ice-Blended Frappe',
+    categoryLabel: 'Signature Iced Coffee',
     boxImage: '/images/2026/Copy of spanish latte new-View 5.png',
     sachetImage: '/images/2026/Copy of sachets spanish latte new-View 1.png',
-    color: '#0284C7',
-    lightBgGradient: 'radial-gradient(ellipse at 50% 30%, #E0F2FE 0%, #BAE6FD 35%, #F8FAFC 80%)',
-    textColor: '#0369A1',
-    accentBadgeColor: '#0284C7',
-    tagline: 'Sweet Condensed Milk & Bold Espresso with Thick Velvety Froth',
+    color: '#D97706',
+    lightBgGradient: 'radial-gradient(ellipse at 50% 30%, #FEF3C7 0%, #FDE68A 35%, #F8FAFC 80%)',
+    textColor: '#B45309',
+    accentBadgeColor: '#D97706',
+    tagline: 'Bold Roast Espresso Infused with Sweet Spanish Cream & Velvety Iced Microfoam',
     notes: ['100% Arabica Roast', 'Condensed Milk Essence', 'Dense Microfoam Head', 'Ice Blender Ready'],
     prepTime: '30 Sec',
     calories: '110 kcal',
@@ -56,11 +56,11 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
     floatingGraphics: [
       { emoji: '☕', label: 'Coffee Bean', size: 52, top: '8%', left: '6%', delay: 0, duration: 4.8 },
       { emoji: '🥛', label: 'Condensed Milk', size: 46, top: '68%', left: '8%', delay: 0.6, duration: 5.2 },
-      { emoji: '✨', label: 'Microfoam', size: 38, top: '15%', left: '42%', delay: 0.3, duration: 4.2 },
+      { emoji: '☕', label: 'Microfoam', size: 38, top: '15%', left: '42%', delay: 0.3, duration: 4.2 },
       { emoji: '🧊', label: 'Ice Cube', size: 44, top: '80%', left: '45%', delay: 0.9, duration: 4.6 },
       { emoji: '☕', label: 'Arabica Roast', size: 48, top: '10%', left: '88%', delay: 0.2, duration: 4.4 },
       { emoji: '🥛', label: 'Cream Froth', size: 42, top: '48%', left: '92%', delay: 1.1, duration: 5.0 },
-      { emoji: '✨', label: 'Sparkle', size: 36, top: '78%', left: '85%', delay: 0.7, duration: 3.8 },
+      { emoji: '🧊', label: 'Ice Chill', size: 36, top: '78%', left: '85%', delay: 0.7, duration: 3.8 },
       { emoji: '☕', label: 'Espresso Drop', size: 40, top: '42%', left: '4%', delay: 1.3, duration: 4.7 },
     ],
   },
@@ -88,7 +88,7 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
       { emoji: '🍃', label: 'Matcha Leaf', size: 46, top: '14%', left: '44%', delay: 0.8, duration: 4.4 },
       { emoji: '🧊', label: 'Frosted Ice', size: 42, top: '82%', left: '46%', delay: 1.0, duration: 4.0 },
       { emoji: '🥜', label: 'Green Pistachio', size: 50, top: '10%', left: '88%', delay: 0.3, duration: 4.8 },
-      { emoji: '✨', label: 'Cream Froth', size: 38, top: '48%', left: '92%', delay: 0.9, duration: 3.9 },
+      { emoji: '🥛', label: 'Cream Froth', size: 38, top: '48%', left: '92%', delay: 0.9, duration: 3.9 },
       { emoji: '🥜', label: 'Nut Crunch', size: 44, top: '78%', left: '86%', delay: 1.2, duration: 4.7 },
       { emoji: '🍃', label: 'Botanical Sprig', size: 40, top: '40%', left: '4%', delay: 0.4, duration: 4.5 },
     ],
@@ -147,7 +147,7 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
       { emoji: '🧊', label: 'Ice Cube', size: 44, top: '82%', left: '46%', delay: 1.0, duration: 4.0 },
       { emoji: '🍍', label: 'Pineapple Wedge', size: 54, top: '10%', left: '88%', delay: 0.5, duration: 4.4 },
       { emoji: '🥥', label: 'Coconut Milk', size: 46, top: '50%', left: '92%', delay: 1.2, duration: 4.9 },
-      { emoji: '✨', label: 'Sunbeam', size: 40, top: '78%', left: '85%', delay: 0.8, duration: 3.8 },
+      { emoji: '🥥', label: 'Coconut Flake', size: 40, top: '78%', left: '85%', delay: 0.8, duration: 3.8 },
       { emoji: '🌴', label: 'Tropical Frond', size: 48, top: '40%', left: '4%', delay: 1.4, duration: 4.7 },
     ],
   },
@@ -205,7 +205,7 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
       { emoji: '🧊', label: 'Ice Cube', size: 44, top: '80%', left: '46%', delay: 0.9, duration: 4.2 },
       { emoji: '🫐', label: 'Wild Berries', size: 52, top: '10%', left: '88%', delay: 0.5, duration: 4.6 },
       { emoji: '🍓', label: 'Ripe Berry', size: 48, top: '50%', left: '92%', delay: 1.1, duration: 4.7 },
-      { emoji: '✨', label: 'Sparkle', size: 38, top: '78%', left: '85%', delay: 0.7, duration: 3.9 },
+      { emoji: '🍓', label: 'Wild Berry', size: 38, top: '78%', left: '85%', delay: 0.7, duration: 3.9 },
       { emoji: '🫐', label: 'Berry Sprig', size: 46, top: '42%', left: '4%', delay: 1.4, duration: 4.5 },
     ],
   },
@@ -231,10 +231,10 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
       { emoji: '🍫', label: 'White Chocolate', size: 54, top: '8%', left: '6%', delay: 0, duration: 4.5 },
       { emoji: '☕', label: 'Espresso Roast', size: 46, top: '68%', left: '8%', delay: 0.5, duration: 5.0 },
       { emoji: '🥛', label: 'Cream Froth', size: 44, top: '14%', left: '42%', delay: 0.8, duration: 4.2 },
-      { emoji: '✨', label: 'Vanilla Sparkle', size: 40, top: '80%', left: '46%', delay: 1.1, duration: 3.8 },
+      { emoji: '🥛', label: 'Whipped Foam', size: 40, top: '80%', left: '46%', delay: 1.1, duration: 3.8 },
       { emoji: '☕', label: 'Coffee Bean', size: 48, top: '10%', left: '88%', delay: 0.4, duration: 4.6 },
       { emoji: '🍫', label: 'Cocoa Butter', size: 48, top: '50%', left: '92%', delay: 1.0, duration: 4.9 },
-      { emoji: '✨', label: 'Froth Sparkle', size: 38, top: '78%', left: '85%', delay: 0.7, duration: 3.7 },
+      { emoji: '🍫', label: 'Cocoa Shaving', size: 38, top: '78%', left: '85%', delay: 0.7, duration: 3.7 },
       { emoji: '☕', label: 'Dark Espresso', size: 42, top: '42%', left: '4%', delay: 1.3, duration: 4.7 },
     ],
   },
@@ -260,10 +260,10 @@ const YALLA_FLAVORS_DATA: YallaFlavor[] = [
       { emoji: '🌰', label: 'Roasted Hazelnut', size: 56, top: '8%', left: '6%', delay: 0, duration: 4.4 },
       { emoji: '🍫', label: 'Dutch Cocoa', size: 50, top: '68%', left: '8%', delay: 0.7, duration: 4.8 },
       { emoji: '☕', label: 'Dark Roast', size: 44, top: '14%', left: '42%', delay: 0.3, duration: 3.9 },
-      { emoji: '✨', label: 'Choco Froth', size: 40, top: '80%', left: '46%', delay: 1.0, duration: 4.2 },
+      { emoji: '🍫', label: 'Choco Froth', size: 40, top: '80%', left: '46%', delay: 1.0, duration: 4.2 },
       { emoji: '🌰', label: 'Hazelnut Nut', size: 50, top: '10%', left: '88%', delay: 0.5, duration: 4.6 },
       { emoji: '🍫', label: 'Dark Chocolate', size: 48, top: '50%', left: '92%', delay: 1.2, duration: 4.9 },
-      { emoji: '✨', label: 'Cream Sparkle', size: 38, top: '78%', left: '85%', delay: 0.8, duration: 3.8 },
+      { emoji: '🌰', label: 'Hazelnut Crunch', size: 38, top: '78%', left: '85%', delay: 0.8, duration: 3.8 },
       { emoji: '🌰', label: 'Gianduja Paste', size: 46, top: '42%', left: '4%', delay: 1.4, duration: 4.7 },
     ],
   },
@@ -599,7 +599,7 @@ export const YallaFlavorSplashShowcase: React.FC<YallaFlavorSplashShowcaseProps>
 
             <div style={{ padding: '1.15rem', borderRadius: '18px', background: '#F8FAFC', border: '1px solid rgba(0,0,0,0.08)', fontSize: '0.85rem' }}>
               <div style={{ fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
-                <Sparkles size={16} style={{ color: activeFlavor.color }} />
+                <CheckCircle2 size={16} style={{ color: activeFlavor.color }} />
                 <span>Instant Cold-Solubility</span>
               </div>
               <div style={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.5 }}>

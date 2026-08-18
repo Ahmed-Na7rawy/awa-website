@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ShoppingBag } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { FmcgBrandData } from '../../data/fmcgBrandsData';
 import './BrandShowcase.css';
 

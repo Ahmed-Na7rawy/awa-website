@@ -64,26 +64,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
+          {/* Logo only (Company name removed as requested) */}
           <div 
             className="brand-logo-wrap" 
             onClick={() => handleNavClick('home')}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
           >
             <img 
               src="/images/awa_group.png" 
-              alt="AWA Group Logo" 
+              alt="AWA Group" 
               className="brand-logo-img"
+              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div className="brand-text-wrap">
-              <span className="brand-title">
-                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
-              </span>
-              <span className="brand-sub">
-                Food Solutions & Sourcing
-              </span>
-            </div>
           </div>
 
           {/* Desktop Navigation Menu */}
@@ -139,9 +134,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
             <div className="brand-logo-wrap" onClick={() => handleNavClick('home')}>
-              <span className="brand-title">
-                AWA <span style={{ color: 'var(--primary)' }}>GROUP</span>
-              </span>
+              <img 
+                src="/images/awa_group.png" 
+                alt="AWA Group" 
+                style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+              />
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)} 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RETAIL_BRANDS_DATA, RetailBrand } from '../data/retailBrandsData';
 import { 
-  Sparkles, 
+  Award, 
   ShieldCheck, 
   Flame, 
   Heart, 
@@ -37,11 +37,10 @@ export const B2CBrandsPortal: React.FC<B2CBrandsPortalProps> = ({ initialBrandId
 
   const getHighlightIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Sparkles': return <Sparkles size={24} />;
       case 'ShieldCheck': return <ShieldCheck size={24} />;
       case 'Flame': return <Flame size={24} />;
       case 'Heart': return <Heart size={24} />;
-      default: return <Sparkles size={24} />;
+      default: return <Award size={24} />;
     }
   };
 
@@ -74,7 +73,7 @@ export const B2CBrandsPortal: React.FC<B2CBrandsPortalProps> = ({ initialBrandId
           <div className="b2c-hero-grid">
             <div>
               <div className="b2c-hero-badge">
-                <Sparkles size={15} />
+                <Award size={15} />
                 <span>{currentBrand.badge}</span>
               </div>
               <h1 className="b2c-hero-title">{currentBrand.name}</h1>

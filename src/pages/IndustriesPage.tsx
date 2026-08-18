@@ -1,7 +1,7 @@
 import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
-import { Settings, Cpu, Sparkles, ArrowRight } from 'lucide-react';
+import { Settings, Cpu, Award, ArrowRight } from 'lucide-react';
 
 interface IndustriesProps {
   onOpenQuote: () => void;
@@ -100,7 +100,7 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
 
             <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Sparkles size={26} />
+                <Award size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>Private Label & Toll Manufacturing</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>

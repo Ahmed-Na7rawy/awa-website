@@ -4,7 +4,8 @@ import {
   Factory,
   ShieldCheck,
   CheckCircle2,
-  Sparkles,
+  Droplets,
+  Zap,
   ArrowRight,
   FlaskConical,
   Award,
@@ -216,7 +217,7 @@ const BIO_INGREDIENTS_DATA: BioIngredientCategory[] = [
       'Nutmeg Oil',
       'Onion Oil',
     ],
-    icon: <Sparkles size={22} style={{ color: '#10B981' }} />,
+    icon: <Droplets size={22} style={{ color: '#10B981' }} />,
   },
   {
     title: 'Liquid Spice Blends & Hydrops™',

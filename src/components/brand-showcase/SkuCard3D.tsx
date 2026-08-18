@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Sparkles, Info } from 'lucide-react';
+import { Award, Info } from 'lucide-react';
 import { SkuProduct } from '../../data/fmcgBrandsData';
 import './BrandShowcase.css';
 
@@ -97,7 +97,7 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
           <div style={{ padding: '0.85rem 0', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)', marginBottom: '1.25rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.75rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.6rem' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Sparkles size={13} style={{ color: '#D97706' }} />
+                <Award size={13} style={{ color: '#D97706' }} />
                 <span>Taste Profile Matrix</span>
               </span>
             </div>

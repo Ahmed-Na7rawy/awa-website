@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, Factory, Globe2, Building, 
-  Users, Award, Sparkles, Quote, Calendar, ArrowRight, Layers, 
+  Users, Award, Quote, Calendar, ArrowRight, Layers, 
   Microscope, Cpu, ChevronRight, Check, Droplets, Leaf, PackageCheck
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -206,7 +206,7 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
                 textTransform: 'uppercase',
                 marginBottom: '1.5rem',
               }}>
-                <Sparkles size={14} />
+                <ShieldCheck size={14} />
                 <span>AWA Group • Established 1993</span>
               </div>
 

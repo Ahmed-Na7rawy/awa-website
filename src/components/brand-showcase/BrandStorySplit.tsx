@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Factory, CheckCircle2 } from 'lucide-react';
+import { Award, Factory, CheckCircle2 } from 'lucide-react';
 import { FmcgBrandData } from '../../data/fmcgBrandsData';
 import './BrandShowcase.css';
 
@@ -46,7 +46,7 @@ export const BrandStorySplit: React.FC<BrandStorySplitProps> = ({ brand }) => {
               color: isLight ? '#0284C7' : brand.theme.accent,
             }}
           >
-            <Sparkles size={14} />
+            <Award size={14} />
             <span>{brand.story.badgeText}</span>
           </div>
 

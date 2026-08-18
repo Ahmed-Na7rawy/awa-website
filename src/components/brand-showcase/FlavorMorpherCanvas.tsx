@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, CheckCircle2, ShoppingBag, Zap } from 'lucide-react';
+import { Award, CheckCircle2, ShoppingBag, Zap } from 'lucide-react';
 import { FmcgBrandData, FlavorOption } from '../../data/fmcgBrandsData';
 import './BrandShowcase.css';
 
@@ -68,7 +68,7 @@ const SQUEASY_VIBES: Record<string, SquEasyGraphicVibe> = {
     textColor: '#9F1239',
     floatingGraphics: [
       { emoji: '🌶️', size: 52, top: '8%', left: '6%', delay: 0 },
-      { emoji: '✨', size: 40, top: '68%', left: '8%', delay: 0.5 },
+      { emoji: '🧄', size: 40, top: '68%', left: '8%', delay: 0.5 },
       { emoji: '🌿', size: 44, top: '12%', left: '44%', delay: 0.3 },
       { emoji: '🫒', size: 42, top: '82%', left: '46%', delay: 0.8 },
       { emoji: '🌶️', size: 48, top: '10%', left: '88%', delay: 0.4 },
@@ -339,7 +339,7 @@ export const FlavorMorpherCanvas: React.FC<FlavorMorpherCanvasProps> = ({ brand,
 
           <div style={{ padding: '0.85rem', borderRadius: '14px', background: '#F8FAFC', border: '1px solid rgba(0,0,0,0.06)', fontSize: '0.8rem', color: '#64748B' }}>
             <div style={{ fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.25rem' }}>
-              <Sparkles size={14} style={{ color: vibe.accentColor }} />
+              <CheckCircle2 size={14} style={{ color: vibe.accentColor }} />
               <span>Natural Acidity Preservation</span>
             </div>
             <div style={{ fontSize: '0.75rem', lineHeight: 1.4 }}>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { SOLUTIONS_LIST } from '../data/siteData';
-import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Sparkles, Layers, FileText } from 'lucide-react';
+import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Layers, FileText } from 'lucide-react';
 
 interface SolutionsProps {
   initialSubId?: string;

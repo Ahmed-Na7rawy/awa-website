@@ -38,7 +38,7 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     description: 'Egypt’s market-leading zero calorie sugar replacer formulated with premium pharmaceutical-grade sucralose and soluble dietary fibers.',
     longDescription: 'Engineered by food scientists to deliver the crisp, clean sweetness of cane sugar without the metabolic burden. Ideal for individuals managing diabetes, ketogenic lifestyles, weight loss, and general wellness. Fully heat-stable for hot tea, espresso, gourmet baking, and cooking.',
     nutritionHighlights: [
-      { title: '0 Calories & 0 Carbs', desc: 'No glycemic impact on blood glucose', icon: 'Sparkles' },
+      { title: '0 Calories & 0 Carbs', desc: 'No glycemic impact on blood glucose', icon: 'Award' },
       { title: 'Aspartame Free', desc: 'No bitter chemical aftertaste or cyclamates', icon: 'ShieldCheck' },
       { title: 'Bake & Heat Stable', desc: 'Maintains sweetness up to 220°C in cooking', icon: 'Flame' },
       { title: 'Prebiotic Fibers', desc: 'Enriched with natural soluble fibers for gut health', icon: 'Heart' },
@@ -113,7 +113,7 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     description: 'Rich, luscious real fruit and confectionery purées in precision squeeze bottles designed for coffee shops, bakeries, ice cream artisans, and culinary lovers.',
     longDescription: 'Created with high real-fruit pulp concentration, vibrant natural hues, and a velvety viscosity that maintains intricate art patterns on milk foam, waffles, crepes, and plated gourmet desserts. Ergonomic no-drip silicone valve ensures clean service without mess.',
     nutritionHighlights: [
-      { title: 'Real Fruit Content', desc: 'Made from harvested strawberries, mangoes & berries', icon: 'Sparkles' },
+      { title: 'Real Fruit Content', desc: 'Made from harvested strawberries, mangoes & berries', icon: 'Award' },
       { title: 'No-Drip Silicone Valve', desc: 'Precision artistic drizzle without messy leakage', icon: 'ShieldCheck' },
       { title: 'Vibrant Texture', desc: 'Holds crisp shape on warm waffles and cold foams', icon: 'Flame' },
       { title: 'Shelf Stable', desc: 'Room temperature stability before opening', icon: 'Heart' },
@@ -181,7 +181,7 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     description: 'Gourmet cafe powdered beverage systems including Yalla Frapp It, Yalla Smoozy, and Yalla Koffi for instant barista indulgence at home or hotel chains.',
     longDescription: 'Formulated with instant micro-encapsulated dairy and vegetable creamer bases, rich Colombian coffee extracts, and stabilized natural fruit compounds. Blends instantly with ice, cold milk, or water to yield thick, frosty frappes with rich long-lasting foam tops.',
     nutritionHighlights: [
-      { title: 'Barista Overrun & Foam', desc: 'Superior foam stability and velvety micro-texture', icon: 'Sparkles' },
+      { title: 'Barista Overrun & Foam', desc: 'Superior foam stability and velvety micro-texture', icon: 'Award' },
       { title: 'Instant Ice Blend', desc: 'Quickly dissolves with milk or water and crushed ice', icon: 'ShieldCheck' },
       { title: 'High Yield Per Bag', desc: 'Approx. 25-30 tall café servings per 1kg foil bag', icon: 'Flame' },
       { title: 'Halal & ISO 22000', desc: 'Produced in certified sterile packaging cleanrooms', icon: 'Heart' },

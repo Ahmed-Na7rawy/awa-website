@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Heart, CheckCircle2, ShoppingBag, ArrowRight, Activity, Coffee, Droplets } from 'lucide-react';
+import { Award, Heart, CheckCircle2, ShoppingBag, ArrowRight, Activity, Coffee, Droplets } from 'lucide-react';
 import './BrandShowcase.css';
 
 interface SweetSlimPillar {
@@ -40,11 +40,11 @@ const SWEET_SLIM_PILLARS: SweetSlimPillar[] = [
     keySpecLabel: 'Zero Blood Sugar Elevation',
     floatingGraphics: [
       { emoji: '🍃', size: 52, top: '8%', left: '6%', delay: 0 },
-      { emoji: '✨', size: 38, top: '68%', left: '8%', delay: 0.5 },
+      { emoji: '🌱', size: 38, top: '68%', left: '8%', delay: 0.5 },
       { emoji: '☕', size: 44, top: '12%', left: '44%', delay: 0.3 },
       { emoji: '🌱', size: 40, top: '82%', left: '46%', delay: 0.8 },
       { emoji: '🍃', size: 48, top: '10%', left: '88%', delay: 0.2 },
-      { emoji: '✨', size: 36, top: '50%', left: '92%', delay: 1.0 },
+      { emoji: '🌿', size: 36, top: '50%', left: '92%', delay: 1.0 },
       { emoji: '🌱', size: 40, top: '78%', left: '85%', delay: 0.7 },
       { emoji: '☕', size: 42, top: '42%', left: '4%', delay: 1.2 },
     ],
@@ -71,7 +71,7 @@ const SWEET_SLIM_PILLARS: SweetSlimPillar[] = [
       { emoji: '🧊', size: 50, top: '8%', left: '6%', delay: 0 },
       { emoji: '🍑', size: 48, top: '68%', left: '8%', delay: 0.6 },
       { emoji: '🍃', size: 46, top: '12%', left: '44%', delay: 0.2 },
-      { emoji: '✨', size: 36, top: '82%', left: '46%', delay: 0.9 },
+      { emoji: '🌿', size: 36, top: '82%', left: '46%', delay: 0.9 },
       { emoji: '🧊', size: 46, top: '10%', left: '88%', delay: 0.4 },
       { emoji: '🍓', size: 44, top: '50%', left: '92%', delay: 1.1 },
       { emoji: '🍑', size: 42, top: '78%', left: '85%', delay: 0.7 },
@@ -99,11 +99,11 @@ const SWEET_SLIM_PILLARS: SweetSlimPillar[] = [
       { emoji: '💧', size: 52, top: '8%', left: '6%', delay: 0 },
       { emoji: '🍋', size: 46, top: '68%', left: '8%', delay: 0.5 },
       { emoji: '🧊', size: 44, top: '12%', left: '44%', delay: 0.8 },
-      { emoji: '✨', size: 38, top: '82%', left: '46%', delay: 1.0 },
+      { emoji: '💧', size: 38, top: '82%', left: '46%', delay: 1.0 },
       { emoji: '💧', size: 48, top: '10%', left: '88%', delay: 0.3 },
       { emoji: '🍋', size: 42, top: '50%', left: '92%', delay: 1.1 },
       { emoji: '💧', size: 42, top: '78%', left: '85%', delay: 0.7 },
-      { emoji: '✨', size: 36, top: '42%', left: '4%', delay: 1.2 },
+      { emoji: '🌿', size: 36, top: '42%', left: '4%', delay: 1.2 },
     ],
   },
   {
@@ -128,11 +128,11 @@ const SWEET_SLIM_PILLARS: SweetSlimPillar[] = [
       { emoji: '🍫', size: 52, top: '8%', left: '6%', delay: 0 },
       { emoji: '🌰', size: 46, top: '68%', left: '8%', delay: 0.6 },
       { emoji: '☕', size: 44, top: '12%', left: '44%', delay: 0.3 },
-      { emoji: '✨', size: 38, top: '82%', left: '46%', delay: 0.9 },
+      { emoji: '🍫', size: 38, top: '82%', left: '46%', delay: 0.9 },
       { emoji: '🍫', size: 48, top: '10%', left: '88%', delay: 0.4 },
       { emoji: '🌰', size: 42, top: '50%', left: '92%', delay: 1.1 },
       { emoji: '☕', size: 40, top: '78%', left: '85%', delay: 0.7 },
-      { emoji: '✨', size: 36, top: '42%', left: '4%', delay: 1.3 },
+      { emoji: '🌿', size: 36, top: '42%', left: '4%', delay: 1.3 },
     ],
   },
 ];
@@ -222,7 +222,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
               color: activePillar.textColor,
             }}
           >
-            <Sparkles size={14} style={{ color: activePillar.color }} />
+            <Award size={14} style={{ color: activePillar.color }} />
             <span>The Sugar-Free Lifestyle Ecosystem</span>
           </div>
 
@@ -407,7 +407,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.5rem' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Sparkles size={15} style={{ color: '#10B981' }} />
+                    <Coffee size={15} style={{ color: '#10B981' }} />
                     <span>Sugar Spoons per Cup:</span>
                   </span>
                   <span style={{ color: '#047857', fontWeight: 800 }}>{spoonsPerCup} Spoons</span>

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Sparkles, ShieldCheck, Flame, Heart, Zap, Award, ArrowRight, ShoppingBag } from 'lucide-react';
+import { ShieldCheck, Flame, Heart, Zap, Award, ArrowRight, ShoppingBag } from 'lucide-react';
 import { FmcgBrandData } from '../../data/fmcgBrandsData';
 import './BrandShowcase.css';
 
@@ -35,7 +35,6 @@ export const StickyScrollyHero: React.FC<StickyScrollyHeroProps> = ({ brand, onO
 
   const getBadgeIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Sparkles': return <Sparkles size={18} style={{ color: '#D97706' }} />;
       case 'ShieldCheck': return <ShieldCheck size={18} style={{ color: '#10B981' }} />;
       case 'Flame': return <Flame size={18} style={{ color: '#EA580C' }} />;
       case 'Heart': return <Heart size={18} style={{ color: '#E11D48' }} />;
@@ -102,7 +101,7 @@ export const StickyScrollyHero: React.FC<StickyScrollyHeroProps> = ({ brand, onO
               color: brand.theme.primary,
             }}
           >
-            <Sparkles size={14} style={{ color: brand.theme.primary }} />
+            <Award size={14} style={{ color: brand.theme.primary }} />
             <span>{brand.heroSticky.eyebrow}</span>
           </div>
 
