@@ -31,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <div style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em' }}>
                   AWA <span style={{ color: '#4ADE80' }}>GROUP</span>
                 </div>
-                <div style={{ color: '#94A3B8', fontSize: '0.725rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  Food Solutions & Supply Chain
+                <div style={{ color: '#94A3B8', fontSize: '0.725rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  Your Regional Sustainable Partner
                 </div>
               </div>
             </div>

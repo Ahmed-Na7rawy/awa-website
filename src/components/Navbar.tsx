@@ -64,21 +64,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
-          {/* Logo only (Company name removed as requested) */}
+          {/* Brand Logo & Slogan */}
           <div 
             className="brand-logo-wrap" 
             onClick={() => handleNavClick('home')}
-            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.85rem' }}
           >
             <img 
               src="/images/awa_group.png" 
               alt="AWA Group" 
               className="brand-logo-img"
-              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
+              style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
+            <div className="brand-text-wrap" style={{ borderLeft: '1.5px solid rgba(0, 0, 0, 0.12)', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column' }}>
+              <span className="brand-sub" style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
+                Your Regional Sustainable Partner
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation Menu */}
@@ -133,12 +138,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
-            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')}>
+            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
               <img 
                 src="/images/awa_group.png" 
                 alt="AWA Group" 
-                style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
               />
+              <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                Your Regional Sustainable Partner
+              </span>
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)} 
