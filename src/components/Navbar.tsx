@@ -8,7 +8,7 @@ interface NavbarProps {
   onOpenQuote?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQuote }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -64,26 +64,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
-          {/* Brand Logo & Slogan */}
+          {/* Brand Logo (Slogan Removed) */}
           <div 
             className="brand-logo-wrap" 
             onClick={() => handleNavClick('home')}
-            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.85rem' }}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
           >
             <img 
               src="/images/awa_group.png" 
               alt="AWA Group" 
               className="brand-logo-img"
-              style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
+              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div className="brand-text-wrap" style={{ borderLeft: '1.5px solid rgba(0, 0, 0, 0.12)', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column' }}>
-              <span className="brand-sub" style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
-                Your Regional Sustainable Partner
-              </span>
-            </div>
           </div>
 
           {/* Desktop Navigation Menu */}
@@ -124,7 +119,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           {/* Desktop Primary CTA & Mobile Toggle */}
           <div className="nav-actions">
             <button 
-              onClick={() => (onOpenQuote ? onOpenQuote() : handleNavClick('contact'))}
+              onClick={() => {
+                if (onOpenQuote) {
+                  onOpenQuote();
+                } else {
+                  handleNavClick('contact');
+                }
+              }}
               className="btn-header-cta"
             >
               <span>Let's Work Together</span>
@@ -146,15 +147,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
-            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')} style={{ display: 'flex', alignItems: 'center' }}>
               <img 
                 src="/images/awa_group.png" 
                 alt="AWA Group" 
                 style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
               />
-              <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                Your Regional Sustainable Partner
-              </span>
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)} 
@@ -192,6 +190,24 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               </li>
             ))}
           </ul>
+
+          <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenQuote) {
+                  onOpenQuote();
+                } else {
+                  handleNavClick('contact');
+                }
+              }}
+              className="btn btn-primary"
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              <span>Let's Work Together</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </header>
