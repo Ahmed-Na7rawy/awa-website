@@ -289,7 +289,7 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
     subtitle: 'Ice-Blended Café Frappes & Specialty Iced Lattes',
     badge: 'Specialty Coffee Line',
     logo: '/images/logos/Untitled-2-0٢.png',
-    bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_41_27-Photoroom (1).png',
+    bannerImage: '/images/pages/products/retail/yalla/yalla-frappit-banner.jpg',
     themeColor: '#0284C7',
     bgGradient: 'linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)',
     description: 'Specialty Arabica coffee, Spanish Latte, Pistachio, White Mocha, and Vanilla Frappe mixes. Thick barista microfoam head that supports whipped cream.',
@@ -301,7 +301,7 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
     subtitle: 'Real Fruit Powder Coolers & Tropical Smoothies',
     badge: 'Real Fruit Series',
     logo: '/images/logos/yalla smoozy.png',
-    bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_38_08-Photoroom.png',
+    bannerImage: '/images/pages/products/retail/yalla/yalla-smoozy-banner.jpg',
     themeColor: '#E11D48',
     bgGradient: 'linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%)',
     description: 'Refreshing real fruit coolers in Pink Lemonade, Piña Colada, Mint Lime Mojito, and Wild Mixed Berries. Instant dissolvable in ice water or sparkling soda.',
@@ -313,7 +313,7 @@ const YALLA_BEVERAGE_RANGES: YallaBeverageRange[] = [
     subtitle: 'Specialty 3-in-1 Instant Hot Lattes & Mochas',
     badge: 'Hot Specialty Coffee',
     logo: '/images/logos/yalla koffi.png',
-    bannerImage: '/images/banners/ChatGPT_Image_13_2026_07_37_55-Photoroom.png',
+    bannerImage: '/images/pages/products/retail/yalla/yalla-koffi-banner.jpg',
     themeColor: '#D97706',
     bgGradient: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
     description: 'Rich, comforting hot specialty coffees including Golden Caramel Latte, Mocha Latte, Hazelnut Latte, and Dutch Chocolate. Steaming thick foam head in 10 seconds.',
@@ -665,28 +665,27 @@ export const YallaFlavorSplashShowcase: React.FC<YallaFlavorSplashShowcaseProps>
                 alignItems: 'center',
               }}
             >
-              {/* Left: High-Res Banner Display */}
+              {/* Left: High-Res Commercial Banner Display */}
               <div style={{
                 position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 background: activeRange.bgGradient,
-                padding: '1.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '380px',
-                border: '1px solid rgba(0,0,0,0.06)',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.04)'
+                height: '360px',
+                border: '1.5px solid var(--border-color)',
+                boxShadow: '0 12px 35px rgba(0,0,0,0.06)'
               }}>
                 <img
                   src={activeRange.bannerImage}
                   alt={activeRange.name}
                   style={{
-                    maxHeight: '340px',
-                    maxWidth: '100%',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.15))',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
                   }}
                 />
               </div>
