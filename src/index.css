@@ -2617,3 +2617,64 @@ img {
   box-shadow: 0 0 0 3px rgba(13, 120, 56, 0.12);
 }
 
+/* About Page Specific Metric Strip */
+.metrics-strip-light {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.metrics-light-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.about-stat-col {
+  padding: 0 1rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.about-stat-col:last-child {
+  border-right: none;
+}
+
+.about-stat-num {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.about-stat-label {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.15rem;
+}
+
+.about-stat-sub {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .metrics-light-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1rem;
+  }
+  .about-stat-col {
+    border-right: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .metrics-light-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
