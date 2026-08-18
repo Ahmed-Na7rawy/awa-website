@@ -21,34 +21,33 @@ export interface ProductItem {
 }
 
 export const NAV_LINKS = [
-  { label: 'Home', id: 'home' },
-  { label: 'About Us', id: 'about' },
+  { label: 'About', id: 'about' },
   { 
-    label: 'Solutions', 
+    label: 'Food Solutions', 
     id: 'solutions',
     children: [
-      { label: 'Dairy Solutions', id: 'solutions', subId: 'dairy' },
-      { label: 'Meat & Savory', id: 'solutions', subId: 'meat' },
+      { label: 'Dairy & Cheese Systems', id: 'solutions', subId: 'dairy' },
+      { label: 'Meat & Savory Systems', id: 'solutions', subId: 'meat' },
       { label: 'Bakery & Confectionery', id: 'solutions', subId: 'bakery' },
       { label: 'Beverages & Syrups', id: 'solutions', subId: 'beverage' },
       { label: 'Sauces & Dressings', id: 'solutions', subId: 'sauces' },
-      { label: 'R&D Application Center', id: 'solutions', subId: 'rnd' },
+      { label: 'R&D Application Labs', id: 'solutions', subId: 'rnd' },
     ]
   },
-  { label: 'Trading', id: 'trading' },
-  { label: 'Logistics', id: 'logistics' },
-  { label: 'Industries', id: 'industries' },
+  { label: 'Formulation & Sourcing', id: 'trading' },
+  { label: 'Manufacturing', id: 'industries' },
   { 
-    label: 'Products', 
+    label: 'Brands', 
     id: 'products',
     children: [
-      { label: 'Industrial Ingredients', id: 'products', subId: 'industrial' },
-      { label: 'Consumer & Retail Brands', id: 'products', subId: 'retail' },
+      { label: 'Sweet & Slim (Diet Sweeteners)', id: 'products', subId: 'sweet-and-slim' },
+      { label: 'SquEasy (Dessert Purées)', id: 'products', subId: 'squeasy' },
+      { label: 'Yalla Drinks (Cafe Beverages)', id: 'products', subId: 'yalla-drinks' },
+      { label: 'Industrial Ingredients Portfolio', id: 'products', subId: 'industrial' },
     ]
   },
   { label: 'Sustainability', id: 'sustainability' },
-  { label: 'Careers', id: 'careers' },
-  { label: 'Contact Us', id: 'contact' },
+  { label: 'Contact', id: 'contact' },
 ];
 
 export const HERO_SLIDES = [

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
-  ChevronLeft, 
-  ChevronRight, 
   ArrowRight, 
   CheckCircle2, 
   FlaskConical, 
@@ -14,7 +12,6 @@ import {
   Check
 } from 'lucide-react';
 import { 
-  HERO_SLIDES, 
   STATS, 
   VALUE_CHAIN_STAGES, 
   FOOD_SECTORS, 
@@ -30,25 +27,23 @@ interface HomeProps {
   onOpenQuote: () => void;
 }
 
-/* Animated stat component */
-const AnimatedStat: React.FC<{ value: string; label: string; detail: string; delay: number }> = ({ value, label, detail, delay }) => {
+/* Animated Stat Item (Light Theme) */
+const AnimatedStatLight: React.FC<{ value: string; label: string; detail: string; delay: number }> = ({ value, label, detail, delay }) => {
   const numericPart = parseInt(value.replace(/[^0-9]/g, ''), 10);
   const suffix = value.replace(/[0-9]/g, '');
   const { count, ref } = useCountUp(numericPart, 2000);
 
   return (
-    <div ref={ref} className="stat-item reveal-fade-up" style={{ transitionDelay: `${delay}s` }}>
-      <div className="stat-value">{count}{suffix}</div>
-      <div className="stat-label">{label}</div>
-      <div className="stat-detail">{detail}</div>
+    <div ref={ref} className="metric-light-item reveal-fade-up" style={{ transitionDelay: `${delay}s` }}>
+      <div className="metric-light-val">{count}{suffix}</div>
+      <div className="metric-light-lbl">{label}</div>
+      <div className="metric-light-detail">{detail}</div>
     </div>
   );
 };
 
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const statsRef = useScrollReveal();
+  const metricsRef = useScrollReveal();
   const manifestoRef = useScrollReveal();
   const valueChainRef = useScrollReveal();
   const matrixRef = useScrollReveal();
@@ -56,136 +51,97 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const marqueeRef = useScrollReveal();
   const ctaRef = useScrollReveal();
 
-  // Auto-play hero slider
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 7500);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-
   const getStageIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Globe': return <Globe size={24} />;
-      case 'FlaskConical': return <FlaskConical size={24} />;
-      case 'Factory': return <Factory size={24} />;
-      case 'ShieldCheck': return <ShieldCheck size={24} />;
-      case 'Truck': return <Truck size={24} />;
-      case 'PackageCheck': return <PackageCheck size={24} />;
-      default: return <Award size={24} />;
+      case 'Globe': return <Globe size={22} />;
+      case 'FlaskConical': return <FlaskConical size={22} />;
+      case 'Factory': return <Factory size={22} />;
+      case 'ShieldCheck': return <ShieldCheck size={22} />;
+      case 'Truck': return <Truck size={22} />;
+      case 'PackageCheck': return <PackageCheck size={22} />;
+      default: return <Award size={22} />;
     }
   };
 
   const retailBrands = PRODUCTS_LIST.filter(p => p.category === 'retail');
   const featuredBrand = retailBrands[0];
-  const secondaryBrands = retailBrands.slice(1);
 
   return (
     <div className="home-page">
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 1. CINEMATIC B2B HERO SECTION                      */}
+      {/* 1. HERO SECTION (LIGHT EDITORIAL 2-COLUMN)         */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="hero-slider">
-        {HERO_SLIDES.map((slide, idx) => (
-          <div
-            key={idx}
-            className={`hero-slide ${currentSlide === idx ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
-          >
-            <div className="hero-overlay">
-              <div className="container">
-                <div className="hero-content">
-                  {/* Executive Company Name & Regional Slogan Badge */}
-                  <div 
-                    className="hero-corp-badge"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.85rem',
-                      background: 'rgba(8, 14, 26, 0.75)',
-                      backdropFilter: 'blur(16px)',
-                      padding: '0.5rem 1.35rem 0.5rem 0.85rem',
-                      borderRadius: '50px',
-                      border: '1px solid rgba(255, 255, 255, 0.25)',
-                      marginBottom: '1.5rem',
-                      animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both' : 'none'
-                    }}
-                  >
-                    <img 
-                      src="/images/logos/awa group logo no background.png" 
-                      alt="AWA Group" 
-                      style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
-                    />
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.9rem', fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.08em', textTransform: 'uppercase', lineHeight: 1.1 }}>
-                        AWA GROUP
-                      </span>
-                      <span style={{ fontSize: '0.72rem', color: '#4ADE80', fontWeight: 700, letterSpacing: '0.02em' }}>
-                        Your Regional Sustainable Partner
-                      </span>
-                    </div>
-                  </div>
+      <section className="hero-light-section">
+        <div className="container">
+          <div className="hero-light-grid">
+            {/* Left Column: Typography & CTAs */}
+            <div>
+              <div className="hero-light-eyebrow">
+                <span>AWA GROUP · FOOD SCIENCE & INDUSTRIAL SOLUTIONS</span>
+              </div>
 
-                  <div className="eyebrow eyebrow-dark" style={{ animationDelay: '0.2s', animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both' : 'none' }}>
-                    <span>{slide.badge}</span>
-                  </div>
+              <h1 className="hero-light-title">
+                Where Advanced Food Science Meets Industrial Formulation
+              </h1>
 
-                  <h1 className="hero-title" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both' : 'none' }}>
-                    {slide.title}
-                  </h1>
+              <p className="hero-light-desc">
+                Partnering with leading food manufacturers across Egypt and the Middle East to engineer custom functional systems, optimize texture profiles, and deliver certified compounding at scale.
+              </p>
 
-                  <p className="hero-subtitle" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' : 'none' }}>
-                    {slide.subtitle}
-                  </p>
+              <div className="hero-light-actions">
+                <button
+                  onClick={() => onNavigate('solutions')}
+                  className="btn btn-primary"
+                >
+                  <span>Explore Our Solutions</span>
+                  <ArrowRight size={16} />
+                </button>
+                <button
+                  onClick={onOpenQuote}
+                  className="btn btn-secondary"
+                >
+                  <span>Partner With AWA</span>
+                </button>
+              </div>
+            </div>
 
-                  <div className="hero-buttons" style={{ animation: currentSlide === idx ? 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both' : 'none' }}>
-                    <button
-                      onClick={onOpenQuote}
-                      className="btn btn-primary"
-                    >
-                      <span>{slide.ctaPrimary}</span>
-                      <ArrowRight size={16} />
-                    </button>
-                    <button
-                      onClick={() => onNavigate(slide.ctaSecondaryTarget)}
-                      className="btn btn-outline-white"
-                    >
-                      {slide.ctaSecondary}
-                    </button>
-                  </div>
+            {/* Right Column: Editorial Laboratory Image */}
+            <div className="hero-light-img-container">
+              <div className="hero-light-img-wrap">
+                <img 
+                  src="/images/pages/home/s2.jpg" 
+                  alt="AWA Group Food Science Application Laboratory" 
+                  className="hero-light-img"
+                />
+              </div>
+
+              {/* Floating Quality Assurance Badge */}
+              <div className="hero-light-badge-floating">
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
+                  <ShieldCheck size={22} />
+                </div>
+                <div>
+                  <strong style={{ display: 'block', fontSize: '0.925rem', color: 'var(--text-main)', fontWeight: 800 }}>
+                    FSSC 22000 & ISO 9001
+                  </strong>
+                  <span style={{ fontSize: '0.775rem', color: 'var(--text-muted)' }}>
+                    Borg El-Arab Certified Plant & Pilot Labs
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-        ))}
-
-        {/* Hero Vertical Slider Controls */}
-        <div className="hero-controls">
-          <button onClick={prevSlide} className="hero-btn-arrow" aria-label="Previous Slide">
-            <ChevronLeft size={20} />
-          </button>
-          <div className="hero-slide-counter">
-            <span className="hero-slide-current">{String(currentSlide + 1).padStart(2, '0')}</span>
-            <span className="hero-slide-sep">/</span>
-            <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>{String(HERO_SLIDES.length).padStart(2, '0')}</span>
-          </div>
-          <button onClick={nextSlide} className="hero-btn-arrow" aria-label="Next Slide">
-            <ChevronRight size={20} />
-          </button>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 2. STATS STRIP WITH LIVE COUNT-UP                  */}
+      {/* 2. HERO METRICS STRIP (CLEAN HORIZONTAL ON WHITE)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="stats-strip" ref={statsRef}>
+      <section className="metrics-strip-light" ref={metricsRef}>
         <div className="container">
-          <div className="stats-grid">
+          <div className="metrics-light-grid">
             {STATS.map((stat, idx) => (
-              <AnimatedStat
+              <AnimatedStatLight
                 key={idx}
                 value={stat.value}
                 label={stat.label}
@@ -198,21 +154,21 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 3. EDITORIAL CORPORATE AUTHORITY & SCALE SECTION   */}
+      {/* 3. INTRO / COMPANY STORY (EDITORIAL LIGHT)          */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="section" ref={manifestoRef}>
         <div className="container">
           <div className="editorial-grid">
             <div className="reveal-fade-left">
-              <div className="eyebrow">Corporate Scale & Authority</div>
-              <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', lineHeight: 1.18, marginBottom: '1.5rem' }}>
-                Bridging Global Food Science With Industrial Scale Across The Middle East
+              <div className="eyebrow">SCIENCE • SCALE • IMPACT</div>
+              <h2 className="section-title">
+                Bridging Global Food Science With Industrial Scale Across the Middle East
               </h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
-                Founded in 1993, <strong>AWA Group</strong> is an established food science and manufacturing powerhouse. We partner with the world's most demanding food brands, dairy conglomerates, industrial bakeries, and meat processors to engineer custom functional ingredient matrices and secure direct global supply chains.
+                Founded in 1993, <strong>AWA Group</strong> has developed into one of the region's most capable food solutions groups. We collaborate with multinational food corporations, dairy producers, bakeries, and meat processors to solve complex texture, yield, and stability formulation challenges.
               </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.975rem', lineHeight: '1.75', marginBottom: '2rem' }}>
-                Operating from our headquarters in Alexandria, commercial offices in Cairo, and high-capacity automated production facilities in New Borg El-Arab City, our multi-disciplinary team of food scientists, rheologists, and chemical engineers turn formulation challenges into competitive market advantages.
+              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.75', marginBottom: '2rem' }}>
+                With our headquarters in Alexandria, commercial operations in Cairo, and high-capacity manufacturing complexes in New Borg El-Arab City, our application scientists and rheologists turn raw chemical and natural ingredients into market-winning consumer foods.
               </p>
 
               {/* Verified Capabilities Checklist */}
@@ -220,111 +176,87 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Pilot Formulation Labs</strong>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>Application Pilot Labs</strong>
                     <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Replicating client factory conditions</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Direct Global Sourcing</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Audited producers in 30+ countries</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>Global Sourcing Lines</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Direct partners in 30+ countries</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>Automated Compounding</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>5.5 MT/hr powder & 10 MT/hr liquid</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>Industrial Compounding</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>15.5 MT/hr powder & liquid capacity</span>
                   </div>
                 </div>
                 <div className="feature-check-item">
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--dark-navy)' }}>FSSC 22000 & Halal</strong>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Rigorous batch-by-batch release COA</span>
+                    <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>Certified Quality Control</strong>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Batch-by-batch release COA</span>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <button onClick={() => onNavigate('about')} className="btn btn-primary">
-                  <span>Explore Group Profile</span>
-                  <ArrowRight size={16} />
-                </button>
-                <button onClick={onOpenQuote} className="btn btn-secondary">
-                  Schedule Technical Consultation
-                </button>
-              </div>
+              <button onClick={() => onNavigate('about')} className="btn btn-secondary">
+                <span>Learn About AWA</span>
+                <ArrowRight size={16} />
+              </button>
             </div>
 
             {/* Visual Editorial Image Column */}
             <div className="editorial-img-container reveal-fade-right reveal-delay-2">
               <img 
-                src="/images/pages/home/s2.jpg" 
-                alt="AWA Group R&D Application & Formulation Center"
+                src="/images/pages/industries/image33.jpg" 
+                alt="AWA Industrial Compounding Plant"
                 className="editorial-img"
-                style={{ minHeight: '500px', objectFit: 'cover' }}
+                style={{ minHeight: '480px', objectFit: 'cover', borderRadius: 'var(--radius-xl)' }}
               />
-              <div className="editorial-caption-box">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem' }}>
-                  <ShieldCheck size={24} color="#4ADE80" />
-                  <span style={{ fontWeight: 900, fontSize: '1.1rem', color: '#FFFFFF' }}>Borg El-Arab Application Center</span>
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#CBD5E1', lineHeight: '1.6' }}>
-                  Equipped with texture analyzers, spectrophotometers, pilot dairy vats, and accelerated thermal stability test suites.
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 4. THE 6-STAGE INDUSTRIAL VALUE CHAIN (01 TO 06)   */}
+      {/* 4. THE AWA INDUSTRIAL VALUE CHAIN (LIGHT SEQUENCE)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="value-chain-section" ref={valueChainRef}>
+      <section className="value-chain-light-section" ref={valueChainRef}>
         <div className="container">
           <div className="section-header text-center reveal-fade-up">
-            <div className="eyebrow eyebrow-dark" style={{ justifyContent: 'center' }}>Integrated Food Architecture</div>
-            <h2 className="section-title" style={{ color: '#FFFFFF', fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
-              The AWA Industrial Value Chain
-            </h2>
-            <p className="section-desc" style={{ color: '#94A3B8', margin: '0 auto', maxWidth: '760px' }}>
-              How AWA Group empowers industrial food manufacturers end-to-end: from global raw material procurement to custom pilot formulation, high-capacity blending, and temperature-controlled logistics.
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>End-to-End Capabilities</div>
+            <h2 className="section-title">The AWA Industrial Value Chain</h2>
+            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '720px' }}>
+              Connecting raw material procurement, application R&D, industrial compounding, quality certification, cold logistics, and consumer co-packing.
             </p>
           </div>
 
-          <div className="value-chain-grid">
+          <div className="value-chain-light-grid">
             {VALUE_CHAIN_STAGES.map((stage, idx) => (
               <div 
                 key={stage.step}
-                className="value-chain-card reveal-fade-up"
-                style={{ transitionDelay: `${0.1 + idx * 0.1}s` }}
+                className="value-chain-light-card reveal-fade-up"
+                style={{ transitionDelay: `${0.1 + idx * 0.08}s` }}
               >
-                <div className="value-chain-header">
-                  <span className="value-chain-step">{stage.step}</span>
-                  <div className="value-chain-icon-wrap">
+                <div className="value-chain-light-header">
+                  <span className="value-chain-light-step">{stage.step}</span>
+                  <div className="value-chain-light-icon">
                     {getStageIcon(stage.icon)}
                   </div>
                 </div>
 
-                <h3 className="value-chain-title">{stage.title}</h3>
-                <div className="value-chain-subtitle">{stage.subtitle}</div>
-                <p className="value-chain-desc">{stage.description}</p>
+                <h3 className="value-chain-light-title">{stage.title}</h3>
+                <div className="value-chain-light-sub">{stage.subtitle}</div>
+                <p className="value-chain-light-desc">{stage.description}</p>
 
-                <div className="value-chain-metrics-tag">
-                  {stage.metrics}
+                <div className="value-chain-light-link" onClick={() => onNavigate('solutions')}>
+                  <span>Explore Capability</span>
+                  <ArrowRight size={14} />
                 </div>
-
-                <ul className="value-chain-caps">
-                  {stage.capabilities.map((cap, cIdx) => (
-                    <li key={cIdx} className="value-chain-cap-item">
-                      <Check size={14} color="#4ADE80" style={{ flexShrink: 0 }} />
-                      <span>{cap}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -332,45 +264,37 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 5. SPECIALIZED FOOD MATRIX SOLUTIONS (ASYMMETRIC)  */}
+      {/* 5. SPECIALIZED FOOD MATRIX (LIGHT EDITORIAL)       */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="matrix-asymmetric-section" ref={matrixRef}>
+      <section className="matrix-light-section" ref={matrixRef}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow">Industry Sectors & Matrix Solutions</div>
+            <div className="eyebrow">Formulation Matrix</div>
             <h2 className="section-title">Specialized Food Matrix Formulations</h2>
             <p className="section-desc">
-              Tailored functional stabilizer systems, protein networks, emulsifiers, and shelf-life extenders designed for specific industrial processing conditions.
+              Custom functional stabilizer blends, protein networks, and texturizers designed for specific industrial processing conditions.
             </p>
           </div>
 
-          <div className="matrix-editorial-grid">
+          <div className="matrix-light-grid">
             {FOOD_SECTORS.map((sector, idx) => (
               <div 
                 key={sector.id}
-                className="matrix-editorial-card reveal-fade-up"
+                className="matrix-light-card reveal-fade-up"
                 style={{ transitionDelay: `${0.1 + idx * 0.08}s`, cursor: 'pointer' }}
                 onClick={() => onNavigate('solutions', sector.id)}
               >
-                <div className="matrix-card-img-wrap">
-                  <img src={sector.image} alt={sector.name} className="matrix-card-img" />
-                  <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#FFFFFF', padding: '0.4rem', borderRadius: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-                    <img src={sector.icon} alt={sector.name} style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
-                  </div>
+                <div className="matrix-light-img-wrap">
+                  <img src={sector.image} alt={sector.name} className="matrix-light-img" />
                 </div>
 
-                <div className="matrix-card-body">
-                  <h3 className="matrix-card-title">{sector.name}</h3>
-                  <p className="matrix-card-desc">{sector.desc}</p>
+                <div className="matrix-light-body">
+                  <div className="matrix-light-cat">Application System</div>
+                  <h3 className="matrix-light-title">{sector.name}</h3>
+                  <p className="matrix-light-desc">{sector.desc}</p>
 
-                  <div className="matrix-pill-list">
-                    {sector.highlights.map((h, hIdx) => (
-                      <span key={hIdx} className="matrix-pill">{h}</span>
-                    ))}
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 800, fontSize: '0.875rem', marginTop: 'auto' }}>
-                    <span>Explore Formulation Systems</span>
+                  <div className="matrix-light-link">
+                    <span>Explore Solutions</span>
                     <ArrowRight size={15} />
                   </div>
                 </div>
@@ -381,148 +305,78 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 6. B2C & FMCG BRAND PORTFOLIO                      */}
+      {/* 6. BRANDS / RETAIL PORTFOLIO (LIGHT SHOWCASE)       */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="section section-dark" ref={brandsRef}>
+      <section className="brands-light-section" ref={brandsRef}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow eyebrow-dark">Consumer Products & Co-Manufacturing</div>
+            <div className="eyebrow">Consumer Products & Co-Manufacturing</div>
             <h2 className="section-title">AWA Retail & FMCG Brand Portfolio</h2>
             <p className="section-desc">
-              Developed and manufactured in our Borg El-Arab facilities to deliver taste, zero-calorie wellness, and barista-grade convenience to retail and foodservice markets.
+              Formulated and manufactured in our Borg El-Arab facilities to deliver taste, zero-calorie wellness, and barista-grade convenience.
             </p>
           </div>
 
-          {/* Featured Brand — Large Editorial */}
+          {/* Featured Brand Showcase */}
           {featuredBrand && (
-            <div className="brand-featured reveal-fade-up reveal-delay-1">
-              <div className="brand-featured-img-wrap">
+            <div className="brand-featured-light-card reveal-fade-up reveal-delay-1">
+              <div className="brand-featured-light-img-wrap">
                 <img 
                   src={featuredBrand.image} 
                   alt={featuredBrand.name} 
-                  className="brand-featured-img"
+                  className="brand-featured-light-img"
                 />
               </div>
-              <div className="brand-featured-content">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.15rem', flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                   {featuredBrand.logo && (
-                    <div style={{ background: '#FFFFFF', padding: '0.35rem 0.85rem', borderRadius: '10px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                    <div style={{ background: '#FFFFFF', padding: '0.35rem 0.85rem', borderRadius: '10px', display: 'inline-flex', alignItems: 'center', border: '1px solid var(--border-color)' }}>
                       <img src={featuredBrand.logo} alt={featuredBrand.name} style={{ height: '28px', maxWidth: '130px', objectFit: 'contain' }} />
                     </div>
                   )}
-                  <span className="b2c-tag" style={{ color: '#4ADE80', margin: 0 }}>{featuredBrand.brand || 'Consumer Brand'}</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)' }}>
+                    {featuredBrand.brand || 'Consumer Brand'}
+                  </span>
                 </div>
-                <h3 style={{ fontSize: '2rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '0.75rem', lineHeight: 1.2 }}>
+
+                <h3 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.75rem', lineHeight: 1.2 }}>
                   {featuredBrand.name}
                 </h3>
-                <p style={{ fontSize: '1rem', color: '#CBD5E1', lineHeight: '1.7', marginBottom: '2rem' }}>
+                <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.75', marginBottom: '2rem' }}>
                   {featuredBrand.description}
                 </p>
                 <button
                   onClick={() => onNavigate('products', featuredBrand.id)}
                   className="btn btn-primary"
                 >
-                  <span>Explore {featuredBrand.brand || 'Brand'}</span>
+                  <span>Explore Brand Portfolio</span>
                   <ArrowRight size={16} />
                 </button>
               </div>
             </div>
           )}
 
-          {/* Secondary Brands — Compact Row */}
-          <div className="brand-secondary-row">
-            {secondaryBrands.map((brand, idx) => (
-              <div 
-                key={brand.id} 
-                className={`brand-secondary-card reveal-fade-up`}
-                style={{ transitionDelay: `${0.2 + idx * 0.1}s` }}
-              >
-                <div className="brand-secondary-img-wrap">
-                  <img src={brand.image} alt={brand.name} className="brand-secondary-img" />
-                </div>
-                <div className="brand-secondary-body">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.85rem', flexWrap: 'wrap' }}>
-                    {brand.logo && (
-                      <div style={{ background: '#FFFFFF', padding: '0.25rem 0.65rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
-                        <img src={brand.logo} alt={brand.name} style={{ height: '22px', maxWidth: '100px', objectFit: 'contain' }} />
-                      </div>
-                    )}
-                    <span className="b2c-tag" style={{ color: '#4ADE80', margin: 0 }}>{brand.brand || 'Consumer Brand'}</span>
-                  </div>
-                  <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '0.5rem' }}>
-                    {brand.name}
-                  </h4>
-                  <p style={{ fontSize: '0.875rem', color: '#94A3B8', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                    {brand.description}
-                  </p>
-                  <button
-                    onClick={() => onNavigate('products', brand.id)}
-                    className="btn btn-outline-white btn-sm"
-                    style={{ width: '100%' }}
-                  >
-                    <span>View Product Line</span>
-                    <ArrowRight size={14} />
-                  </button>
-                </div>
+          {/* Brand Logo Grid Strip */}
+          <div className="brand-logo-grid-light">
+            {[
+              { name: 'AWA Group', logo: '/images/logos/awa group logo no background.png', type: 'Parent Group' },
+              { name: 'AWABEY Soapwort', logo: '/images/logos/Bey Logo.png', type: 'Joint Venture' },
+              { name: 'AWASOY Protein', logo: '/images/logos/soy.png', type: 'Plant Proteins' },
+              { name: 'Sweet & Slim', logo: '/images/logos/Sweet&slim logo.png', type: 'Diet Sweeteners' },
+              { name: 'SquEasy', logo: '/images/logos/squeasy logo.png', type: 'Dessert Purées' },
+              { name: 'Yalla Drinks', logo: '/images/logos/yalla drinks.png', type: 'Cafe Beverage Systems' },
+            ].map((co, idx) => (
+              <div key={idx} className="brand-logo-item-light">
+                <img 
+                  src={co.logo} 
+                  alt={co.name} 
+                  style={{ maxHeight: '36px', maxWidth: '120px', width: 'auto', objectFit: 'contain', marginBottom: '0.35rem' }} 
+                />
+                <span style={{ fontSize: '0.675rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  {co.type}
+                </span>
               </div>
             ))}
-          </div>
-
-          {/* Operating Companies & Brands Ecosystem Bar */}
-          <div style={{ marginTop: '3.5rem', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '2rem' }}>
-            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4ADE80' }}>
-                Group Operating Companies & Consumer Brands
-              </div>
-              <h4 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 800, marginTop: '0.25rem' }}>
-                One Cohesive Food Science & Manufacturing Powerhouse
-              </h4>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', alignItems: 'center' }}>
-              {[
-                { name: 'AWA Group', logo: '/images/logos/awa group logo no background.png', type: 'Parent Group', bg: '#FFFFFF' },
-                { name: 'AWABEY Soapwort', logo: '/images/logos/Bey Logo.png', type: 'Joint Venture', bg: '#FFFFFF' },
-                { name: 'AWASOY Protein', logo: '/images/logos/soy.png', type: 'Plant Proteins', bg: '#FFFFFF' },
-                { name: 'Sweet & Slim', logo: '/images/logos/Sweet&slim logo.png', type: 'Diet Sweeteners', bg: '#FFFFFF' },
-                { name: 'SquEasy', logo: '/images/logos/squeasy logo.png', type: 'Dessert Purées', bg: '#FFFFFF' },
-                { name: 'Yalla Drinks', logo: '/images/logos/yalla drinks.png', type: 'Cafe Beverage Systems', bg: '#FFFFFF' },
-              ].map((co, idx) => (
-                <div 
-                  key={idx}
-                  style={{
-                    background: co.bg,
-                    borderRadius: '16px',
-                    padding: '1rem 0.85rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '95px',
-                    boxShadow: '0 8px 20px rgba(0,0,0,0.12)',
-                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                    cursor: 'default'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(0,0,0,0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
-                  }}
-                >
-                  <img 
-                    src={co.logo} 
-                    alt={co.name} 
-                    style={{ maxHeight: '38px', maxWidth: '130px', width: 'auto', objectFit: 'contain', marginBottom: '0.35rem' }} 
-                  />
-                  <span style={{ fontSize: '0.675rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    {co.type}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -530,10 +384,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 7. TRUSTED BY LEADING REGIONAL FOOD MANUFACTURERS  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="section" style={{ padding: '5rem 0', background: '#F8FAFC' }} ref={marqueeRef}>
+      <section className="section" style={{ padding: '5.5rem 0', background: '#FFFFFF' }} ref={marqueeRef}>
         <div className="container">
           <div className="section-header text-center reveal-fade-up" style={{ marginBottom: '2.75rem' }}>
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>Enterprise Partnerships</div>
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>Enterprise Trust</div>
             <h2 className="section-title" style={{ fontSize: '2.25rem' }}>Trusted by Leading Regional Food Manufacturers</h2>
             <p className="section-desc" style={{ margin: '0 auto', maxWidth: '680px' }}>
               We supply custom stabilization systems and functional ingredients to the Middle East's premier industrial food and beverage brands.
@@ -546,37 +400,36 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 8. EXECUTIVE B2B CLOSING CALL TO ACTION            */}
+      {/* 8. SOPHISTICATED LIGHT CTA BANNER                  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="cta-banner" ref={ctaRef}>
+      <section className="cta-light-section" ref={ctaRef}>
         <div className="container">
-          <div className="cta-inner">
+          <div className="cta-light-inner">
             <div className="reveal-fade-left">
-              <div style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4ADE80', marginBottom: '0.5rem' }}>
-                Start Your Formulation Trial
+              <div className="eyebrow" style={{ marginBottom: '0.5rem' }}>
+                Formulation Partnership
               </div>
-              <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 900, lineHeight: 1.2, marginBottom: '0.75rem' }}>
+              <h2 className="cta-light-title">
                 Engineer Better Food Solutions With AWA Group
               </h2>
-              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '640px', lineHeight: 1.7 }}>
+              <p className="cta-light-desc">
                 Whether you need specialized texture stabilization, cost-optimized dairy recipes, plant-based protein isolates, or guaranteed cold-chain delivery, our technical team is ready to assist.
               </p>
             </div>
-            <div className="reveal-fade-right" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="cta-light-actions reveal-fade-right">
               <button 
                 onClick={onOpenQuote}
-                className="btn btn-cta-primary"
-                style={{ padding: '1rem 2rem', fontSize: '1rem' }}
+                className="btn btn-primary"
               >
                 <span>Partner With AWA</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </button>
               <button 
                 onClick={() => onNavigate('solutions')}
-                className="btn btn-outline-white"
-                style={{ padding: '1rem 2rem', fontSize: '1rem' }}
+                className="btn btn-secondary"
               >
-                <span>Explore Solutions Matrix</span>
+                <span>Explore Our Capabilities</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>

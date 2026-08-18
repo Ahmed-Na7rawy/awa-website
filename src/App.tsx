@@ -123,6 +123,7 @@ export function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
+        onOpenQuote={() => setIsQuoteModalOpen(true)}
       />
 
       <main>

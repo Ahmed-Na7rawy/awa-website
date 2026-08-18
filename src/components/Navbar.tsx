@@ -121,8 +121,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             ))}
           </ul>
 
-          {/* Clean Mobile Toggle */}
+          {/* Desktop Primary CTA & Mobile Toggle */}
           <div className="nav-actions">
+            <button 
+              onClick={() => (onOpenQuote ? onOpenQuote() : handleNavClick('contact'))}
+              className="btn-header-cta"
+            >
+              <span>Let's Work Together</span>
+              <ArrowRight size={15} />
+            </button>
+
             <button 
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(true)}
