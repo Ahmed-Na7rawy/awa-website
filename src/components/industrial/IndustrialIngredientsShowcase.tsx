@@ -13,7 +13,6 @@ import {
   FileText,
   Boxes,
   Leaf,
-  Droplets,
   HeartPulse,
   ShoppingBag,
   Send,
