@@ -4,13 +4,8 @@ import {
   CheckCircle2, 
   ChevronLeft, 
   ChevronRight, 
-  FlaskConical, 
-  Globe, 
-  Truck, 
-  Factory, 
   ShieldCheck, 
   Award, 
-  PackageCheck, 
   Sparkles,
   MessageSquare
 } from 'lucide-react';
@@ -77,7 +72,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       tag: 'DISCOVER',
       title: 'Global Raw Material Science & Direct Sourcing',
       desc: 'Identifying high-yield hydrocolloids, specialty starches, emulsifying salts, and dairy isolates from audited producers in over 30 countries.',
-      image: '/images/pages/solutions/dairy.jpg',
+      image: '/images/pages/solutions/raw-materials-warehouse.jpg',
       caps: ['Direct Origin Auditing', 'Molecular Purity Verification', 'Custom Import Protocols']
     },
     {
@@ -101,7 +96,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       tag: 'ASSURE',
       title: 'Food Safety, Halal & FSSC 22000 Certification',
       desc: 'Every compounded batch is verified against rigorous chemical, microbiological, and sensory benchmarks before COA release.',
-      image: '/images/pages/about/image9.jpg',
+      image: '/images/pages/home/blending.jpg',
       caps: ['FSSC 22000 Certified', 'ISO 9001:2015 Standards', 'Batch-by-Batch Release COA']
     },
     {
@@ -109,10 +104,19 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       tag: 'DELIVER',
       title: '15,000 MT Cold-Chain Logistics & Distribution',
       desc: 'State-of-the-art temperature-controlled warehousing in Alexandria and Cairo guaranteeing seamless supply continuity across the MENA region.',
-      image: '/images/pages/home/Image2-3.jpg',
+      image: '/images/pages/solutions/cold-chain-logistics-truck.jpg',
       caps: ['15,000 MT Capacity', 'Real-Time Telemetry', 'Rapid Regional Delivery']
     }
   ];
+
+  // Smooth scroll handler to target stage card
+  const handleScrollToStage = (sIdx: number) => {
+    setActiveStickyStep(sIdx);
+    const targetEl = document.getElementById(`stage-card-${scienceToScaleStages[sIdx].step}`);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   // Interactive Brand Portfolio Data
   const brandPortfolioData = [
@@ -148,7 +152,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       name: 'AWABEY Soapwort Extract',
       category: 'Natural Foam Stabilizers',
       logo: '/images/logos/Bey Logo.png',
-      image: '/images/pages/home/blending.jpg',
+      image: '/images/pages/solutions/dairy.jpg',
       desc: 'A joint venture extracting premium Saponaria officinalis to supply natural, high-stability foam for Middle Eastern halva, confectionery, and dairy delights.',
       stats: ['100% Natural Extract', 'Thermal Stability', 'Traditional Halva Standard']
     },
@@ -183,21 +187,21 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       num: '03',
       title: 'Regional Middle East Leadership',
       desc: 'Over 33 years of direct operational experience across Egypt and neighboring Middle Eastern and African markets gives us unmatched regulatory and consumer-taste understanding.',
-      image: '/images/pages/home/Image2-3.jpg',
+      image: '/images/pages/solutions/cold-chain-logistics-truck.jpg',
       stat: '33+ Years Presence'
     },
     {
       num: '04',
       title: 'End-to-End Value Control',
       desc: 'From global raw material procurement to custom pilot batching, automated compounding, and temperature-controlled logistics, we control the entire quality chain.',
-      image: '/images/pages/about/image10.jpg',
+      image: '/images/pages/solutions/raw-materials-warehouse.jpg',
       stat: '30+ Global Origin Hubs'
     },
     {
       num: '05',
       title: 'Certified Food Safety & Quality',
       desc: 'FSSC 22000, ISO 9001:2015, and Halal certifications backed by complete spectrophotometric, microbiological, and texture profiling test protocols.',
-      image: '/images/pages/about/image9.jpg',
+      image: '/images/pages/home/blending.jpg',
       stat: '100% Release COA'
     }
   ];
@@ -446,7 +450,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 {scienceToScaleStages.map((stage, sIdx) => (
                   <button
                     key={stage.step}
-                    onClick={() => setActiveStickyStep(sIdx)}
+                    onClick={() => handleScrollToStage(sIdx)}
                     className={`sticky-story-step-btn ${activeStickyStep === sIdx ? 'active' : ''}`}
                   >
                     <span className="step-num">{stage.step}</span>
@@ -460,6 +464,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="sticky-story-cards-container">
               {scienceToScaleStages.map((stage, idx) => (
                 <div 
+                  id={`stage-card-${stage.step}`}
                   key={stage.step}
                   className="sticky-story-card reveal-fade-up"
                   style={{ transitionDelay: `${idx * 0.1}s` }}
@@ -554,7 +559,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
             {/* Tile 5: Wide with Background Image */}
             <div className="bento-tile bento-tile-wide reveal-fade-up reveal-delay-4" onClick={() => onNavigate('logistics')}>
-              <img src="/images/pages/home/Image2-3.jpg" alt="Cold Chain" className="bento-tile-bg-img" />
+              <img src="/images/pages/solutions/cold-chain-logistics-truck.jpg" alt="Cold Chain Logistics" className="bento-tile-bg-img" />
               <div className="bento-tile-overlay-dark" />
               <div className="bento-tile-content">
                 <span className="bento-num" style={{ color: '#4ADE80' }}>05 · Cold Logistics</span>
@@ -656,15 +661,15 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
         <div className="horizontal-gallery-track">
           {[
-            '/images/pages/home/s2.jpg',
+            '/images/pages/solutions/raw-materials-warehouse.jpg',
             '/images/pages/industries/image33.jpg',
             '/images/pages/solutions/dairy.jpg',
             '/images/pages/home/blending.jpg',
-            '/images/pages/about/image9.jpg',
-            '/images/pages/home/Image2-3.jpg',
-            '/images/pages/about/image10.jpg',
-            '/images/pages/products/retail/sweet-slim/picture5.png',
+            '/images/pages/solutions/cold-chain-logistics-truck.jpg',
             '/images/pages/home/s2.jpg',
+            '/images/pages/solutions/bakery.jpg',
+            '/images/pages/products/retail/sweet-slim/picture5.png',
+            '/images/pages/solutions/raw-materials-warehouse.jpg',
             '/images/pages/industries/image33.jpg',
           ].map((src, idx) => (
             <div key={idx} className="gallery-card-item">
