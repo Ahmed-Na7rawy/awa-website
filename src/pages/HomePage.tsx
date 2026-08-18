@@ -176,34 +176,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <ChevronRight size={20} />
           </button>
         </div>
-
-        {/* Integrated Executive Proof Bar */}
-        <div className="hero-proof-bar">
-          <div className="container">
-            <div className="hero-proof-grid">
-              <div className="hero-proof-item">
-                <div className="hero-proof-val">1993</div>
-                <div className="hero-proof-lbl">Founded in Alexandria, Egypt</div>
-              </div>
-              <div className="hero-proof-item">
-                <div className="hero-proof-val">15.5 MT</div>
-                <div className="hero-proof-lbl">Hourly Powder & Liquid Mixing</div>
-              </div>
-              <div className="hero-proof-item">
-                <div className="hero-proof-val">15,000 MT</div>
-                <div className="hero-proof-lbl">Multi-Temperature Warehousing</div>
-              </div>
-              <div className="hero-proof-item">
-                <div className="hero-proof-val">500+</div>
-                <div className="hero-proof-lbl">Custom Industrial Recipes</div>
-              </div>
-              <div className="hero-proof-item">
-                <div className="hero-proof-val">FSSC</div>
-                <div className="hero-proof-lbl">22000 & ISO 9001 Certified</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
