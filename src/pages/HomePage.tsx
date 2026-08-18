@@ -661,19 +661,23 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
         <div className="horizontal-gallery-track">
           {[
-            '/images/pages/solutions/raw-materials-warehouse.jpg',
-            '/images/pages/industries/image33.jpg',
-            '/images/pages/solutions/dairy.jpg',
-            '/images/pages/home/blending.jpg',
-            '/images/pages/solutions/cold-chain-logistics-truck.jpg',
-            '/images/pages/home/s2.jpg',
-            '/images/pages/solutions/bakery.jpg',
-            '/images/pages/products/retail/sweet-slim/picture5.png',
-            '/images/pages/solutions/raw-materials-warehouse.jpg',
-            '/images/pages/industries/image33.jpg',
+            '/images/gallery/1738157726256.jpg',
+            '/images/gallery/1738157728405.jpg',
+            '/images/gallery/1744640598381.jpg',
+            '/images/gallery/1759843978724.jpg',
+            '/images/gallery/1780492882946.jpg',
+            '/images/gallery/1780840717152.jpg',
+            '/images/gallery/1780840717215.jpg',
+            '/images/gallery/1738157726256.jpg',
+            '/images/gallery/1738157728405.jpg',
+            '/images/gallery/1744640598381.jpg',
+            '/images/gallery/1759843978724.jpg',
+            '/images/gallery/1780492882946.jpg',
+            '/images/gallery/1780840717152.jpg',
+            '/images/gallery/1780840717215.jpg',
           ].map((src, idx) => (
             <div key={idx} className="gallery-card-item">
-              <img src={src} alt={`AWA Facility View ${idx + 1}`} />
+              <img src={src} alt={`AWA Visual Capability ${idx + 1}`} />
             </div>
           ))}
         </div>
