@@ -3,7 +3,6 @@ import { ShieldCheck, Target, Eye, CheckCircle2, Factory, Globe2, Building, User
 import { CERTIFICATIONS, ABOUT_CERTS } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { PageHero } from '../components/PageHero';
 
 interface AboutProps {
   onNavigate: (pageId: string) => void;
@@ -20,37 +19,104 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
 
   return (
     <div className="about-page">
-      {/* 1. Page Hero with Eng. Wael Ghandour at the Top (Full Head Visible via top positioning) */}
-      <PageHero
-        eyebrow="AWA Group • Established 1993"
-        title="Three Decades of Food Science & Precision Manufacturing"
-        subtitle="Engaged in the production, custom formulation, and trading of premium food ingredients for over 28+ years, with a steadfast commitment to customer satisfaction, food safety, and continuous R&D innovation."
-        backgroundImage="/images/pages/home/Image2-3.jpg"
-        backgroundPosition="right top"
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img
-              src="/images/pages/about/signature.png"
-              alt="Eng. Wael Ghandour Signature"
-              style={{ height: '52px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.95 }}
-            />
-            <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.25)', paddingLeft: '1rem' }}>
-              <div style={{ color: '#FFFFFF', fontWeight: 900, fontSize: '1rem' }}>Eng. Wael Ghandour</div>
-              <div style={{ color: '#4ADE80', fontSize: '0.8rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Chairman & Founder, AWA Group</div>
+      {/* 1. Executive Hero with Eng. Wael Ghandour Standing with full head & suit visible */}
+      <section style={{
+        background: 'linear-gradient(135deg, #0B132B 0%, #1E293B 100%)',
+        color: '#FFFFFF',
+        position: 'relative',
+        overflow: 'hidden',
+        padding: '5rem 0 3.5rem 0',
+      }}>
+        <div className="container-wide" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1.2fr 0.8fr',
+            gap: '3.5rem',
+            alignItems: 'center',
+          }}>
+            {/* Left Content */}
+            <div>
+              <div className="eyebrow eyebrow-dark" style={{ marginBottom: '1.25rem' }}>
+                AWA Group • Established 1993
+              </div>
+              <h1 style={{
+                fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
+                fontWeight: 900,
+                lineHeight: 1.1,
+                color: '#FFFFFF',
+                marginBottom: '1.5rem',
+                letterSpacing: '-0.02em',
+              }}>
+                Three Decades of Food Science & Precision Manufacturing
+              </h1>
+              <p style={{
+                fontSize: '1.1rem',
+                color: '#CBD5E1',
+                lineHeight: 1.7,
+                maxWidth: '680px',
+                marginBottom: '2rem',
+              }}>
+                Engaged in the production, custom formulation, and trading of premium food ingredients for over 28+ years, with a steadfast commitment to customer satisfaction, food safety, and continuous R&D innovation.
+              </p>
+
+              {/* Founder Identity & Signature */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                <img
+                  src="/images/pages/about/signature.png"
+                  alt="Eng. Wael Ghandour Signature"
+                  style={{ height: '52px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.95 }}
+                />
+                <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.25)', paddingLeft: '1rem' }}>
+                  <div style={{ color: '#FFFFFF', fontWeight: 900, fontSize: '1.05rem' }}>Eng. Wael Ghandour</div>
+                  <div style={{ color: '#4ADE80', fontSize: '0.8rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Chairman & Founder, AWA Group</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Full Portrait (Head and Shoulders completely uncropped) */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
+            }}>
+              <div style={{
+                position: 'relative',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.6)',
+                border: '2px solid rgba(255, 255, 255, 0.18)',
+                background: '#0F172A',
+                maxHeight: '490px',
+              }}>
+                <img
+                  src="/images/pages/home/Image2-3.jpg"
+                  alt="Eng. Wael Ghandour - Chairman of AWA Group"
+                  style={{
+                    height: '490px',
+                    width: 'auto',
+                    maxWidth: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'top center',
+                    display: 'block',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  padding: '1.25rem',
+                  background: 'linear-gradient(to top, rgba(11, 19, 43, 0.95) 0%, rgba(11, 19, 43, 0) 100%)',
+                }}>
+                  <div style={{ fontWeight: 900, fontSize: '1rem', color: '#FFFFFF' }}>Eng. Wael Ghandour</div>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#38BDF8', textTransform: 'uppercase' }}>Founder & Chairman</div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div style={{ display: 'flex', gap: '0.75rem', marginLeft: 'auto' }}>
-            <button onClick={() => onNavigate('solutions')} className="btn btn-primary btn-sm">
-              Explore Solutions Matrix
-            </button>
-            <button onClick={onOpenQuote} className="btn btn-secondary btn-sm">
-              Contact Sales
-            </button>
-          </div>
         </div>
-      </PageHero>
+      </section>
 
       {/* 2. Chairman's Statement Feature */}
       <section className="section" style={{ background: '#FFFFFF', borderBottom: '1px solid var(--border-color)', padding: '4.5rem 0' }}>
