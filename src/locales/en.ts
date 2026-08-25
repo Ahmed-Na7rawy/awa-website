@@ -302,7 +302,73 @@ export const en = {
       subtitle: 'Direct relationships with top-tier ingredient producers across 30+ countries, delivering high-purity hydrocolloids, specialty starches, acidulants, and proteins.',
       ctaPrimary: 'Explore Sourcing Catalog',
       ctaSecondary: 'Request Commercial Quotation',
-    }
+    },
+    overview: {
+      eyebrow: 'Reliable Supply Chain',
+      title: 'Seamless Raw Material Procurement For Regional Manufacturers',
+      p1: 'With three decades of market presence, AWA Group provides unhindered access to high-purity food additives, functional hydrocolloids, and preservatives. We handle international logistics, currency hedging, regulatory compliance, and quality auditing.',
+      p2: 'Our strategic buffer inventory stored in Alexandria and Cairo warehouses guarantees continuous supply to your production lines, eliminating downtime caused by global shipping disruptions.',
+      ctaBtn: 'Request Ingredient Quotation',
+    },
+    catalog: {
+      eyebrow: 'Product Portfolio',
+      title: 'Core Trading Categories',
+      desc: 'All ingredients are supplied with Certificate of Analysis (COA), MSDS, Halal, Kosher, and ISO certifications.',
+    },
+    categories: [
+      {
+        title: 'Hydrocolloids & Texture Stabilizers',
+        items: [
+          'Xanthan Gum (Food & Pharma Grade)',
+          'Carrageenan (Refined Kappa, Semi-Refined, Iota)',
+          'Guar Gum (Food & Industrial Grade)',
+          'Sodium Carboxymethylcellulose (CMC)',
+          'Sodium Alginate & Calcium Lactate',
+          'Pectin (High Methoxyl & Low Methoxyl)',
+          'Locust Bean Gum (LBG) & Tara Gum',
+        ],
+      },
+      {
+        title: 'Preservatives & Shelf-Life Extenders',
+        items: [
+          'Potassium Sorbate & Sorbic Acid',
+          'Sodium Benzoate & Benzoic Acid',
+          'Natamycin (50% & Liquid Suspension)',
+          'Nisin (Natural Peptide Antimicrobial)',
+          'Calcium Propionate & Sodium Diacetate',
+          'Ascorbic Acid (Vitamin C) & Sodium Erythorbate',
+          'Citric Acid Anhydrous & Monohydrate',
+        ],
+      },
+      {
+        title: 'Emulsifiers & Phosphates',
+        items: [
+          'Distilled Monoglycerides (DMG / E471)',
+          'Sodium Stearoyl Lactylate (SSL / E481)',
+          'Polysorbate 60 & 80 (Tween Series)',
+          'DATEM (Diacetyl Tartaric Acid Esters)',
+          'Sodium Tripolyphosphate (STPP)',
+          'Tetrasodium Pyrophosphate (TSPP)',
+          'Sodium Hexametaphosphate (SHMP)',
+        ],
+      },
+      {
+        title: 'Sweeteners, Proteins & Specialty Additives',
+        items: [
+          'High-Purity Sucralose (USP/FCC)',
+          'Acesulfame Potassium (Ace-K)',
+          'Sodium Saccharin & Aspartame',
+          'Whey Protein Concentrates (WPC 80 / WPC 35)',
+          'Soy Protein Isolate (SPI 90%) & Concentrates',
+          'Titanium Dioxide & Natural Food Colors',
+          'Enzyme Preparations (Alpha-Amylase, Lipase)',
+        ],
+      },
+    ],
+    partners: {
+      eyebrow: 'Global Sourcing Network',
+      title: 'Strategic Sourcing Partners',
+    },
   },
   logistics: {
     hero: {
@@ -338,7 +404,36 @@ export const en = {
       subtitle: 'Reducing water consumption, minimizing compounding energy, eliminating synthetic additives, and ensuring sustainable sourcing across our supply chain.',
       ctaPrimary: 'Read Sustainability Framework',
       ctaSecondary: 'Contact ESG Directorate',
-    }
+    },
+    framework: {
+      eyebrow: 'Our Framework',
+      title: 'The Three Pillars of AWA Sustainability',
+      desc: 'Embedding environmental stewardship, health & safety standards (ISO 14001 & ISO 45001), and community responsibility into our daily operations.',
+      pillars: [
+        {
+          title: '1. Assess',
+          desc: 'We continuously evaluate our ecological footprint from raw ingredient sourcing to factory energy consumption, packaging recyclability, and wastewater management.',
+          bullets: ['Supplier ESG compliance audits', 'Carbon footprint baselining'],
+        },
+        {
+          title: '2. Monitor',
+          desc: 'Real-time tracking of water consumption, energy efficiency in blending plants, cold chain refrigeration refrigerants, and workplace health metrics under ISO 14001.',
+          bullets: ['Energy metering & LED retrofitting', 'Zero-landfill waste reduction goals'],
+        },
+        {
+          title: '3. Engage',
+          desc: 'Actively fostering growth for our workforce through continuous safety training, supporting local community development in Alexandria and Borg El-Arab City, and promoting healthy nutritional formulations.',
+          bullets: ['Health & wellness nutrition formulations', 'Community CSR partnerships'],
+        },
+      ],
+    },
+    cleanLabel: {
+      eyebrow: 'Nutritional Health Innovation',
+      title: 'Enabling Healthier Diets with Sugar & Fat Reduction',
+      p1: 'Our application labs specialize in developing functional formulations that allow food processors to significantly reduce added sugars, saturated fats, and synthetic additives without compromising taste, mouthfeel, or texture.',
+      p2: 'Through brands like Sweet & Slim and clean-label natural bio-preservative systems, we help build a healthier future for Egyptian and Arab families.',
+      ctaBtn: 'Inquire About Clean Label Solutions',
+    },
   },
   careers: {
     hero: {
@@ -404,5 +499,14 @@ export const en = {
     cairoOffice: 'Cairo Center: 15 Abd El-Wahab Selim St., Sheraton, Cairo',
     rights: 'All rights reserved. AWA Group for Food Additives & Solutions.',
     certs: 'Certified FSSC 22000 • ISO 9001:2015 • ISO 22000:2018 • Halal',
+    brandSubtitle: 'Your Regional Sustainable Partner',
+    certBadge: 'ISO 45001 & Halal',
+    alexLabel: 'Alexandria HQ:',
+    cairoLabel: 'Cairo Office:',
+    certsLabel: 'Global Industry Safety & Quality Accreditations:',
+    copyright: 'AWA Group (AWA Food Solutions). All rights reserved.',
+    corporatePolicy: 'Corporate Policy',
+    esgCommitment: 'ESG Commitment',
+    contactHq: 'Contact Headquarters',
   }
 };

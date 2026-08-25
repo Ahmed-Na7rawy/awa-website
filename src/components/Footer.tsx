@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const currentYear = new Date().getFullYear();
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const handleNav = (id: string, subId?: string) => {
     onNavigate(id, subId);
@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   AWA <span style={{ color: '#4ADE80' }}>GROUP</span>
                 </div>
                 <div style={{ color: '#94A3B8', fontSize: '0.725rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  {language === 'ar' ? 'شريككم الإقليمي المستدام' : 'Your Regional Sustainable Partner'}
+                  {t('footer.brandSubtitle')}
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <ShieldCheck size={14} /> FSSC 22000 & ISO 9001
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.775rem', color: '#4ADE80', fontWeight: 600 }}>
-                <Award size={14} /> {language === 'ar' ? 'اعتماد حلال & ISO 45001' : 'ISO 45001 & Halal'}
+                <Award size={14} /> {t('footer.certBadge')}
               </div>
             </div>
           </div>
@@ -127,13 +127,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
                 <MapPin size={16} style={{ color: '#4ADE80', minWidth: '16px', marginTop: '2px' }} />
                 <span>
-                  <strong style={{ color: '#FFFFFF' }}>{language === 'ar' ? 'المقر الرئيسي بالإسكندرية:' : 'Alexandria HQ:'}</strong> {COMPANY_CONTACT.alexOffice}
+                  <strong style={{ color: '#FFFFFF' }}>{t('footer.alexLabel')}</strong> {COMPANY_CONTACT.alexOffice}
                 </span>
               </div>
               <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
                 <MapPin size={16} style={{ color: '#4ADE80', minWidth: '16px', marginTop: '2px' }} />
                 <span>
-                  <strong style={{ color: '#FFFFFF' }}>{language === 'ar' ? 'فرع القاهرة:' : 'Cairo Office:'}</strong> {COMPANY_CONTACT.cairoOffice}
+                  <strong style={{ color: '#FFFFFF' }}>{t('footer.cairoLabel')}</strong> {COMPANY_CONTACT.cairoOffice}
                 </span>
               </div>
               <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
@@ -161,7 +161,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           gap: '1.5rem'
         }}>
           <span style={{ fontSize: '0.85rem', color: '#94A3B8', fontWeight: 600 }}>
-            {language === 'ar' ? 'اعتمادات ومعايير سلامة وجودة الغذاء الدولية:' : 'Global Industry Safety & Quality Accreditations:'}
+            {t('footer.certsLabel')}
           </span>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
             {CERTIFICATIONS.map((cert, idx) => (
@@ -178,11 +178,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p>© {currentYear} {language === 'ar' ? 'مجموعة AWA (AWA للحلول الغذائية). جميع الحقوق محفوظة.' : 'AWA Group (AWA Food Solutions). All rights reserved.'}</p>
+          <p>© {currentYear} {t('footer.copyright')}</p>
           <div style={{ display: 'flex', gap: '1.75rem' }}>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('about')}>{language === 'ar' ? 'سياسة الجودة' : 'Corporate Policy'}</span>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('sustainability')}>{language === 'ar' ? 'التزام الاستدامة' : 'ESG Commitment'}</span>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('contact')}>{language === 'ar' ? 'تواصل مع المقر' : 'Contact Headquarters'}</span>
+            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('about')}>{t('footer.corporatePolicy')}</span>
+            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('sustainability')}>{t('footer.esgCommitment')}</span>
+            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('contact')}>{t('footer.contactHq')}</span>
           </div>
         </div>
       </div>
