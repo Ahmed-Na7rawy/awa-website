@@ -6,22 +6,26 @@ import { SOLUTIONS_LIST } from '../data/siteData';
 import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Layers, FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+import { useParams } from 'react-router-dom';
+
 interface SolutionsProps {
   initialSubId?: string;
   onOpenQuote: () => void;
-  onNavigate: (pageId: string) => void;
+  onNavigate?: (pageId: string) => void;
 }
 
 export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQuote, onNavigate }) => {
+  const { subId } = useParams<{ subId?: string }>();
+  const effectiveSubId = subId || initialSubId;
   const { t, language, translations } = useLanguage();
-  const [activeTab, setActiveTab] = useState<string>(initialSubId || 'all');
+  const [activeTab, setActiveTab] = useState<string>(effectiveSubId || 'all');
   const sectionRef1 = useScrollReveal();
 
   useEffect(() => {
-    if (initialSubId) {
-      setActiveTab(initialSubId);
+    if (effectiveSubId) {
+      setActiveTab(effectiveSubId);
     }
-  }, [initialSubId]);
+  }, [effectiveSubId]);
 
   const filteredSolutions = activeTab === 'all' 
     ? SOLUTIONS_LIST 

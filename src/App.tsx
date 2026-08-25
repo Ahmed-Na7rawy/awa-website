@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
 import { BackToTop } from './components/BackToTop';
 import { FloatingSocialBar } from './components/FloatingSocialBar';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -18,14 +20,12 @@ import { CareersPage } from './pages/CareersPage';
 import { ContactPage } from './pages/ContactPage';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { PageId } from './data/siteData';
 
 function AppContent() {
-  const [currentPage, setCurrentPage] = useState<PageId>('home');
-  const [subPageId, setSubPageId] = useState<string | undefined>(undefined);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const { isRTL } = useLanguage();
+  const navigate = useNavigate();
 
   // Scroll progress tracker
   useEffect(() => {
@@ -40,99 +40,137 @@ function AppContent() {
   }, []);
 
   const handleNavigate = (pageId: string, subId?: string) => {
-    setCurrentPage(pageId as PageId);
-    setSubPageId(subId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return (
-          <HomePage
-            onNavigate={handleNavigate}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'about':
-        return (
-          <AboutPage
-            onNavigate={handleNavigate}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'solutions':
-        return (
-          <SolutionsPage
-            initialSubId={subPageId}
-            onNavigate={handleNavigate}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'trading':
-        return (
-          <TradingPage
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'logistics':
-        return (
-          <LogisticsPage
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'industries':
-        return (
-          <IndustriesPage
-            onNavigate={handleNavigate}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'products':
-        return (
-          <ProductsPage
-            initialSubId={subPageId}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'sustainability':
-        return (
-          <SustainabilityPage
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
-      case 'careers':
-        return (
-          <CareersPage />
-        );
-      case 'contact':
-        return (
-          <ContactPage />
-        );
-      default:
-        return (
-          <HomePage
-            onNavigate={handleNavigate}
-            onOpenQuote={() => setIsQuoteModalOpen(true)}
-          />
-        );
+    if (pageId === 'home') {
+      navigate('/');
+    } else if (subId) {
+      navigate(`/${pageId}/${subId}`);
+    } else {
+      navigate(`/${pageId}`);
     }
   };
 
   return (
     <div className={`app-root ${isRTL ? 'rtl' : 'ltr'}`}>
+      <ScrollToTop />
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
       <Navbar
-        currentPage={currentPage}
+        currentPage=""
         onNavigate={handleNavigate}
         onOpenQuote={() => setIsQuoteModalOpen(true)}
       />
 
       <main>
-        <div className="page-transition-wrapper" key={currentPage}>
-          {renderCurrentPage()}
+        <div className="page-transition-wrapper">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <AboutPage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/solutions"
+              element={
+                <SolutionsPage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/solutions/:subId"
+              element={
+                <SolutionsPage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/trading"
+              element={
+                <TradingPage
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/logistics"
+              element={
+                <LogisticsPage
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/industries"
+              element={
+                <IndustriesPage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/products"
+              element={
+                <ProductsPage
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/products/:subId"
+              element={
+                <ProductsPage
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/sustainability"
+              element={
+                <SustainabilityPage
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/careers"
+              element={
+                <CareersPage />
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <ContactPage />
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <HomePage
+                  onNavigate={handleNavigate}
+                  onOpenQuote={() => setIsQuoteModalOpen(true)}
+                />
+              }
+            />
+          </Routes>
         </div>
       </main>
 
@@ -151,7 +189,9 @@ function AppContent() {
 export function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </LanguageProvider>
   );
 }

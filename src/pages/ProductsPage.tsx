@@ -2,13 +2,17 @@ import React from 'react';
 import { AwaBrandShowcase } from '../components/AwaBrandShowcase';
 import { IndustrialIngredientsShowcase } from '../components/industrial/IndustrialIngredientsShowcase';
 
+import { useParams } from 'react-router-dom';
+
 interface ProductsProps {
   initialSubId?: string;
   onOpenQuote: () => void;
 }
 
 export const ProductsPage: React.FC<ProductsProps> = ({ initialSubId, onOpenQuote }) => {
-  const isIndustrial = initialSubId === 'industrial';
+  const { subId } = useParams<{ subId?: string }>();
+  const effectiveSubId = subId || initialSubId;
+  const isIndustrial = effectiveSubId === 'industrial';
 
   if (isIndustrial) {
     return (
@@ -21,7 +25,7 @@ export const ProductsPage: React.FC<ProductsProps> = ({ initialSubId, onOpenQuot
   // Default: Consumer & Retail Brands (SquEasy, Sweet & Slim, Yalla Drinks)
   return (
     <div className="products-page">
-      <AwaBrandShowcase initialBrandId={initialSubId} onOpenQuote={onOpenQuote} />
+      <AwaBrandShowcase initialBrandId={effectiveSubId} onOpenQuote={onOpenQuote} />
     </div>
   );
 };

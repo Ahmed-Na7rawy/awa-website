@@ -4,6 +4,8 @@ import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
+import { Link } from 'react-router-dom';
+
 interface NavbarProps {
   currentPage: string;
   onNavigate: (pageId: string, subId?: string) => void;
@@ -14,6 +16,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t, language } = useLanguage();
+
+  const getPath = (id: string, subId?: string) => {
+    if (id === 'home') return '/';
+    return subId ? `/${id}/${subId}` : `/${id}`;
+  };
 
   const navLinks = [
     { label: t('nav.about', 'About'), id: 'about' },
@@ -53,12 +60,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (pageId: string, subId?: string) => {
-    onNavigate(pageId, subId);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <header className="site-header">
       {/* Editorial Top Contact & Metadata Bar */}
@@ -83,13 +84,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
               <ShieldCheck size={13} />
               <span>{t('nav.topBar.certs', 'ISO 9001, FSSC 22000 & Halal Certified')}</span>
             </div>
-            <button 
-              onClick={() => handleNavClick('careers')} 
+            <Link 
+              to="/careers" 
               className="top-bar-item"
               style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
             >
               {t('nav.careers', 'Careers')}
-            </button>
+            </Link>
             <div style={{ marginInlineStart: '0.5rem', borderInlineStart: '1px solid rgba(255,255,255,0.15)', paddingInlineStart: '0.75rem' }}>
               <LanguageSwitcher variant="topbar" />
             </div>
@@ -100,10 +101,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
       {/* Main Sticky Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-wide navbar-inner">
-          {/* Brand Logo (Slogan Removed) */}
-          <div 
+          {/* Brand Logo */}
+          <Link 
+            to="/" 
             className="brand-logo-wrap" 
-            onClick={() => handleNavClick('home')}
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
           >
             <img 
@@ -115,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation Menu */}
           <ul className="nav-menu">
@@ -124,26 +125,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 key={link.id} 
                 className={`nav-item ${currentPage === link.id ? 'active' : ''}`}
               >
-                <button
-                  onClick={() => handleNavClick(link.id)}
+                <Link
+                  to={getPath(link.id)}
                   className="nav-link"
                 >
                   {link.label}
                   {link.children && <ChevronDown size={14} style={{ opacity: 0.6 }} />}
-                </button>
+                </Link>
 
                 {link.children && (
                   <ul className="nav-dropdown">
                     {link.children.map((child, idx) => (
                       <li key={idx}>
-                        <button
-                          onClick={() => handleNavClick(child.id, child.subId)}
+                        <Link
+                          to={getPath(child.id, child.subId)}
                           className="dropdown-link"
                           style={{ width: '100%', border: 'none', background: 'none' }}
                         >
                           <span>{child.label}</span>
                           <ArrowRight size={12} style={{ opacity: 0.5 }} className="arrow-icon" />
-                        </button>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -161,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 if (onOpenQuote) {
                   onOpenQuote();
                 } else {
-                  handleNavClick('contact');
+                  onNavigate('contact');
                 }
               }}
               className="btn-header-cta"
@@ -185,13 +186,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}>
         <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
-            <div className="brand-logo-wrap" onClick={() => handleNavClick('home')} style={{ display: 'flex', alignItems: 'center' }}>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="brand-logo-wrap" style={{ display: 'flex', alignItems: 'center' }}>
               <img 
                 src="/images/awa_group.png" 
                 alt="AWA Group" 
                 style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
               />
-            </div>
+            </Link>
             <button 
               onClick={() => setMobileMenuOpen(false)} 
               aria-label="Close navigation"
@@ -204,23 +205,25 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
           <ul className="mobile-nav-list">
             {navLinks.map((link) => (
               <li key={link.id} className="mobile-nav-item">
-                <button 
-                  onClick={() => handleNavClick(link.id)}
+                <Link 
+                  to={getPath(link.id)}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`mobile-nav-link ${currentPage === link.id ? 'active' : ''}`}
                 >
                   <span>{link.label}</span>
                   {link.children && <ChevronDown size={16} />}
-                </button>
+                </Link>
                 {link.children && (
                   <ul className="mobile-subnav">
                     {link.children.map((child, idx) => (
                       <li key={idx}>
-                        <button
-                          onClick={() => handleNavClick(child.id, child.subId)}
+                        <Link
+                          to={getPath(child.id, child.subId)}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="mobile-subnav-link"
                         >
                           {child.label}
-                        </button>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -238,7 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
                 if (onOpenQuote) {
                   onOpenQuote();
                 } else {
-                  handleNavClick('contact');
+                  onNavigate('contact');
                 }
               }}
               className="btn btn-primary"
