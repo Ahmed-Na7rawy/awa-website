@@ -9,7 +9,7 @@ interface LogisticsProps {
 }
 
 export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
-  const { t, language, translations } = useLanguage();
+  const { translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
   const sectionRef3 = useScrollReveal();
@@ -29,23 +29,19 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
         <div className="container">
           <div className="editorial-grid">
             <div className="reveal-fade-left">
-              <div className="eyebrow">{language === 'ar' ? 'سلامة سلسلة التبريد' : 'Cold Chain Integrity'}</div>
+              <div className="eyebrow">{translations.logistics.overview.eyebrow}</div>
               <h2 className="section-title">
-                {language === 'ar' ? 'حماية نقاء وفاعلية المكونات من ميناء الوصول حتى مصنعكم' : 'Preserving Ingredient Purity From Port of Entry to Plant Floor'}
+                {translations.logistics.overview.title}
               </h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
-                {language === 'ar'
-                  ? 'المكونات الحساسة مثل الإنزيمات، والبكتيريا الحيوية، والبروتينات الوظيفية، والنكهات السائلة تتطلب تحكماً حرارياً دقيقاً. يضمن قطاع اللوجستيات في AWA Group سلاسل تبريد محكمة، وإفراجاً جمركياً سريعاً، ونقلاً فورياً لكافة المناطق الصناعية.'
-                  : 'Food ingredients like enzymes, bacterial cultures, functional proteins, and liquid flavors demand precise thermal control. AWA Group’s logistics division ensures unbroken cold chains, fast maritime port clearance, and rapid dispatch across all Egyptian industrial zones.'}
+                {translations.logistics.overview.desc1}
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
-                {language === 'ar'
-                  ? 'مجمعاتنا اللوجستية بالقرب من ميناء الإسكندرية وفي القاهرة مراقبة على مدار 24 ساعة بأنظمة قياس رقمية عن بعد، وضوابط للرطوبة، ومولدات طاقة احتياطية مؤتمتة.'
-                  : 'Our logistics complexes in Alexandria Port vicinity and Cairo are monitored 24/7 with digital telemetry, humidity regulators, and automated backup power generators.'}
+                {translations.logistics.overview.desc2}
               </p>
 
               <button onClick={onOpenQuote} className="btn btn-primary">
-                <span>{language === 'ar' ? 'الاستفسار عن الخدمات اللوجستية' : 'Inquire About Supply Chain Services'}</span>
+                <span>{translations.logistics.overview.cta}</span>
                 <ArrowRight size={16} />
               </button>
             </div>
@@ -68,12 +64,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
       <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow">{language === 'ar' ? 'الخدمات والمواصفات الفنية' : 'Services & Technical Specs'}</div>
-            <h2 className="section-title">{language === 'ar' ? 'حلول لوجستية وسلاسل إمداد شاملة' : 'Full-Spectrum Supply Chain Capabilities'}</h2>
+            <div className="eyebrow">{translations.logistics.specs.eyebrow}</div>
+            <h2 className="section-title">{translations.logistics.specs.title}</h2>
             <p className="section-desc">
-              {language === 'ar'
-                ? 'حلول تخزين ونقل مخصصة ومتوافقة تماماً مع معايير الهيئة القومية لسلامة الغذاء (NFSA) والبروتوكولات الدولية.'
-                : 'Tailored storage and transport solutions fully compliant with NFSA and international food safety protocols.'}
+              {translations.logistics.specs.desc}
             </p>
           </div>
 
@@ -83,12 +77,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 <ThermometerSnowflake size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'تخزين متعدد درجات الحرارة' : 'Multi-Temperature Warehousing'}
+                {translations.logistics.specs.item1Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'مساحات مخصصة للتخزين الجاف (+15° إلى +25° مئوية)، والمبرد (+2° إلى +8° مئوية)، والمجمد (-18° مئوية) مع تسجيل حراري رقمي لحظي.'
-                  : 'Dedicated zones for ambient (+15°C to +25°C), chilled (+2°C to +8°C), and deep frozen storage (-18°C) equipped with real-time temperature data logging.'}
+                {translations.logistics.specs.item1Desc}
               </p>
             </div>
 
@@ -97,12 +89,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 <Truck size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'أسطول نقل مبرد معتمد' : 'Refrigerated Fleet Distribution'}
+                {translations.logistics.specs.item2Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'أسطول حديث من الشاحنات المعزولة والمبردة للتوصيل المباشر إلى مصانع العملاء ومراكز التوزيع الإقليمية في كافة محافظات مصر.'
-                  : 'Modern fleet of insulated and reefer trucks delivering directly to manufacturing plants and regional fulfillment centers across Egypt.'}
+                {translations.logistics.specs.item2Desc}
               </p>
             </div>
 
@@ -111,12 +101,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 <Clock size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'تخليص جمركي سريع' : 'Fast Customs Clearance'}
+                {translations.logistics.specs.item3Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'خبرة عريقة في إجراءات هيئة سلامة الغذاء (NFSA) وفحوصات الرقابة على الصادرات والواردات (GOEIC) للإفراج السريع عن الحاويات.'
-                  : 'Decades of expertise navigating Egyptian food authority regulations (NFSA), GOEIC inspections, and port quarantine protocols for rapid container release.'}
+                {translations.logistics.specs.item3Desc}
               </p>
             </div>
           </div>
@@ -140,10 +128,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 />
               </div>
               <h4 style={{ marginTop: '1.25rem', fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                {language === 'ar' ? 'أرفف تخزين عالية الكثافة وإدارة رقمية للمنصات' : 'High-Density Racking & Pallet Management'}
+                {translations.logistics.showcase.item1Title}
               </h4>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
-                {language === 'ar' ? 'نظام إدارة المخزون FIFO مع تتبع كامل لأرقام التشغيلات والدفعات.' : 'FIFO inventory management systems with complete batch lot traceability.'}
+                {translations.logistics.showcase.item1Desc}
               </p>
             </div>
 
@@ -160,10 +148,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 />
               </div>
               <h4 style={{ marginTop: '1.25rem', fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                {language === 'ar' ? 'بروتوكولات نظافة وتعقيم صارمة' : 'Strict Sanitation & Hygiene Protocols'}
+                {translations.logistics.showcase.item2Title}
               </h4>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
-                {language === 'ar' ? 'ضوابط نظافة متوافقة مع معايير FSSC 22000 في جميع أرصفة الشحن والغرف المبردة.' : 'FSSC 22000 compliant hygiene controls across all loading docks and cold cells.'}
+                {translations.logistics.showcase.item2Desc}
               </p>
             </div>
           </div>

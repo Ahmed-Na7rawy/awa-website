@@ -10,7 +10,7 @@ interface IndustriesProps {
 }
 
 export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavigate }) => {
-  const { t, language, translations } = useLanguage();
+  const { translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
   return (
@@ -28,28 +28,24 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
         <div className="container">
           <div className="editorial-grid">
             <div className="reveal-fade-left">
-              <div className="eyebrow">{language === 'ar' ? 'مجمع برج العرب الجديدة' : 'New Borg El-Arab Plant'}</div>
+              <div className="eyebrow">{translations.industries.overview.eyebrow}</div>
               <h2 className="section-title">
-                {language === 'ar' ? 'خطوط إنتاج مؤتمتة ومصممة لأعلى درجات النقاء الغذائي' : 'Automated Production Lines Engineered for Food Purity'}
+                {translations.industries.overview.title}
               </h2>
               <p className="section-desc" style={{ marginBottom: '1.25rem' }}>
-                {language === 'ar'
-                  ? 'يمتد مجمع تصنيع AWA Group في المنطقة الصناعية الرابعة بمدينة برج العرب الجديدة على مساحات إنتاج نظيفة مخصصة لخلط المساحيق الجافة، وتركيب مثبتات السوائل، والتعبئة والتغليف للمنتجات الاستهلاكية.'
-                  : 'AWA Group’s manufacturing complex in the 4th Industrial Zone of New Borg El-Arab City spans specialized cleanroom production zones for dry powder blending, liquid stabilizer formulation, and retail consumer packaging.'}
+                {translations.industries.overview.desc1}
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '2rem' }}>
-                {language === 'ar'
-                  ? 'بفضل أنظمة الجرعات الميكروية المحوسبة، وأوعية الخلط المصنوعة من الستانلس ستيل 316L المقاوم، وأنظمة ترشيح الهواء HEPA الصارمة، يضمن مصنعنا التجانس الكامل من دفعة إلى أخرى وانعدام التلوث التبادلي.'
-                  : 'With computerized micro-dosing systems, stainless steel 316L mixing vessels, and strict HEPA air filtration, our facility guarantees complete batch-to-batch uniformity and zero cross-contamination.'}
+                {translations.industries.overview.desc2}
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <button onClick={onOpenQuote} className="btn btn-primary">
-                  <span>{language === 'ar' ? 'طلب التصنيع للغير (Toll Manufacturing)' : 'Inquire For Contract Toll Manufacturing'}</span>
+                  <span>{translations.industries.overview.ctaPrimary}</span>
                   <ArrowRight size={16} />
                 </button>
                 <button onClick={() => onNavigate('products')} className="btn btn-secondary">
-                  <span>{language === 'ar' ? 'استعراض العلامات التجارية' : 'View Consumer Brands'}</span>
+                  <span>{translations.industries.overview.ctaSecondary}</span>
                 </button>
               </div>
             </div>
@@ -72,12 +68,10 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
       <section className="section section-stone" ref={sectionRef2}>
         <div className="container">
           <div className="section-header reveal-fade-up">
-            <div className="eyebrow">{language === 'ar' ? 'القدرات الإنتاجية' : 'Production Capabilities'}</div>
-            <h2 className="section-title">{language === 'ar' ? 'خطوط المعالجة والتصنيع الصناعي' : 'Industrial Processing Lines'}</h2>
+            <div className="eyebrow">{translations.industries.capabilities.eyebrow}</div>
+            <h2 className="section-title">{translations.industries.capabilities.title}</h2>
             <p className="section-desc">
-              {language === 'ar'
-                ? 'أحجام دفعات مرنة وخيارات تصنيع مخصصة لتلبية احتياجات السوق المحلي وأسواق التصدير.'
-                : 'Flexible batch sizes and custom manufacturing options for domestic and export clients.'}
+              {translations.industries.capabilities.desc}
             </p>
           </div>
 
@@ -87,15 +81,13 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
                 <Settings size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'خلط المساحيق عالي القص' : 'High-Shear Powder Blending'}
+                {translations.industries.capabilities.item1Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {language === 'ar'
-                  ? 'خلاطات شريطية ومجاديف محوسبة تضمن التوزيع المتجانس للمكونات الدقيقة، والهيدروكولويدز، وخلطات الفيتامينات في أكياس 25 كجم متعددة الطبقات.'
-                  : 'Computerized ribbon and paddle blenders capable of uniform dispersion for micro-ingredients, hydrocolloids, and vitamin premixes in 25kg multi-wall bags.'}
+                {translations.industries.capabilities.item1Desc}
               </p>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {language === 'ar' ? 'الطاقة الإنتاجية: 1,500 طن / شهر' : 'Capacity: 1,500 MT / Month'}
+                {translations.industries.capabilities.item1Cap}
               </div>
             </div>
 
@@ -104,15 +96,13 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
                 <Cpu size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'التعبئة والتغليف الاستهلاكي' : 'Consumer Retail Packaging'}
+                {translations.industries.capabilities.item2Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {language === 'ar'
-                  ? 'خطوط تعبئة أكياس صغيرة متعددة المسارات (Sweet & Slim)، وخطوط تعبئة العبوات القابلة للعصر (SquEasy)، وتعبئة الباوتش بضخ النيتروجين.'
-                  : 'Automated multi-lane sachet packaging (Sweet & Slim), squeeze bottle filling lines (SquEasy purées), and nitrogen-flushed pouch filling.'}
+                {translations.industries.capabilities.item2Desc}
               </p>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {language === 'ar' ? 'خطوط متعددة الأحجام والأنماط' : 'Multi-Format Lines'}
+                {translations.industries.capabilities.item2Cap}
               </div>
             </div>
 
@@ -121,15 +111,13 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
                 <Award size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {language === 'ar' ? 'التصنيع للغير والعلامات الخاصة (Private Label)' : 'Private Label & Toll Manufacturing'}
+                {translations.industries.capabilities.item3Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {language === 'ar'
-                  ? 'تصنيع تعاقدي متكامل لكبرى العلامات التجارية الاستهلاكية وسلاسل السوبرماركت والمطاعم مع سرية تامة للوصفات والتركيبات.'
-                  : 'Turnkey contract manufacturing for multinational FMCG brands, retail supermarkets, and food service chains with full recipe confidentiality.'}
+                {translations.industries.capabilities.item3Desc}
               </p>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {language === 'ar' ? 'حلول OEM / ODM متكاملة' : 'Turnkey OEM / ODM Solutions'}
+                {translations.industries.capabilities.item3Cap}
               </div>
             </div>
           </div>
@@ -138,4 +126,3 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
     </div>
   );
 };
-

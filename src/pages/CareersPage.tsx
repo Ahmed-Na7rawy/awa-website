@@ -4,7 +4,7 @@ import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const CareersPage: React.FC = () => {
-  const { t, language, translations } = useLanguage();
+  const { translations } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [careerForm, setCareerForm] = useState({
     fullName: '',
@@ -33,32 +33,32 @@ export const CareersPage: React.FC = () => {
 
   const openings = [
     {
-      title: language === 'ar' ? 'كبير علماء أغذية / أخصائي تطبيقات (قطاع الألبان)' : 'Senior Food Scientist / Application Technologist (Dairy)',
-      location: language === 'ar' ? 'مدينة برج العرب الجديدة / الإسكندرية' : 'New Borg El-Arab City / Alexandria',
-      department: language === 'ar' ? 'مركز التطبيقات والأبحاث R&D' : 'R&D & Application Center',
-      type: language === 'ar' ? 'دوام كامل' : 'Full-Time',
-      desc: language === 'ar' ? 'تركيب وتطوير مثبتات الجبن المطبوخ ومحسنات قوام الزبادي والتجارب المعملية.' : 'Formulation of processed cheese stabilizer blends, yogurt texture optimizers, and pilot trials.'
+      title: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Senior Food Scientist / Application Technologist (Dairy)' : 'كبير علماء أغذية / أخصائي تطبيقات (قطاع الألبان)',
+      location: translations.careers.vacancies.title === 'Featured Opportunities' ? 'New Borg El-Arab City / Alexandria' : 'مدينة برج العرب الجديدة / الإسكندرية',
+      department: translations.careers.vacancies.title === 'Featured Opportunities' ? 'R&D & Application Center' : 'مركز التطبيقات والأبحاث R&D',
+      type: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Full-Time' : 'دوام كامل',
+      desc: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Formulation of processed cheese stabilizer blends, yogurt texture optimizers, and pilot trials.' : 'تركيب وتطوير مثبتات الجبن المطبوخ ومحسنات قوام الزبادي والتجارب المعملية.'
     },
     {
-      title: language === 'ar' ? 'أخصائي رقابة جودة كيميائية وميكروبيولوجية (QC)' : 'Chemical & Microbiological QC Specialist',
-      location: language === 'ar' ? 'مجمع مصانع برج العرب الجديدة' : 'New Borg El-Arab Plant',
-      department: language === 'ar' ? 'توكيد ومراقبة الجودة' : 'Quality Assurance',
-      type: language === 'ar' ? 'دوام كامل' : 'Full-Time',
-      desc: language === 'ar' ? 'فحص الخامات، التحليل الكروماتوغرافي HPLC، وفحص الميكروبيولوجي للدفعات.' : 'Raw material testing, HPLC / viscosity profiling, and microbiological pathogen screening.'
+      title: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Chemical & Microbiological QC Specialist' : 'أخصائي رقابة جودة كيميائية وميكروبيولوجية (QC)',
+      location: translations.careers.vacancies.title === 'Featured Opportunities' ? 'New Borg El-Arab Plant' : 'مجمع مصانع برج العرب الجديدة',
+      department: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Quality Assurance' : 'توكيد ومراقبة الجودة',
+      type: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Full-Time' : 'دوام كامل',
+      desc: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Raw material testing, HPLC / viscosity profiling, and microbiological pathogen screening.' : 'فحص الخامات، التحليل الكروماتوغرافي HPLC، وفحص الميكروبيولوجي للدفعات.'
     },
     {
-      title: language === 'ar' ? 'مدير مبيعات فنية (مكونات ومضافات الأغذية)' : 'Technical Sales Manager (Food Ingredients)',
-      location: language === 'ar' ? 'مكتب القاهرة (مساكن شيراتون)' : 'Cairo Office (Sheraton)',
-      department: language === 'ar' ? 'القطاع التجاري والمبيعات' : 'Commercial Sales',
-      type: language === 'ar' ? 'دوام كامل' : 'Full-Time',
-      desc: language === 'ar' ? 'إدارة كبار العملاء في قطاعات تصنيع الأغذية والألبان والمشروبات.' : 'Managing key accounts across FMCG industrial food processors, dairy, and beverage manufacturers.'
+      title: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Technical Sales Manager (Food Ingredients)' : 'مدير مبيعات فنية (مكونات ومضافات الأغذية)',
+      location: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Cairo Office (Sheraton)' : 'مكتب القاهرة (مساكن شيراتون)',
+      department: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Commercial Sales' : 'القطاع التجاري والمبيعات',
+      type: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Full-Time' : 'دوام كامل',
+      desc: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Managing key accounts across FMCG industrial food processors, dairy, and beverage manufacturers.' : 'إدارة كبار العملاء في قطاعات تصنيع الأغذية والألبان والمشروبات.'
     },
     {
-      title: language === 'ar' ? 'منسق سلاسل إمداد ونقل مبرد' : 'Supply Chain & Cold Logistics Coordinator',
-      location: language === 'ar' ? 'المقر الرئيسي بالإسكندرية' : 'Alexandria Headquarters',
-      department: language === 'ar' ? 'اللوجستيات والعمليات' : 'Logistics & Operations',
-      type: language === 'ar' ? 'دوام كامل' : 'Full-Time',
-      desc: language === 'ar' ? 'تنسيق أسطول النقل المبرد ومراقبة درجات الحرارة وصرف المخزون FIFO.' : 'Coordinating reefer fleet distribution, temperature telemetry, and warehouse FIFO dispatch.'
+      title: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Supply Chain & Cold Logistics Coordinator' : 'منسق سلاسل إمداد ونقل مبرد',
+      location: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Alexandria Headquarters' : 'المقر الرئيسي بالإسكندرية',
+      department: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Logistics & Operations' : 'اللوجستيات والعمليات',
+      type: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Full-Time' : 'دوام كامل',
+      desc: translations.careers.vacancies.title === 'Featured Opportunities' ? 'Coordinating reefer fleet distribution, temperature telemetry, and warehouse FIFO dispatch.' : 'تنسيق أسطول النقل المبرد ومراقبة درجات الحرارة وصرف المخزون FIFO.'
     }
   ];
 
@@ -82,10 +82,10 @@ export const CareersPage: React.FC = () => {
         <div className="container">
           <div className="section-header text-center">
             <div className="eyebrow" style={{ justifyContent: 'center' }}>
-              {language === 'ar' ? 'البيئة المؤسسية والتطور' : 'Culture & Growth'}
+              {translations.careers.culture.eyebrow}
             </div>
             <h2 className="section-title">
-              {language === 'ar' ? 'لماذا تبني مسيرتك المهنية في AWA؟' : 'Why Build Your Career At AWA?'}
+              {translations.careers.culture.title}
             </h2>
           </div>
 
@@ -95,12 +95,10 @@ export const CareersPage: React.FC = () => {
                 <Microscope size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                {language === 'ar' ? 'التعلم والتطوير العلمي' : 'Scientific Learning'}
+                {translations.careers.culture.card1Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'العمل على أحدث أجهزة معامل التطبيقات والمشاركة في الندوات الفنية العالمية مع كبار الموردين.'
-                  : 'Access to state-of-the-art pilot lab equipment, international supplier technical seminars, and hands-on formulation mentorship.'}
+                {translations.careers.culture.card1Desc}
               </p>
             </div>
 
@@ -109,12 +107,10 @@ export const CareersPage: React.FC = () => {
                 <Award size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                {language === 'ar' ? 'مزايا ومكافآت تنافسية' : 'Competitive Rewards'}
+                {translations.careers.culture.card2Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'هياكل رواتب مجزية، وتأمين طبي شامل، ودعم للمواصلات، وحوافز أداء متميزة.'
-                  : 'Competitive salary structures, comprehensive medical coverage, transportation support, and performance bonus incentives.'}
+                {translations.careers.culture.card2Desc}
               </p>
             </div>
 
@@ -123,12 +119,10 @@ export const CareersPage: React.FC = () => {
                 <HeartHandshake size={26} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                {language === 'ar' ? 'بيئة عمل محفزة وتعاونية' : 'Collaborative Culture'}
+                {translations.careers.culture.card3Title}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                {language === 'ar'
-                  ? 'بيئة صناعية مهنية وشاملة حيث تساهم ابتكاراتك مباشرة في جودة منتجات يستهلكها الملايين.'
-                  : 'A respectful, inclusive industrial environment where your innovation directly shapes food products consumed by millions.'}
+                {translations.careers.culture.card3Desc}
               </p>
             </div>
           </div>
@@ -141,9 +135,9 @@ export const CareersPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem' }}>
             {/* Job Openings */}
             <div>
-              <div className="eyebrow">{language === 'ar' ? 'الوظائف المتاحة حالياً' : 'Current Vacancies'}</div>
+              <div className="eyebrow">{translations.careers.vacancies.eyebrow}</div>
               <h2 className="section-title" style={{ fontSize: '2.2rem' }}>
-                {language === 'ar' ? 'فرص عمل مميزة' : 'Featured Opportunities'}
+                {translations.careers.vacancies.title}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
                 {openings.map((job, idx) => (
@@ -167,33 +161,31 @@ export const CareersPage: React.FC = () => {
 
             {/* Direct Application Form */}
             <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: 'fit-content' }}>
-              <div className="eyebrow">{language === 'ar' ? 'التقديم المباشر' : 'Direct Application'}</div>
+              <div className="eyebrow">{translations.careers.form.eyebrow}</div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '1.5rem' }}>
-                {language === 'ar' ? 'أرسل سيرتك الذاتية' : 'Submit Your Resume'}
+                {translations.careers.form.title}
               </h3>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                   <CheckCircle2 size={54} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                    {language === 'ar' ? 'تم استلام طلب التوظيف بنجاح!' : 'Application Received!'}
+                    {translations.careers.form.successTitle}
                   </h4>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    {language === 'ar'
-                      ? 'شكراً لاهتمامك بالانضمام إلى AWA Group. سيقوم فريق الموارد البشرية بمراجعة مؤهلاتك والتواصل معك.'
-                      : 'Thank you for your interest in AWA Group. Our HR talent team will review your qualifications and reach out.'}
+                    {translations.careers.form.successDesc}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'الاسم بالكامل *' : 'Full Name *'}
+                      {translations.careers.form.name}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder={language === 'ar' ? 'مثال: سارة محمود' : 'e.g. Sara Mahmoud'}
+                      placeholder={translations.careers.form.namePlaceholder}
                       value={careerForm.fullName}
                       onChange={(e) => setCareerForm({ ...careerForm, fullName: e.target.value })}
                       style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
@@ -202,7 +194,7 @@ export const CareersPage: React.FC = () => {
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'البريد الإلكتروني *' : 'Email Address *'}
+                      {translations.careers.form.email}
                     </label>
                     <input
                       type="email"
@@ -216,7 +208,7 @@ export const CareersPage: React.FC = () => {
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'رقم الهاتف *' : 'Phone Number *'}
+                      {translations.careers.form.phone}
                     </label>
                     <input
                       type="tel"
@@ -231,44 +223,44 @@ export const CareersPage: React.FC = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {language === 'ar' ? 'القطاع المستهدف' : 'Target Department'}
+                        {translations.careers.form.dept}
                       </label>
                       <select
                         value={careerForm.department}
                         onChange={(e) => setCareerForm({ ...careerForm, department: e.target.value })}
                         style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
                       >
-                        <option value="R&D / Food Science">{language === 'ar' ? 'البحث والتطوير / علوم الأغذية' : 'R&D / Food Science'}</option>
-                        <option value="Quality Assurance / QC">{language === 'ar' ? 'توكيد ومراقبة الجودة (QA/QC)' : 'Quality Assurance / QC'}</option>
-                        <option value="Technical Sales">{language === 'ar' ? 'المبيعات الفنية والتجارية' : 'Technical Sales'}</option>
-                        <option value="Supply Chain & Logistics">{language === 'ar' ? 'سلاسل الإمداد واللوجستيات' : 'Supply Chain & Logistics'}</option>
-                        <option value="Factory Operations">{language === 'ar' ? 'تشغيل وإدارة المصانع' : 'Factory Operations'}</option>
+                        <option value="R&D / Food Science">{translations.careers.form.depts.rnd}</option>
+                        <option value="Quality Assurance / QC">{translations.careers.form.depts.qa}</option>
+                        <option value="Technical Sales">{translations.careers.form.depts.sales}</option>
+                        <option value="Supply Chain & Logistics">{translations.careers.form.depts.logistics}</option>
+                        <option value="Factory Operations">{translations.careers.form.depts.ops}</option>
                       </select>
                     </div>
 
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {language === 'ar' ? 'سنوات الخبرة' : 'Years of Experience'}
+                        {translations.careers.form.exp}
                       </label>
                       <select
                         value={careerForm.experience}
                         onChange={(e) => setCareerForm({ ...careerForm, experience: e.target.value })}
                         style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
                       >
-                        <option value="Fresh Graduate">{language === 'ar' ? 'حديث التخرج' : 'Fresh Graduate'}</option>
-                        <option value="1-3 years">{language === 'ar' ? '1 - 3 سنوات' : '1-3 years'}</option>
-                        <option value="3-5 years">{language === 'ar' ? '3 - 5 سنوات' : '3-5 years'}</option>
-                        <option value="5+ years">{language === 'ar' ? 'أكثر من 5 سنوات' : '5+ years'}</option>
+                        <option value="Fresh Graduate">{translations.careers.form.exps.fresh}</option>
+                        <option value="1-3 years">{translations.careers.form.exps.y1_3}</option>
+                        <option value="3-5 years">{translations.careers.form.exps.y3_5}</option>
+                        <option value="5+ years">{translations.careers.form.exps.y5plus}</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'رابط لينكد إن / نبذة مهنية' : 'LinkedIn Profile / Cover Note'}
+                      {translations.careers.form.msg}
                     </label>
                     <textarea
-                      placeholder={language === 'ar' ? 'أدخل رابط ملفك على لينكد إن أو نبذة عن خبراتك المهنية...' : 'Paste your LinkedIn link or introduce your professional background...'}
+                      placeholder={translations.careers.form.msgPlaceholder}
                       rows={3}
                       value={careerForm.message}
                       onChange={(e) => setCareerForm({ ...careerForm, message: e.target.value })}
@@ -277,12 +269,12 @@ export const CareersPage: React.FC = () => {
                   </div>
 
                   <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                    <span>{language === 'ar' ? 'إرسال طلب الترشح' : 'Submit Candidate Profile'}</span>
+                    <span>{translations.careers.form.submit}</span>
                     <Send size={16} />
                   </button>
 
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '0.5rem' }}>
-                    {language === 'ar' ? 'أو أرسل سيرتك الذاتية مباشرة إلى ' : 'Or email your CV directly to '} 
+                    {translations.careers.form.orEmail} 
                     <strong style={{ color: 'var(--primary)' }} dir="ltr">{COMPANY_CONTACT.email}</strong>
                   </p>
                 </form>
@@ -294,4 +286,3 @@ export const CareersPage: React.FC = () => {
     </div>
   );
 };
-

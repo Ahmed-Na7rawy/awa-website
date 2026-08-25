@@ -4,7 +4,7 @@ import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const ContactPage: React.FC = () => {
-  const { t, language, translations } = useLanguage();
+  const { translations } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [contactData, setContactData] = useState({
     name: '',
@@ -52,14 +52,12 @@ export const ContactPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '3.5rem' }}>
             {/* Offices & Locations */}
             <div>
-              <div className="eyebrow">{language === 'ar' ? 'التواجد الجغرافي للمجموعة' : 'Corporate Footprint'}</div>
+              <div className="eyebrow">{translations.contact.footprint.eyebrow}</div>
               <h2 className="section-title" style={{ fontSize: '2.2rem' }}>
-                {language === 'ar' ? 'المقرات والمجمعات الإنتاجية' : 'Offices & Production Complexes'}
+                {translations.contact.footprint.title}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                {language === 'ar'
-                  ? 'فريقنا متاح دائماً لمناقشة تحديات التركيبات لديكم، أو طلبات توريد المواد الخام، أو عقود الخدمات اللوجستية والتخزين المبرد.'
-                  : 'We are available to discuss your formulation challenges, bulk ingredient sourcing requests, or cold chain logistics contracts.'}
+                {translations.contact.footprint.desc}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -68,7 +66,7 @@ export const ContactPage: React.FC = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                     <Building size={22} color="var(--primary)" />
                     <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {language === 'ar' ? 'المقر الرئيسي - الإسكندرية' : 'Alexandria Headquarters'}
+                      {translations.contact.footprint.alexTitle}
                     </h3>
                   </div>
                   <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -86,7 +84,7 @@ export const ContactPage: React.FC = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                     <Building size={22} color="var(--primary)" />
                     <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {language === 'ar' ? 'المركز التجاري والفني - القاهرة' : 'Cairo Commercial Office'}
+                      {translations.contact.footprint.cairoTitle}
                     </h3>
                   </div>
                   <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -104,7 +102,7 @@ export const ContactPage: React.FC = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                     <Globe size={22} color="var(--primary)" />
                     <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {language === 'ar' ? 'مجمع مصانع مدينة برج العرب الجديدة' : 'Manufacturing Complex'}
+                      {translations.contact.footprint.factoryTitle}
                     </h3>
                   </div>
                   <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -121,33 +119,31 @@ export const ContactPage: React.FC = () => {
 
             {/* Direct Form */}
             <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: 'fit-content' }}>
-              <div className="eyebrow">{language === 'ar' ? 'التواصل المباشر' : 'Direct Contact'}</div>
+              <div className="eyebrow">{translations.contact.form.eyebrow}</div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '1.5rem' }}>
-                {language === 'ar' ? 'تواصل مع خبراء AWA' : 'Send Our Experts a Message'}
+                {translations.contact.form.title}
               </h3>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                   <CheckCircle2 size={54} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                    {language === 'ar' ? 'تم إرسال رسالتكم بنجاح!' : 'Message Dispatched!'}
+                    {translations.contact.form.successTitle}
                   </h4>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    {language === 'ar'
-                      ? 'شكراً لتواصلكم معنا. سيتواصل معكم أحد مسؤولينا من مكتب الإسكندرية أو القاهرة في أقرب وقت.'
-                      : 'Thank you for reaching out. A representative from our Alexandria or Cairo office will contact you promptly.'}
+                    {translations.contact.form.successDesc}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'الاسم بالكامل *' : 'Your Name *'}
+                      {translations.contact.form.name}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder={language === 'ar' ? 'مثال: م. طارق منصور' : 'e.g. Eng. Tarek Mansour'}
+                      placeholder={translations.contact.form.namePlaceholder}
                       value={contactData.name}
                       onChange={(e) => setContactData({ ...contactData, name: e.target.value })}
                       style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
@@ -157,7 +153,7 @@ export const ContactPage: React.FC = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {language === 'ar' ? 'البريد الإلكتروني *' : 'Email Address *'}
+                        {translations.contact.form.email}
                       </label>
                       <input
                         type="email"
@@ -170,7 +166,7 @@ export const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
+                        {translations.contact.form.phone}
                       </label>
                       <input
                         type="tel"
@@ -184,11 +180,11 @@ export const ContactPage: React.FC = () => {
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'اسم الشركة ومجال النشاط' : 'Company Name & Industry'}
+                      {translations.contact.form.company}
                     </label>
                     <input
                       type="text"
-                      placeholder={language === 'ar' ? 'مثال: شركة الدلتا للصناعات الغذائية' : 'e.g. Delta Food Industries'}
+                      placeholder={translations.contact.form.companyPlaceholder}
                       value={contactData.company}
                       onChange={(e) => setContactData({ ...contactData, company: e.target.value })}
                       style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
@@ -197,30 +193,30 @@ export const ContactPage: React.FC = () => {
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'موضوع الاستفسار' : 'Inquiry Subject'}
+                      {translations.contact.form.subject}
                     </label>
                     <select
                       value={contactData.subject}
                       onChange={(e) => setContactData({ ...contactData, subject: e.target.value })}
                       style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
                     >
-                      <option value="General Inquiry">{language === 'ar' ? 'استفسار عام عن خدمات المجموعة' : 'General Corporate Inquiry'}</option>
-                      <option value="Dairy Solutions">{language === 'ar' ? 'حلول ومثبتات الألبان والجبن' : 'Dairy & Cheese Formulation'}</option>
-                      <option value="Meat Systems">{language === 'ar' ? 'أنظمة مصنعات اللحوم والدواجن' : 'Meat & Poultry Processing'}</option>
-                      <option value="Bakery Solutions">{language === 'ar' ? 'محسنات المخبوزات والإنزيمات' : 'Bakery Improvers & Enzymes'}</option>
-                      <option value="Sweet & Slim Retail">{language === 'ar' ? 'توزيع علامة Sweet & Slim الاستهلاكية' : 'Sweet & Slim / Retail Distributorship'}</option>
-                      <option value="Raw Materials Sourcing">{language === 'ar' ? 'استيراد وتوريد المواد الخام والهيدروكولويدز' : 'Raw Materials & Hydrocolloid Sourcing'}</option>
-                      <option value="Contract Manufacturing">{language === 'ar' ? 'التصنيع للغير والتعبئة التعاقدية' : 'Contract Blending & Packaging'}</option>
+                      <option value="General Inquiry">{translations.contact.form.subjects.general}</option>
+                      <option value="Dairy Solutions">{translations.contact.form.subjects.dairy}</option>
+                      <option value="Meat Systems">{translations.contact.form.subjects.meat}</option>
+                      <option value="Bakery Solutions">{translations.contact.form.subjects.bakery}</option>
+                      <option value="Sweet & Slim Retail">{translations.contact.form.subjects.retail}</option>
+                      <option value="Raw Materials Sourcing">{translations.contact.form.subjects.raw}</option>
+                      <option value="Contract Manufacturing">{translations.contact.form.subjects.contract}</option>
                     </select>
                   </div>
 
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {language === 'ar' ? 'تفاصيل الرسالة أو الاستفسار *' : 'Your Message *'}
+                      {translations.contact.form.msg}
                     </label>
                     <textarea
                       required
-                      placeholder={language === 'ar' ? 'يرجى كتابة تفاصيل استفساركم أو طلبكم الفني هنا...' : 'Please write your inquiry here...'}
+                      placeholder={translations.contact.form.msgPlaceholder}
                       rows={4}
                       value={contactData.message}
                       onChange={(e) => setContactData({ ...contactData, message: e.target.value })}
@@ -229,12 +225,12 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                    <span>{language === 'ar' ? 'إرسال الرسالة' : 'Send Message'}</span>
+                    <span>{translations.contact.form.submit}</span>
                     <Send size={16} />
                   </button>
 
                   <div style={{ marginTop: '0.75rem', textAlign: 'center', fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                    {language === 'ar' ? 'البريد الإلكتروني المباشر: ' : 'Direct Email: '}
+                    {translations.contact.form.directEmail}
                     <a href={`mailto:${COMPANY_CONTACT.email}`} style={{ color: 'var(--primary)', fontWeight: 700 }} dir="ltr">{COMPANY_CONTACT.email}</a>
                   </div>
                 </form>
