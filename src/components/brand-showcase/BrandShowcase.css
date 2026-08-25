@@ -1,0 +1,983 @@
+/* ═══════════════════════════════════════════════════════════════════ */
+/* AWA FMCG LUXURY BRAND SHOWCASE - AWARD-WINNING LIGHT DESIGN SYSTEM  */
+/* SquEasy, Sweet & Slim, Yalla Drinks - Spacious & Heroic Scale       */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.fmcg-root {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* 1. Global Navigation Bar */
+.fmcg-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 0.85rem 1.5rem;
+}
+
+.fmcg-nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fmcg-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fmcg-nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 12px currentColor;
+}
+
+.fmcg-nav-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+}
+
+.fmcg-nav-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+.fmcg-switcher-group {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  gap: 0.4rem;
+}
+
+.fmcg-switcher-btn {
+  padding: 0.55rem 1.35rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #64748B;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.fmcg-switcher-btn:hover {
+  color: #0F172A;
+}
+
+.fmcg-switcher-btn.active {
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.fmcg-nav-cta {
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.fmcg-nav-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* 2. Generic Eyebrows, Titles, Buttons */
+.fmcg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.825rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  border: 1.5px solid;
+  background: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.fmcg-btn-primary {
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.fmcg-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+}
+
+.fmcg-btn-outline {
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.fmcg-btn-outline:hover {
+  background: #F1F5F9;
+  transform: translateY(-2px);
+}
+
+/* 3. Hero Section (Squeasy & Sweet & Slim) */
+.fmcg-hero-section {
+  position: relative;
+  min-height: 85vh;
+  padding: 4.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #F8FAFC;
+}
+
+.fmcg-hero-bg-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.fmcg-hero-grid {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.fmcg-hero-headline {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  color: #0F172A;
+}
+
+.fmcg-hero-sub {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 2.25rem;
+  max-width: 560px;
+}
+
+.fmcg-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.fmcg-hero-badges-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.fmcg-hero-badge-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.35rem;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.fmcg-hero-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fmcg-hero-badge-text {
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.fmcg-hero-badge-sub {
+  font-size: 0.775rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.fmcg-hero-pack-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+}
+
+.fmcg-pack-glow-ring {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.fmcg-hero-main-img {
+  height: 430px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.18));
+  position: relative;
+  z-index: 10;
+}
+
+/* 4. YALLA 360° LIGHT MODE FLAVOR SPLASH HERO SHOWCASE (Large & Spacious) */
+.yalla-splash-section-light {
+  position: relative;
+  width: 100%;
+  padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+  overflow: hidden;
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+.yalla-splash-container-light {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.yalla-header-light {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.yalla-main-title-light {
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #0F172A;
+  margin-bottom: 0.65rem;
+}
+
+.yalla-sub-desc-light {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.yalla-filter-bar-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.4rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.yalla-filter-btn-light {
+  padding: 0.5rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #64748B;
+  background: transparent;
+}
+
+.yalla-filter-btn-light.active {
+  background: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+}
+
+/* Horizontal Flavor Barista Stations (Larger & Spacious) */
+.yalla-flavor-orbit-row-light {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  scrollbar-width: none;
+}
+
+.yalla-flavor-orbit-row-light::-webkit-scrollbar {
+  display: none;
+}
+
+.yalla-flavor-chip-light {
+  padding: 0.9rem 1.1rem;
+  border-radius: 22px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  width: 140px;
+  height: 145px;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.yalla-flavor-chip-light:hover {
+  background: #FFFFFF;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.yalla-flavor-chip-light.active {
+  background: #FFFFFF;
+  border-width: 2.5px;
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.yalla-chip-thumb {
+  height: 64px;
+  width: auto;
+  max-width: 85px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.1));
+}
+
+.yalla-chip-name {
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #0F172A;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.yalla-chip-tag {
+  font-size: 0.675rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+}
+
+/* 3-Column Large Stage Grid for Yalla */
+.yalla-stage-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.4fr 1.05fr;
+  gap: 2.25rem;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.yalla-glass-card-light {
+  padding: 2.25rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  gap: 1.25rem;
+}
+
+.yalla-center-pack-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  height: 480px;
+}
+
+.yalla-pack-halo {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  animation: spinSlow 30s linear infinite;
+}
+
+.yalla-main-pack-img {
+  height: 410px;
+  width: auto;
+  max-width: 310px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2));
+  position: relative;
+  z-index: 10;
+}
+
+.yalla-sachet-pack-img {
+  position: absolute;
+  bottom: 15px;
+  right: -20px;
+  height: 200px;
+  width: auto;
+  max-width: 125px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.22));
+  z-index: 20;
+}
+
+/* 5. FLAVOR MORPHER CANVAS (Squeasy Light Mode) */
+.fmcg-morpher-section-light {
+  position: relative;
+  padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+  overflow: hidden;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.fmcg-section-header-light {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.fmcg-section-title-light {
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+  margin-bottom: 0.5rem;
+}
+
+.fmcg-section-desc-light {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.fmcg-flavor-pills-row-light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 3rem;
+}
+
+.fmcg-flavor-pill-light {
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0F172A;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.fmcg-flavor-pill-light:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.fmcg-flavor-pill-light.active {
+  color: #FFFFFF !important;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.fmcg-morpher-stage-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1.4fr 1.05fr;
+  gap: 2.25rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.fmcg-glass-card-light {
+  padding: 2.25rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 460px;
+  gap: 1.25rem;
+}
+
+/* 6. SWEET & SLIM WELLNESS UNIVERSE */
+.ss-wellness-section-light {
+  position: relative;
+  width: 100%;
+  padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ss-wellness-container-light {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.ss-pillars-nav-light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.ss-pillar-btn-light {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #0F172A;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.ss-pillar-btn-light:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.ss-pillar-btn-light.active {
+  background: #10B981;
+  color: #FFFFFF !important;
+  border-color: #10B981;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.ss-stage-grid-light {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.ss-calculator-card-light {
+  padding: 2.75rem;
+  border-radius: 28px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ss-calc-grid-light {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.ss-calc-inputs-light {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #F8FAFC;
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ss-calc-results-light {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.ss-stat-box-light {
+  padding: 1.35rem 1rem;
+  border-radius: 18px;
+  background: #ECFDF5;
+  border: 1.5px solid rgba(16, 185, 129, 0.2);
+  text-align: center;
+}
+
+/* 7. SKU CATALOG GRID (High-Converting FMCG Cards) */
+.fmcg-sku-section {
+  padding: 5.5rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.fmcg-sku-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 2rem;
+}
+
+.fmcg-sku-card {
+  border-radius: 26px;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  color: #0F172A !important;
+}
+
+.fmcg-sku-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.09) !important;
+}
+
+.fmcg-sku-img-wrapper {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.fmcg-sku-img {
+  height: 200px;
+  width: auto;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.14));
+  transition: transform 0.4s ease;
+}
+
+.fmcg-sku-card:hover .fmcg-sku-img {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.fmcg-meter-bar-bg {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.fmcg-meter-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 8. Parallax Story & Proof */
+.fmcg-story-section {
+  padding: 5.5rem 1.5rem;
+  background: #F1F5F9;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  color: #0F172A;
+}
+
+.fmcg-story-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.fmcg-story-media {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.fmcg-story-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.fmcg-story-overlay-box {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.fmcg-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fmcg-stat-item {
+  padding: 1.25rem 1rem;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  text-align: center;
+}
+
+.fmcg-stat-val {
+  font-size: 1.85rem;
+  font-weight: 900;
+}
+
+.fmcg-stat-lbl {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #475569;
+  margin-top: 0.25rem;
+}
+
+.fmcg-proof-section {
+  padding: 5.5rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.fmcg-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.fmcg-review-card {
+  padding: 2rem;
+  border-radius: 26px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  color: #0F172A;
+}
+
+.fmcg-faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.fmcg-faq-item {
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.fmcg-faq-btn {
+  width: 100%;
+  padding: 1.35rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: #0F172A;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.fmcg-faq-answer {
+  padding: 0 1.75rem 1.5rem 1.75rem;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .fmcg-hero-grid,
+  .fmcg-morpher-stage-grid,
+  .yalla-stage-grid,
+  .ss-stage-grid-light,
+  .ss-calc-grid-light,
+  .fmcg-story-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .fmcg-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ss-calc-results-light {
+    grid-template-columns: 1fr;
+  }
+
+  .fmcg-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fmcg-nav-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .fmcg-hero-badges-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fmcg-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .fmcg-btn-primary,
+  .fmcg-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
