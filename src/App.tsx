@@ -195,7 +195,7 @@ export function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/awa-website">
           <AppContent />
         </BrowserRouter>
       </LanguageProvider>
