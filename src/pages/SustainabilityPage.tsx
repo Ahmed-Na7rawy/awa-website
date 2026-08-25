@@ -3,13 +3,14 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { Leaf, BarChart3, Users2, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface SustainabilityProps {
   onOpenQuote: () => void;
 }
 
 export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote }) => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
 
@@ -17,6 +18,12 @@ export const SustainabilityPage: React.FC<SustainabilityProps> = ({ onOpenQuote 
 
   return (
     <div className="sustainability-page">
+      <SEO
+        title={t('nav.sustainability', 'Sustainability')}
+        description={translations.sustainability.hero.subtitle}
+        path="/sustainability"
+        image="/images/pages/sustainability/esg.jpg"
+      />
       {/* Header Banner */}
       <PageHero
         eyebrow={translations.sustainability.hero.eyebrow}

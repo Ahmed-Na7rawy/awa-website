@@ -17,6 +17,7 @@ import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useCountUp } from '../hooks/useCountUp';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface HomeProps {
   onNavigate: (pageId: string, subId?: string) => void;
@@ -103,6 +104,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
   return (
     <div className="home-page">
+      <SEO
+        path="/"
+        image="/images/pages/industries/image33.jpg"
+      />
       {/* ═══════════════════════════════════════════════════ */}
       {/* 1. LIGHT CINEMATIC HERO SECTION                    */}
       {/* ═══════════════════════════════════════════════════ */}

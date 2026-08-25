@@ -3,19 +3,26 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { Truck, ThermometerSnowflake, Clock, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface LogisticsProps {
   onOpenQuote: () => void;
 }
 
 export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
   const sectionRef3 = useScrollReveal();
 
   return (
     <div className="logistics-page">
+      <SEO
+        title={t('nav.logistics', 'Cold Chain Logistics')}
+        description={translations.logistics.hero.subtitle}
+        path="/logistics"
+        image="/images/pages/logistics/Image30.jpg"
+      />
       {/* Header Banner */}
       <PageHero
         eyebrow={translations.logistics.hero.eyebrow}

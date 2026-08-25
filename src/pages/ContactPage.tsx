@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, Building, Globe } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const ContactPage: React.FC = () => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [contactData, setContactData] = useState({
     name: '',
@@ -33,6 +34,11 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title={t('nav.contact', 'Contact Us')}
+        description={translations.contact.hero.subtitle}
+        path="/contact"
+      />
       {/* Header Banner */}
       <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
         <div className="container">

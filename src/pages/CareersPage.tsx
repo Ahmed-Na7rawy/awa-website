@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, Award, HeartHandshake, Microscope } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const CareersPage: React.FC = () => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [careerForm, setCareerForm] = useState({
     fullName: '',
@@ -64,6 +65,11 @@ export const CareersPage: React.FC = () => {
 
   return (
     <div className="careers-page">
+      <SEO
+        title={t('nav.careers', 'Careers')}
+        description={translations.careers.hero.subtitle}
+        path="/careers"
+      />
       {/* Header Banner */}
       <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
         <div className="container">

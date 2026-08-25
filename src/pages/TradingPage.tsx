@@ -5,13 +5,14 @@ import { Globe, ShieldCheck, CheckCircle2, ArrowRight, Database } from 'lucide-r
 import { PARTNER_LOGOS } from '../data/siteData';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface TradingProps {
   onOpenQuote: () => void;
 }
 
 export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
 
@@ -19,6 +20,12 @@ export const TradingPage: React.FC<TradingProps> = ({ onOpenQuote }) => {
 
   return (
     <div className="trading-page">
+      <SEO
+        title={t('nav.trading', 'Formulation & Sourcing')}
+        description={translations.trading.hero.subtitle}
+        path="/trading"
+        image="/images/pages/trading/Image11.jpg"
+      />
       {/* Header Banner */}
       <PageHero
         eyebrow={translations.trading.hero.eyebrow}

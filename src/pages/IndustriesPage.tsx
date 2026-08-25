@@ -3,6 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { Settings, Cpu, Award, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface IndustriesProps {
   onOpenQuote: () => void;
@@ -10,11 +11,17 @@ interface IndustriesProps {
 }
 
 export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavigate }) => {
-  const { translations } = useLanguage();
+  const { t, translations } = useLanguage();
   const sectionRef1 = useScrollReveal();
   const sectionRef2 = useScrollReveal();
   return (
     <div className="industries-page">
+      <SEO
+        title={t('nav.industries', 'Manufacturing')}
+        description={translations.industries.hero.subtitle}
+        path="/industries"
+        image="/images/pages/industries/image33.jpg"
+      />
       {/* Header Banner */}
       <PageHero
         eyebrow={translations.industries.hero.eyebrow}

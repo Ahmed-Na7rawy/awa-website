@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
@@ -188,11 +189,13 @@ function AppContent() {
 
 export function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }
 

@@ -5,6 +5,7 @@ import { PageHero } from '../components/PageHero';
 import { SOLUTIONS_LIST } from '../data/siteData';
 import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Layers, FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 import { useParams } from 'react-router-dom';
 
@@ -50,6 +51,12 @@ export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQu
 
   return (
     <div className="solutions-page">
+      <SEO
+        title={t('nav.solutions', 'Food Solutions')}
+        description={translations.solutions.hero.subtitle}
+        path={effectiveSubId ? `/solutions/${effectiveSubId}` : '/solutions'}
+        image="/images/pages/solutions/Image26.jpg"
+      />
       {/* Header Banner */}
       <PageHero
         eyebrow={translations.solutions.hero.eyebrow}

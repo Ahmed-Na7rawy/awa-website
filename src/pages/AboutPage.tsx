@@ -9,6 +9,7 @@ import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useCountUp } from '../hooks/useCountUp';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 interface AboutProps {
   onNavigate: (pageId: string) => void;
@@ -206,6 +207,12 @@ export const AboutPage: React.FC<AboutProps> = ({ onNavigate, onOpenQuote }) => 
 
   return (
     <div className="about-page" style={{ background: '#FFFFFF' }}>
+      <SEO
+        title={t('nav.about', 'About AWA Group')}
+        description={t('about.hero.subtitle', 'Pioneering food science, custom stabilizer blending, and industrial compounding in Egypt and MEA since 1993.')}
+        path="/about"
+        image="/images/pages/about/borg_el_arab_plant.jpg"
+      />
       <section 
         className="hero-cinematic-section" 
         ref={heroRef} 
