@@ -1,0 +1,6 @@
+import{c as k,r}from"./index-CC4ebKQT.js";/**
+ * @license lucide-react v1.31.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const w=[["path",{d:"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",key:"1s2grr"}],["path",{d:"M20 2v4",key:"1rf3ol"}],["path",{d:"M22 4h-4",key:"gwowj6"}],["circle",{cx:"4",cy:"20",r:"2",key:"6kqj1y"}]],b=k("sparkles",w);function R(e,o=2e3){const[f,t]=r.useState(0),c=r.useRef(null),a=r.useRef(!1);return r.useEffect(()=>{const s=c.current;if(!s)return;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){t(e);return}const n=new IntersectionObserver(l=>{l.forEach(d=>{if(d.isIntersecting&&!a.current){a.current=!0;const p=performance.now(),u=m=>{const h=m-p,i=Math.min(h/o,1),M=1-Math.pow(1-i,3);t(Math.floor(M*e)),i<1?requestAnimationFrame(u):t(e)};requestAnimationFrame(u),n.unobserve(s)}})},{threshold:.3});return n.observe(s),()=>n.disconnect()},[e,o]),{count:f,ref:c}}export{b as S,R as u};
