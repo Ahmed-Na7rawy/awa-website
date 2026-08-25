@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
@@ -9,17 +9,17 @@ import { FloatingSocialBar } from './components/FloatingSocialBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { JsonLd } from './components/JsonLd';
 
-// Pages
-import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { SolutionsPage } from './pages/SolutionsPage';
-import { TradingPage } from './pages/TradingPage';
-import { LogisticsPage } from './pages/LogisticsPage';
-import { IndustriesPage } from './pages/IndustriesPage';
-import { ProductsPage } from './pages/ProductsPage';
-import { SustainabilityPage } from './pages/SustainabilityPage';
-import { CareersPage } from './pages/CareersPage';
-import { ContactPage } from './pages/ContactPage';
+// Code-Split Lazy Loaded Pages
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage').then(m => ({ default: m.SolutionsPage })));
+const TradingPage = lazy(() => import('./pages/TradingPage').then(m => ({ default: m.TradingPage })));
+const LogisticsPage = lazy(() => import('./pages/LogisticsPage').then(m => ({ default: m.LogisticsPage })));
+const IndustriesPage = lazy(() => import('./pages/IndustriesPage').then(m => ({ default: m.IndustriesPage })));
+const ProductsPage = lazy(() => import('./pages/ProductsPage').then(m => ({ default: m.ProductsPage })));
+const SustainabilityPage = lazy(() => import('./pages/SustainabilityPage').then(m => ({ default: m.SustainabilityPage })));
+const CareersPage = lazy(() => import('./pages/CareersPage').then(m => ({ default: m.CareersPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -66,114 +66,116 @@ function AppContent() {
 
       <main>
         <div className="page-transition-wrapper">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <AboutPage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/solutions"
-              element={
-                <SolutionsPage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/solutions/:subId"
-              element={
-                <SolutionsPage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/trading"
-              element={
-                <TradingPage
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/logistics"
-              element={
-                <LogisticsPage
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/industries"
-              element={
-                <IndustriesPage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/products"
-              element={
-                <ProductsPage
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/products/:subId"
-              element={
-                <ProductsPage
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/sustainability"
-              element={
-                <SustainabilityPage
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-            <Route
-              path="/careers"
-              element={
-                <CareersPage />
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <ContactPage />
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <HomePage
-                  onNavigate={handleNavigate}
-                  onOpenQuote={() => setIsQuoteModalOpen(true)}
-                />
-              }
-            />
-          </Routes>
+          <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFAFA' }}></div>}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <HomePage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <AboutPage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/solutions"
+                element={
+                  <SolutionsPage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/solutions/:subId"
+                element={
+                  <SolutionsPage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/trading"
+                element={
+                  <TradingPage
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/logistics"
+                element={
+                  <LogisticsPage
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/industries"
+                element={
+                  <IndustriesPage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/products"
+                element={
+                  <ProductsPage
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/products/:subId"
+                element={
+                  <ProductsPage
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/sustainability"
+                element={
+                  <SustainabilityPage
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+              <Route
+                path="/careers"
+                element={
+                  <CareersPage />
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <ContactPage />
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <HomePage
+                    onNavigate={handleNavigate}
+                    onOpenQuote={() => setIsQuoteModalOpen(true)}
+                  />
+                }
+              />
+            </Routes>
+          </Suspense>
         </div>
       </main>
 
