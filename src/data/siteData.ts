@@ -48,7 +48,14 @@ export const NAV_LINKS = [
   },
   { label: 'Sustainability', id: 'sustainability' },
   { label: 'Contact', id: 'contact' },
-];
+] as const;
+
+export type PageId =
+  | 'home'
+  | typeof NAV_LINKS[number]['id']
+  | 'logistics'
+  | 'careers';
+
 
 export const HERO_SLIDES = [
   {

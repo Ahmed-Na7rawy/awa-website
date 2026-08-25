@@ -18,9 +18,10 @@ import { CareersPage } from './pages/CareersPage';
 import { ContactPage } from './pages/ContactPage';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { PageId } from './data/siteData';
 
 function AppContent() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
+  const [currentPage, setCurrentPage] = useState<PageId>('home');
   const [subPageId, setSubPageId] = useState<string | undefined>(undefined);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -39,7 +40,7 @@ function AppContent() {
   }, []);
 
   const handleNavigate = (pageId: string, subId?: string) => {
-    setCurrentPage(pageId);
+    setCurrentPage(pageId as PageId);
     setSubPageId(subId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ShieldCheck, Award } from 'lucide-react';
-import { COMPANY_CONTACT, CERTIFICATIONS } from '../data/siteData';
+import { COMPANY_CONTACT, CERTIFICATIONS, NAV_LINKS } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
@@ -15,6 +15,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     onNavigate(id, subId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const mainNavItems = [
+    { id: 'home', labelKey: 'nav.home', defaultLabel: 'Home' },
+    ...NAV_LINKS.filter((item) => item.id !== 'contact' && item.id !== 'products').map((item) => ({
+      id: item.id,
+      labelKey: `nav.${item.id}`,
+      defaultLabel: item.label,
+    })),
+  ];
 
   return (
     <footer className="footer">
@@ -55,36 +64,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h4 className="footer-col-title">{t('footer.quickLinks', 'Navigation')}</h4>
             <ul className="footer-links">
-              <li>
-                <button onClick={() => handleNav('home')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.home', 'Home')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('about')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.about', 'About AWA Group')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('solutions')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.solutions', 'Food Solutions')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('trading')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.trading', 'Formulation & Sourcing')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('industries')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.industries', 'Manufacturing')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('sustainability')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.sustainability', 'Sustainability')}
-                </button>
-              </li>
+              {mainNavItems.map((item) => (
+                <li key={item.id}>
+                  <button onClick={() => handleNav(item.id)} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                    {t(item.labelKey, item.defaultLabel)}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
