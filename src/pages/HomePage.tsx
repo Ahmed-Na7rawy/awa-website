@@ -18,6 +18,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useCountUp } from '../hooks/useCountUp';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Link } from 'react-router-dom';
 
 interface HomeProps {
   onNavigate: (pageId: string, subId?: string) => void;
@@ -510,10 +511,11 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
               style={{ transform: `translateX(${language === 'ar' ? '' : '-'}${carouselIndex * (100 / 3)}%)` }}
             >
               {FOOD_SECTORS.map((sector) => (
-                <div 
+                <Link 
                   key={sector.id}
+                  to={`/solutions/${sector.id}`}
                   className="matrix-carousel-card"
-                  onClick={() => onNavigate('solutions', sector.id)}
+                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
                 >
                   <div className="matrix-carousel-img-wrap">
                     <img src={sector.image} alt={sector.name} className="matrix-carousel-img" />
@@ -537,7 +539,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                       <ArrowRight size={15} />
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
