@@ -7,6 +7,7 @@ import { QuoteModal } from './components/QuoteModal';
 import { BackToTop } from './components/BackToTop';
 import { FloatingSocialBar } from './components/FloatingSocialBar';
 import { ScrollToTop } from './components/ScrollToTop';
+import { JsonLd } from './components/JsonLd';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -52,6 +53,7 @@ function AppContent() {
 
   return (
     <div className={`app-root ${isRTL ? 'rtl' : 'ltr'}`}>
+      <JsonLd />
       <ScrollToTop />
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
