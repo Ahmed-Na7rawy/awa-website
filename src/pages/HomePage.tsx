@@ -53,7 +53,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const numbersRef = useScrollReveal();
   const storyRef = useScrollReveal();
   const stickyRef = useScrollReveal();
-  const bentoRef = useScrollReveal();
   const carouselRef = useScrollReveal();
   const galleryRef = useScrollReveal();
   const whyAwaRef = useScrollReveal();
@@ -381,100 +380,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 6. ASYMMETRIC BENTO GRID (CAPABILITIES)            */}
-      {/* ═══════════════════════════════════════════════════ */}
-      <section className="bento-grid-section" ref={bentoRef}>
-        <div className="container">
-          <div className="section-header text-center reveal-fade-up">
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>{translations.home.bento.eyebrow}</div>
-            <h2 className="section-title">{translations.home.bento.title}</h2>
-            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '720px' }}>
-              {translations.home.bento.desc}
-            </p>
-          </div>
-
-          <div className="bento-grid-container">
-            {/* Tile 1: Large 2x2 with Image */}
-            <div className="bento-tile bento-tile-large reveal-fade-up" onClick={() => onNavigate('industries')}>
-              <img src="/images/pages/industries/image33.jpg" alt="Manufacturing Scale" className="bento-tile-bg-img" />
-              <div className="bento-tile-overlay-dark" />
-              <div className="bento-tile-content">
-                <span className="bento-num">01 · {translations.home.bento.tile1.tag}</span>
-                <h3 className="bento-title">{translations.home.bento.tile1.title}</h3>
-                <p className="bento-desc">{translations.home.bento.tile1.desc}</p>
-              </div>
-              <div className="bento-arrow-wrap">
-                <ArrowRight size={18} />
-              </div>
-            </div>
-
-            {/* Tile 2: Standard */}
-            <div className="bento-tile reveal-fade-up reveal-delay-1" onClick={() => onNavigate('solutions')}>
-              <div className="bento-tile-content">
-                <span className="bento-num">02 · {translations.home.bento.tile2.tag}</span>
-                <h3 className="bento-title">{translations.home.bento.tile2.title}</h3>
-                <p className="bento-desc">{translations.home.bento.tile2.desc}</p>
-              </div>
-              <div className="bento-arrow-wrap">
-                <ArrowRight size={18} />
-              </div>
-            </div>
-
-            {/* Tile 3: Standard */}
-            <div className="bento-tile reveal-fade-up reveal-delay-2" onClick={() => onNavigate('about')}>
-              <div className="bento-tile-content">
-                <span className="bento-num">03 · {translations.home.bento.tile3.tag}</span>
-                <h3 className="bento-title">{translations.home.bento.tile3.title}</h3>
-                <p className="bento-desc">{translations.home.bento.tile3.desc}</p>
-              </div>
-              <div className="bento-arrow-wrap">
-                <ArrowRight size={18} />
-              </div>
-            </div>
-
-            {/* Tile 4: Wide with Background Image */}
-            <div className="bento-tile bento-tile-wide reveal-fade-up reveal-delay-3" onClick={() => onNavigate('logistics')}>
-              <img src="/images/pages/solutions/cold-chain-logistics-truck.jpg" alt="Cold Chain Logistics" className="bento-tile-bg-img" />
-              <div className="bento-tile-overlay-dark" />
-              <div className="bento-tile-content">
-                <span className="bento-num" style={{ color: '#4ADE80' }}>04 · {translations.home.bento.tile4.tag}</span>
-                <h3 className="bento-title" style={{ color: '#FFFFFF' }}>{translations.home.bento.tile4.title}</h3>
-                <p className="bento-desc" style={{ color: '#E2E8F0' }}>{translations.home.bento.tile4.desc}</p>
-              </div>
-              <div className="bento-arrow-wrap" style={{ background: 'rgba(255,255,255,0.2)', color: '#FFFFFF' }}>
-                <ArrowRight size={18} />
-              </div>
-            </div>
-
-            {/* Tile 5: Standard Sourcing */}
-            <div className="bento-tile reveal-fade-up reveal-delay-4" onClick={() => onNavigate('trading')}>
-              <div className="bento-tile-content">
-                <span className="bento-num">05 · {language === 'ar' ? 'التوريد العالمي' : 'Global Sourcing'}</span>
-                <h3 className="bento-title">{language === 'ar' ? 'استيراد الخامات والمضافات المعتمدة' : 'Raw Materials Direct Trading'}</h3>
-                <p className="bento-desc">{language === 'ar' ? 'توريد مباشر من كبار المنتجين في أكثر من 30 دولة.' : 'Direct sourcing from audited producers in 30+ countries.'}</p>
-              </div>
-              <div className="bento-arrow-wrap">
-                <ArrowRight size={18} />
-              </div>
-            </div>
-
-            {/* Tile 6: Standard Retail */}
-            <div className="bento-tile reveal-fade-up reveal-delay-5" onClick={() => onNavigate('products')}>
-              <div className="bento-tile-content">
-                <span className="bento-num">06 · {language === 'ar' ? 'العلامات التجارية' : 'Consumer FMCG'}</span>
-                <h3 className="bento-title">{language === 'ar' ? 'منتجات المستهلك والتعبئة للغير' : 'Consumer Brands & Co-Packing'}</h3>
-                <p className="bento-desc">{language === 'ar' ? 'مصنعة في مصانعنا تحت علامات Sweet & Slim و SquEasy و Yalla.' : 'Manufactured under Sweet & Slim, SquEasy, and Yalla lines.'}</p>
-              </div>
-              <div className="bento-arrow-wrap">
-                <ArrowRight size={18} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════ */}
-      {/* 7. SPECIALIZED FOOD MATRIX CAROUSEL                */}
+      {/* 6. SPECIALIZED FOOD MATRIX CAROUSEL                */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="matrix-carousel-section" ref={carouselRef}>
         <div className="container">
