@@ -1,0 +1,27 @@
+steps:
+  - step: 1
+    description: "Login to your cPanel account."
+  - step: 2
+    description: "Go to Git Version Control."
+  - step: 3
+    description: "Click Create."
+  - step: 4
+    description: "Turn on Clone a Repository if your code is on GitHub or GitLab."
+  - step: 5
+    description: "Paste your Clone URL."
+  - step: 6
+    description: "Provide a Repository Path, such as repositories/myproject."
+  - step: 7
+    description: "Enter a Repository Name."
+  - step: 8
+    description: "Click Create to clone the repository."
+  - step: 9
+    description: "Once created, go back to the Git Version Control list and click Manage for your new repository."
+  - step: 10
+    description: "Go to the Pull or Deploy tab."
+  - step: 11
+    description: "Scroll down and click Deploy HEAD Commit. This will trigger the commands in .cpanel.yml."
+  - step: 12
+    description: "Ensure you have the .cpanel.yml file committed in your repository root before deploying."
+  - step: 13
+    description: "Note: Depending on your cPanel configuration and Node.js version installed, you might need to adjust the PATH variable in .cpanel.yml."
