@@ -20,24 +20,25 @@ function walkDir(dir, callback) {
   }
 }
 
-// Adjust absolute paths to /images/, /images/logos/ or /images/gallery/
-console.log('Rewriting asset paths in JS and CSS files for sub-folder deployment...');
+// Adjust absolute paths to /images/ ONLY for sub-folder deployment (e.g. GitHub Pages)
+if (process.env.GITHUB_PAGES === 'true') {
+  console.log('Rewriting asset paths in JS and CSS files for sub-folder deployment...');
 
-walkDir(distDir, (filePath) => {
-  const ext = path.extname(filePath).toLowerCase();
-  if (ext === '.js' || ext === '.css' || ext === '.html') {
-    let content = fs.readFileSync(filePath, 'utf8');
+  walkDir(distDir, (filePath) => {
+    const ext = path.extname(filePath).toLowerCase();
+    if (ext === '.js' || ext === '.css' || ext === '.html') {
+      let content = fs.readFileSync(filePath, 'utf8');
 
-    // Replace "/images/" with "/awa-website/images/"
-    // Make sure we don't duplicate it if Vite/Rollup already handled some imports
-    let original = content;
-    content = content.replace(/(?<!\/awa-website)\/images\//g, '/awa-website/images/');
-    
-    if (content !== original) {
-      fs.writeFileSync(filePath, content, 'utf8');
-      console.log(`  Updated paths in: ${path.relative(distDir, filePath)}`);
+      // Replace "/images/" with "/awa-website/images/"
+      let original = content;
+      content = content.replace(/(?<!\/awa-website)\/images\//g, '/awa-website/images/');
+
+      if (content !== original) {
+        fs.writeFileSync(filePath, content, 'utf8');
+        console.log(`  Updated paths in: ${path.relative(distDir, filePath)}`);
+      }
     }
-  }
-});
+  });
 
-console.log('Path rewrite complete.');
+  console.log('Path rewrite complete.');
+}
