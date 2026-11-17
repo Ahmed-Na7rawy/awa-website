@@ -11,7 +11,9 @@ import {
   FlaskConical,
   Globe2,
   Handshake,
-  Users
+  Users,
+  Factory,
+  Microscope
 } from 'lucide-react';
 import { 
   FOOD_SECTORS, 
@@ -54,6 +56,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const [activeStickyStep, setActiveStickyStep] = useState(0);
   const [exploreTab, setExploreTab] = useState<'industry' | 'challenge' | 'family'>('industry');
   const [activeHeroSector, setActiveHeroSector] = useState<'dairy' | 'meat' | 'bakery' | 'beverage'>('dairy');
+  const [activeFacilityView, setActiveFacilityView] = useState<'plant' | 'lab'>('plant');
 
   const heroSectors = [
     {
@@ -176,9 +179,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           <div className="awa-hero-inner">
             {/* Left Column — Corporate Messaging */}
             <div className="reveal-fade-left">
-              <div className="awa-hero-eyebrow">
-                <span className="awa-hero-eyebrow-dot" />
-                <span>
+              {/* Eyebrow Label — Refined Enterprise Typography */}
+              <div className="awa-hero-eyebrow-corp">
+                <span className="awa-hero-eyebrow-bar" />
+                <span className="awa-hero-eyebrow-text">
                   {language === 'ar' 
                     ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
                     : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
@@ -221,51 +225,48 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
               </div>
             </div>
 
-            {/* Right Column — Industrial Visual */}
+            {/* Right Column — Large Premium Industrial Food Science Visual */}
             <div className="reveal-fade-right reveal-delay-1">
-              <div className="awa-hero-visual-frame">
-                {/* Overlay 1: Founder & Chairman */}
-                <div className="awa-hero-overlay awa-hero-overlay-1">
-                  <div className="awa-overlay-icon">
-                    <Award size={20} />
+              <div className="awa-hero-visual-container">
+                <img
+                  src="/images/pages/home/hero-food-science-lab.jpg"
+                  alt="AWA Group Food Formulation Scientist Operating Rheology and Texture Analysis Systems in Application Laboratory"
+                  className="awa-hero-main-photo"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('pilot-plant-dairy-testing.jpg')) {
+                      target.src = '/images/pages/home/pilot-plant-dairy-testing.jpg';
+                    }
+                  }}
+                />
+
+                {/* Overlay 1: Founder & Chairman (Clean Inset Card) */}
+                <div className="awa-inset-card awa-inset-top-right">
+                  <div className="awa-inset-icon">
+                    <Award size={18} />
                   </div>
-                  <div>
-                    <div className="awa-overlay-label">
+                  <div className="awa-inset-text">
+                    <span className="awa-inset-label">
                       {language === 'ar' ? 'المؤسس ورئيس مجلس الإدارة' : 'Founder & Chairman'}
-                    </div>
-                    <div className="awa-overlay-val">
+                    </span>
+                    <span className="awa-inset-val">
                       {language === 'ar' ? 'قيادة مجموعة AWA منذ 1993' : 'Leading AWA Group Since 1993'}
-                    </div>
+                    </span>
                   </div>
                 </div>
 
-                {/* Main Visual Display */}
-                <div className="awa-hero-img-wrap">
-                  <img
-                    src="/images/pages/home/pilot-plant-dairy-testing.jpg"
-                    alt="AWA Group Industrial Food Science & Pilot Processing Facility"
-                    className="awa-hero-img"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (!target.src.includes('hero.webp')) {
-                        target.src = '/images/v9/v7/hero.webp';
-                      }
-                    }}
-                  />
-                </div>
-
-                {/* Overlay 2: 2,000+ Industrial Clients */}
-                <div className="awa-hero-overlay awa-hero-overlay-2">
-                  <div className="awa-overlay-icon">
-                    <Users size={20} />
+                {/* Overlay 2: 2,000+ Industrial Clients (Clean Inset Card) */}
+                <div className="awa-inset-card awa-inset-bottom-left">
+                  <div className="awa-inset-icon">
+                    <Users size={18} />
                   </div>
-                  <div>
-                    <div className="awa-overlay-label">
+                  <div className="awa-inset-text">
+                    <span className="awa-inset-label">
                       {language === 'ar' ? '+2,000 عميل صناعي' : '2,000+ Industrial Clients'}
-                    </div>
-                    <div className="awa-overlay-val">
+                    </span>
+                    <span className="awa-inset-val">
                       {language === 'ar' ? 'مصر والشرق الأوسط وأفريقيا' : 'Egypt, Middle East & Africa'}
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>

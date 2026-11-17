@@ -187,53 +187,42 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   overflow: hidden;
 }
 
-/* Subtle architectural grid pattern */
+/* Clean corporate background */
 .awa-hero-grid-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, #000 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, #000 40%, transparent 80%);
-  pointer-events: none;
+  display: none;
 }
 
 .awa-hero-inner {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 3.75rem;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
   align-items: center;
-  padding-bottom: 4rem;
+  padding-bottom: 4.5rem;
 }
 
-/* Eyebrow badge */
-.awa-hero-eyebrow {
+/* Eyebrow Label — Refined Enterprise Typography */
+.awa-hero-eyebrow-corp {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #00A84F;
-  background: #EBF7EE;
-  border: 1px solid rgba(0, 168, 79, 0.2);
-  padding: 0.35rem 0.85rem;
-  border-radius: 6px;
-  width: fit-content;
-  margin-bottom: 1.5rem;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
 }
 
-.awa-hero-eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #00A84F;
+.awa-hero-eyebrow-bar {
+  width: 20px;
+  height: 3px;
+  background: #00A84F;
+  border-radius: 2px;
+}
+
+.awa-hero-eyebrow-text {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00A84F;
 }
 
 /* Headline */
@@ -319,65 +308,75 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   transform: translateY(-1px);
 }
 
-/* Right Column Industrial Visual */
-.awa-hero-visual-frame {
+/* Right Column — Large Premium Industrial Food Science Visual */
+.awa-hero-visual-container {
   position: relative;
-  border-radius: 14px;
-  overflow: visible;
-}
-
-.awa-hero-img-wrap {
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
   border: 1px solid #E2E8F0;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-  background-color: #F1F5F9;
-  aspect-ratio: 16 / 11;
+  box-shadow: 0 20px 45px -12px rgba(16, 38, 59, 0.09), 0 1px 3px rgba(16, 38, 59, 0.04);
+  background-color: #F8FAFC;
+  aspect-ratio: 16 / 12;
+  width: 100%;
 }
 
-.awa-hero-img {
+.awa-hero-main-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Two Lightweight Information Overlays */
-.awa-hero-overlay {
+.awa-hero-visual-container:hover .awa-hero-main-photo {
+  transform: scale(1.02);
+}
+
+/* Elegant Inset Cards (Directly INSIDE the image, zero collision, zero negative margins) */
+.awa-inset-card {
   position: absolute;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(16, 38, 59, 0.12), 0 2px 6px rgba(16, 38, 59, 0.04);
+  border-radius: 12px;
+  padding: 0.65rem 0.95rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
-  z-index: 3;
+  max-width: calc(100% - 32px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.awa-hero-overlay-1 {
-  top: -14px;
-  left: -18px;
+.awa-inset-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(16, 38, 59, 0.15);
 }
 
-.awa-hero-overlay-2 {
-  bottom: -18px;
-  right: -18px;
+.awa-inset-top-right {
+  top: 18px;
+  right: 18px;
 }
 
-.rtl .awa-hero-overlay-1 {
-  left: auto;
-  right: -18px;
+.awa-inset-bottom-left {
+  bottom: 18px;
+  left: 18px;
 }
 
-.rtl .awa-hero-overlay-2 {
+.rtl .awa-inset-top-right {
   right: auto;
-  left: -18px;
+  left: 18px;
 }
 
-.awa-overlay-icon {
+.rtl .awa-inset-bottom-left {
+  left: auto;
+  right: 18px;
+}
+
+.awa-inset-icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
@@ -389,8 +388,13 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   flex-shrink: 0;
 }
 
-.awa-overlay-label {
-  font-size: 0.7rem;
+.awa-inset-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.awa-inset-label {
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -398,11 +402,46 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   line-height: 1.2;
 }
 
-.awa-overlay-val {
-  font-size: 0.875rem;
+.awa-inset-val {
+  font-size: 0.85rem;
   font-weight: 800;
   color: #10263B;
-  line-height: 1.3;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+/* Subtle Inset Facility Tag */
+.awa-facility-inset-pill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(16, 38, 59, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.rtl .awa-facility-inset-pill {
+  left: auto;
+  right: 18px;
+}
+
+.awa-facility-inset-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00A84F;
+  box-shadow: 0 0 6px #00A84F;
 }
 
 /* Bottom Credibility Strip */
@@ -458,28 +497,13 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 @media (max-width: 1024px) {
   .awa-hero-inner {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
     padding-bottom: 3.5rem;
   }
-  .awa-hero-visual-frame {
-    max-width: 600px;
+  .awa-hero-visual-container {
+    max-width: 640px;
     margin: 0 auto;
-  }
-  .awa-hero-overlay-1 {
-    top: -10px;
-    left: 0;
-  }
-  .awa-hero-overlay-2 {
-    bottom: -10px;
-    right: 0;
-  }
-  .rtl .awa-hero-overlay-1 {
-    right: 0;
-    left: auto;
-  }
-  .rtl .awa-hero-overlay-2 {
-    left: 0;
-    right: auto;
+    aspect-ratio: 16 / 11;
   }
   .awa-credibility-inner {
     grid-template-columns: repeat(2, 1fr);
@@ -512,9 +536,21 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   .awa-btn-primary, .awa-btn-secondary {
     justify-content: center;
   }
-  .awa-hero-overlay {
-    position: static;
-    margin-top: 0.75rem;
+  .awa-inset-card {
+    padding: 0.5rem 0.75rem;
+  }
+  .awa-inset-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .awa-inset-label {
+    font-size: 0.6rem;
+  }
+  .awa-inset-val {
+    font-size: 0.75rem;
+  }
+  .awa-facility-inset-pill {
+    display: none;
   }
   .awa-credibility-inner {
     grid-template-columns: 1fr;
