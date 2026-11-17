@@ -7,7 +7,8 @@ import {
   ShieldCheck, 
   Award, 
   Sparkles,
-  MessageSquare
+  MessageSquare,
+  FlaskConical
 } from 'lucide-react';
 import { 
   FOOD_SECTORS, 
@@ -49,6 +50,42 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const [activeWhyIndex, setActiveWhyIndex] = useState(0);
   const [activeStickyStep, setActiveStickyStep] = useState(0);
   const [exploreTab, setExploreTab] = useState<'industry' | 'challenge' | 'family'>('industry');
+  const [activeHeroSector, setActiveHeroSector] = useState<'dairy' | 'meat' | 'bakery' | 'beverage'>('dairy');
+
+  const heroSectors = [
+    {
+      id: 'dairy' as const,
+      label: language === 'ar' ? 'الألبان والأجبان' : 'Dairy & Cheese',
+      icon: '🧀',
+      image: '/images/v9/v7/dairy-cheese.webp',
+      tag: language === 'ar' ? 'أنظمة الاستحلاب والقوام' : 'Emulsification & Viscosity Systems',
+      spec: language === 'ar' ? 'تحكم دقيق في الذوبان والثبات' : 'Controlled Melting & Thermal Stability',
+    },
+    {
+      id: 'meat' as const,
+      label: language === 'ar' ? 'اللحوم والمصنعات' : 'Meat & Savory',
+      icon: '🥩',
+      image: '/images/v9/v7/meat-seafood.webp',
+      tag: language === 'ar' ? 'أنظمة الربط وحفظ الرطوبة' : 'Binding & Yield Extension Systems',
+      spec: language === 'ar' ? 'ثبات مستحلب الدهون والبروتين' : 'Fat-Protein Emulsion Stability',
+    },
+    {
+      id: 'bakery' as const,
+      label: language === 'ar' ? 'المخبوزات والحلويات' : 'Bakery & Dessert',
+      icon: '🥐',
+      image: '/images/v9/v7/bakery.webp',
+      tag: language === 'ar' ? 'تمديد الصلاحية وهندسة القوام' : 'Shelf-Life & Crumb Softness Systems',
+      spec: language === 'ar' ? 'مقاومة الرطوبة ومحاكاة النضارة' : 'Moisture Retention & Freshness Control',
+    },
+    {
+      id: 'beverage' as const,
+      label: language === 'ar' ? 'المشروبات والصلصات' : 'Beverage & Sauces',
+      icon: '🥤',
+      image: '/images/v9/v7/beverages.webp',
+      tag: language === 'ar' ? 'مستحلبات النكهة وعوامل التعتيم' : 'Clouding & Flavor Emulsion Systems',
+      spec: language === 'ar' ? 'ثبات متجانس بدون انفصال' : 'Homogeneous Phase Separation Control',
+    },
+  ];
 
   const v7IndustryImages: Record<string, string> = {
     'dairy-cheese': '/images/v9/v7/dairy-cheese.webp',
@@ -128,81 +165,151 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         image="/images/pages/industries/image33.jpg"
       />
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 1. LIGHT CINEMATIC HERO SECTION                    */}
+      {/* 1. BESPOKE EXECUTIVE INDUSTRIAL HERO MASTER        */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="hero-cinematic-section" ref={heroRef}>
-        <div className="hero-cinematic-bg-grid" />
+      <section className="hero-executive-master" ref={heroRef}>
+        <div className="hero-ambient-glow" />
         <div className="container">
-          <div className="hero-cinematic-grid">
-            {/* Left Editorial Text & CTAs */}
-            <div className="reveal-fade-left">
-              <div className="hero-cinematic-eyebrow">
-                <Sparkles size={14} />
-                <span>{translations.home.hero.eyebrow}</span>
+          <div className="hero-executive-grid">
+            {/* Left Content Column */}
+            <div className="hero-content-col reveal-fade-left">
+              {/* Origin & Status Badge */}
+              <div className="hero-origin-badge">
+                <span className="hero-beacon-dot" />
+                <span>{language === 'ar' ? 'تأسست 1995 · شبكة توريد وتصنيع إقليمية' : 'EST. 1995 · GLOBAL SOURCING & MANUFACTURING'}</span>
+                <span className="hero-origin-divider" />
+                <span className="hero-origin-text">FSSC 22000 & ISO CERTIFIED</span>
               </div>
 
-              <h1 className="hero-cinematic-title">
-                {translations.home.hero.title}
+              {/* Master Headline */}
+              <h1 className="hero-master-title">
+                {language === 'ar' ? (
+                  <>
+                    مكونات غذائية دقيقة. <br />
+                    تركيبات هندسية متطورة. <br />
+                    <span className="hero-gradient-highlight">إمداد صناعي موثوق.</span>
+                  </>
+                ) : (
+                  <>
+                    Precision Ingredients. <br />
+                    Engineered Formulations. <br />
+                    <span className="hero-gradient-highlight">Reliable Industrial Supply.</span>
+                  </>
+                )}
               </h1>
 
-              <p className="hero-cinematic-desc">
-                {translations.home.hero.desc}
+              {/* Lead Paragraph */}
+              <p className="hero-master-lead">
+                {language === 'ar'
+                  ? 'تربط مجموعة AWA بين التوريد المباشر لكبرى خامات الأغذية العالمية، وأبحاث وتطوير التطبيقات في 4 معامل متخصصة، والخلط عالي الطاقة بمجمع برج العرب الصناعي لتزويد كبرى مصانع الألبان واللحوم والمخبوزات والمشروبات بحلول مصممة للأداء القياسي.'
+                  : 'AWA Group connects global ingredient sourcing, specialized food application R&D across 4 dedicated labs, and scalable Borg El-Arab manufacturing to deliver high-performance functional systems for dairy, meat, bakery, beverage, and culinary producers across MENA & Europe.'}
               </p>
 
-              <div className="hero-cinematic-actions">
-                <button
-                  onClick={() => onNavigate('solutions')}
-                  className="btn btn-primary"
+              {/* Primary Action Buttons */}
+              <div className="hero-actions-cluster">
+                <Link
+                  to="/solutions"
+                  className="hero-btn-primary"
                 >
-                  <span>{translations.home.hero.ctaPrimary}</span>
-                  <ArrowRight size={16} />
-                </button>
+                  <span>{language === 'ar' ? 'استكشف الحلول الصناعية' : 'Explore Industry Solutions'}</span>
+                  <ArrowRight size={18} />
+                </Link>
                 <button
-                  onClick={onOpenQuote}
-                  className="btn btn-secondary"
+                  type="button"
+                  onClick={onOpenQuote || (() => handleNav('contact'))}
+                  className="hero-btn-secondary"
                 >
-                  <span>{translations.home.hero.ctaSecondary}</span>
+                  <FlaskConical size={18} className="text-emerald-400" />
+                  <span>{language === 'ar' ? 'طلب استشارة R&D وعينات' : 'Request Formulation Trial'}</span>
                 </button>
+              </div>
+
+              {/* Embedded Industrial Metrics */}
+              <div className="hero-embedded-metrics">
+                <div className="hero-metric-item">
+                  <div className="hero-metric-number">30<span>+</span></div>
+                  <div className="hero-metric-label">{language === 'ar' ? 'عاماً من التميز' : 'Years Heritage'}</div>
+                </div>
+                <div className="hero-metric-item">
+                  <div className="hero-metric-number">35<span>+</span></div>
+                  <div className="hero-metric-label">{language === 'ar' ? 'عائلة حلول' : 'Solution Families'}</div>
+                </div>
+                <div className="hero-metric-item">
+                  <div className="hero-metric-number">4</div>
+                  <div className="hero-metric-label">{language === 'ar' ? 'معامل تطبيقية' : 'Application Labs'}</div>
+                </div>
+                <div className="hero-metric-item">
+                  <div className="hero-metric-number">15K<span>+</span></div>
+                  <div className="hero-metric-label">{language === 'ar' ? 'طن سعة سنوية' : 'MT Compounding'}</div>
+                </div>
               </div>
             </div>
 
-            {/* Right Oversized Visual Composition with Floating Cards */}
-            <div className="hero-cinematic-media reveal-fade-right reveal-delay-1">
-              <div className="hero-cinematic-img-frame">
-                <img 
-                  src="/images/v9/v7/hero.webp" 
-                  alt="AWA Group Food Science Application Laboratory & Plant" 
-                  className="hero-cinematic-img"
-                />
-              </div>
+            {/* Right Interactive Application Studio */}
+            <div className="hero-stage-col reveal-fade-right reveal-delay-1">
+              <div className="hero-stage-card">
+                {/* Sector Switcher Bar */}
+                <div className="hero-stage-nav" role="tablist" aria-label="Interactive Food Sectors">
+                  {heroSectors.map((sector) => (
+                    <button
+                      key={sector.id}
+                      type="button"
+                      className={`hero-sector-tab ${activeHeroSector === sector.id ? 'active' : ''}`}
+                      onClick={() => setActiveHeroSector(sector.id)}
+                      role="tab"
+                      aria-selected={activeHeroSector === sector.id}
+                    >
+                      <span aria-hidden="true">{sector.icon}</span>
+                      <span>{sector.label}</span>
+                    </button>
+                  ))}
+                </div>
 
-              {/* Floating Glass Metric 1 */}
-              <div className="hero-glass-badge-1">
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
-                  <Award size={22} />
-                </div>
-                <div>
-                  <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800 }}>
-                    {translations.home.hero.badge1Title}
-                  </strong>
-                  <span style={{ fontSize: '0.775rem', color: 'var(--text-muted)' }}>
-                    {translations.home.hero.badge1Sub}
-                  </span>
-                </div>
-              </div>
+                {/* Main Visual Display */}
+                <div className="hero-stage-viewport">
+                  {heroSectors.map((sector) => (
+                    <img
+                      key={sector.id}
+                      src={sector.image}
+                      alt={sector.label}
+                      className="hero-stage-img"
+                      style={{
+                        position: sector.id === activeHeroSector ? 'relative' : 'absolute',
+                        top: 0,
+                        left: 0,
+                        opacity: sector.id === activeHeroSector ? 1 : 0,
+                        pointerEvents: sector.id === activeHeroSector ? 'auto' : 'none',
+                        zIndex: sector.id === activeHeroSector ? 1 : 0,
+                      }}
+                    />
+                  ))}
+                  <div className="hero-stage-overlay-gradient" />
 
-              {/* Floating Glass Metric 2 */}
-              <div className="hero-glass-badge-2">
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(20, 30, 154, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-blue)' }}>
-                  <ShieldCheck size={22} />
-                </div>
-                <div>
-                  <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', fontWeight: 800 }}>
-                    {translations.home.hero.badge2Title}
-                  </strong>
-                  <span style={{ fontSize: '0.775rem', color: 'var(--text-muted)' }}>
-                    {translations.home.hero.badge2Sub}
-                  </span>
+                  {/* Grounded Live HUD */}
+                  {(() => {
+                    const currentSector = heroSectors.find((s) => s.id === activeHeroSector) || heroSectors[0];
+                    return (
+                      <div className="hero-stage-hud">
+                        <div className="hero-hud-left">
+                          <span className="hero-hud-tag">{currentSector.tag}</span>
+                          <span className="hero-hud-title">{currentSector.spec}</span>
+                        </div>
+                        <div className="hero-hud-right">
+                          <div className="hero-hud-badge-icon">
+                            <ShieldCheck size={18} />
+                          </div>
+                          <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <span style={{ fontSize: '0.65rem', color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase' }}>
+                              STANDARD
+                            </span>
+                            <span style={{ fontSize: '0.75rem', color: '#FFFFFF', fontWeight: 800 }}>
+                              FSSC 22000
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             </div>
