@@ -1,5 +1,5 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -9,19 +9,58 @@ import { FloatingSocialBar } from './components/FloatingSocialBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { JsonLd } from './components/JsonLd';
 
-// Code-Split Lazy Loaded Pages
-const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
-const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
-const SolutionsPage = lazy(() => import('./pages/SolutionsPage').then(m => ({ default: m.SolutionsPage })));
-const TradingPage = lazy(() => import('./pages/TradingPage').then(m => ({ default: m.TradingPage })));
-const LogisticsPage = lazy(() => import('./pages/LogisticsPage').then(m => ({ default: m.LogisticsPage })));
-const IndustriesPage = lazy(() => import('./pages/IndustriesPage').then(m => ({ default: m.IndustriesPage })));
-const ProductsPage = lazy(() => import('./pages/ProductsPage').then(m => ({ default: m.ProductsPage })));
-const SustainabilityPage = lazy(() => import('./pages/SustainabilityPage').then(m => ({ default: m.SustainabilityPage })));
-const CareersPage = lazy(() => import('./pages/CareersPage').then(m => ({ default: m.CareersPage })));
-const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+// V9 Core Pages
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { SolutionsPage } from './pages/SolutionsPage';
+import { CataloguePage } from './pages/CataloguePage';
+import { SolutionDetailPage } from './pages/SolutionDetailPage';
+import { FoodServicesPage } from './pages/FoodServicesPage';
+import { BrandsPage } from './pages/BrandsPage';
+import { CapabilitiesPage } from './pages/CapabilitiesPage';
+import { SourcingPage } from './pages/SourcingPage';
+import { RdPage } from './pages/RdPage';
+import { FormulationsPage } from './pages/FormulationsPage';
+import { ManufacturingPage } from './pages/ManufacturingPage';
+import { StrategicManufacturingPage } from './pages/StrategicManufacturingPage';
+import { QualityPage } from './pages/QualityPage';
+import { SustainabilityPage } from './pages/SustainabilityPage';
+import { GlobalPage } from './pages/GlobalPage';
+import { KnowledgePage } from './pages/KnowledgePage';
+import { ContactPage } from './pages/ContactPage';
+import { CareersPage } from './pages/CareersPage';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+
+// Legacy URL redirect resolver for /products/:subId
+const ProductsRedirect: React.FC = () => {
+  const { subId } = useParams<{ subId?: string }>();
+  if (!subId) return <Navigate to="/brands" replace />;
+  if (subId === 'industrial') return <Navigate to="/solutions/catalogue" replace />;
+  if (subId === 'sweet' || subId === 'sweet-and-slim') return <Navigate to="/brands/sweet-and-slim" replace />;
+  if (subId === 'yalla' || subId === 'yalla-drinks') return <Navigate to="/brands/yalla-drinks" replace />;
+  if (subId === 'squeasy') return <Navigate to="/brands/squeasy" replace />;
+  if (subId === 'sirri' || subId === 'sirri-olive-oil') return <Navigate to="/brands/sirri-olive-oil" replace />;
+  return <Navigate to={`/brands/${subId}`} replace />;
+};
+
+// Legacy URL redirect resolver for /solutions/:legacySlug
+const LegacySolutionsRedirect: React.FC = () => {
+  const { legacySlug } = useParams<{ legacySlug?: string }>();
+  if (!legacySlug) return <Navigate to="/solutions" replace />;
+  const map: Record<string, string> = {
+    dairy: '/solutions/industry/dairy-cheese',
+    meat: '/solutions/industry/meat-seafood',
+    bakery: '/solutions/industry/bakery',
+    beverage: '/solutions/industry/beverages',
+    sauces: '/solutions/industry/culinary',
+    rnd: '/capabilities/rd',
+    catalogue: '/solutions/catalogue',
+  };
+  const target = map[legacySlug];
+  if (target) return <Navigate to={target} replace />;
+  return <Navigate to={`/solutions/industry/${legacySlug}`} replace />;
+};
 
 function AppContent() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
@@ -66,116 +105,54 @@ function AppContent() {
 
       <main>
         <div className="page-transition-wrapper">
-          <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFAFA' }}></div>}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <HomePage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <AboutPage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/solutions"
-                element={
-                  <SolutionsPage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/solutions/:subId"
-                element={
-                  <SolutionsPage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/trading"
-                element={
-                  <TradingPage
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/logistics"
-                element={
-                  <LogisticsPage
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/industries"
-                element={
-                  <IndustriesPage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/products"
-                element={
-                  <ProductsPage
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/products/:subId"
-                element={
-                  <ProductsPage
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/sustainability"
-                element={
-                  <SustainabilityPage
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-              <Route
-                path="/careers"
-                element={
-                  <CareersPage />
-                }
-              />
-              <Route
-                path="/contact"
-                element={
-                  <ContactPage />
-                }
-              />
-              <Route
-                path="*"
-                element={
-                  <HomePage
-                    onNavigate={handleNavigate}
-                    onOpenQuote={() => setIsQuoteModalOpen(true)}
-                  />
-                }
-              />
-            </Routes>
-          </Suspense>
+          <Routes>
+            {/* Core V9 Routes */}
+            <Route path="/" element={<HomePage onNavigate={handleNavigate} onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
+            <Route path="/about" element={<AboutPage />} />
+
+            {/* Solutions Routes */}
+            <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/solutions/catalogue" element={<CataloguePage />} />
+            <Route path="/solutions/:kind/:id" element={<SolutionDetailPage />} />
+
+            {/* Food Services */}
+            <Route path="/food-services" element={<FoodServicesPage />} />
+            <Route path="/food-services/:sectorId" element={<FoodServicesPage />} />
+
+            {/* Consumer Brands (B2C) */}
+            <Route path="/brands" element={<BrandsPage onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
+            <Route path="/brands/:brandId" element={<BrandsPage onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
+
+            {/* Capabilities Routes */}
+            <Route path="/capabilities" element={<CapabilitiesPage />} />
+            <Route path="/capabilities/sourcing" element={<SourcingPage />} />
+            <Route path="/capabilities/rd" element={<RdPage />} />
+            <Route path="/capabilities/formulations" element={<FormulationsPage />} />
+            <Route path="/capabilities/manufacturing" element={<ManufacturingPage />} />
+            <Route path="/capabilities/strategic-manufacturing" element={<StrategicManufacturingPage />} />
+
+            {/* Trust, Network & Knowledge */}
+            <Route path="/quality" element={<QualityPage />} />
+            <Route path="/sustainability" element={<SustainabilityPage />} />
+            <Route path="/global" element={<GlobalPage />} />
+            <Route path="/knowledge" element={<KnowledgePage />} />
+
+            {/* Operations & Communication */}
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+
+            {/* Legacy URL Aliases & Compatibility Redirects */}
+            <Route path="/trading" element={<Navigate to="/capabilities/sourcing" replace />} />
+            <Route path="/industries" element={<Navigate to="/capabilities/manufacturing" replace />} />
+            <Route path="/logistics" element={<Navigate to="/capabilities/manufacturing" replace />} />
+            <Route path="/rnd" element={<Navigate to="/capabilities/rd" replace />} />
+            <Route path="/products" element={<Navigate to="/brands" replace />} />
+            <Route path="/products/:subId" element={<ProductsRedirect />} />
+            <Route path="/solutions/:legacySlug" element={<LegacySolutionsRedirect />} />
+
+            {/* Fallback 404 Route */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </div>
       </main>
 

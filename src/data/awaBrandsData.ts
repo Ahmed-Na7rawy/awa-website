@@ -341,6 +341,24 @@ export const AWA_STYLE_BRANDS: BrandIdentity[] = [
         cardBg: '#ffffff',
         products: [
           {
+            id: 'frap-caramel',
+            name: 'Frapp It Caramel',
+            image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/caramel new-View 1.png',
+            weight: 'Box (10 Sachets)',
+            flavor: 'Irresistible Creamy Caramel',
+            description: 'Creamy caramel frappé mix that blends effortlessly with ice for a smooth café drink.',
+            tag: 'Caramel Favorite'
+          },
+          {
+            id: 'frap-coffee',
+            name: 'Frapp It Coffee',
+            image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/coffee new-View 1.png',
+            weight: 'Box (10 Sachets)',
+            flavor: 'Bold Roast Coffee',
+            description: 'Smooth coffee frappé mix that blends effortlessly with ice for a chilled café drink.',
+            tag: 'Classic Roast'
+          },
+          {
             id: 'frap-spanish',
             name: 'Frapp It Spanish Latte',
             image: '/images/yalla-drinks/frappit/frappit_spanish_latte_box_10_sachets.png',
