@@ -19,6 +19,7 @@ import { useCountUp } from '../hooks/useCountUp';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
+import { industryData, challengeData, familyData } from '../data/v9Data';
 
 interface HomeProps {
   onNavigate: (pageId: string, subId?: string) => void;
@@ -47,6 +48,24 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [activeWhyIndex, setActiveWhyIndex] = useState(0);
   const [activeStickyStep, setActiveStickyStep] = useState(0);
+  const [exploreTab, setExploreTab] = useState<'industry' | 'challenge' | 'family'>('industry');
+
+  const v7IndustryImages: Record<string, string> = {
+    'dairy-cheese': '/images/v9/v7/dairy-cheese.webp',
+    'meat-seafood': '/images/v9/v7/meat-seafood.webp',
+    'bakery': '/images/v9/v7/bakery.webp',
+    'beverages': '/images/v9/v7/beverages.webp',
+    'culinary': '/images/v9/v7/culinary.webp',
+    'snacks': '/images/v9/v7/snacks.webp',
+  };
+
+  const handleJumpExplore = (tab: 'industry' | 'challenge' | 'family') => {
+    setExploreTab(tab);
+    const el = document.getElementById('explore');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Scroll reveal refs
   const heroRef = useScrollReveal();
@@ -151,8 +170,8 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="hero-cinematic-media reveal-fade-right reveal-delay-1">
               <div className="hero-cinematic-img-frame">
                 <img 
-                  src="/images/pages/home/hero-food-science-lab.jpg" 
-                  alt="AWA Group Food Science Application Laboratory" 
+                  src="/images/v9/v7/hero.webp" 
+                  alt="AWA Group Food Science Application Laboratory & Plant" 
                   className="hero-cinematic-img"
                 />
               </div>
@@ -187,6 +206,159 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 1.5 FIND YOUR SOLUTION / INDUSTRIAL PATHFINDER      */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <div className="find-paths">
+        <div className="container find-paths-inner">
+          <div className="find-paths-heading">
+            <strong>{language === 'ar' ? 'اعثر على حلك المناسب' : 'Find your solution'}</strong>
+            <small>{language === 'ar' ? "استكشف محفظة AWA الصناعية" : "Explore AWA's industrial portfolio"}</small>
+          </div>
+          <button type="button" onClick={() => handleJumpExplore('industry')}>
+            <span className="path-icon">▦</span>
+            <span>
+              {language === 'ar' ? 'حسب القطاع الصناعي' : 'By Industry'}
+              <small>{language === 'ar' ? 'استكشف التطبيقات الغذائية' : 'Explore food applications'}</small>
+            </span>
+            <b>↗</b>
+          </button>
+          <button type="button" onClick={() => handleJumpExplore('challenge')}>
+            <span className="path-icon">◎</span>
+            <span>
+              {language === 'ar' ? 'حسب التحدي التقني' : 'By Challenge'}
+              <small>{language === 'ar' ? 'حل مشكلة تصنيعية محددة' : 'Address a technical need'}</small>
+            </span>
+            <b>↗</b>
+          </button>
+          <button type="button" onClick={() => handleJumpExplore('family')}>
+            <span className="path-icon">▧</span>
+            <span>
+              {language === 'ar' ? 'حسب عائلة المنتج' : 'By Product Family'}
+              <small>{language === 'ar' ? 'استكشف وظائف المكونات' : 'Explore ingredient functions'}</small>
+            </span>
+            <b>↗</b>
+          </button>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 1.6 INTERACTIVE EXPLORER SECTION                    */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <section className="section tint" id="explore" style={{ scrollMarginTop: '80px', padding: '4.5rem 0' }}>
+        <div className="container">
+          <div className="section-header text-center reveal-fade-up" style={{ marginBottom: '2.5rem' }}>
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>
+              {language === 'ar' ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
+            </div>
+            <h2 className="section-title">
+              {language === 'ar' ? (
+                <>استكشف خبراتنا <span className="gradient-text">على طريقتك.</span></>
+              ) : (
+                <>Explore our expertise <span className="gradient-text">your way.</span></>
+              )}
+            </h2>
+            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '680px' }}>
+              {language === 'ar'
+                ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة وفقاً لمتطلبات التصنيع الدقيقة. تصفح حسب التطبيق أو التحدي التقني أو عائلة المنتج.'
+                : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Browse by application, technical challenge or functional product family.'}
+            </p>
+          </div>
+
+          <div className="browser-tabs" role="tablist" aria-label="Explore industrial solutions" style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className={exploreTab === 'industry' ? 'active' : ''}
+              onClick={() => setExploreTab('industry')}
+              role="tab"
+              aria-selected={exploreTab === 'industry'}
+            >
+              <span className="approach-icon" aria-hidden="true">▦</span> {language === 'ar' ? 'حسب القطاع' : 'By Industry'}
+            </button>
+            <button
+              type="button"
+              className={exploreTab === 'challenge' ? 'active' : ''}
+              onClick={() => setExploreTab('challenge')}
+              role="tab"
+              aria-selected={exploreTab === 'challenge'}
+            >
+              <span className="approach-icon" aria-hidden="true">◎</span> {language === 'ar' ? 'حسب التحدي' : 'By Challenge'}
+            </button>
+            <button
+              type="button"
+              className={exploreTab === 'family' ? 'active' : ''}
+              onClick={() => setExploreTab('family')}
+              role="tab"
+              aria-selected={exploreTab === 'family'}
+            >
+              <span className="approach-icon" aria-hidden="true">▧</span> {language === 'ar' ? 'حسب عائلة المنتج' : 'By Product Family'}
+            </button>
+          </div>
+
+          <div className="browser-results" id="explorer-results">
+            {exploreTab === 'industry' && (
+              industryData.map((o) => (
+                <Link
+                  key={o.id}
+                  className="browser-card industry-photo-card"
+                  to={`/solutions/industry/${o.id}`}
+                  aria-label={`Explore ${o.title}`}
+                >
+                  <div className="industry-card-photo">
+                    <img
+                      src={v7IndustryImages[o.id] || '/images/v9/v7/hero.webp'}
+                      alt={o.title}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="industry-card-body">
+                    <strong>{o.title}</strong>
+                    <span className="industry-card-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </Link>
+              ))
+            )}
+
+            {exploreTab === 'challenge' && (
+              challengeData.map((o) => (
+                <Link
+                  key={o.id}
+                  className="browser-card discovery-card"
+                  to={`/solutions/challenge/${o.id}`}
+                >
+                  <span className="tiny-icon" aria-hidden="true">{o.icon}</span>
+                  <strong>{o.title}</strong>
+                  <p>{o.desc}</p>
+                  <span>{language === 'ar' ? 'استكشف التحدي' : 'Explore challenge'} ↗</span>
+                </Link>
+              ))
+            )}
+
+            {exploreTab === 'family' && (
+              familyData.map((o) => (
+                <Link
+                  key={o.id}
+                  className="browser-card discovery-card"
+                  to={`/solutions/family/${o.id}`}
+                >
+                  <span className="tiny-icon" aria-hidden="true">{o.icon}</span>
+                  <strong>{o.title}</strong>
+                  <p>{o.desc}</p>
+                  <span>{language === 'ar' ? 'استكشف عائلة المنتج' : 'Explore product family'} ↗</span>
+                </Link>
+              ))
+            )}
+          </div>
+
+          <div className="cta-small" style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/solutions" className="btn btn-secondary">
+              <span>{language === 'ar' ? 'استكشف دليل الحلول الكامل' : 'Explore full solutions directory'}</span>
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>

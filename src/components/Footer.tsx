@@ -1,29 +1,16 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ShieldCheck, Award } from 'lucide-react';
-import { COMPANY_CONTACT, CERTIFICATIONS, NAV_LINKS } from '../data/siteData';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, ShieldCheck, Award, ArrowRight, ExternalLink } from 'lucide-react';
+import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
-  onNavigate: (pageId: string, subId?: string) => void;
+  onNavigate?: (pageId: string, subId?: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
-
-  const handleNav = (id: string, subId?: string) => {
-    onNavigate(id, subId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const mainNavItems = [
-    { id: 'home', labelKey: 'nav.home', defaultLabel: 'Home' },
-    ...NAV_LINKS.filter((item) => item.id !== 'contact' && item.id !== 'products').map((item) => ({
-      id: item.id,
-      labelKey: `nav.${item.id}`,
-      defaultLabel: item.label,
-    })),
-  ];
+  const { language } = useLanguage();
 
   return (
     <footer className="footer">
@@ -33,146 +20,181 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
               <img 
-                src="/images/awa-fs-w.png" 
-                alt="AWA Group White Logo" 
-                style={{ height: '42px', objectFit: 'contain' }} 
+                src="/images/awa_group.png" 
+                alt="AWA Group Logo" 
+                style={{ height: '44px', objectFit: 'contain' }} 
                 onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
-              <div>
-                <div style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em' }}>
-                  AWA <span style={{ color: '#4ADE80' }}>GROUP</span>
-                </div>
-                <div style={{ color: '#94A3B8', fontSize: '0.725rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  {t('footer.brandSubtitle')}
-                </div>
-              </div>
             </div>
-            <p className="footer-brand-desc">
-              {t('footer.tagline')}
+            <p className="footer-brand-desc" style={{ maxWidth: '340px', lineHeight: '1.6', fontSize: '0.9rem', color: '#94A3B8', marginBottom: '1.5rem' }}>
+              {language === 'ar'
+                ? 'حلول أغذية مخصصة. مصممة للأداء. تربط AWA بين التوريد، والبحث والتطوير التطبيقي، والتصنيع لخدمة الصناعة ومشغلي الأغذية والأسواق الاستهلاكية.'
+                : 'Tailored Food Solutions. Built to Perform. AWA connects sourcing, applied R&D and manufacturing to serve industry, professional food operators and consumer markets.'}
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.775rem', color: '#4ADE80', fontWeight: 600 }}>
-                <ShieldCheck size={14} /> FSSC 22000 & ISO 9001
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.775rem', color: '#4ADE80', fontWeight: 600 }}>
-                <Award size={14} /> {t('footer.certBadge')}
-              </div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.4rem 0.85rem',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '8px',
+              fontSize: '0.75rem',
+              fontWeight: 800,
+              color: '#4ADE80',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase'
+            }}>
+              SOURCE · DEVELOP · MANUFACTURE
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Business Portfolio */}
           <div>
-            <h4 className="footer-col-title">{t('footer.quickLinks', 'Navigation')}</h4>
-            <ul className="footer-links">
-              {mainNavItems.map((item) => (
-                <li key={item.id}>
-                  <button onClick={() => handleNav(item.id)} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                    {t(item.labelKey, item.defaultLabel)}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions & Brands */}
-          <div>
-            <h4 className="footer-col-title">{t('footer.solutionsLinks', 'Solutions & Brands')}</h4>
-            <ul className="footer-links">
+            <h4 className="footer-col-title" style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1.2rem' }}>
+              {language === 'ar' ? 'قطاعات الأعمال' : 'Business Portfolio'}
+            </h4>
+            <ul className="footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               <li>
-                <button onClick={() => handleNav('solutions', 'dairy')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.categories.dairy', 'Dairy & Cheese Systems')}
-                </button>
+                <Link to="/solutions" className="footer-link-item">
+                  {language === 'ar' ? 'حلول الصناعات الغذائية' : 'Industry Solutions'}
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleNav('solutions', 'meat')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.categories.meat', 'Meat & Poultry Solutions')}
-                </button>
+                <Link to="/food-services" className="footer-link-item">
+                  {language === 'ar' ? 'خدمات الأغذية (Food Services)' : 'Food Services'}
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleNav('solutions', 'bakery')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  {t('nav.categories.bakery', 'Bakery & Confectionery')}
-                </button>
+                <Link to="/brands" className="footer-link-item">
+                  {language === 'ar' ? 'العلامات الاستهلاكية (Brands)' : 'Consumer Portfolio'}
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleNav('products', 'sweet-and-slim')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                <Link to="/solutions/catalogue" className="footer-link-item">
+                  {language === 'ar' ? 'كتالوج المنتجات الصناعية' : 'Industrial Products Catalogue'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/sweet-and-slim" className="footer-link-item">
                   Sweet & Slim
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleNav('products', 'yalla-drinks')} className="footer-link-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                <Link to="/brands/yalla-drinks" className="footer-link-item">
                   Yalla Drinks
-                </button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/squeasy" className="footer-link-item">
+                  SquEasy
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Information */}
+          {/* Our Group */}
           <div>
-            <h4 className="footer-col-title">{t('footer.corporateInfo', 'Headquarters')}</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', fontSize: '0.875rem' }}>
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
-                <MapPin size={16} style={{ color: '#4ADE80', minWidth: '16px', marginTop: '2px' }} />
-                <span>
-                  <strong style={{ color: '#FFFFFF' }}>{t('footer.alexLabel')}</strong> {COMPANY_CONTACT.alexOffice}
-                </span>
-              </div>
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
-                <MapPin size={16} style={{ color: '#4ADE80', minWidth: '16px', marginTop: '2px' }} />
-                <span>
-                  <strong style={{ color: '#FFFFFF' }}>{t('footer.cairoLabel')}</strong> {COMPANY_CONTACT.cairoOffice}
-                </span>
-              </div>
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
-                <Phone size={16} style={{ color: '#4ADE80', minWidth: '16px' }} />
-                <span dir="ltr">{COMPANY_CONTACT.phoneAlex}</span>
-              </div>
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
-                <Mail size={16} style={{ color: '#4ADE80', minWidth: '16px' }} />
-                <a href={`mailto:${COMPANY_CONTACT.email}`} style={{ color: '#4ADE80', fontWeight: 600 }}>
+            <h4 className="footer-col-title" style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1.2rem' }}>
+              {language === 'ar' ? 'مجموعتنا' : 'Our Group'}
+            </h4>
+            <ul className="footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <li>
+                <Link to="/about" className="footer-link-item">
+                  {language === 'ar' ? 'عن AWA' : 'About AWA'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/about#leadership" className="footer-link-item">
+                  {language === 'ar' ? 'كلمة رئيس مجلس الإدارة' : 'CEO Message'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/capabilities" className="footer-link-item">
+                  {language === 'ar' ? 'قدراتنا المتكاملة' : 'Our Capabilities'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/capabilities/manufacturing" className="footer-link-item">
+                  {language === 'ar' ? 'التميز الصناعي ومجمع برج العرب' : 'Manufacturing Excellence'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/quality" className="footer-link-item">
+                  {language === 'ar' ? 'الجودة والشهادات' : 'Quality & Certifications'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/sustainability" className="footer-link-item">
+                  {language === 'ar' ? 'الاستدامة والنمو المسؤول' : 'Sustainability'}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect & Locations */}
+          <div>
+            <h4 className="footer-col-title" style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 800, marginBottom: '1.2rem' }}>
+              {language === 'ar' ? 'التواصل والشبكة' : 'Connect'}
+            </h4>
+            <ul className="footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <li>
+                <Link to="/global" className="footer-link-item">
+                  {language === 'ar' ? 'المشاريع المشتركة والوكالات' : 'Joint Ventures & Principals'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/knowledge" className="footer-link-item">
+                  {language === 'ar' ? 'الأخبار والمقالات' : 'Insights & News'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="footer-link-item">
+                  {language === 'ar' ? 'الوظائف' : 'Careers'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="footer-link-item">
+                  {language === 'ar' ? 'اتصل بنا' : 'Contact AWA'}
+                </Link>
+              </li>
+              <li style={{ marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <a href={`mailto:${COMPANY_CONTACT.email}`} className="footer-link-item" style={{ color: '#4ADE80' }}>
                   {COMPANY_CONTACT.email}
                 </a>
-              </div>
-            </div>
+              </li>
+              <li>
+                <span style={{ fontSize: '0.8rem', color: '#94A3B8' }}>
+                  Alex HQ: +203 4292030 / 4211200
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Certifications Row */}
-        <div style={{ 
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)', 
-          padding: '1.75rem 0',
+        {/* Bottom Strip */}
+        <div className="footer-bottom" style={{
+          marginTop: '3.5rem',
+          paddingTop: '2rem',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '1.5rem'
+          gap: '1rem',
+          fontSize: '0.8rem',
+          color: '#64748B'
         }}>
-          <span style={{ fontSize: '0.85rem', color: '#94A3B8', fontWeight: 600 }}>
-            {t('footer.certsLabel')}
-          </span>
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            {CERTIFICATIONS.map((cert, idx) => (
-              <img 
-                key={idx} 
-                src={cert.img} 
-                alt={cert.name} 
-                title={cert.label}
-                style={{ height: '34px', filter: 'brightness(0) invert(1)', opacity: 0.65 }} 
-              />
-            ))}
+          <div>
+            © {currentYear} AWA Group. All rights reserved. FSSC 22000, ISO 9001, ISO 14001, ISO 45001 & Halal Certified.
           </div>
-        </div>
-
-        {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <p>© {currentYear} {t('footer.copyright')}</p>
-          <div style={{ display: 'flex', gap: '1.75rem' }}>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('about')}>{t('footer.corporatePolicy')}</span>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('sustainability')}>{t('footer.esgCommitment')}</span>
-            <span style={{ cursor: 'pointer' }} onClick={() => handleNav('contact')}>{t('footer.contactHq')}</span>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <Link to="/quality" style={{ color: '#94A3B8' }}>Quality Policy</Link>
+            <Link to="/sustainability" style={{ color: '#94A3B8' }}>ESG Commitment</Link>
+            <Link to="/contact" style={{ color: '#94A3B8' }}>Inquiries</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-

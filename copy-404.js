@@ -2,43 +2,69 @@ import fs from 'fs';
 import path from 'path';
 
 const distDir = path.join(process.cwd(), 'dist');
+const publicDir = path.join(process.cwd(), 'public');
+const isVercel = Boolean(process.env.VERCEL);
+const isGitHubPages = process.env.GITHUB_PAGES === 'true' || (!isVercel && process.env.NODE_ENV === 'production');
 
-// Replicate index.html as 404.html
-fs.copyFileSync(path.join(distDir, 'index.html'), path.join(distDir, '404.html'));
-console.log('Copied index.html to 404.html');
+// 1. Replicate index.html as 404.html
+if (fs.existsSync(path.join(distDir, 'index.html'))) {
+  fs.copyFileSync(path.join(distDir, 'index.html'), path.join(distDir, '404.html'));
+  console.log('Copied index.html to 404.html');
+}
 
-// Helper to recursively walk a directory
-function walkDir(dir, callback) {
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    if (fs.statSync(filePath).isDirectory()) {
-      walkDir(filePath, callback);
-    } else {
-      callback(filePath);
+// 2. Ensure v9 images are copied to dist/images/v9
+const v9Public = path.join(publicDir, 'images', 'v9');
+const v9Dist = path.join(distDir, 'images', 'v9');
+if (fs.existsSync(v9Public)) {
+  fs.mkdirSync(v9Dist, { recursive: true });
+  fs.cpSync(v9Public, v9Dist, { recursive: true, force: true });
+  console.log('Copied v9 images to dist/images/v9');
+}
+
+// 3. Ensure root assets exist in dist
+['favicon.svg', 'icons.svg', 'robots.txt', 'sitemap.xml'].forEach((file) => {
+  const src = path.join(publicDir, file);
+  const dest = path.join(distDir, file);
+  if (fs.existsSync(src) && !fs.existsSync(dest)) {
+    try {
+      fs.copyFileSync(src, dest);
+      console.log(`Copied ${file} to dist`);
+    } catch (e) {
+      // ignore
     }
   }
-}
+});
 
-// Adjust absolute paths to /images/ ONLY for sub-folder deployment (e.g. GitHub Pages)
-if (process.env.GITHUB_PAGES === 'true') {
+// 4. Adjust absolute paths in JS/CSS/HTML only for GitHub Pages subfolder deployment
+if (isGitHubPages && !isVercel) {
   console.log('Rewriting asset paths in JS and CSS files for sub-folder deployment...');
 
-  walkDir(distDir, (filePath) => {
-    const ext = path.extname(filePath).toLowerCase();
-    if (ext === '.js' || ext === '.css' || ext === '.html') {
-      let content = fs.readFileSync(filePath, 'utf8');
-
-      // Replace "/images/" with "/awa-website/images/"
-      let original = content;
-      content = content.replace(/(?<!\/awa-website)\/images\//g, '/awa-website/images/');
-
-      if (content !== original) {
-        fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`  Updated paths in: ${path.relative(distDir, filePath)}`);
+  const filesToProcess = [];
+  const assetsDir = path.join(distDir, 'assets');
+  if (fs.existsSync(assetsDir)) {
+    const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+    for (const f of fs.readdirSync(assetsDir)) {
+      if (indexHtml.includes(f)) {
+        filesToProcess.push(path.join(assetsDir, f));
       }
     }
-  });
+  }
+  for (const h of ['index.html', '404.html']) {
+    const hp = path.join(distDir, h);
+    if (fs.existsSync(hp)) filesToProcess.push(hp);
+  }
 
-  console.log('Path rewrite complete.');
+  for (const filePath of filesToProcess) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    let original = content;
+    content = content.replace(/(?<!\/awa-website)\/images\//g, '/awa-website/images/');
+    if (content !== original) {
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log(`  Updated paths in: ${path.relative(distDir, filePath)}`);
+    }
+  }
+} else {
+  console.log('Vercel/standard root environment detected; root path maintained.');
 }
+
+console.log('Post-build process complete.');
