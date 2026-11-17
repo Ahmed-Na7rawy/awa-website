@@ -1,296 +1,343 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { PageHero } from '../components/PageHero';
-import { SOLUTIONS_LIST } from '../data/siteData';
-import { CheckCircle2, ArrowRight, FlaskConical, Beaker, Factory, Award, Layers, FileText } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { Link, useSearchParams } from 'react-router-dom';
+import { ArrowRight, Search, Layers, Sparkles, Filter, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
+import { 
+  v9Assets, 
+  industryData, 
+  challengeData, 
+  familyData, 
+  solutionRecords 
+} from '../data/v9Data';
 
-import { useParams } from 'react-router-dom';
+export const SolutionsPage: React.FC = () => {
+  const { language } = useLanguage();
+  const isAr = language === 'ar';
+  const [searchParams] = useSearchParams();
+  const tabParam = searchParams.get('tab') as 'industry' | 'challenge' | 'family' | null;
 
-interface SolutionsProps {
-  initialSubId?: string;
-  onOpenQuote: () => void;
-  onNavigate?: (pageId: string) => void;
-}
-
-export const SolutionsPage: React.FC<SolutionsProps> = ({ initialSubId, onOpenQuote, onNavigate }) => {
-  const { subId } = useParams<{ subId?: string }>();
-  const effectiveSubId = subId || initialSubId;
-  const { t, language, translations } = useLanguage();
-  const [activeTab, setActiveTab] = useState<string>(effectiveSubId || 'all');
-  const sectionRef1 = useScrollReveal();
+  const [activeTab, setActiveTab] = useState<'industry' | 'challenge' | 'family'>(tabParam || 'industry');
 
   useEffect(() => {
-    if (effectiveSubId) {
-      setActiveTab(effectiveSubId);
+    if (tabParam) {
+      setActiveTab(tabParam);
     }
-  }, [effectiveSubId]);
-
-  const filteredSolutions = activeTab === 'all' 
-    ? SOLUTIONS_LIST 
-    : SOLUTIONS_LIST.filter(s => 
-        s.id.toLowerCase().includes(activeTab.toLowerCase()) || 
-        s.category.toLowerCase().includes(activeTab.toLowerCase()) ||
-        (activeTab === 'sauces' && s.category.toLowerCase() === 'culinary') ||
-        (activeTab === 'beverage' && s.category.toLowerCase() === 'beverages')
-      );
-
-  const filterTabs = [
-    { id: 'all', label: language === 'ar' ? 'كافة الحلول (20)' : 'All Solutions (20)' },
-    { id: 'dairy', label: language === 'ar' ? 'الألبان والأجبان' : 'Dairy & Cheese' },
-    { id: 'meat', label: language === 'ar' ? 'اللحوم والمصنعات' : 'Meat & Poultry' },
-    { id: 'bakery', label: language === 'ar' ? 'المخبوزات والحلويات' : 'Bakery & Pastry' },
-    { id: 'beverage', label: language === 'ar' ? 'المشروبات والعصائر' : 'Beverages & Juices' },
-    { id: 'sauces', label: language === 'ar' ? 'الصلصات والمايونيز' : 'Sauces & Dressings' },
-    { id: 'bio', label: language === 'ar' ? 'المستخلصات والأولوريسين' : 'Bio & Oleoresins' },
-    { id: 'soapwort', label: language === 'ar' ? 'خلاصة عرق الحلاوة AWABEY' : 'AWABEY Soapwort' },
-    { id: 'rnd', label: language === 'ar' ? 'معامل التطبيقات R&D' : 'R&D Application Center' },
-  ];
+  }, [tabParam]);
 
   return (
-    <div className="solutions-page">
+    <div className="solutions-page" style={{ background: '#FFFFFF' }}>
       <SEO
-        title={t('nav.solutions', 'Food Solutions')}
-        description={translations.solutions.hero.subtitle}
-        path={effectiveSubId ? `/solutions/${effectiveSubId}` : '/solutions'}
-        image="/images/pages/solutions/Image26.jpg"
-      />
-      {/* Header Banner */}
-      <PageHero
-        eyebrow={translations.solutions.hero.eyebrow}
-        title={translations.solutions.hero.title}
-        subtitle={translations.solutions.hero.subtitle}
-        backgroundImage="/images/pages/solutions/Image26.jpg"
+        title={isAr ? 'حلول الصناعات الغذائية • مجموعة AWA' : 'Industry Solutions • AWA Group'}
+        description="AWA Group develops and supplies functional food ingredients, tailored systems and application-focused solutions for industrial manufacturers."
+        path="/solutions"
       />
 
-      {/* R&D Development Process Flow */}
-      <section className="section" ref={sectionRef1}>
-        <div className="container">
-          <div className="editorial-grid">
-            <div className="reveal-fade-left">
-              <div className="eyebrow">{language === 'ar' ? 'منهجية التطوير والتركيب' : 'Formulation Methodology'}</div>
-              <h2 className="section-title">
-                {language === 'ar' ? 'من الفكرة المعملية إلى خط الإنتاج الفعلي' : 'From Concept to Factory Floor Execution'}
+      {/* 1. Page Hero */}
+      <section className="page-hero page-hero--visual">
+        <div className="page-hero-media">
+          <img 
+            src={v9Assets.v8Assets['food-cuisine'] || v9Assets.v7Assets.hero} 
+            alt="Food Industry Solutions" 
+            loading="eager" 
+          />
+        </div>
+        <div className="wrap page-hero-content">
+          <div className="breadcrumb">
+            <Link to="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+            <span>›</span>
+            <span>{isAr ? 'حلول الصناعات الغذائية' : 'Industry Solutions'}</span>
+          </div>
+          <div className="kicker on-dark">{isAr ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}</div>
+          <h1>
+            {isAr ? (
+              <>الحلول تبدأ من <em className="italic">تطبيقك الإنتاجي.</em></>
+            ) : (
+              <>Solutions begin with <em className="italic">your application.</em></>
+            )}
+          </h1>
+          <p>
+            {isAr
+              ? 'تطور وتورد مجموعة AWA مكونات الأغذية الوظيفية، والأنظمة المخصصة، والحلول الموجهة للتطبيقات لمصنعي الأغذية. استكشف محفظتنا حسب القطاع الصناعي، أو التحدي التقني، أو عائلة المنتجات الوظيفية.'
+              : 'AWA Group develops and supplies functional food ingredients, tailored systems and application-focused solutions for industrial manufacturers. Explore the portfolio by industry, technical challenge or functional ingredient family.'}
+          </p>
+        </div>
+      </section>
+
+      {/* 2. Three-Way Discovery Header & Tabs */}
+      <section className="section" style={{ paddingBottom: '2rem' }}>
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <div className="kicker">{isAr ? 'استكشف محفظتنا' : 'DISCOVER OUR PORTFOLIO'}</div>
+              <h2>
+                {isAr ? (
+                  <>اعثر على الخبرة التي <span className="accent">تحتاجها تحديداً.</span></>
+                ) : (
+                  <>Find the expertise <span className="accent">you need.</span></>
+                )}
               </h2>
-              <p className="section-desc">
-                {language === 'ar' 
-                  ? 'يربط مركز أبحاث وتطبيقات برج العرب الجديدة بين علوم الأغذية في المختبر ومتطلبات الإنتاج الصناعي الموسع في مصانعكم.' 
-                  : 'Our New Borg El-Arab R&D application center bridges the gap between laboratory bench science and full-scale factory production.'}
-              </p>
+            </div>
+            <p>
+              {isAr
+                ? 'ثلاثة مسارات مترابطة لاستكشاف حلول AWA: نوع الغذاء الذي تصنعه، أو التحدي التقني الذي ترغب في حله، أو التكنولوجيا الوظيفية التي تبحث عنها.'
+                : 'Three connected ways to explore AWA’s offering: the food you manufacture, the challenge you want to address, or the functional technology you need. All routes lead into the same application and ingredient portfolio.'}
+            </p>
+          </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '2rem' }}>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
-                    1
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>
-                      {language === 'ar' ? 'دراسة التحدي وتحديد متطلبات التركيبة' : 'Challenge Assessment & Target Formulation'}
-                    </h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                      {language === 'ar' 
-                        ? 'فهم متطلبات العميل للقوام، الانصهار، تقليل التكلفة، أو الخلطات النظيفة (Clean-Label).' 
-                        : 'Understanding client texture, meltability, cost reduction, or clean-label requirements.'}
-                    </p>
-                  </div>
-                </div>
+          {/* Quick Catalogue Callout Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(20, 30, 154, 0.04) 0%, rgba(0, 168, 79, 0.06) 100%)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '16px',
+            padding: '1.25rem 1.75rem',
+            marginBottom: '2rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div>
+              <strong style={{ fontSize: '1.05rem', color: 'var(--text-main)', display: 'block' }}>
+                {isAr ? 'هل تبحث عن كتالوج عائلات المنتجات الصناعية بالكامل؟' : 'Looking for the complete Industrial Product Families Catalogue?'}
+              </strong>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                {isAr ? 'تصفح كافة المكونات ومضافات الأغذية مع أدوات البحث والفلترة المتقدمة.' : 'Browse all ingredients, stabilizers, emulsifiers and bio-extracts with full search & filtering.'}
+              </span>
+            </div>
+            <Link to="/solutions/catalogue" className="btn btn-primary" style={{ padding: '0.65rem 1.25rem', fontSize: '0.875rem' }}>
+              <span>{isAr ? 'فتح كتالوج المنتجات' : 'Open Product Catalogue'}</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
 
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
-                    2
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>
-                      {language === 'ar' ? 'المحاكاة المعملية وتصنيع العينات المصغرة' : 'Pilot Plant Simulation & Small Batches'}
-                    </h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                      {language === 'ar' 
-                        ? 'أحواض ألبان وأفران تجريبية ومجانسات لحوم لتفادي إيقاف خطوط الإنتاج الفعلية.' 
-                        : 'Mini dairy cookers, bakery test ovens, and meat emulsifiers prevent costly factory downtime.'}
-                    </p>
-                  </div>
-                </div>
+          {/* Discovery Tabs */}
+          <div className="browser-tabs" role="tablist">
+            <button 
+              type="button" 
+              role="tab" 
+              aria-selected={activeTab === 'industry'}
+              onClick={() => setActiveTab('industry')}
+            >
+              <span className="approach-icon" aria-hidden="true">▦</span> {isAr ? 'حسب الصناعة' : 'By Industry'}
+            </button>
+            <button 
+              type="button" 
+              role="tab" 
+              aria-selected={activeTab === 'challenge'}
+              onClick={() => setActiveTab('challenge')}
+            >
+              <span className="approach-icon" aria-hidden="true">◎</span> {isAr ? 'حسب التحدي التقني' : 'By Challenge'}
+            </button>
+            <button 
+              type="button" 
+              role="tab" 
+              aria-selected={activeTab === 'family'}
+              onClick={() => setActiveTab('family')}
+            >
+              <span className="approach-icon" aria-hidden="true">▧</span> {isAr ? 'حسب عائلة المنتجات' : 'By Product Family'}
+            </button>
+          </div>
 
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
-                    3
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>
-                      {language === 'ar' ? 'التحليل الحسي والريولوجي واختبارات القوام (TPA)' : 'Sensory, Rheology & TPA Validation'}
-                    </h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                      {language === 'ar' 
-                        ? 'أجهزة قياس وتوصيف القوام بدقة والمقاييس الطيفية لثبات اللون والمظهر.' 
-                        : 'Instrumental texture profile analysis (TPA) and spectrophotometer color benchmarking.'}
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 800 }}>
-                    4
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.25rem' }}>
-                      {language === 'ar' ? 'الإشراف الميداني في مصنع العميل' : 'On-Site Plant Commissioning'}
-                    </h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                      {language === 'ar' 
-                        ? 'يتواجد مهندسو وعلماء الأغذية من AWA مباشرة على خطوط إنتاجكم لضمان نجاح التشغيل الصناعي.' 
-                        : "AWA food engineers assist on the client's manufacturing line to ensure flawless commercial execution."}
-                    </p>
-                  </div>
-                </div>
+          {/* Tab Content Display */}
+          <div style={{ marginTop: '2.5rem' }}>
+            {activeTab === 'industry' && (
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                {industryData.map((ind) => (
+                  <Link 
+                    key={ind.id} 
+                    to={`/solutions/industry/${ind.id}`}
+                    className="browser-card industry-photo-card"
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '18px',
+                      overflow: 'hidden',
+                      border: '1px solid var(--border-color)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      boxShadow: 'var(--shadow-subtle)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <div style={{ height: '190px', overflow: 'hidden', position: 'relative' }}>
+                      <img 
+                        src={v9Assets.v7Assets[ind.id as keyof typeof v9Assets.v7Assets] || v9Assets.v7Assets.hero} 
+                        alt={ind.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                      <strong style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem', display: 'block' }}>
+                        {ind.title}
+                      </strong>
+                      <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '1.25rem', flexGrow: 1 }}>
+                        {ind.desc}
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)' }}>
+                          {ind.subcategories?.length || 0} Subcategories
+                        </span>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary)' }}>
+                          {isAr ? 'عرض الحلول' : 'Explore'} <ArrowRight size={14} />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            </div>
+            )}
 
-            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
-              <img 
-                src="/images/pages/solutions/Image26.jpg" 
-                alt="AWA Application Center Laboratory" 
-                className="editorial-img"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/pages/home/rnd.jpg';
-                }}
-              />
-            </div>
+            {activeTab === 'challenge' && (
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
+                {challengeData.map((ch) => (
+                  <Link 
+                    key={ch.id} 
+                    to={`/solutions/challenge/${ch.id}`}
+                    className="browser-card discovery-card"
+                    style={{
+                      background: '#FFFFFF',
+                      padding: '2rem',
+                      borderRadius: '18px',
+                      border: '1px solid var(--border-color)',
+                      boxShadow: 'var(--shadow-subtle)',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}
+                  >
+                    <span className="tiny-icon" style={{ fontSize: '1.8rem', color: 'var(--primary)', display: 'block', marginBottom: '0.75rem' }}>{ch.icon}</span>
+                    <strong style={{ fontSize: '1.25rem', color: 'var(--text-main)', display: 'block', marginBottom: '0.5rem' }}>{ch.title}</strong>
+                    <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem', flexGrow: 1 }}>{ch.desc}</p>
+                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      {isAr ? 'استكشف التحدي وحلوله' : 'Explore challenge & solutions'} <ArrowRight size={14} />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {activeTab === 'family' && (
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
+                {familyData.map((fam) => (
+                  <Link 
+                    key={fam.id} 
+                    to={`/solutions/family/${fam.id}`}
+                    className="browser-card discovery-card"
+                    style={{
+                      background: '#FFFFFF',
+                      padding: '2rem',
+                      borderRadius: '18px',
+                      border: '1px solid var(--border-color)',
+                      boxShadow: 'var(--shadow-subtle)',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}
+                  >
+                    <span className="tiny-icon" style={{ fontSize: '1.8rem', color: 'var(--primary-blue)', display: 'block', marginBottom: '0.75rem' }}>{fam.icon}</span>
+                    <strong style={{ fontSize: '1.25rem', color: 'var(--text-main)', display: 'block', marginBottom: '0.5rem' }}>{fam.title}</strong>
+                    <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem', flexGrow: 1 }}>{fam.desc}</p>
+                    
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1.25rem' }}>
+                      {fam.subfamilies?.slice(0, 3).map((sf, idx) => (
+                        <span key={idx} style={{ fontSize: '0.75rem', padding: '2px 8px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-muted)' }}>
+                          {sf}
+                        </span>
+                      ))}
+                    </div>
+
+                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      {isAr ? 'استكشف المنتجات والمواصفات' : 'Explore products & specifications'} <ArrowRight size={14} />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Solutions Matrix & Category Filters */}
-      <section className="section section-stone">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow">{language === 'ar' ? 'مصفوفة القطاعات والحلول' : 'Category Matrix'}</div>
-            <h2 className="section-title">
-              {language === 'ar' ? 'خلطات وحلول متخصصة لمصانع الأغذية' : 'Specialized Food Industry Blends'}
-            </h2>
-            <p className="section-desc">
-              {language === 'ar' 
-                ? 'استعرض الحلول حسب القطاع للاطلاع على أنظمة التثبيت والخلطات الوظيفية والمواصفات الفنية.' 
-                : 'Filter by matrix sector to inspect tailored functional blends, stabilizer formulations, and technical application capabilities.'}
+      {/* 3. Solution Records Highlight Table */}
+      <section className="section tint" style={{ borderTop: '1px solid var(--border-color)' }}>
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <div className="kicker">{isAr ? 'الأنظمة الوظيفية' : 'FUNCTIONAL SOLUTION RECORDS'}</div>
+              <h2>
+                {isAr ? 'أمثلة على حلولنا المعتمدة لخطوط الإنتاج' : 'Proven Solution Records in Industrial Production'}
+              </h2>
+            </div>
+            <p>
+              {isAr
+                ? 'أنظمة متخصصة أثبتت كفاءتها في تحسين القوام، والارتقاء بالمذاق، وتقليل تكاليف التركيبات في مصانع الألبان واللحوم والمخبوزات.'
+                : 'Engineered systems validated for texture enhancement, shelf-life extension, yield maximization and formulation economics across major food plants.'}
             </p>
           </div>
 
-          {/* Category Filter Pills */}
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-            {filterTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`btn ${activeTab === tab.id ? 'btn-primary' : 'btn-secondary'}`}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
+            {solutionRecords.slice(0, 6).map((sol, idx) => (
+              <div 
+                key={idx}
                 style={{
-                  borderRadius: 'var(--radius-full)',
-                  padding: '0.6rem 1.4rem',
-                  fontSize: '0.875rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
+                  background: '#FFFFFF',
+                  padding: '1.75rem',
+                  borderRadius: '16px',
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
                 }}
               >
-                {tab.label}
-              </button>
+                <div>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>
+                    {sol.portfolio}
+                  </div>
+                  <h4 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.65rem' }}>
+                    {sol.title}
+                  </h4>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                    {sol.detail}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
+                  {sol.industryIds.map((indId, iIdx) => (
+                    <span key={iIdx} style={{ fontSize: '0.75rem', padding: '2px 8px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-main)' }}>
+                      {indId}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Dynamic Solutions Cards Grid with AnimatePresence */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-                gap: '2rem',
-              }}
-            >
-              {filteredSolutions.map((sol) => (
-                <div
-                  key={sol.id}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: 'var(--radius-lg)',
-                    border: '1.5px solid var(--border-color)',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    boxShadow: 'var(--shadow-subtle)',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  }}
-                >
-                  <div style={{ height: '210px', overflow: 'hidden', background: '#F1F5F9', position: 'relative' }}>
-                    <img
-                      src={sol.image}
-                      alt={sol.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/pages/products/industrial.jpg';
-                      }}
-                    />
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      insetInlineStart: '1rem',
-                      padding: '0.3rem 0.8rem',
-                      borderRadius: '9999px',
-                      background: 'rgba(15, 23, 42, 0.85)',
-                      backdropFilter: 'blur(12px)',
-                      color: '#FFFFFF',
-                      fontSize: '0.725rem',
-                      fontWeight: 800,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.06em'
-                    }}>
-                      {sol.category}
-                    </div>
-                  </div>
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link to="/solutions/catalogue" className="btn btn-primary">
+              <span>{isAr ? 'عرض كافة حلول الكتالوج الصناعي (24+ نظام وظيفي)' : 'View All 24+ Solution Records in Catalogue'}</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-                  <div style={{ padding: '1.85rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--dark-navy)', marginBottom: '0.65rem', lineHeight: 1.3 }}>
-                      {sol.title}
-                    </h3>
-
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                      {sol.description}
-                    </p>
-
-                    <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
-                      <div style={{ fontSize: '0.775rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--dark-navy)', letterSpacing: '0.04em', marginBottom: '0.65rem' }}>
-                        {language === 'ar' ? 'القدرات والمزايا الوظيفية للتركيبة:' : 'Key Formulation Capabilities:'}
-                      </div>
-                      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: 0, margin: 0 }}>
-                        {sol.details.map((d, idx) => (
-                          <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.825rem', color: 'var(--text-main)', lineHeight: 1.45 }}>
-                            <CheckCircle2 size={15} color="var(--primary)" style={{ minWidth: '15px', marginTop: '2px', flexShrink: 0 }} />
-                            <span>{d}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <button
-                      onClick={onOpenQuote}
-                      className="btn btn-primary btn-sm"
-                      style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}
-                    >
-                      <FileText size={15} />
-                      <span>{language === 'ar' ? 'طلب المواصفات الفنية (TDS) وعينات' : 'Request Formulation Specs (TDS)'}</span>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+      {/* 4. Closing CTA */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+          <div>
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة فنية' : 'START A CONVERSATION'}
+            </div>
+            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
+              {isAr ? 'هل تحتاج إلى عينة تجريبية أو استشارة لخط إنتاجك؟' : 'Need formulation advice or pilot samples?'}
+            </h2>
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
+              {isAr ? 'فريق علماء الأغذية والتطبيقات في برج العرب مستعد لدعم مشروعك.' : 'Our food science and pilot laboratory team in Borg El-Arab is ready to support your process.'}
+            </p>
+          </div>
+          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
+            <span>{isAr ? 'طلب عينة أو تجربة معملية' : 'Request formulation trial'}</span>
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </div>
   );
 };
-

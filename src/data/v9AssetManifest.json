@@ -1,0 +1,63 @@
+{
+  "foodVisuals": {
+    "smoothies": "/images/v9/food/smoothies.webp",
+    "frappe": "/images/v9/food/frappe.webp",
+    "hotel": "/images/v9/food/hotel.webp",
+    "demiglace": "/images/v9/food/demiglace.webp",
+    "garlic": "/images/v9/food/garlic.webp",
+    "broth": "/images/v9/food/broth.webp"
+  },
+  "corporateAssets": {
+    "fssc-22000": "/images/v9/corporate/fssc-22000.webp",
+    "iso-9001": "/images/v9/corporate/iso-9001.webp",
+    "iso-14001": "/images/v9/corporate/iso-14001.webp",
+    "iso-45001": "/images/v9/corporate/iso-45001.webp",
+    "halal": "/images/v9/corporate/halal.webp",
+    "fda": "/images/v9/corporate/fda.webp",
+    "nfsa": "/images/v9/corporate/nfsa.webp",
+    "wael-ghandour": "/images/v9/corporate/wael-ghandour.webp"
+  },
+  "principalLogos": {
+    "siveele": "/images/v9/principals/siveele.webp",
+    "jrs": "/images/v9/principals/jrs.webp",
+    "aipu": "/images/v9/principals/aipu.webp",
+    "skrobarny": "/images/v9/principals/skrobarny.webp",
+    "madhusilica": "/images/v9/principals/madhusilica.webp",
+    "mokate": "/images/v9/principals/mokate.webp",
+    "mayasan": "/images/v9/principals/mayasan.webp",
+    "goldenuts": "/images/v9/principals/goldenuts.svg"
+  },
+  "v7Assets": {
+    "hero": "/images/v9/v7/hero.webp",
+    "factory": "/images/v9/v7/factory.webp",
+    "ceo": "/images/v9/v7/ceo.webp",
+    "sourcing": "/images/v9/v7/sourcing.webp",
+    "formulation": "/images/v9/v7/formulation.webp",
+    "dairy-cheese": "/images/v9/v7/dairy-cheese.webp",
+    "meat-seafood": "/images/v9/v7/meat-seafood.webp",
+    "bakery": "/images/v9/v7/bakery.webp",
+    "beverages": "/images/v9/v7/beverages.webp",
+    "culinary": "/images/v9/v7/culinary.webp",
+    "snacks": "/images/v9/v7/snacks.webp"
+  },
+  "v8Assets": {
+    "rd-lab": "/images/v9/v8/rd-lab.webp",
+    "rd-wide": "/images/v9/v8/rd-wide.webp",
+    "sourcing-port": "/images/v9/v8/sourcing-port.webp",
+    "sourcing-ingredients": "/images/v9/v8/sourcing-ingredients.webp",
+    "industrial-plant": "/images/v9/v8/industrial-plant.webp",
+    "technical-certs": "/images/v9/v8/technical-certs.webp",
+    "formulations": "/images/v9/v8/formulations.webp",
+    "food-cuisine": "/images/v9/v8/food-cuisine.webp",
+    "cheese-banner": "/images/v9/v8/cheese-banner.webp",
+    "turkphosLogo": "/images/v9/v8/turkphosLogo.jpg",
+    "ingrevaLogo": "/images/v9/v8/ingrevaLogo.jpg",
+    "food-smoothies": "/images/v9/v8/food-smoothies.webp",
+    "food-frappe": "/images/v9/v8/food-frappe.webp",
+    "food-hotel": "/images/v9/v8/food-hotel.webp",
+    "food-demiglace": "/images/v9/v8/food-demiglace.webp",
+    "food-garlic": "/images/v9/v8/food-garlic.webp",
+    "food-broth": "/images/v9/v8/food-broth.webp",
+    "industry-mosaic": "/images/v9/v8/industry-mosaic.webp"
+  }
+}

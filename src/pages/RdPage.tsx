@@ -1,0 +1,129 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Microscope, FlaskConical, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Layers } from 'lucide-react';
+import { SEO } from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
+import { v9Assets } from '../data/v9Data';
+
+export const RdPage: React.FC = () => {
+  const { language } = useLanguage();
+  const isAr = language === 'ar';
+
+  return (
+    <div className="rd-page" style={{ background: '#FFFFFF' }}>
+      <SEO
+        title={isAr ? 'الأبحاث ومعامل التطبيقات R&D • مجموعة AWA' : 'R&D & Application Development • AWA Group'}
+        description="Our application-development approach connects technical food science knowledge with real customer processing parameters."
+        path="/capabilities/rd"
+      />
+
+      {/* 1. Page Hero Banner */}
+      <section className="page-hero page-hero--visual">
+        <div className="page-hero-media">
+          <img 
+            src={v9Assets.v8Assets['rd-wide'] || v9Assets.v7Assets.formulation} 
+            alt="AWA R&D Application Center" 
+            loading="eager" 
+          />
+        </div>
+        <div className="wrap page-hero-content">
+          <div className="breadcrumb">
+            <Link to="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+            <span>›</span>
+            <Link to="/capabilities">{isAr ? 'قدراتنا' : 'Capabilities'}</Link>
+            <span>›</span>
+            <span>{isAr ? 'الأبحاث والتطبيقات R&D' : 'Application R&D'}</span>
+          </div>
+          <div className="kicker on-dark">{isAr ? 'البحث والتطوير التطبيقي' : 'R&D & APPLICATION DEVELOPMENT'}</div>
+          <h1>
+            {isAr ? (
+              <>أبحاث وتطوير تركز على <em className="italic">تحديات التصنيع الفعلية.</em></>
+            ) : (
+              <>R&amp;D focused on <em className="italic">real manufacturing challenges.</em></>
+            )}
+          </h1>
+          <p>
+            {isAr
+              ? 'يربط نهجنا في تطوير التطبيقات بين المعرفة العلمية المتقدمة وواقع خطوط الإنتاج لدى عملائنا لضمان نجاح التركيبة قبل بدء التشغيل الموسع.'
+              : 'Our application-development approach connects technical food science knowledge with customer process realities to validate performance before commercial production.'}
+          </p>
+        </div>
+      </section>
+
+      {/* 2. Laboratory Scope & Equipment */}
+      <section className="section">
+        <div className="wrap">
+          <div className="intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '3.5rem', alignItems: 'center' }}>
+            <div>
+              <div className="kicker">{isAr ? 'محاكاة بيئة المصانع' : 'PILOT APPLICATION LABS'}</div>
+              <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', lineHeight: '1.25' }}>
+                {isAr ? (
+                  <>محاكاة دقيقة لظروف <span className="accent">المعالجة والتصنيع.</span></>
+                ) : (
+                  <>Replicating industrial factory <span className="accent">processing environments.</span></>
+                )}
+              </h2>
+            </div>
+            <div>
+              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '1.25rem' }}>
+                {isAr
+                  ? 'تم تجهيز مركز التطبيقات والأبحاث في مدينة برج العرب الجديدة بمعدات تجريبية تحاكي أجهزة البسترة والطهي تحت التفريغ والتجنيس وتصنيع الجبن المطبوخ وأفران المخبوزات الصناعية.'
+                  : 'Equipped with pilot-scale dairy processing vats, high-pressure homogenizers, vacuum cookers, texture profile analyzers (TPA) and test bakery ovens, our Borg El-Arab R&D center allows food manufacturers to optimize mouthfeel, meltability, viscosity and shelf stability.'}
+              </p>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <Link to="/contact?type=technical" className="btn btn-primary">
+                  <span>{isAr ? 'حجز جلسة تجارب في مركز التطبيقات' : 'Schedule a pilot plant trial'}</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginTop: '3.5rem' }}>
+            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary)', marginBottom: '0.75rem' }}><FlaskConical size={24} /></div>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Texture Analysis</h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Measuring gel strength, elasticity, spreadability and chewiness using advanced TPA instruments.</p>
+            </div>
+            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary-blue)', marginBottom: '0.75rem' }}><Microscope size={24} /></div>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Syneresis &amp; Stability</h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Preventing whey-off and liquid phase separation under accelerated temperature cycling.</p>
+            </div>
+            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary)', marginBottom: '0.75rem' }}><Layers size={24} /></div>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Yield Maximization</h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Increasing moisture retention (up to 65% in cheese) while maintaining firm sliceability.</p>
+            </div>
+            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary-blue)', marginBottom: '0.75rem' }}><ShieldCheck size={24} /></div>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Clean-Label Conversion</h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Replacing artificial binders and chemical additives with natural bio-extracts and plant proteins.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Closing CTA */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+          <div>
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
+              {isAr ? 'معامل التطبيقات R&D' : 'APPLICATION LAB SUPPORT'}
+            </div>
+            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
+              {isAr ? 'هل تواجه مشكلة في قوام أو انصهار منتجك؟' : 'Facing texture or stability issues?'}
+            </h2>
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
+              {isAr ? 'علماء الأغذية في AWA مستعدون لتحليل العينات واقتراح التعديلات المناسبة.' : 'Send us your reference samples or target specs for texture profiling and formula tuning.'}
+            </p>
+          </div>
+          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
+            <span>{isAr ? 'طلب استشارة معملية' : 'Consult our food scientists'}</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+};

@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary & Generated scratch files
+scripts/
+*.pdf
+*.exe
+*.docx

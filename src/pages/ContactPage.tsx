@@ -1,264 +1,431 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, Building, Globe } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, Building, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 
 export const ContactPage: React.FC = () => {
-  const { t, translations } = useLanguage();
+  const { language } = useLanguage();
+  const isAr = language === 'ar';
+  const [searchParams] = useSearchParams();
+
   const [submitted, setSubmitted] = useState(false);
-  const [contactData, setContactData] = useState({
+  const [inquiryType, setInquiryType] = useState<string>('');
+  const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
+    company: '',
+    country: '',
     phone: '',
-    subject: 'General Inquiry',
-    message: ''
+    category: '',
+    volume: '',
+    markets: '',
+    stage: '',
+    message: '',
+    consent: false,
   });
+
+  useEffect(() => {
+    const typeParam = searchParams.get('type');
+    if (typeParam) {
+      setInquiryType(typeParam);
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setContactData({
-        name: '',
-        company: '',
-        email: '',
-        phone: '',
-        subject: 'General Inquiry',
-        message: ''
-      });
-    }, 3500);
   };
 
+  const offices = [
+    {
+      title: isAr ? 'المقر الرئيسي — الإسكندرية' : 'Alexandria Headquarters',
+      subtitle: isAr ? 'الإدارة العامة والمبيعات' : 'Corporate Management & Sales',
+      address: isAr
+        ? 'شارع الفردوس، سموحة، الإسكندرية، مصر'
+        : 'El-Ferdous St., Smouha, Alexandria, Egypt',
+      phone: '+20 3 420 8888',
+      email: 'info@awa-group.net',
+      hours: isAr ? 'الأحد - الخميس: 9:00 ص - 5:00 م' : 'Sun - Thu: 9:00 AM - 5:00 PM',
+    },
+    {
+      title: isAr ? 'المركز الفني ومعامل R&D — القاهرة' : 'Cairo Technical & Application Center',
+      subtitle: isAr ? 'تطوير التركيبات وتطبيقات العملاء' : 'R&D Labs & Customer Formulations',
+      address: isAr
+        ? 'التجمع الخامس، القاهرة الجديدة، مصر'
+        : '5th Settlement, New Cairo, Egypt',
+      phone: '+20 2 281 3333',
+      email: 'rd@awa-group.net',
+      hours: isAr ? 'الأحد - الخميس: 9:00 ص - 5:00 م' : 'Sun - Thu: 9:00 AM - 5:00 PM',
+    },
+    {
+      title: isAr ? 'مجمع برج العرب الصناعي' : 'New Borg El-Arab Manufacturing Complex',
+      subtitle: isAr ? 'المصانع والمستودعات المركزية' : 'Production, Blending & Logistics',
+      address: isAr
+        ? 'المنطقة الصناعية الثالثة، برج العرب الجديدة، الإسكندرية'
+        : '3rd Industrial Zone, New Borg El-Arab, Alexandria, Egypt',
+      phone: '+20 3 459 2222',
+      email: 'operations@awa-group.net',
+      hours: isAr ? 'الأحد - الخميس: 8:00 ص - 4:00 م' : 'Sun - Thu: 8:00 AM - 4:00 PM',
+    },
+  ];
+
   return (
-    <div className="contact-page">
+    <>
       <SEO
-        title={t('nav.contact', 'Contact Us')}
-        description={translations.contact.hero.subtitle}
-        path="/contact"
+        title={isAr ? 'اتصل بنا | مجموعة AWA' : 'Contact Us | AWA Group'}
+        description={
+          isAr
+            ? 'تواصل مع فريق مجموعة AWA لمناقشة حلول الأغذية الصناعية وتطوير المنتجات والمبيعات.'
+            : 'Get in touch with AWA Group for industrial food formulations, Food Services, and contract manufacturing.'
+        }
       />
-      {/* Header Banner */}
-      <section className="section section-dark" style={{ padding: '5.5rem 0' }}>
-        <div className="container">
-          <div className="eyebrow eyebrow-dark">{translations.contact.hero.eyebrow}</div>
-          <h1 className="section-title" style={{ fontSize: '3.2rem', marginBottom: '1.25rem' }}>
-            {translations.contact.hero.title}
-          </h1>
-          <p className="section-desc" style={{ maxWidth: '720px' }}>
-            {translations.contact.hero.subtitle}
-          </p>
-        </div>
-      </section>
 
-      {/* Main Contact Section */}
-      <section className="section">
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '3.5rem' }}>
-            {/* Offices & Locations */}
-            <div>
-              <div className="eyebrow">{translations.contact.footprint.eyebrow}</div>
-              <h2 className="section-title" style={{ fontSize: '2.2rem' }}>
-                {translations.contact.footprint.title}
-              </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                {translations.contact.footprint.desc}
-              </p>
+      <div className="v9-page">
+        {/* HERO */}
+        <section className="v9-hero">
+          <div className="v9-hero-inner">
+            <span className="v9-hero-badge">
+              {isAr ? 'تواصل مع AWA / ابدأ محادثة' : 'CONTACT AWA / START A CONVERSATION'}
+            </span>
+            <h1 className="v9-hero-title">
+              {isAr ? 'دعنا نتحدث عن ' : 'Let’s talk about '}
+              <em className="italic">{isAr ? 'تحديك القادم.' : 'your next challenge.'}</em>
+            </h1>
+            <p className="v9-hero-subtitle">
+              {isAr
+                ? 'ابدأ محادثة مركزة مع AWA حول التركيبات الصناعية، أو خدمات الأغذية الاحترافية، أو التوزيع، أو التعاقدات التصنيعية الاستراتيجية.'
+                : 'Start a focused conversation with AWA about industrial formulation, professional Food Services, consumer distribution, international relationships or selected strategic manufacturing collaborations.'}
+            </p>
+          </div>
+        </section>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {/* Alexandria HQ */}
-                <div style={{ background: '#FFFFFF', padding: '1.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <Building size={22} color="var(--primary)" />
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {translations.contact.footprint.alexTitle}
-                    </h3>
+        {/* MAIN CONTACT LAYOUT */}
+        <section className="v9-section">
+          <div className="v9-wrap grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* LEFT COLUMN: GUIDELINES & OFFICES */}
+            <div className="lg:col-span-5 space-y-8">
+              <div>
+                <span className="v9-kicker">{isAr ? 'الفريق المناسب' : 'THE RIGHT TEAM'}</span>
+                <h2 className="v9-h2">
+                  {isAr ? 'أفضل الحلول تبدأ ' : 'Better solutions start with '}
+                  <span className="accent">{isAr ? 'بملخص أدق.' : 'a better brief.'}</span>
+                </h2>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  {isAr
+                    ? 'أخبرنا عن منتجك، ونشاطك التجاري، والتطبيق المطلوب، والنتيجة المستهدفة. يقوم الموقع بتوجيه الاستفسارات مباشرة إلى الفريق التقني أو التجاري المتخصص.'
+                    : 'Tell us about your product, business, application and desired outcome. Qualified inquiries are directed to the relevant industrial R&D, Food Services, export or consumer teams.'}
+                </p>
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-sm">
+                  <div className="font-semibold text-slate-900 dark:text-white mb-1">
+                    {isAr ? 'الموقع الرسمي لمجموعة AWA' : 'Official AWA Group Portal'}
                   </div>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <MapPin size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span>{COMPANY_CONTACT.alexOffice}</span>
-                  </p>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Phone size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span dir="ltr">{COMPANY_CONTACT.phoneAlex}</span>
-                  </p>
+                  <a
+                    href="https://www.awa-group.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-600 dark:text-amber-400 font-mono text-xs hover:underline flex items-center gap-1"
+                  >
+                    <span>www.awa-group.net</span>
+                    <span>↗</span>
+                  </a>
                 </div>
+              </div>
 
-                {/* Cairo Office */}
-                <div style={{ background: '#FFFFFF', padding: '1.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <Building size={22} color="var(--primary)" />
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {translations.contact.footprint.cairoTitle}
-                    </h3>
+              {/* LOCATIONS */}
+              <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs">
+                  {isAr ? 'مواقعنا ومقراتنا التشغيلية' : 'OPERATING LOCATIONS'}
+                </h3>
+                {offices.map((off, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/70 dark:border-slate-700/70 shadow-sm"
+                  >
+                    <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-0.5">
+                      {off.title}
+                    </h4>
+                    <span className="text-xs text-amber-600 dark:text-amber-400 font-medium block mb-3">
+                      {off.subtitle}
+                    </span>
+                    <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span>{off.address}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                        <a href={`tel:${off.phone}`} className="hover:text-amber-600 transition-colors font-mono">
+                          {off.phone}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                        <a href={`mailto:${off.email}`} className="hover:text-amber-600 transition-colors font-mono">
+                          {off.email}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-400">
+                        <Clock className="w-4 h-4 flex-shrink-0" />
+                        <span>{off.hours}</span>
+                      </div>
+                    </div>
                   </div>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <MapPin size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span>{COMPANY_CONTACT.cairoOffice}</span>
-                  </p>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Phone size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span dir="ltr">{COMPANY_CONTACT.phoneCairo}</span>
-                  </p>
-                </div>
-
-                {/* Borg El Arab Plant */}
-                <div style={{ background: '#FFFFFF', padding: '1.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <Globe size={22} color="var(--primary)" />
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>
-                      {translations.contact.footprint.factoryTitle}
-                    </h3>
-                  </div>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <MapPin size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span>{COMPANY_CONTACT.factory}</span>
-                  </p>
-                  <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Clock size={15} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                    <span>{COMPANY_CONTACT.workingHours}</span>
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Direct Form */}
-            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: 'fit-content' }}>
-              <div className="eyebrow">{translations.contact.form.eyebrow}</div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '1.5rem' }}>
-                {translations.contact.form.title}
-              </h3>
-
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                  <CheckCircle2 size={54} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
-                  <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
-                    {translations.contact.form.successTitle}
-                  </h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    {translations.contact.form.successDesc}
-                  </p>
+            {/* RIGHT COLUMN: INTERACTIVE QUALIFICATION FORM */}
+            <div className="lg:col-span-7">
+              <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-10 border border-slate-200/80 dark:border-slate-700/80 shadow-lg relative">
+                <div className="flex items-center justify-between pb-6 mb-6 border-b border-slate-100 dark:border-slate-700">
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                      {isAr ? 'نموذج استفسار المشروع' : 'Project Inquiry & Qualification'}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {isAr ? 'حدد طبيعة طلبك لتوجيهه للفريق المختص' : 'Direct your request to the right technical or sales division'}
+                    </p>
+                  </div>
+                  <span className="text-[10px] font-mono uppercase px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full font-semibold">
+                    DIRECT ROUTING
+                  </span>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {translations.contact.form.name}
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder={translations.contact.form.namePlaceholder}
-                      value={contactData.name}
-                      onChange={(e) => setContactData({ ...contactData, name: e.target.value })}
-                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
-                    />
-                  </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {translations.contact.form.email}
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="tarek@company.com"
-                        value={contactData.email}
-                        onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
-                      />
+                {submitted ? (
+                  <div className="py-12 text-center">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center mb-4">
+                      <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                        {translations.contact.form.phone}
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+20 1X XXXX XXXX"
-                        value={contactData.phone}
-                        onChange={(e) => setContactData({ ...contactData, phone: e.target.value })}
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {translations.contact.form.company}
-                    </label>
-                    <input
-                      type="text"
-                      placeholder={translations.contact.form.companyPlaceholder}
-                      value={contactData.company}
-                      onChange={(e) => setContactData({ ...contactData, company: e.target.value })}
-                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.925rem' }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {translations.contact.form.subject}
-                    </label>
-                    <select
-                      value={contactData.subject}
-                      onChange={(e) => setContactData({ ...contactData, subject: e.target.value })}
-                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', background: '#FFFFFF' }}
+                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      {isAr ? 'تم استلام استفسارك بنجاح' : 'Inquiry Successfully Prepared'}
+                    </h4>
+                    <p className="text-slate-600 dark:text-slate-300 max-w-md mx-auto text-sm mb-6 leading-relaxed">
+                      {isAr
+                        ? `شكراً لتواصلك يا ${formData.name || 'عزيزنا'}. تم توجيه طلبك المتعلق بـ (${inquiryType || 'الاستفسارات العامة'}) إلى الفريق المتخصص في AWA Group للمتابعة السريعة.`
+                        : `Thank you, ${formData.name || 'valued partner'}. Your inquiry regarding "${inquiryType || 'general consultation'}" has been routed to the relevant technical division at AWA Group.`}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({
+                          name: '',
+                          email: '',
+                          company: '',
+                          country: '',
+                          phone: '',
+                          category: '',
+                          volume: '',
+                          markets: '',
+                          stage: '',
+                          message: '',
+                          consent: false,
+                        });
+                      }}
+                      className="px-6 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 font-semibold text-sm transition-colors"
                     >
-                      <option value="General Inquiry">{translations.contact.form.subjects.general}</option>
-                      <option value="Dairy Solutions">{translations.contact.form.subjects.dairy}</option>
-                      <option value="Meat Systems">{translations.contact.form.subjects.meat}</option>
-                      <option value="Bakery Solutions">{translations.contact.form.subjects.bakery}</option>
-                      <option value="Sweet & Slim Retail">{translations.contact.form.subjects.retail}</option>
-                      <option value="Raw Materials Sourcing">{translations.contact.form.subjects.raw}</option>
-                      <option value="Contract Manufacturing">{translations.contact.form.subjects.contract}</option>
-                    </select>
+                      {isAr ? 'إرسال استفسار آخر' : 'Submit Another Inquiry'}
+                    </button>
                   </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                          {isAr ? 'الاسم الكامل *' : 'Full Name *'}
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder={isAr ? 'اسمك الكريم' : 'Your name'}
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                          {isAr ? 'البريد الإلكتروني للعمل *' : 'Business Email *'}
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="name@company.com"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--dark-navy)', marginBottom: '0.35rem' }}>
-                      {translations.contact.form.msg}
-                    </label>
-                    <textarea
-                      required
-                      placeholder={translations.contact.form.msgPlaceholder}
-                      rows={4}
-                      value={contactData.message}
-                      onChange={(e) => setContactData({ ...contactData, message: e.target.value })}
-                      style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.9rem', fontFamily: 'inherit' }}
-                    />
-                  </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                          {isAr ? 'اسم الشركة أو المؤسسة *' : 'Company / Organization *'}
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          placeholder={isAr ? 'اسم شركتك' : 'Company name'}
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                          {isAr ? 'الدولة / المنطقة *' : 'Country / Region *'}
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.country}
+                          onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                          placeholder={isAr ? 'مصر، السعودية، الإمارات...' : 'e.g. Egypt, UAE, Germany'}
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                    <span>{translations.contact.form.submit}</span>
-                    <Send size={16} />
-                  </button>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                        {isAr ? 'تصنيف الاستفسار *' : 'Inquiry Category *'}
+                      </label>
+                      <select
+                        required
+                        value={inquiryType}
+                        onChange={(e) => setInquiryType(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all"
+                      >
+                        <option value="">{isAr ? '-- اختر تصنيف طلبك --' : '-- Select your request category --'}</option>
+                        <option value="technical">{isAr ? 'استشارة فنية وتطوير تركيبات صناعية' : 'Industrial technical consultation'}</option>
+                        <option value="sample">{isAr ? 'طلب عينة منتج أو نظام مكونات' : 'Request a product sample'}</option>
+                        <option value="manufacturing">{isAr ? 'تصنيع تعاقدي استراتيجي / علامة تجارية خاصة' : 'Strategic contract manufacturing / private label'}</option>
+                        <option value="foodservices">{isAr ? 'خدمات الأغذية — حسابات وموردين مهنيين' : 'Food Services — professional account / products'}</option>
+                        <option value="export">{isAr ? 'تصدير وتوزيع صناعي دولي' : 'Industrial export & distribution'}</option>
+                        <option value="distribution">{isAr ? 'توزيع منتجات العلامات الاستهلاكية B2C' : 'Consumer brand distribution'}</option>
+                        <option value="partnership">{isAr ? 'شراكة تكنولوجية أو تجارية استراتيجية' : 'Strategic technology / business partnership'}</option>
+                        <option value="other">{isAr ? 'استفسار عام آخر' : 'Other inquiry'}</option>
+                      </select>
+                    </div>
 
-                  <div style={{ marginTop: '0.75rem', textAlign: 'center', fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                    {translations.contact.form.directEmail}
-                    <a href={`mailto:${COMPANY_CONTACT.email}`} style={{ color: 'var(--primary)', fontWeight: 700 }} dir="ltr">{COMPANY_CONTACT.email}</a>
-                  </div>
-                </form>
-              )}
+                    {/* DYNAMIC SCREENING FIELDS FOR CONTRACT MANUFACTURING */}
+                    {inquiryType === 'manufacturing' && (
+                      <div className="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-4">
+                        <div className="flex items-center gap-2 text-xs font-bold font-mono uppercase text-amber-700 dark:text-amber-400">
+                          <ShieldCheck className="w-4 h-4" />
+                          <span>{isAr ? 'بيانات تأهيل التصنيع التعاقدي' : 'STRATEGIC MANUFACTURING SCREENING'}</span>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-300">
+                          {isAr
+                            ? 'يرجى مشاركة تفاصيل عامة فقط؛ لا تشارك تركيبات أو أسرار تجارية سرية في هذه المرحلة.'
+                            : 'Please share high-level project parameters only; no confidential formulations.'}
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                              {isAr ? 'فئة المنتج' : 'Product Category'}
+                            </label>
+                            <input
+                              type="text"
+                              value={formData.category}
+                              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                              placeholder={isAr ? 'مثل: بودرة مشروبات، خلطات مخبوزات' : 'e.g. Powder beverage, bakery blend'}
+                              className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                              {isAr ? 'الحجم السنوي المتوقع' : 'Indicative Annual Volume'}
+                            </label>
+                            <input
+                              type="text"
+                              value={formData.volume}
+                              onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
+                              placeholder={isAr ? 'مثال: بالطن المتري أو عدد الوحدات' : 'e.g. MT / year or units'}
+                              className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                              {isAr ? 'الأسواق المستهدفة' : 'Target Markets'}
+                            </label>
+                            <input
+                              type="text"
+                              value={formData.markets}
+                              onChange={(e) => setFormData({ ...formData, markets: e.target.value })}
+                              placeholder={isAr ? 'الدول أو المناطق المستهدفة' : 'Target countries / regions'}
+                              className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                              {isAr ? 'مرحلة التعاون' : 'Collaboration Stage'}
+                            </label>
+                            <select
+                              value={formData.stage}
+                              onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
+                              className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs"
+                            >
+                              <option value="">{isAr ? 'اختر المرحلة' : 'Select stage'}</option>
+                              <option value="concept">{isAr ? 'فكرة أولية / Concept' : 'Concept'}</option>
+                              <option value="validated">{isAr ? 'تركيبة تم التحقق منها' : 'Validated formulation'}</option>
+                              <option value="production">{isAr ? 'إنتاج تجاري قائم يرغب بالنقل' : 'Commercial production transfer'}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                        {isAr ? 'تفاصيل المشروع والطلب *' : 'Project Details & Specifications *'}
+                      </label>
+                      <textarea
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder={
+                          isAr
+                            ? 'صف التطبيق، واحتياجاتك الفنية، والجدول الزمني المستهدف...'
+                            : 'Describe the application, your technical need, and indicative timeline...'
+                        }
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 outline-none transition-all resize-y"
+                      ></textarea>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        required
+                        id="consent-check"
+                        checked={formData.consent}
+                        onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                        className="mt-1 w-4 h-4 rounded text-amber-500 focus:ring-amber-400 border-slate-300"
+                      />
+                      <label htmlFor="consent-check" className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed cursor-pointer">
+                        {isAr
+                          ? 'أوافق على قيام فريق AWA Group بمراجعة هذه البيانات للتواصل بشأن طلبي، وأقر بأن هذا النموذج يخضع لسياسات الخصوصية المعمول بها.'
+                          : 'I agree that AWA Group may process this information to evaluate and respond to this project inquiry.'}
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-4 rounded-xl font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
+                    >
+                      <span>{isAr ? 'إرسال طلب التأهيل والمناقشة' : 'Submit Project Inquiry'}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Map Embed Location */}
-      <section style={{ height: '380px', width: '100%', background: '#E2E8F0', position: 'relative' }}>
-        <iframe
-          title="AWA Group Alexandria Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109156.45263172088!2d29.897453158203126!3d31.22403490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c490a6e0fb89%3A0x6b45a90d984fa588!2sSporting%2C%20Alexandria%20Governorate%2C%20Egypt!5e0!3m2!1sen!2seg!4v1692000000000!5m2!1sen!2seg"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen={false}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
