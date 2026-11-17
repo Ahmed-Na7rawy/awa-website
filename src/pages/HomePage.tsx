@@ -8,7 +8,10 @@ import {
   Award, 
   Sparkles,
   MessageSquare,
-  FlaskConical
+  FlaskConical,
+  Globe2,
+  Handshake,
+  Users
 } from 'lucide-react';
 import { 
   FOOD_SECTORS, 
@@ -165,152 +168,138 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         image="/images/pages/industries/image33.jpg"
       />
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 1. BESPOKE EXECUTIVE INDUSTRIAL HERO MASTER        */}
+      {/* 1. AWA ENTERPRISE HERO — SOPHISTICATED LIGHT HERO    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="hero-executive-master" ref={heroRef}>
-        <div className="hero-ambient-glow" />
+      <section className="awa-enterprise-hero" ref={heroRef}>
+        <div className="awa-hero-grid-pattern" aria-hidden="true" />
         <div className="container">
-          <div className="hero-executive-grid">
-            {/* Left Content Column */}
-            <div className="hero-content-col reveal-fade-left">
-              {/* Origin & Status Badge */}
-              <div className="hero-origin-badge">
-                <span className="hero-beacon-dot" />
-                <span>{language === 'ar' ? 'تأسست 1995 · شبكة توريد وتصنيع إقليمية' : 'EST. 1995 · GLOBAL SOURCING & MANUFACTURING'}</span>
-                <span className="hero-origin-divider" />
-                <span className="hero-origin-text">FSSC 22000 & ISO CERTIFIED</span>
+          <div className="awa-hero-inner">
+            {/* Left Column — Corporate Messaging */}
+            <div className="reveal-fade-left">
+              <div className="awa-hero-eyebrow">
+                <span className="awa-hero-eyebrow-dot" />
+                <span>
+                  {language === 'ar' 
+                    ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
+                    : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
+                </span>
               </div>
 
-              {/* Master Headline */}
-              <h1 className="hero-master-title">
+              <h1 className="awa-hero-headline">
                 {language === 'ar' ? (
                   <>
-                    مكونات غذائية دقيقة. <br />
-                    تركيبات هندسية متطورة. <br />
-                    <span className="hero-gradient-highlight">إمداد صناعي موثوق.</span>
+                    ربط الابتكار في علوم الأغذية بالتصنيع و<span className="awa-hero-highlight">الإنتاج الصناعي</span> الواسع
                   </>
                 ) : (
                   <>
-                    Precision Ingredients. <br />
-                    Engineered Formulations. <br />
-                    <span className="hero-gradient-highlight">Reliable Industrial Supply.</span>
+                    Bridging Food Science <span className="awa-hero-highlight">Innovation</span> With Industrial Manufacturing Scale
                   </>
                 )}
               </h1>
 
-              {/* Lead Paragraph */}
-              <p className="hero-master-lead">
+              <p className="awa-hero-desc">
                 {language === 'ar'
-                  ? 'تربط مجموعة AWA بين التوريد المباشر لكبرى خامات الأغذية العالمية، وأبحاث وتطوير التطبيقات في 4 معامل متخصصة، والخلط عالي الطاقة بمجمع برج العرب الصناعي لتزويد كبرى مصانع الألبان واللحوم والمخبوزات والمشروبات بحلول مصممة للأداء القياسي.'
-                  : 'AWA Group connects global ingredient sourcing, specialized food application R&D across 4 dedicated labs, and scalable Borg El-Arab manufacturing to deliver high-performance functional systems for dairy, meat, bakery, beverage, and culinary producers across MENA & Europe.'}
+                  ? 'شريككم الرائد في حلول الأغذية في مصر والشرق الأوسط. نبتكر أنظمة مثبتات الهيدروكولويد المخصصة، والبروتينات النباتية الوظيفية، والخلطات المتخصصة، بدعم من معامل التطبيقات التجريبية الحديثة وبنية تحتية معتمدة للتبريد وسلاسل الإمداد بطاقة 15,000 طن متري.'
+                  : "Partner with Egypt's leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure."}
               </p>
 
-              {/* Primary Action Buttons */}
-              <div className="hero-actions-cluster">
-                <Link
-                  to="/solutions"
-                  className="hero-btn-primary"
-                >
-                  <span>{language === 'ar' ? 'استكشف الحلول الصناعية' : 'Explore Industry Solutions'}</span>
-                  <ArrowRight size={18} />
-                </Link>
+              <div className="awa-hero-actions">
                 <button
                   type="button"
                   onClick={onOpenQuote || (() => handleNav('contact'))}
-                  className="hero-btn-secondary"
+                  className="awa-btn-primary"
                 >
-                  <FlaskConical size={18} className="text-emerald-400" />
-                  <span>{language === 'ar' ? 'طلب استشارة R&D وعينات' : 'Request Formulation Trial'}</span>
+                  <span>{language === 'ar' ? 'تواصل مع علماء الأغذية لدينا' : 'Partner With Our Food Scientists'}</span>
+                  <ArrowRight size={18} />
                 </button>
-              </div>
-
-              {/* Embedded Industrial Metrics */}
-              <div className="hero-embedded-metrics">
-                <div className="hero-metric-item">
-                  <div className="hero-metric-number">30<span>+</span></div>
-                  <div className="hero-metric-label">{language === 'ar' ? 'عاماً من التميز' : 'Years Heritage'}</div>
-                </div>
-                <div className="hero-metric-item">
-                  <div className="hero-metric-number">35<span>+</span></div>
-                  <div className="hero-metric-label">{language === 'ar' ? 'عائلة حلول' : 'Solution Families'}</div>
-                </div>
-                <div className="hero-metric-item">
-                  <div className="hero-metric-number">4</div>
-                  <div className="hero-metric-label">{language === 'ar' ? 'معامل تطبيقية' : 'Application Labs'}</div>
-                </div>
-                <div className="hero-metric-item">
-                  <div className="hero-metric-number">15K<span>+</span></div>
-                  <div className="hero-metric-label">{language === 'ar' ? 'طن سعة سنوية' : 'MT Compounding'}</div>
-                </div>
+                <Link
+                  to="/solutions"
+                  className="awa-btn-secondary"
+                >
+                  <span>{language === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}</span>
+                </Link>
               </div>
             </div>
 
-            {/* Right Interactive Application Studio */}
-            <div className="hero-stage-col reveal-fade-right reveal-delay-1">
-              <div className="hero-stage-card">
-                {/* Sector Switcher Bar */}
-                <div className="hero-stage-nav" role="tablist" aria-label="Interactive Food Sectors">
-                  {heroSectors.map((sector) => (
-                    <button
-                      key={sector.id}
-                      type="button"
-                      className={`hero-sector-tab ${activeHeroSector === sector.id ? 'active' : ''}`}
-                      onClick={() => setActiveHeroSector(sector.id)}
-                      role="tab"
-                      aria-selected={activeHeroSector === sector.id}
-                    >
-                      <span aria-hidden="true">{sector.icon}</span>
-                      <span>{sector.label}</span>
-                    </button>
-                  ))}
+            {/* Right Column — Industrial Visual */}
+            <div className="reveal-fade-right reveal-delay-1">
+              <div className="awa-hero-visual-frame">
+                {/* Overlay 1: Founder & Chairman */}
+                <div className="awa-hero-overlay awa-hero-overlay-1">
+                  <div className="awa-overlay-icon">
+                    <Award size={20} />
+                  </div>
+                  <div>
+                    <div className="awa-overlay-label">
+                      {language === 'ar' ? 'المؤسس ورئيس مجلس الإدارة' : 'Founder & Chairman'}
+                    </div>
+                    <div className="awa-overlay-val">
+                      {language === 'ar' ? 'قيادة مجموعة AWA منذ 1993' : 'Leading AWA Group Since 1993'}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Main Visual Display */}
-                <div className="hero-stage-viewport">
-                  {heroSectors.map((sector) => (
-                    <img
-                      key={sector.id}
-                      src={sector.image}
-                      alt={sector.label}
-                      className="hero-stage-img"
-                      style={{
-                        position: sector.id === activeHeroSector ? 'relative' : 'absolute',
-                        top: 0,
-                        left: 0,
-                        opacity: sector.id === activeHeroSector ? 1 : 0,
-                        pointerEvents: sector.id === activeHeroSector ? 'auto' : 'none',
-                        zIndex: sector.id === activeHeroSector ? 1 : 0,
-                      }}
-                    />
-                  ))}
-                  <div className="hero-stage-overlay-gradient" />
-
-                  {/* Grounded Live HUD */}
-                  {(() => {
-                    const currentSector = heroSectors.find((s) => s.id === activeHeroSector) || heroSectors[0];
-                    return (
-                      <div className="hero-stage-hud">
-                        <div className="hero-hud-left">
-                          <span className="hero-hud-tag">{currentSector.tag}</span>
-                          <span className="hero-hud-title">{currentSector.spec}</span>
-                        </div>
-                        <div className="hero-hud-right">
-                          <div className="hero-hud-badge-icon">
-                            <ShieldCheck size={18} />
-                          </div>
-                          <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <span style={{ fontSize: '0.65rem', color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase' }}>
-                              STANDARD
-                            </span>
-                            <span style={{ fontSize: '0.75rem', color: '#FFFFFF', fontWeight: 800 }}>
-                              FSSC 22000
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })()}
+                <div className="awa-hero-img-wrap">
+                  <img
+                    src="/images/pages/home/pilot-plant-dairy-testing.jpg"
+                    alt="AWA Group Industrial Food Science & Pilot Processing Facility"
+                    className="awa-hero-img"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (!target.src.includes('hero.webp')) {
+                        target.src = '/images/v9/v7/hero.webp';
+                      }
+                    }}
+                  />
                 </div>
+
+                {/* Overlay 2: 2,000+ Industrial Clients */}
+                <div className="awa-hero-overlay awa-hero-overlay-2">
+                  <div className="awa-overlay-icon">
+                    <Users size={20} />
+                  </div>
+                  <div>
+                    <div className="awa-overlay-label">
+                      {language === 'ar' ? '+2,000 عميل صناعي' : '2,000+ Industrial Clients'}
+                    </div>
+                    <div className="awa-overlay-val">
+                      {language === 'ar' ? 'مصر والشرق الأوسط وأفريقيا' : 'Egypt, Middle East & Africa'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 6: Bottom Credibility Strip */}
+        <div className="awa-credibility-strip">
+          <div className="container">
+            <div className="awa-credibility-inner">
+              <div className="awa-credibility-item">
+                <FlaskConical className="awa-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-credibility-title">
+                  {language === 'ar' ? 'حلول غذائية متطورة' : 'Cutting-Edge Food Solutions'}
+                </span>
+              </div>
+              <div className="awa-credibility-item">
+                <Globe2 className="awa-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-credibility-title">
+                  {language === 'ar' ? 'انتشار إقليمي في الشرق الأوسط وأفريقيا' : 'Global Reach in MENA'}
+                </span>
+              </div>
+              <div className="awa-credibility-item">
+                <ShieldCheck className="awa-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-credibility-title">
+                  {language === 'ar' ? 'معايير جودة صارمة' : 'Uncompromising Quality Standards'}
+                </span>
+              </div>
+              <div className="awa-credibility-item">
+                <Handshake className="awa-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-credibility-title">
+                  {language === 'ar' ? 'شريك صناعي موثوق' : 'A Trusted Industry Partner'}
+                </span>
               </div>
             </div>
           </div>
