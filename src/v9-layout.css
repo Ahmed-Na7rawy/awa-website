@@ -173,393 +173,369 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 
 
 /* ==========================================================================
-   AWA ENTERPRISE HERO — PREMIUM LIGHT CORPORATE ARCHITECTURE
+   AWA CINEMATIC VIDEO HERO — IMMERSIVE CORPORATE ARCHITECTURE
    ========================================================================== */
 
-.awa-enterprise-hero {
+.awa-video-hero {
   position: relative;
-  background-color: #FFFFFF;
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 168, 79, 0.05) 0%, transparent 70%),
-    linear-gradient(to bottom, #FAFBFD 0%, #FFFFFF 100%);
-  padding: 4.75rem 0 0;
-  border-bottom: 1px solid #E2E8F0;
+  min-height: clamp(660px, 92vh, 900px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
+  background-color: #0A1826;
 }
 
-/* Clean corporate background */
-.awa-hero-grid-pattern {
-  display: none;
+.awa-video-bg-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.awa-hero-inner {
+.awa-video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Organic Asymmetrical Overlay: Darker on text side, transparent toward food & equipment */
+.awa-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: 
+    linear-gradient(90deg, 
+      rgba(10, 24, 38, 0.94) 0%, 
+      rgba(10, 24, 38, 0.85) 36%, 
+      rgba(10, 24, 38, 0.48) 68%, 
+      rgba(10, 24, 38, 0.15) 100%),
+    linear-gradient(180deg, 
+      rgba(10, 24, 38, 0.4) 0%, 
+      transparent 35%, 
+      rgba(10, 24, 38, 0.72) 100%);
+}
+
+.rtl .awa-video-overlay {
+  background: 
+    linear-gradient(270deg, 
+      rgba(10, 24, 38, 0.94) 0%, 
+      rgba(10, 24, 38, 0.85) 36%, 
+      rgba(10, 24, 38, 0.48) 68%, 
+      rgba(10, 24, 38, 0.15) 100%),
+    linear-gradient(180deg, 
+      rgba(10, 24, 38, 0.4) 0%, 
+      transparent 35%, 
+      rgba(10, 24, 38, 0.72) 100%);
+}
+
+.awa-video-hero-container {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 3.5rem;
+  width: 100%;
+  padding-top: 5.5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
   align-items: center;
-  padding-bottom: 4.5rem;
+  flex: 1;
+}
+
+.awa-video-hero-content {
+  max-width: 680px;
 }
 
 /* Eyebrow Label — Refined Enterprise Typography */
-.awa-hero-eyebrow-corp {
+.awa-video-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(0, 168, 79, 0.15);
+  border: 1px solid rgba(0, 168, 79, 0.38);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.awa-hero-eyebrow-bar {
-  width: 20px;
-  height: 3px;
+.awa-video-eyebrow-bar {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: #00A84F;
-  border-radius: 2px;
+  box-shadow: 0 0 8px #00A84F;
 }
 
-.awa-hero-eyebrow-text {
-  font-size: 0.8rem;
+.awa-video-eyebrow-text {
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #00A84F;
+  color: #34D399;
 }
 
 /* Headline */
-.awa-hero-headline {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: clamp(2.35rem, 3.8vw, 3.45rem);
+.awa-video-headline {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  font-size: clamp(2.35rem, 4vw, 3.65rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.035em;
-  color: #10263B;
-  margin-bottom: 1.35rem;
-  max-width: 640px;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
-.awa-hero-highlight {
+.awa-video-highlight {
   color: #00A84F;
   font-weight: 850;
-  position: relative;
   display: inline-block;
+  text-shadow: 0 0 25px rgba(0, 168, 79, 0.4);
 }
 
 /* Paragraph */
-.awa-hero-desc {
+.awa-video-desc {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: #475569;
-  max-width: 560px;
+  color: #CBD5E1;
+  max-width: 580px;
   margin-bottom: 2.25rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 /* CTA Cluster */
-.awa-hero-actions {
+.awa-video-actions {
   display: flex;
   align-items: center;
   gap: 1.25rem;
   flex-wrap: wrap;
 }
 
-.awa-btn-primary {
+.awa-video-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.7rem;
   background-color: #00A84F;
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.9rem 1.75rem;
+  padding: 0.95rem 1.85rem;
   border-radius: 8px;
   border: 1px solid #009344;
-  box-shadow: 0 4px 14px rgba(0, 168, 79, 0.22);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 168, 79, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   cursor: pointer;
 }
 
-.awa-btn-primary:hover {
+.awa-video-btn-primary:hover {
   background-color: #008C42;
-  box-shadow: 0 6px 20px rgba(0, 168, 79, 0.32);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 168, 79, 0.45);
+  transform: translateY(-2px);
   color: #FFFFFF;
 }
 
-.awa-btn-secondary {
+.awa-video-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
-  color: #10263B;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.9rem 1.5rem;
+  padding: 0.95rem 1.65rem;
   border-radius: 8px;
-  border: 1px solid #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.2s ease;
   text-decoration: none;
   cursor: pointer;
 }
 
-.awa-btn-secondary:hover {
-  background-color: #F8FAFC;
-  border-color: #94A3B8;
-  color: #00A84F;
-  transform: translateY(-1px);
-}
-
-/* Right Column — Large Premium Industrial Food Science Visual */
-.awa-hero-visual-container {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 20px 45px -12px rgba(16, 38, 59, 0.09), 0 1px 3px rgba(16, 38, 59, 0.04);
-  background-color: #F8FAFC;
-  aspect-ratio: 16 / 12;
-  width: 100%;
-}
-
-.awa-hero-main-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.awa-hero-visual-container:hover .awa-hero-main-photo {
-  transform: scale(1.02);
-}
-
-/* Elegant Inset Cards (Directly INSIDE the image, zero collision, zero negative margins) */
-.awa-inset-card {
-  position: absolute;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 25px -5px rgba(16, 38, 59, 0.12), 0 2px 6px rgba(16, 38, 59, 0.04);
-  border-radius: 12px;
-  padding: 0.65rem 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: calc(100% - 32px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.awa-inset-card:hover {
+.awa-video-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px -6px rgba(16, 38, 59, 0.15);
 }
 
-.awa-inset-top-right {
-  top: 18px;
-  right: 18px;
-}
-
-.awa-inset-bottom-left {
-  bottom: 18px;
-  left: 18px;
-}
-
-.rtl .awa-inset-top-right {
-  right: auto;
-  left: 18px;
-}
-
-.rtl .awa-inset-bottom-left {
-  left: auto;
-  right: 18px;
-}
-
-.awa-inset-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #EBF7EE;
-  color: #00A84F;
+/* Discreet Video Playback Control */
+.awa-video-ctrl-btn {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 2.25rem;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 24, 38, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.awa-inset-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.awa-inset-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #00A84F;
-  line-height: 1.2;
-}
-
-.awa-inset-val {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #10263B;
-  line-height: 1.25;
-  margin-top: 2px;
-}
-
-/* Subtle Inset Facility Tag */
-.awa-facility-inset-pill {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 0.75rem;
-  background: rgba(16, 38, 59, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 9999px;
-  font-size: 0.7rem;
-  font-weight: 600;
+.awa-video-ctrl-btn:hover {
+  background: rgba(0, 168, 79, 0.85);
+  border-color: #00A84F;
+  transform: scale(1.08);
   color: #FFFFFF;
-  letter-spacing: 0.02em;
 }
 
-.rtl .awa-facility-inset-pill {
-  left: auto;
-  right: 18px;
-}
-
-.awa-facility-inset-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #00A84F;
-  box-shadow: 0 0 6px #00A84F;
+.rtl .awa-video-ctrl-btn {
+  right: auto;
+  left: 2.25rem;
 }
 
 /* Bottom Credibility Strip */
-.awa-credibility-strip {
+.awa-video-credibility-strip {
   position: relative;
   z-index: 2;
-  border-top: 1px solid #E2E8F0;
-  background: #FFFFFF;
+  background: rgba(10, 24, 38, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
 }
 
-.awa-credibility-inner {
+.awa-video-credibility-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.awa-credibility-item {
+.awa-video-credibility-item {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 1.35rem 1.25rem;
-  border-right: 1px solid #E2E8F0;
+  padding: 1.25rem 1.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.awa-credibility-item:last-child {
+.awa-video-credibility-item:last-child {
   border-right: none;
 }
 
-.rtl .awa-credibility-item {
+.rtl .awa-video-credibility-item {
   border-right: none;
-  border-left: 1px solid #E2E8F0;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.rtl .awa-credibility-item:last-child {
+.rtl .awa-video-credibility-item:last-child {
   border-left: none;
 }
 
-.awa-credibility-icon {
-  width: 26px;
-  height: 26px;
+.awa-video-credibility-icon {
+  width: 24px;
+  height: 24px;
   color: #00A84F;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(0, 168, 79, 0.35));
 }
 
-.awa-credibility-title {
+.awa-video-credibility-title {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #10263B;
+  color: #FFFFFF;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .awa-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .awa-video-hero {
+    min-height: auto;
+  }
+  .awa-video-hero-container {
+    padding-top: 4.5rem;
     padding-bottom: 3.5rem;
   }
-  .awa-hero-visual-container {
-    max-width: 640px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 11;
+  .awa-video-overlay {
+    background: 
+      linear-gradient(180deg, 
+        rgba(10, 24, 38, 0.92) 0%, 
+        rgba(10, 24, 38, 0.85) 60%, 
+        rgba(10, 24, 38, 0.6) 100%);
   }
-  .awa-credibility-inner {
+  .rtl .awa-video-overlay {
+    background: 
+      linear-gradient(180deg, 
+        rgba(10, 24, 38, 0.92) 0%, 
+        rgba(10, 24, 38, 0.85) 60%, 
+        rgba(10, 24, 38, 0.6) 100%);
+  }
+  .awa-video-credibility-inner {
     grid-template-columns: repeat(2, 1fr);
   }
-  .awa-credibility-item:nth-child(2) {
+  .awa-video-credibility-item:nth-child(2) {
     border-right: none;
   }
-  .rtl .awa-credibility-item:nth-child(2) {
+  .rtl .awa-video-credibility-item:nth-child(2) {
     border-left: none;
   }
-  .awa-credibility-item:nth-child(-n+2) {
-    border-bottom: 1px solid #E2E8F0;
+  .awa-video-credibility-item:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
-@media (max-width: 640px) {
-  .awa-enterprise-hero {
-    padding: 3rem 0 0;
+@media (max-width: 768px) {
+  .awa-video-hero {
+    min-height: auto;
   }
-  .awa-hero-headline {
+  .awa-video-hero-container {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+  }
+  .awa-video-headline {
     font-size: 1.85rem;
   }
-  .awa-hero-desc {
+  .awa-video-desc {
     font-size: 0.95rem;
+    margin-bottom: 1.75rem;
   }
-  .awa-hero-actions {
+  .awa-video-actions {
     flex-direction: column;
     align-items: stretch;
   }
-  .awa-btn-primary, .awa-btn-secondary {
+  .awa-video-btn-primary, .awa-video-btn-secondary {
     justify-content: center;
+    width: 100%;
+    text-align: center;
   }
-  .awa-inset-card {
-    padding: 0.5rem 0.75rem;
+  .awa-video-ctrl-btn {
+    bottom: 5rem;
+    right: 1.25rem;
+    width: 38px;
+    height: 38px;
   }
-  .awa-inset-icon {
-    width: 28px;
-    height: 28px;
+  .rtl .awa-video-ctrl-btn {
+    right: auto;
+    left: 1.25rem;
   }
-  .awa-inset-label {
-    font-size: 0.6rem;
-  }
-  .awa-inset-val {
-    font-size: 0.75rem;
-  }
-  .awa-facility-inset-pill {
-    display: none;
-  }
-  .awa-credibility-inner {
+  .awa-video-credibility-inner {
     grid-template-columns: 1fr;
   }
-  .awa-credibility-item {
+  .awa-video-credibility-item {
     border-right: none;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.95rem 1rem;
   }
-  .rtl .awa-credibility-item {
+  .rtl .awa-video-credibility-item {
     border-left: none;
+  }
+  .awa-video-credibility-item:last-child {
+    border-bottom: none;
   }
 }
