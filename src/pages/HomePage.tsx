@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   ArrowRight, 
+  ArrowUpRight,
   CheckCircle2, 
   ChevronLeft, 
   ChevronRight, 
@@ -13,6 +14,14 @@ import {
   Handshake, 
   Users, 
   Factory, 
+  Target,
+  Layers,
+  TrendingUp,
+  Coins,
+  Leaf,
+  Palette,
+  Lightbulb,
+  Settings2,
   Microscope,
   Play,
   Pause
@@ -47,6 +56,61 @@ const AnimatedStatCard: React.FC<{ value: string; label: string; detail: string;
       <div className="interactive-number-detail">{detail}</div>
     </div>
   );
+};
+
+/* SVG Icon Resolvers for Solution Pathways */
+const getChallengeIcon = (id: string) => {
+  switch (id) {
+    case 'texture': return <Layers size={22} />;
+    case 'stability': return <ShieldCheck size={22} />;
+    case 'taste': return <Sparkles size={22} />;
+    case 'yield': return <TrendingUp size={22} />;
+    case 'affordability': return <Coins size={22} />;
+    case 'nutrition-reformulation': return <Leaf size={22} />;
+    case 'appearance': return <Palette size={22} />;
+    case 'new-product': return <Lightbulb size={22} />;
+    default: return <Target size={22} />;
+  }
+};
+
+const getFamilyIcon = (id: string) => {
+  switch (id) {
+    case 'texture-structure': return <Layers size={22} />;
+    case 'taste-sensory': return <Sparkles size={22} />;
+    case 'preservation': return <ShieldCheck size={22} />;
+    case 'nutrition': return <Leaf size={22} />;
+    case 'color-appearance': return <Palette size={22} />;
+    case 'functional-processing': return <Settings2 size={22} />;
+    default: return <FlaskConical size={22} />;
+  }
+};
+
+/* Arabic Titles and Descriptions for Industry Applications */
+const industryArabicTitles: Record<string, { title: string; desc: string }> = {
+  'dairy-cheese': {
+    title: 'الألبان والأجبان والحلويات المجمدة',
+    desc: 'من الأجبان المطبوخة وحليب المعاملة الحرارية إلى منتجات الألبان المتخمرة والمثلجات، نقدم وظائف مصممة لمصفوفة المنتج وعمليات التصنيع.'
+  },
+  'meat-seafood': {
+    title: 'اللحوم والدواجن والمأكولات البحرية',
+    desc: 'مكونات وظيفية لربط المياه والدهون، تحسين القوام، ثبات الحبيبات، وزيادة إنتاجية الطهي عبر تطبيقات اللحوم والدواجن.'
+  },
+  'bakery': {
+    title: 'المخبوزات والحلويات والمعجنات',
+    desc: 'أنظمة مكونات تدعم أداء العجين والمخفوقات، الطراوة، الحفاظ على الرطوبة، وثبات الحشوات والمنتج النهائي.'
+  },
+  'beverages': {
+    title: 'المشروبات والعصائر',
+    desc: 'حلول للانتشار والتثبيت، المذاق والشعور بالفم، الذوبان والتركيبات الغذائية عبر مختلف أشكال المشروبات السائلة والبودرة.'
+  },
+  'culinary': {
+    title: 'الصلصات والشوربات والحلول المطبخية',
+    desc: 'أنظمة وظيفية وحسية للصلصات، التتبيلات، المرق، والوجبات الجاهزة لتحقيق استقرار المستحلبات وثبات النكهة.'
+  },
+  'snacks': {
+    title: 'المقرمشات ورقائق الإفطار',
+    desc: 'تقنيات المكونات والتركيبات لقوام مقرمش ومميز، توزيع التوابل، جودة الحبوب، وثبات عمليات الإنتاج والتصنيع.'
+  }
 };
 
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
@@ -321,129 +385,133 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 1.5 FIND YOUR SOLUTION / INDUSTRIAL PATHFINDER      */}
+      {/* 1.5 FOOD APPLICATIONS SHOWCASE / EDITORIAL EXPLORER */}
       {/* ═══════════════════════════════════════════════════ */}
-      <div className="find-paths">
-        <div className="container find-paths-inner">
-          <div className="find-paths-heading">
-            <strong>{language === 'ar' ? 'اعثر على حلك المناسب' : 'Find your solution'}</strong>
-            <small>{language === 'ar' ? "استكشف محفظة AWA الصناعية" : "Explore AWA's industrial portfolio"}</small>
-          </div>
-          <button type="button" onClick={() => handleJumpExplore('industry')}>
-            <span className="path-icon">▦</span>
-            <span>
-              {language === 'ar' ? 'حسب القطاع الصناعي' : 'By Industry'}
-              <small>{language === 'ar' ? 'استكشف التطبيقات الغذائية' : 'Explore food applications'}</small>
-            </span>
-            <b>↗</b>
-          </button>
-          <button type="button" onClick={() => handleJumpExplore('challenge')}>
-            <span className="path-icon">◎</span>
-            <span>
-              {language === 'ar' ? 'حسب التحدي التقني' : 'By Challenge'}
-              <small>{language === 'ar' ? 'حل مشكلة تصنيعية محددة' : 'Address a technical need'}</small>
-            </span>
-            <b>↗</b>
-          </button>
-          <button type="button" onClick={() => handleJumpExplore('family')}>
-            <span className="path-icon">▧</span>
-            <span>
-              {language === 'ar' ? 'حسب عائلة المنتج' : 'By Product Family'}
-              <small>{language === 'ar' ? 'استكشف وظائف المكونات' : 'Explore ingredient functions'}</small>
-            </span>
-            <b>↗</b>
-          </button>
-        </div>
-      </div>
-
-      {/* ═══════════════════════════════════════════════════ */}
-      {/* 1.6 INTERACTIVE EXPLORER SECTION                    */}
-      {/* ═══════════════════════════════════════════════════ */}
-      <section className="section tint" id="explore" style={{ scrollMarginTop: '80px', padding: '4.5rem 0' }}>
+      <section className="food-applications-section" id="explore" style={{ scrollMarginTop: '80px' }}>
         <div className="container">
-          <div className="section-header text-center reveal-fade-up" style={{ marginBottom: '2.5rem' }}>
-            <div className="eyebrow" style={{ justifyContent: 'center' }}>
-              {language === 'ar' ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
+          {/* Section Introduction — Left-aligned editorial hierarchy (Visible by default, no opacity:0) */}
+          <div className="food-apps-intro">
+            <div className="food-apps-eyebrow">
+              <span className="eyebrow-accent-line" />
+              <span>{language === 'ar' ? 'تطبيقات الأغذية والحلول الصناعية' : 'FOOD APPLICATIONS'}</span>
             </div>
-            <h2 className="section-title">
-              {language === 'ar' ? (
-                <>استكشف خبراتنا <span className="gradient-text">على طريقتك.</span></>
-              ) : (
-                <>Explore our expertise <span className="gradient-text">your way.</span></>
-              )}
-            </h2>
-            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '680px' }}>
+            <h2 className="food-apps-title">
               {language === 'ar'
-                ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة وفقاً لمتطلبات التصنيع الدقيقة. تصفح حسب التطبيق أو التحدي التقني أو عائلة المنتج.'
-                : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Browse by application, technical challenge or functional product family.'}
+                ? 'تطبيقات غذائية، مصممة لآفاق غير محدودة.'
+                : 'Food applications, engineered for possibility.'}
+            </h2>
+            <p className="food-apps-desc">
+              {language === 'ar'
+                ? 'اكتشف كيف تدعم مكوناتنا الغذائية وحلولنا المبتكرة مصنعي الأغذية لتطوير منتجات متميزة تلبي متطلبات السوق.'
+                : 'Discover how our food ingredients and tailored solutions help manufacturers create better products across diverse food categories.'}
             </p>
           </div>
 
-          <div className="browser-tabs" role="tablist" aria-label="Explore industrial solutions" style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
-            <button
-              type="button"
-              className={exploreTab === 'industry' ? 'active' : ''}
-              onClick={() => setExploreTab('industry')}
-              role="tab"
-              aria-selected={exploreTab === 'industry'}
-            >
-              <span className="approach-icon" aria-hidden="true">▦</span> {language === 'ar' ? 'حسب القطاع' : 'By Industry'}
-            </button>
-            <button
-              type="button"
-              className={exploreTab === 'challenge' ? 'active' : ''}
-              onClick={() => setExploreTab('challenge')}
-              role="tab"
-              aria-selected={exploreTab === 'challenge'}
-            >
-              <span className="approach-icon" aria-hidden="true">◎</span> {language === 'ar' ? 'حسب التحدي' : 'By Challenge'}
-            </button>
-            <button
-              type="button"
-              className={exploreTab === 'family' ? 'active' : ''}
-              onClick={() => setExploreTab('family')}
-              role="tab"
-              aria-selected={exploreTab === 'family'}
-            >
-              <span className="approach-icon" aria-hidden="true">▧</span> {language === 'ar' ? 'حسب عائلة المنتج' : 'By Product Family'}
-            </button>
+          {/* Category Filters: Minimal Horizontal Navigation Tabs with Thin Green Underline */}
+          <div className="editorial-tabs-wrapper" role="tablist" aria-label="Application categories">
+            <div className="editorial-tabs-bar">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={exploreTab === 'industry'}
+                className={`editorial-tab-btn ${exploreTab === 'industry' ? 'active' : ''}`}
+                onClick={() => setExploreTab('industry')}
+              >
+                <span>{language === 'ar' ? 'قطاعات التطبيقات الغذائية' : 'Food Applications'}</span>
+                <span className="editorial-tab-badge">6</span>
+                {exploreTab === 'industry' && <span className="editorial-tab-underline" />}
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                aria-selected={exploreTab === 'challenge'}
+                className={`editorial-tab-btn ${exploreTab === 'challenge' ? 'active' : ''}`}
+                onClick={() => setExploreTab('challenge')}
+              >
+                <span>{language === 'ar' ? 'حسب التحدي التقني' : 'By Technical Challenge'}</span>
+                <span className="editorial-tab-badge">8</span>
+                {exploreTab === 'challenge' && <span className="editorial-tab-underline" />}
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                aria-selected={exploreTab === 'family'}
+                className={`editorial-tab-btn ${exploreTab === 'family' ? 'active' : ''}`}
+                onClick={() => setExploreTab('family')}
+              >
+                <span>{language === 'ar' ? 'حسب عائلة المنتج' : 'By Product Family'}</span>
+                <span className="editorial-tab-badge">6</span>
+                {exploreTab === 'family' && <span className="editorial-tab-underline" />}
+              </button>
+            </div>
           </div>
 
-          <div className="browser-results" id="explorer-results">
+          {/* Food Application Cards Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) */}
+          <div className="food-apps-grid" id="explorer-results">
             {exploreTab === 'industry' && (
-              industryData.map((o) => (
-                <Link
-                  key={o.id}
-                  className="browser-card industry-photo-card"
-                  to={`/solutions/industry/${o.id}`}
-                  aria-label={`Explore ${o.title}`}
-                >
-                  <div className="industry-card-photo">
-                    <img
-                      src={v7IndustryImages[o.id] || '/images/v9/v7/hero.webp'}
-                      alt={o.title}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="industry-card-body">
-                    <strong>{o.title}</strong>
-                    <span className="industry-card-arrow" aria-hidden="true">↗</span>
-                  </div>
-                </Link>
-              ))
+              industryData.map((o) => {
+                const arInfo = industryArabicTitles[o.id];
+                const cardTitle = (language === 'ar' && arInfo) ? arInfo.title : o.title;
+                const cardDesc = (language === 'ar' && arInfo) ? arInfo.desc : o.desc;
+
+                return (
+                  <Link
+                    key={o.id}
+                    className="editorial-food-card"
+                    to={`/solutions/industry/${o.id}`}
+                    aria-label={`Explore ${cardTitle}`}
+                  >
+                    <div className="editorial-card-photo-wrap">
+                      <img
+                        src={v7IndustryImages[o.id] || '/images/v9/v7/hero.webp'}
+                        alt={cardTitle}
+                        loading="lazy"
+                      />
+                      <span className="editorial-photo-tag">
+                        {language === 'ar' ? 'قطاع صناعي' : 'Application Sector'}
+                      </span>
+                    </div>
+
+                    <div className="editorial-card-body">
+                      <div className="editorial-card-main">
+                        <h3 className="editorial-card-title">{cardTitle}</h3>
+                        <p className="editorial-card-desc">{cardDesc}</p>
+                      </div>
+
+                      <div className="editorial-card-footer">
+                        <span className="editorial-card-cta">
+                          <span>{language === 'ar' ? 'استكشف الحلول والتطبيقات' : 'Explore solutions'}</span>
+                          <ArrowUpRight size={17} className="card-arrow-icon" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })
             )}
 
             {exploreTab === 'challenge' && (
               challengeData.map((o) => (
                 <Link
                   key={o.id}
-                  className="browser-card discovery-card"
+                  className="editorial-food-card editorial-text-card"
                   to={`/solutions/challenge/${o.id}`}
                 >
-                  <span className="tiny-icon" aria-hidden="true">{o.icon}</span>
-                  <strong>{o.title}</strong>
-                  <p>{o.desc}</p>
-                  <span>{language === 'ar' ? 'استكشف التحدي' : 'Explore challenge'} ↗</span>
+                  <div className="discovery-card-icon-box">
+                    {getChallengeIcon(o.id)}
+                  </div>
+                  <div className="editorial-card-main">
+                    <h3 className="editorial-card-title">{o.title}</h3>
+                    <p className="editorial-card-desc">{o.desc}</p>
+                  </div>
+                  <div className="editorial-card-footer">
+                    <span className="editorial-card-cta">
+                      <span>{language === 'ar' ? 'استكشف التحدي والحلول' : 'Explore challenge & solutions'}</span>
+                      <ArrowRight size={15} className="card-arrow-icon" />
+                    </span>
+                  </div>
                 </Link>
               ))
             )}
@@ -452,22 +520,32 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
               familyData.map((o) => (
                 <Link
                   key={o.id}
-                  className="browser-card discovery-card"
+                  className="editorial-food-card editorial-text-card"
                   to={`/solutions/family/${o.id}`}
                 >
-                  <span className="tiny-icon" aria-hidden="true">{o.icon}</span>
-                  <strong>{o.title}</strong>
-                  <p>{o.desc}</p>
-                  <span>{language === 'ar' ? 'استكشف عائلة المنتج' : 'Explore product family'} ↗</span>
+                  <div className="discovery-card-icon-box">
+                    {getFamilyIcon(o.id)}
+                  </div>
+                  <div className="editorial-card-main">
+                    <h3 className="editorial-card-title">{o.title}</h3>
+                    <p className="editorial-card-desc">{o.desc}</p>
+                  </div>
+                  <div className="editorial-card-footer">
+                    <span className="editorial-card-cta">
+                      <span>{language === 'ar' ? 'استكشف عائلة المنتج' : 'Explore product family'}</span>
+                      <ArrowRight size={15} className="card-arrow-icon" />
+                    </span>
+                  </div>
                 </Link>
               ))
             )}
           </div>
 
-          <div className="cta-small" style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <Link to="/solutions" className="btn btn-secondary">
-              <span>{language === 'ar' ? 'استكشف دليل الحلول الكامل' : 'Explore full solutions directory'}</span>
-              <ArrowRight size={16} />
+          {/* Understated Outlined CTA */}
+          <div className="editorial-showcase-cta">
+            <Link to="/solutions" className="editorial-understated-btn">
+              <span>{language === 'ar' ? 'استكشف دليل الحلول والمكونات الكامل' : 'Explore Full Solutions Directory'}</span>
+              <ArrowRight size={16} className="btn-arrow" />
             </Link>
           </div>
         </div>
