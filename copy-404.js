@@ -12,23 +12,35 @@ if (fs.existsSync(path.join(distDir, 'index.html'))) {
   console.log('Copied index.html to 404.html');
 }
 
-// 2. Ensure v9 images are copied to dist/images/v9
-const v9Public = path.join(publicDir, 'images', 'v9');
-const v9Dist = path.join(distDir, 'images', 'v9');
-if (fs.existsSync(v9Public)) {
-  fs.mkdirSync(v9Dist, { recursive: true });
-  fs.cpSync(v9Public, v9Dist, { recursive: true, force: true });
-  console.log('Copied v9 images to dist/images/v9');
+// 2. Fast incremental copy of public/images and public/videos to dist
+function copyDirIfMissing(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) return;
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
+  const entries = fs.readdirSync(srcDir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.name.endsWith('.exe') || entry.name.endsWith('.old')) continue;
+    
+    const srcPath = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+
+    if (entry.isDirectory()) {
+      copyDirIfMissing(srcPath, destPath);
+    } else if (!fs.existsSync(destPath)) {
+      try {
+        fs.copyFileSync(srcPath, destPath);
+      } catch (err) {
+        console.warn(`Could not copy ${entry.name}:`, err.message);
+      }
+    }
+  }
 }
 
-// 2b. Ensure videos are copied to dist/videos
-const videosPublic = path.join(publicDir, 'videos');
-const videosDist = path.join(distDir, 'videos');
-if (fs.existsSync(videosPublic)) {
-  fs.mkdirSync(videosDist, { recursive: true });
-  fs.cpSync(videosPublic, videosDist, { recursive: true, force: true });
-  console.log('Copied videos to dist/videos');
-}
+console.log('Ensuring all images and videos are present in dist...');
+copyDirIfMissing(path.join(publicDir, 'images'), path.join(distDir, 'images'));
+copyDirIfMissing(path.join(publicDir, 'videos'), path.join(distDir, 'videos'));
+console.log('Images and videos verified in dist.');
 
 // 3. Ensure root assets exist in dist
 ['favicon.svg', 'icons.svg', 'robots.txt', 'sitemap.xml'].forEach((file) => {
