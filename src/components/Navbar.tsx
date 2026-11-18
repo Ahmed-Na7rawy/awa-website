@@ -20,11 +20,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
   const { t, language } = useLanguage();
   const location = useLocation();
 
+  const isHomePage = location.pathname === '/' || location.pathname === '';
+  const isTransparent = isHomePage && !scrolled;
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -176,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${isHomePage ? 'hero-overlay' : ''} ${isTransparent ? 'is-transparent' : 'is-scrolled'}`}>
         {/* Top Contact & Metadata Bar */}
         <div className="top-bar">
           <div className="container-wide top-bar-inner">
@@ -223,19 +227,41 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {/* Main Sticky Navbar */}
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
           <div className="container-wide navbar-inner">
-            {/* Brand Logo */}
+            {/* Brand Logo with Smooth Dual-State Crossfade */}
             <Link 
               to="/" 
               className="brand-logo-wrap" 
-              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', position: 'relative' }}
+              aria-label="AWA Group Home"
             >
+              {/* Colored Logo (Scrolled State on Homepage & All Internal Pages) */}
               <img 
                 src="/images/awa_group.png" 
                 alt="AWA Group" 
-                className="brand-logo-img"
-                style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
+                className="brand-logo-img brand-logo-colored"
+                style={{ 
+                  height: '42px', 
+                  width: 'auto', 
+                  objectFit: 'contain',
+                  opacity: isTransparent ? 0 : 1,
+                  transition: 'opacity 0.3s ease',
+                  position: isTransparent ? 'absolute' : 'relative',
+                  pointerEvents: isTransparent ? 'none' : 'auto'
+                }}
+              />
+              {/* Monochrome White Logo (Transparent Hero State at top of Homepage) */}
+              <img 
+                src="/images/awa-logo-white.png" 
+                alt="AWA Group" 
+                className="brand-logo-img brand-logo-white"
+                style={{ 
+                  height: '42px', 
+                  width: 'auto', 
+                  objectFit: 'contain',
+                  opacity: isTransparent ? 1 : 0,
+                  transition: 'opacity 0.3s ease',
+                  position: isTransparent ? 'relative' : 'absolute',
+                  pointerEvents: isTransparent ? 'auto' : 'none'
                 }}
               />
             </Link>
@@ -255,7 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                     style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                   >
                     <span>{item.label}</span>
-                    <ChevronDown size={13} style={{ opacity: 0.6 }} />
+                    <ChevronDown size={13} className="chevron-icon" style={{ opacity: 0.7 }} />
                   </Link>
 
                   {/* Mega Menu Dropdown */}
