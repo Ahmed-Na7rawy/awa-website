@@ -220,49 +220,55 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         {/* Hero Foreground Content */}
         <div className="container awa-video-hero-container">
           <div className="awa-video-hero-content">
-            {/* Eyebrow Label — Refined Enterprise Typography */}
-            <div className="awa-video-eyebrow reveal-fade-up">
-              <span className="awa-video-eyebrow-bar" />
-              <span className="awa-video-eyebrow-text">
+            {/* Eyebrow Label — Minimal Thin Green Line & Uppercase Text */}
+            <div className="awa-editorial-eyebrow reveal-fade-up">
+              <span className="awa-eyebrow-accent-line" />
+              <span className="awa-eyebrow-text">
                 {language === 'ar' 
                   ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
                   : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
               </span>
             </div>
 
-            {/* Editorial Headline */}
-            <h1 className="awa-video-headline reveal-fade-up reveal-delay-1">
+            {/* Editorial Headline — Pure White, Refined Typography, No AI Accents */}
+            <h1 className="awa-editorial-headline reveal-fade-up reveal-delay-1">
               {language === 'ar' ? (
                 <>
-                  ربط الابتكار في علوم الأغذية بالتصنيع و<span className="awa-video-highlight">الإنتاج الصناعي</span> الواسع
+                  ربط الابتكار في علوم الأغذية
+                  <br />
+                  بالتصنيع والإنتاج الصناعي الواسع
                 </>
               ) : (
                 <>
-                  Bridging Food Science <span className="awa-video-highlight">Innovation</span> With Industrial Manufacturing Scale
+                  BRIDGING FOOD SCIENCE
+                  <br />
+                  INNOVATION WITH INDUSTRIAL
+                  <br />
+                  MANUFACTURING SCALE
                 </>
               )}
             </h1>
 
-            {/* Concise Supporting Description */}
-            <p className="awa-video-desc reveal-fade-up reveal-delay-2">
+            {/* Supporting Description — Refined, Soft White, Editorial */}
+            <p className="awa-editorial-desc reveal-fade-up reveal-delay-2">
               {language === 'ar'
                 ? 'شريككم الرائد في حلول الأغذية في مصر والشرق الأوسط. نبتكر أنظمة مثبتات الهيدروكولويد المخصصة، والبروتينات النباتية الوظيفية، والخلطات المتخصصة، بدعم من معامل التطبيقات التجريبية الحديثة وبنية تحتية معتمدة للتبريد وسلاسل الإمداد بطاقة 15,000 طن متري.'
                 : "Partner with Egypt's leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure."}
             </p>
 
-            {/* Call to Actions */}
-            <div className="awa-video-actions reveal-fade-up reveal-delay-3">
+            {/* Call to Actions — Restrained Corporate Presentation */}
+            <div className="awa-editorial-actions reveal-fade-up reveal-delay-3">
               <button
                 type="button"
                 onClick={onOpenQuote || (() => handleNav('contact'))}
-                className="awa-video-btn-primary"
+                className="awa-editorial-btn-primary"
               >
                 <span>{language === 'ar' ? 'تواصل مع علماء الأغذية لدينا' : 'Partner With Our Food Scientists'}</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={17} />
               </button>
               <Link
                 to="/solutions"
-                className="awa-video-btn-secondary"
+                className="awa-editorial-btn-secondary"
               >
                 <span>{language === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}</span>
               </Link>
