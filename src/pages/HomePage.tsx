@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -6,14 +6,16 @@ import {
   ChevronRight, 
   ShieldCheck, 
   Award, 
-  Sparkles,
-  MessageSquare,
-  FlaskConical,
-  Globe2,
-  Handshake,
-  Users,
-  Factory,
-  Microscope
+  Sparkles, 
+  MessageSquare, 
+  FlaskConical, 
+  Globe2, 
+  Handshake, 
+  Users, 
+  Factory, 
+  Microscope,
+  Play,
+  Pause
 } from 'lucide-react';
 import { 
   FOOD_SECTORS, 
@@ -49,6 +51,30 @@ const AnimatedStatCard: React.FC<{ value: string; label: string; detail: string;
 
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const { t, language, translations } = useLanguage();
+
+  // Video hero playback state and ref
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleVideoPlayback = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches && videoRef.current) {
+      videoRef.current.pause();
+      setIsVideoPlaying(false);
+    }
+  }, []);
 
   // State for interactive components
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -171,134 +197,115 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         image="/images/pages/industries/image33.jpg"
       />
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 1. AWA ENTERPRISE HERO — SOPHISTICATED LIGHT HERO    */}
+      {/* 1. AWA CINEMATIC VIDEO HERO                          */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-enterprise-hero" ref={heroRef}>
-        <div className="awa-hero-grid-pattern" aria-hidden="true" />
-        <div className="container">
-          <div className="awa-hero-inner">
-            {/* Left Column — Corporate Messaging */}
-            <div className="reveal-fade-left">
-              {/* Eyebrow Label — Refined Enterprise Typography */}
-              <div className="awa-hero-eyebrow-corp">
-                <span className="awa-hero-eyebrow-bar" />
-                <span className="awa-hero-eyebrow-text">
-                  {language === 'ar' 
-                    ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
-                    : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
-                </span>
-              </div>
+      <section className="awa-video-hero" ref={heroRef}>
+        {/* Cinematic Background Video with Poster Fallback */}
+        <div className="awa-video-bg-wrap" aria-hidden="true">
+          <video
+            ref={videoRef}
+            className="awa-video-bg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/pages/home/hero-food-science-lab.jpg"
+          >
+            <source src="/videos/awa-hero.mp4" type="video/mp4" />
+          </video>
+          {/* Organic Asymmetrical Overlay: Darker on text side, transparent to preserve food footage */}
+          <div className="awa-video-overlay" />
+        </div>
 
-              <h1 className="awa-hero-headline">
-                {language === 'ar' ? (
-                  <>
-                    ربط الابتكار في علوم الأغذية بالتصنيع و<span className="awa-hero-highlight">الإنتاج الصناعي</span> الواسع
-                  </>
-                ) : (
-                  <>
-                    Bridging Food Science <span className="awa-hero-highlight">Innovation</span> With Industrial Manufacturing Scale
-                  </>
-                )}
-              </h1>
-
-              <p className="awa-hero-desc">
-                {language === 'ar'
-                  ? 'شريككم الرائد في حلول الأغذية في مصر والشرق الأوسط. نبتكر أنظمة مثبتات الهيدروكولويد المخصصة، والبروتينات النباتية الوظيفية، والخلطات المتخصصة، بدعم من معامل التطبيقات التجريبية الحديثة وبنية تحتية معتمدة للتبريد وسلاسل الإمداد بطاقة 15,000 طن متري.'
-                  : "Partner with Egypt's leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure."}
-              </p>
-
-              <div className="awa-hero-actions">
-                <button
-                  type="button"
-                  onClick={onOpenQuote || (() => handleNav('contact'))}
-                  className="awa-btn-primary"
-                >
-                  <span>{language === 'ar' ? 'تواصل مع علماء الأغذية لدينا' : 'Partner With Our Food Scientists'}</span>
-                  <ArrowRight size={18} />
-                </button>
-                <Link
-                  to="/solutions"
-                  className="awa-btn-secondary"
-                >
-                  <span>{language === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}</span>
-                </Link>
-              </div>
+        {/* Hero Foreground Content */}
+        <div className="container awa-video-hero-container">
+          <div className="awa-video-hero-content">
+            {/* Eyebrow Label — Refined Enterprise Typography */}
+            <div className="awa-video-eyebrow reveal-fade-up">
+              <span className="awa-video-eyebrow-bar" />
+              <span className="awa-video-eyebrow-text">
+                {language === 'ar' 
+                  ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
+                  : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
+              </span>
             </div>
 
-            {/* Right Column — Large Premium Industrial Food Science Visual */}
-            <div className="reveal-fade-right reveal-delay-1">
-              <div className="awa-hero-visual-container">
-                <img
-                  src="/images/pages/home/hero-food-science-lab.jpg"
-                  alt="AWA Group Food Formulation Scientist Operating Rheology and Texture Analysis Systems in Application Laboratory"
-                  className="awa-hero-main-photo"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    if (!target.src.includes('pilot-plant-dairy-testing.jpg')) {
-                      target.src = '/images/pages/home/pilot-plant-dairy-testing.jpg';
-                    }
-                  }}
-                />
+            {/* Editorial Headline */}
+            <h1 className="awa-video-headline reveal-fade-up reveal-delay-1">
+              {language === 'ar' ? (
+                <>
+                  ربط الابتكار في علوم الأغذية بالتصنيع و<span className="awa-video-highlight">الإنتاج الصناعي</span> الواسع
+                </>
+              ) : (
+                <>
+                  Bridging Food Science <span className="awa-video-highlight">Innovation</span> With Industrial Manufacturing Scale
+                </>
+              )}
+            </h1>
 
-                {/* Overlay 1: Founder & Chairman (Clean Inset Card) */}
-                <div className="awa-inset-card awa-inset-top-right">
-                  <div className="awa-inset-icon">
-                    <Award size={18} />
-                  </div>
-                  <div className="awa-inset-text">
-                    <span className="awa-inset-label">
-                      {language === 'ar' ? 'المؤسس ورئيس مجلس الإدارة' : 'Founder & Chairman'}
-                    </span>
-                    <span className="awa-inset-val">
-                      {language === 'ar' ? 'قيادة مجموعة AWA منذ 1993' : 'Leading AWA Group Since 1993'}
-                    </span>
-                  </div>
-                </div>
+            {/* Concise Supporting Description */}
+            <p className="awa-video-desc reveal-fade-up reveal-delay-2">
+              {language === 'ar'
+                ? 'شريككم الرائد في حلول الأغذية في مصر والشرق الأوسط. نبتكر أنظمة مثبتات الهيدروكولويد المخصصة، والبروتينات النباتية الوظيفية، والخلطات المتخصصة، بدعم من معامل التطبيقات التجريبية الحديثة وبنية تحتية معتمدة للتبريد وسلاسل الإمداد بطاقة 15,000 طن متري.'
+                : "Partner with Egypt's leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure."}
+            </p>
 
-                {/* Overlay 2: 2,000+ Industrial Clients (Clean Inset Card) */}
-                <div className="awa-inset-card awa-inset-bottom-left">
-                  <div className="awa-inset-icon">
-                    <Users size={18} />
-                  </div>
-                  <div className="awa-inset-text">
-                    <span className="awa-inset-label">
-                      {language === 'ar' ? '+2,000 عميل صناعي' : '2,000+ Industrial Clients'}
-                    </span>
-                    <span className="awa-inset-val">
-                      {language === 'ar' ? 'مصر والشرق الأوسط وأفريقيا' : 'Egypt, Middle East & Africa'}
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Call to Actions */}
+            <div className="awa-video-actions reveal-fade-up reveal-delay-3">
+              <button
+                type="button"
+                onClick={onOpenQuote || (() => handleNav('contact'))}
+                className="awa-video-btn-primary"
+              >
+                <span>{language === 'ar' ? 'تواصل مع علماء الأغذية لدينا' : 'Partner With Our Food Scientists'}</span>
+                <ArrowRight size={18} />
+              </button>
+              <Link
+                to="/solutions"
+                className="awa-video-btn-secondary"
+              >
+                <span>{language === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}</span>
+              </Link>
             </div>
           </div>
         </div>
 
+        {/* Discreet Video Playback Control */}
+        <button
+          type="button"
+          onClick={toggleVideoPlayback}
+          className="awa-video-ctrl-btn"
+          aria-label={isVideoPlaying ? (language === 'ar' ? 'إيقاف الفيديو مؤقتاً' : 'Pause background video') : (language === 'ar' ? 'تشغيل الفيديو' : 'Play background video')}
+          title={isVideoPlaying ? 'Pause video' : 'Play video'}
+        >
+          {isVideoPlaying ? <Pause size={18} /> : <Play size={18} />}
+        </button>
+
         {/* Section 6: Bottom Credibility Strip */}
-        <div className="awa-credibility-strip">
+        <div className="awa-video-credibility-strip">
           <div className="container">
-            <div className="awa-credibility-inner">
-              <div className="awa-credibility-item">
-                <FlaskConical className="awa-credibility-icon" strokeWidth={1.75} />
-                <span className="awa-credibility-title">
+            <div className="awa-video-credibility-inner">
+              <div className="awa-video-credibility-item">
+                <FlaskConical className="awa-video-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-video-credibility-title">
                   {language === 'ar' ? 'حلول غذائية متطورة' : 'Cutting-Edge Food Solutions'}
                 </span>
               </div>
-              <div className="awa-credibility-item">
-                <Globe2 className="awa-credibility-icon" strokeWidth={1.75} />
-                <span className="awa-credibility-title">
+              <div className="awa-video-credibility-item">
+                <Globe2 className="awa-video-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-video-credibility-title">
                   {language === 'ar' ? 'انتشار إقليمي في الشرق الأوسط وأفريقيا' : 'Global Reach in MENA'}
                 </span>
               </div>
-              <div className="awa-credibility-item">
-                <ShieldCheck className="awa-credibility-icon" strokeWidth={1.75} />
-                <span className="awa-credibility-title">
+              <div className="awa-video-credibility-item">
+                <ShieldCheck className="awa-video-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-video-credibility-title">
                   {language === 'ar' ? 'معايير جودة صارمة' : 'Uncompromising Quality Standards'}
                 </span>
               </div>
-              <div className="awa-credibility-item">
-                <Handshake className="awa-credibility-icon" strokeWidth={1.75} />
-                <span className="awa-credibility-title">
+              <div className="awa-video-credibility-item">
+                <Handshake className="awa-video-credibility-icon" strokeWidth={1.75} />
+                <span className="awa-video-credibility-title">
                   {language === 'ar' ? 'شريك صناعي موثوق' : 'A Trusted Industry Partner'}
                 </span>
               </div>

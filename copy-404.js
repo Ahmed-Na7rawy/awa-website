@@ -21,6 +21,15 @@ if (fs.existsSync(v9Public)) {
   console.log('Copied v9 images to dist/images/v9');
 }
 
+// 2b. Ensure videos are copied to dist/videos
+const videosPublic = path.join(publicDir, 'videos');
+const videosDist = path.join(distDir, 'videos');
+if (fs.existsSync(videosPublic)) {
+  fs.mkdirSync(videosDist, { recursive: true });
+  fs.cpSync(videosPublic, videosDist, { recursive: true, force: true });
+  console.log('Copied videos to dist/videos');
+}
+
 // 3. Ensure root assets exist in dist
 ['favicon.svg', 'icons.svg', 'robots.txt', 'sitemap.xml'].forEach((file) => {
   const src = path.join(publicDir, file);
@@ -58,6 +67,7 @@ if (isGitHubPages && !isVercel) {
     let content = fs.readFileSync(filePath, 'utf8');
     let original = content;
     content = content.replace(/(?<!\/awa-website)\/images\//g, '/awa-website/images/');
+    content = content.replace(/(?<!\/awa-website)\/videos\//g, '/awa-website/videos/');
     if (content !== original) {
       fs.writeFileSync(filePath, content, 'utf8');
       console.log(`  Updated paths in: ${path.relative(distDir, filePath)}`);
