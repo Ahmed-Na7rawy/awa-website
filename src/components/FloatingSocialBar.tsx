@@ -55,25 +55,25 @@ export const FloatingSocialBar: React.FC = () => {
       style={{
         position: 'fixed',
         right: '1.25rem',
-        bottom: '5rem',
-        zIndex: 990,
+        bottom: '1.5rem',
+        zIndex: 900,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '0.6rem',
+        gap: '0.5rem',
       }}
     >
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.7, y: 15 }}
+            initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.7, y: 15 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, scale: 0.8, y: 10 }}
+            transition={{ duration: 0.18 }}
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.6rem',
+              gap: '0.45rem',
               alignItems: 'center',
             }}
           >
@@ -84,26 +84,26 @@ export const FloatingSocialBar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  width: '46px',
-                  height: '46px',
+                  width: '36px',
+                  height: '36px',
                   borderRadius: '50%',
                   background: '#FFFFFF',
-                  border: `1.5px solid ${item.borderColor}`,
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.1)',
+                  border: `1px solid ${item.borderColor}`,
+                  boxShadow: '0 3px 10px rgba(0, 0, 0, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   textDecoration: 'none',
-                  transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: 'all 0.2s ease',
                   position: 'relative',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.12) translateY(-2px)';
-                  e.currentTarget.style.boxShadow = `0 8px 25px ${item.color}44`;
+                  e.currentTarget.style.transform = 'translateY(-1px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = `0 4px 14px ${item.color}33`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.08)';
                 }}
                 title={item.tooltip}
               >
@@ -114,33 +114,33 @@ export const FloatingSocialBar: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Sleek Toggle Button */}
+      {/* Sleek Understated Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         style={{
-          width: '38px',
-          height: '38px',
+          width: '32px',
+          height: '32px',
           borderRadius: '50%',
-          background: '#0F172A',
+          background: '#10263B',
           color: '#FFFFFF',
-          border: '1.5px solid rgba(255, 255, 255, 0.2)',
-          boxShadow: '0 8px 20px rgba(15, 23, 42, 0.3)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 4px 12px rgba(16, 38, 59, 0.2)',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          transition: 'all 0.25s ease',
+          transition: 'all 0.2s ease',
           padding: 0,
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.08)';
+          e.currentTarget.style.transform = 'scale(1.05)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'scale(1)';
         }}
         title={isOpen ? 'Hide Social Icons' : 'Show Social Icons'}
       >
-        {isOpen ? <X size={16} /> : <MessageCircle size={16} />}
+        {isOpen ? <X size={14} /> : <MessageCircle size={14} />}
       </button>
     </div>
   );
