@@ -13,15 +13,15 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 't
   if (variant === 'topbar') {
     return (
       <div className={`lang-switcher-topbar ${className}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-        <Globe size={12} style={{ color: '#4ADE80', opacity: 0.9 }} />
+        <Globe size={12} style={{ color: '#10263B', opacity: 0.85 }} />
         <button
           type="button"
           onClick={() => setLanguage('en')}
           style={{
             background: 'none',
             border: 'none',
-            color: language === 'en' ? '#4ADE80' : '#94A3B8',
-            fontWeight: language === 'en' ? 800 : 500,
+            color: language === 'en' ? '#00A84F' : '#10263B',
+            fontWeight: language === 'en' ? 800 : 600,
             fontSize: '0.75rem',
             cursor: 'pointer',
             padding: '2px 4px',
@@ -31,15 +31,15 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 't
         >
           EN
         </button>
-        <span style={{ color: '#475569', fontSize: '0.7rem' }}>|</span>
+        <span style={{ color: 'rgba(16, 38, 59, 0.35)', fontSize: '0.7rem' }}>|</span>
         <button
           type="button"
           onClick={() => setLanguage('ar')}
           style={{
             background: 'none',
             border: 'none',
-            color: language === 'ar' ? '#4ADE80' : '#94A3B8',
-            fontWeight: language === 'ar' ? 800 : 500,
+            color: language === 'ar' ? '#00A84F' : '#10263B',
+            fontWeight: language === 'ar' ? 800 : 600,
             fontSize: '0.78rem',
             cursor: 'pointer',
             padding: '2px 4px',
