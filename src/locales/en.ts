@@ -34,86 +34,86 @@ export const en = {
   },
   home: {
     hero: {
-      eyebrow: 'AWA GROUP · SCIENCE, FORMULATION & SCALE',
-      title: 'Bridging Food Science Innovation With Industrial Manufacturing Scale',
-      desc: 'Partner with Egypt’s leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure.',
-      ctaPrimary: 'Partner With Our Food Scientists',
-      ctaSecondary: 'Explore Solutions',
+      eyebrow: 'SOURCE · DEVELOP · MANUFACTURE',
+      title: 'Tailored Food Solutions. Built to Perform.',
+      desc: 'AWA Group combines global sourcing expertise, application-driven R&D and manufacturing capabilities to develop customized food solutions. We work closely with food manufacturers to address technical challenges, optimize formulations and deliver solutions tailored to their production requirements.',
+      ctaPrimary: 'Explore Industry Solutions',
+      ctaSecondary: 'Discover AWA Group',
       badge1Title: 'Founder & Chairman',
       badge1Sub: 'Leading AWA Group Since 1993',
       badge2Title: '2,000+ Industrial Clients',
       badge2Sub: 'Egypt, Middle East & Africa',
     },
     marquee: [
-      'CUSTOM STABILIZER SYSTEMS',
-      'DAIRY & CHEESE FORMULATION',
-      '15.5 MT/HR BLENDING CAPACITY',
-      '15,000 MT COLD STORAGE',
-      'PILOT R&D APPLICATION LABS',
-      'FSSC 22000 & HALAL CERTIFIED',
-      'PLANT PROTEIN ISOLATES',
-      '33+ YEARS INDUSTRIAL HERITAGE'
+      'GLOBAL SOURCING & SUPPLY',
+      'R&D & APPLICATION DEVELOPMENT',
+      'CUSTOMIZED FORMULATIONS',
+      'MANUFACTURING EXCELLENCE',
+      'FOOD SERVICE SOLUTIONS',
+      'RECOGNISED INTERNATIONAL STANDARDS',
+      'RESPONSIBLE GROWTH & IMPACT',
+      'TEXTURE, STABILITY & TASTE'
     ],
     numbers: {
       eyebrow: 'Scale & Technical Capability',
       title: 'A Foundation Built on Precision, Capacity, and Reach',
       desc: 'From custom pilot batches to high-volume continuous industrial production runs, AWA delivers reliability across the MENA region.',
       stats: [
-        { value: '33+', label: 'Years of Industrial Leadership', detail: 'Founded in 1993 in Alexandria, pioneering ingredient science.' },
+        { value: '33+', label: 'Years of Industrial Heritage', detail: 'Founded in 1993 in Alexandria, pioneering ingredient science.' },
         { value: '500+', label: 'Custom Recipes Formulated', detail: 'Tailored functional systems across dairy, meat, bakery & beverages.' },
         { value: '15.5', label: 'MT / Hr Automated Mixing', detail: 'Powder blending and liquid processing lines in Borg El-Arab.' },
         { value: '15,000', label: 'Metric Tons Storage Footprint', detail: 'Multi-temperature warehousing and refrigerated distribution.' },
       ]
     },
     story: {
-      eyebrow: 'The AWA Group Advantage',
-      title: 'Bridging Global Food Science With Industrial Scale Across the Middle East',
-      p1: 'For over three decades, AWA Group has served as the technical backbone for the Middle East’s leading food and beverage manufacturers. We operate at the intersection of raw material science, functional compounding, and localized culinary taste profiles.',
-      p2: 'Our Alexandria and Borg El-Arab pilot application centers allow manufacturers to test formulations, measure syneresis, analyze rheological firmness, and validate yield improvements before committing to full industrial production runs.',
+      eyebrow: 'THE AWA DIFFERENCE',
+      title: 'Technical expertise, tailored to your application.',
+      p1: 'AWA brings together international ingredient expertise, applied food science and manufacturing knowledge to help food manufacturers solve product and processing challenges. We evaluate ingredient functionality, processing requirements and formulation economics to develop practical solutions suited to each application.',
+      p2: 'Food formulation requires the right balance between functionality, process conditions and commercial targets. AWA combines ingredient sourcing and application development to assess suitable alternatives, optimize ingredient systems and support customers in meeting defined performance and cost objectives.',
       quote: '"Our commitment goes beyond distributing ingredients — we co-engineer texture, stability, and commercial success directly alongside our manufacturing partners."',
       author: 'Eng. Wael Ghandour',
       authorTitle: 'Founder & Chairman, AWA Group',
-      btn: 'Learn About AWA History',
+      btn: 'Discover who we are ↗',
     },
     scienceToScale: {
-      eyebrow: 'End-to-End Methodology',
-      title: 'Science to Scale: How AWA Delivers Value',
+      eyebrow: 'TECHNICAL APPROACH & METHODOLOGY',
+      title: 'From Technical Brief to Practical Production Solutions',
       desc: 'A seamless, five-stage technical and operational process from global procurement to certified warehouse delivery.',
       stages: [
         {
           step: '01',
           tag: 'DISCOVER',
-          title: 'Global Raw Material Science & Direct Sourcing',
-          desc: 'Identifying high-yield hydrocolloids, specialty starches, emulsifying salts, and dairy isolates from audited producers in over 30 countries.',
+          title: 'Global Sourcing & Supply',
+          desc: 'We identify and evaluate specialty ingredients and technologies through international principals and qualified supply relationships, matching performance needs, quality requirements and commercial feasibility.',
           caps: ['30+ Sourcing Nations', 'Supplier Quality Audits', 'Origin Traceability']
         },
         {
           step: '02',
-          tag: 'FORMULATE',
-          title: 'Application Pilot Labs & Sensory Rheology',
-          desc: 'Our Alexandria & Borg El-Arab pilot centers replicate client industrial cooking, UHT pasteurization, extrusion, and homogenization environments.',
-          caps: ['Pilot Dairy Vats', 'Texture Profiling Analyzers', 'Syneresis & Shelf-Life Testing']
+          tag: 'DEVELOP',
+          title: 'R&D & Application Development',
+          desc: 'Our technical approach connects ingredient functionality, processing parameters and application trials to understand and address specific customer challenges.',
+          caps: ['Pilot Dairy Vats', 'Texture Profiling Analyzers', 'Process Simulation']
         },
         {
           step: '03',
-          tag: 'SCALE',
-          title: 'High-Capacity Industrial Compounding & Blending',
-          desc: 'Automated powder blending and liquid processing lines in Borg El-Arab deliver 15.5 MT/hr of consistent, homogeneous functional matrices.',
-          caps: ['15.5 MT/hr Capacity', 'Automated Micro-Dosing', 'Homogeneous Particle Distribution']
+          tag: 'FORMULATE',
+          title: 'Customized Formulations',
+          desc: 'We develop and refine ingredient systems around target texture, stability, sensory performance, processing conditions and formulation economics.',
+          caps: ['Texture & Stability', 'Sensory Performance', 'Cost-Effective Systems']
         },
         {
           step: '04',
-          tag: 'ASSURE',
-          title: 'Food Safety, Halal & FSSC 22000 Certification',
-          desc: 'Every compounded batch is verified against rigorous chemical, microbiological, and sensory benchmarks before COA release.',
-          caps: ['FSSC 22000 Certified', 'ISO 9001:2015 Standards', 'Batch-by-Batch Release COA']
+          tag: 'SCALE',
+          title: 'Manufacturing Excellence',
+          desc: 'Our manufacturing capabilities support functional food systems, selected finished products and strategically approved contract-manufacturing collaborations.',
+          caps: ['15.5 MT/hr Capacity', 'Automated Micro-Dosing', 'Borg El-Arab Facility']
         },
         {
           step: '05',
           tag: 'DELIVER',
           title: '15,000 MT Cold-Chain Logistics & Distribution',
           desc: 'State-of-the-art temperature-controlled warehousing in Alexandria and Cairo guaranteeing seamless supply continuity across the MENA region.',
-          caps: ['15,000 MT Capacity', 'Real-Time Telemetry', 'Rapid Regional Delivery']
+          caps: ['15,000 MT Capacity', 'FSSC 22000 & Halal', 'Batch COA Release']
         }
       ]
     },
@@ -145,50 +145,44 @@ export const en = {
       }
     },
     carousel: {
-      eyebrow: 'Specialized Food Matrices',
-      title: 'Formulation Solutions Tailored by Sector',
-      desc: 'Explore custom stabilization and functional systems engineered for your specific production line requirements.',
-      btn: 'View Technical Portfolio',
+      eyebrow: 'APPLICATION AREAS',
+      title: 'Expertise Engineered for Your Product Matrix',
+      desc: 'Discover how our functional ingredient systems and customized formulations deliver performance across major food industry categories.',
+      btn: 'Explore Solutions Directory',
     },
     gallery: {
-      eyebrow: 'Visual Capabilities',
-      title: 'The Science Behind Every Solution',
+      eyebrow: 'FACILITIES & CAPABILITIES',
+      title: 'Applied Food Science, Advanced Facilities & Production Scale',
       desc: 'A glimpse into our manufacturing scale, application labs, quality testing, and supply infrastructure.',
     },
     whyAwa: {
-      eyebrow: 'Why Partner With AWA',
-      title: 'Five Strategic Pillars That Define Our Industrial Leadership',
-      desc: 'Discover how AWA delivers measurable competitive advantages to food and beverage manufacturers.',
+      eyebrow: 'RESPONSIBLE GROWTH & CAPABILITY',
+      title: 'Practical Priorities. Long-Term Commitment.',
+      desc: 'We believe long-term growth comes from responsible decisions across our operations and value chain. Our approach focuses on dependable supplier relationships, resource efficiency, process-aware innovation and the wellbeing of our people.',
       pillars: [
         {
           num: '01',
-          title: 'Science-Led Formulation',
-          desc: 'We do not simply sell ingredients; our in-house food scientists and rheologists design custom functional formulas that solve syneresis, texture, and stability challenges in your specific production lines.',
-          stat: '500+ Custom Recipes'
+          title: 'Responsible Sourcing',
+          desc: 'Supplier evaluation, audited quality standards, and dependable ingredient relationships across 30+ countries.',
+          stat: '30+ Countries'
         },
         {
           num: '02',
-          title: 'Industrial Manufacturing Scale',
-          desc: 'With 15.5 MT/hr automated blending capacity in Borg El-Arab, we handle industrial-scale production runs with rigorous batch-to-batch consistency and automated micro-dosing.',
-          stat: '15.5 MT/hr Capacity'
+          title: 'Resource Efficiency',
+          desc: 'Active stewardship of energy, water, materials and waste management across production and warehousing operations.',
+          stat: 'ISO 14001 Standards'
         },
         {
           num: '03',
-          title: 'Regional Middle East Leadership',
-          desc: 'Over 33 years of direct operational experience across Egypt and neighboring Middle Eastern and African markets gives us unmatched regulatory and consumer-taste understanding.',
-          stat: '33+ Years Presence'
+          title: 'Responsible Innovation',
+          desc: 'Ingredient efficiency, application-driven formulation, and practical solutions tailored to production realities.',
+          stat: 'Application Pilot R&D'
         },
         {
           num: '04',
-          title: 'End-to-End Value Control',
-          desc: 'From importing top-tier raw materials across 30+ countries to compounding in our own plants and delivering via our 15,000 MT cold-chain, we control quality and price at every step.',
-          stat: '30+ Origin Countries'
-        },
-        {
-          num: '05',
-          title: 'Uncompromised Food Safety',
-          desc: 'Certified under FSSC 22000, ISO 9001:2015, ISO 22000, and full Halal compliance, backed by dedicated analytical release laboratories.',
-          stat: 'FSSC 22000 & Halal'
+          title: 'People & Safety',
+          desc: 'Safe workplaces, rigorous health standards, continuous technical training and personal accountability at every level.',
+          stat: 'ISO 45001 Certified'
         }
       ]
     },
@@ -207,11 +201,11 @@ export const en = {
       ]
     },
     statement: {
-      quote: 'We do not simply supply ingredients — we engineer the stability, texture, and commercial viability of the foods that nourish millions across the region.',
-      attribution: 'AWA GROUP CORPORATE PHILOSOPHY · ESTABLISHED 1993',
+      quote: 'Food formulation requires the right balance between functionality, process conditions and commercial targets. AWA combines ingredient sourcing and application development to assess suitable alternatives, optimize ingredient systems and support customers in meeting defined performance and cost objectives.',
+      attribution: 'DESIGNED FOR PERFORMANCE · CONSIDERED FOR VALUE',
     },
     partners: {
-      eyebrow: 'Enterprise Trust',
+      eyebrow: 'INDUSTRY PARTNERSHIPS',
       title: 'Trusted by Leading Regional Food Manufacturers',
       desc: 'We supply custom stabilization systems and functional ingredients to the Middle East\'s premier industrial food and beverage brands.',
     },
