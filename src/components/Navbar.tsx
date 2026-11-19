@@ -193,13 +193,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                 <Phone size={13} />
                 <span>{language === 'ar' ? `المقر الرئيسي: ${COMPANY_CONTACT.phoneAlex}` : `Alex HQ: ${COMPANY_CONTACT.phoneAlex}`}</span>
               </a>
-              <div className="top-bar-item top-bar-hide-laptop" style={{ gap: '0.4rem', color: '#94A3B8' }}>
-                <Globe size={13} color="#4ADE80" />
+              <div className="top-bar-item top-bar-hide-laptop" style={{ gap: '0.4rem' }}>
+                <Globe size={13} />
                 <span>{language === 'ar' ? 'منشآت الإسكندرية وبرج العرب والقاهرة، مصر' : 'Alexandria & Cairo Facilities, Egypt'}</span>
               </div>
             </div>
             <div className="top-bar-links">
-              <div className="top-bar-item top-bar-hide-laptop" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4ADE80' }}>
+              <div className="top-bar-item top-bar-hide-laptop" style={{ fontSize: '0.75rem', fontWeight: 600 }}>
                 <ShieldCheck size={13} />
                 <span>FSSC 22000, ISO 9001, ISO 14001, ISO 45001 & Halal</span>
               </div>
@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
               >
                 {language === 'ar' ? 'الوظائف' : 'Careers'}
               </Link>
-              <div style={{ marginInlineStart: '0.5rem', borderInlineStart: '1px solid rgba(255,255,255,0.15)', paddingInlineStart: '0.75rem' }}>
+              <div style={{ marginInlineStart: '0.5rem', borderInlineStart: '1px solid rgba(16, 38, 59, 0.2)', paddingInlineStart: '0.75rem' }}>
                 <LanguageSwitcher variant="topbar" />
               </div>
             </div>
@@ -227,41 +227,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {/* Main Sticky Navbar */}
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
           <div className="container-wide navbar-inner">
-            {/* Brand Logo with Smooth Dual-State Crossfade */}
+            {/* Brand Logo - Keep Official Colored Logo Always */}
             <Link 
               to="/" 
               className="brand-logo-wrap" 
-              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', position: 'relative' }}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
               aria-label="AWA Group Home"
             >
-              {/* Colored Logo (Scrolled State on Homepage & All Internal Pages) */}
               <img 
                 src="/images/awa_group.png" 
                 alt="AWA Group" 
-                className="brand-logo-img brand-logo-colored"
+                className="brand-logo-img"
                 style={{ 
                   height: '42px', 
                   width: 'auto', 
-                  objectFit: 'contain',
-                  opacity: isTransparent ? 0 : 1,
-                  transition: 'opacity 0.3s ease',
-                  position: isTransparent ? 'absolute' : 'relative',
-                  pointerEvents: isTransparent ? 'none' : 'auto'
-                }}
-              />
-              {/* Monochrome White Logo (Transparent Hero State at top of Homepage) */}
-              <img 
-                src="/images/awa-logo-white.png" 
-                alt="AWA Group" 
-                className="brand-logo-img brand-logo-white"
-                style={{ 
-                  height: '42px', 
-                  width: 'auto', 
-                  objectFit: 'contain',
-                  opacity: isTransparent ? 1 : 0,
-                  transition: 'opacity 0.3s ease',
-                  position: isTransparent ? 'relative' : 'absolute',
-                  pointerEvents: isTransparent ? 'auto' : 'none'
+                  objectFit: 'contain'
                 }}
               />
             </Link>
