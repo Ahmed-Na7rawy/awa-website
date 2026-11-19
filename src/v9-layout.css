@@ -112,8 +112,8 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
    EDITORIAL FOOD APPLICATIONS SHOWCASE SECTION (ofi.com inspired)
    ===================================================================== */
 .food-applications-section {
-  padding: 2.25rem 0 3.75rem;
-  background: #ffffff;
+  padding: 2.5rem 0 4rem;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9F6 50%, #FFFFFF 100%);
   position: relative;
   border-bottom: 1px solid #e7eee9;
 }
@@ -169,10 +169,16 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   margin: 0;
 }
 
-/* Minimal Horizontal Navigation Tabs with Thin Green Underline */
+/* Minimal Horizontal Navigation Tabs with Frosted Glass Capsule */
 .editorial-tabs-wrapper {
   margin-bottom: 2.5rem;
-  border-bottom: 1px solid #e5eee8;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 4px 18px;
+  box-shadow: 0 4px 20px rgba(16, 38, 59, 0.025), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .editorial-tabs-bar {
@@ -220,7 +226,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 10px;
-  background: #f1f5f3;
+  background: rgba(16, 38, 59, 0.05);
   color: #556976;
   transition: all 0.2s ease;
 }
@@ -247,23 +253,26 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   gap: 24px;
 }
 
-/* Editorial Food Card */
+/* Editorial Food Card with Refined Glassmorphism */
 .editorial-food-card {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  border: 1px solid #e5eeea;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
-  box-shadow: 0 4px 18px rgba(16, 38, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  box-shadow: 0 8px 24px rgba(16, 38, 59, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .editorial-food-card:hover {
-  transform: translateY(-5px);
-  border-color: #00A84F;
-  box-shadow: 0 16px 36px rgba(16, 38, 59, 0.09);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 168, 79, 0.45);
+  box-shadow: 0 20px 42px rgba(16, 38, 59, 0.08), 0 0 0 1px rgba(0, 168, 79, 0.2);
 }
 
 /* Photography container: Large editorial food photography */
@@ -716,33 +725,34 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   box-shadow: 0 4px 12px rgba(16, 38, 59, 0.08);
 }
 
-/* Discreet Video Playback Control */
+/* Discreet Video Playback Control — Frosted Glass Capsule */
 .awa-video-ctrl-btn {
   position: absolute;
   bottom: 5rem;
   right: 2rem;
   z-index: 10;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(16, 38, 59, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   color: #10263B;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(16, 38, 59, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(16, 38, 59, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .awa-video-ctrl-btn:hover {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.95);
   border-color: #00A84F;
   color: #00A84F;
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 168, 79, 0.2), inset 0 1px 0 #FFFFFF;
 }
 
 .rtl .awa-video-ctrl-btn {
@@ -750,16 +760,17 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   left: 2rem;
 }
 
-/* Bottom Credibility Strip — Bright, Clean White-First Corporate Strip */
+/* Bottom Credibility Strip — Frosted Glass Corporate Strip */
 .awa-video-credibility-strip {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid #e2e8e5;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(16, 38, 59, 0.05);
   width: 100%;
-  box-shadow: 0 -4px 20px rgba(16, 38, 59, 0.03);
+  box-shadow: 0 -8px 25px rgba(16, 38, 59, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .awa-video-credibility-inner {
@@ -772,7 +783,12 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   align-items: center;
   gap: 0.85rem;
   padding: 1.25rem 1.25rem;
-  border-right: 1px solid #e7eee9;
+  border-right: 1px solid rgba(16, 38, 59, 0.07);
+  transition: background 0.25s ease;
+}
+
+.awa-video-credibility-item:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .awa-video-credibility-item:last-child {
@@ -781,7 +797,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 
 .rtl .awa-video-credibility-item {
   border-right: none;
-  border-left: 1px solid #e7eee9;
+  border-left: 1px solid rgba(16, 38, 59, 0.07);
 }
 
 .rtl .awa-video-credibility-item:last-child {
