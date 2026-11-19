@@ -391,17 +391,17 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           <div className="food-apps-intro">
             <div className="food-apps-eyebrow">
               <span className="eyebrow-accent-line" />
-              <span>{language === 'ar' ? 'تطبيقات الأغذية والحلول الصناعية' : 'FOOD APPLICATIONS'}</span>
+              <span>{language === 'ar' ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}</span>
             </div>
             <h2 className="food-apps-title">
               {language === 'ar'
-                ? 'تطبيقات غذائية، مصممة لآفاق غير محدودة.'
-                : 'Food applications, engineered for possibility.'}
+                ? 'استكشف خبراتنا بالطريقة التي تناسبك.'
+                : 'Explore our expertise your way.'}
             </h2>
             <p className="food-apps-desc">
               {language === 'ar'
-                ? 'اكتشف كيف تدعم مكوناتنا الغذائية وحلولنا المبتكرة مصنعي الأغذية لتطوير منتجات متميزة تلبي متطلبات السوق.'
-                : 'Discover how our food ingredients and tailored solutions help manufacturers create better products across diverse food categories.'}
+                ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة حول متطلبات التصنيع الخاصة. تصفح حسب التطبيق، التحدي التقني، أو عائلة المنتج الوظيفية.'
+                : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Browse by application, technical challenge or functional product family.'}
             </p>
           </div>
 
@@ -415,7 +415,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 className={`editorial-tab-btn ${exploreTab === 'industry' ? 'active' : ''}`}
                 onClick={() => setExploreTab('industry')}
               >
-                <span>{language === 'ar' ? 'قطاعات التطبيقات الغذائية' : 'Food Applications'}</span>
+                <span>{language === 'ar' ? 'حسب قطاع الصناعة' : 'By Industry'}</span>
                 <span className="editorial-tab-badge">6</span>
                 {exploreTab === 'industry' && <span className="editorial-tab-underline" />}
               </button>
@@ -427,7 +427,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 className={`editorial-tab-btn ${exploreTab === 'challenge' ? 'active' : ''}`}
                 onClick={() => setExploreTab('challenge')}
               >
-                <span>{language === 'ar' ? 'حسب التحدي التقني' : 'By Technical Challenge'}</span>
+                <span>{language === 'ar' ? 'حسب التحدي التقني' : 'By Challenge'}</span>
                 <span className="editorial-tab-badge">8</span>
                 {exploreTab === 'challenge' && <span className="editorial-tab-underline" />}
               </button>
@@ -542,7 +542,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           {/* Understated Outlined CTA */}
           <div className="editorial-showcase-cta">
             <Link to="/solutions" className="editorial-understated-btn">
-              <span>{language === 'ar' ? 'استكشف دليل الحلول والمكونات الكامل' : 'Explore Full Solutions Directory'}</span>
+              <span>{language === 'ar' ? 'استكشف دليل الحلول الكامل' : 'Explore full solutions directory'}</span>
               <ArrowRight size={16} className="btn-arrow" />
             </Link>
           </div>
@@ -609,10 +609,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                      {language === 'ar' ? 'معامل التطبيقات التجريبية' : 'Pilot Application Labs'}
+                      {language === 'ar' ? 'التوريد وسلاسل الإمداد العالمية' : 'Global Sourcing & Supply'}
                     </strong>
                     <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                      {language === 'ar' ? 'محاكاة بيئة وظروف خطوط الإنتاج' : 'Replicating client factory conditions'}
+                      {language === 'ar' ? 'تحديد واختيار المكونات والتقنيات عبر شركاء دوليين' : 'Identify the right ingredients and technologies.'}
                     </span>
                   </div>
                 </div>
@@ -620,10 +620,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                      {language === 'ar' ? 'خطوط التوريد العالمية' : 'Global Sourcing Lines'}
+                      {language === 'ar' ? 'البحث والتطوير وتطبيقات الأغذية' : 'R&D & Application Development'}
                     </strong>
                     <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                      {language === 'ar' ? 'شراكات مباشرة في أكثر من 30 دولة' : 'Direct partners in 30+ countries'}
+                      {language === 'ar' ? 'بناء الوظيفة المطلوبة حول ظروف المعالجة ومصفوفة المنتج' : 'Build functionality around your process.'}
                     </span>
                   </div>
                 </div>
@@ -631,10 +631,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                      {language === 'ar' ? 'الخلط والإنتاج الصناعي' : 'Industrial Compounding'}
+                      {language === 'ar' ? 'التركيبات والأنظمة المخصصة' : 'Customized Formulations'}
                     </strong>
                     <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                      {language === 'ar' ? 'طاقة 15.5 طن/ساعة مساحيق وسوائل' : '15.5 MT/hr powder & liquid capacity'}
+                      {language === 'ar' ? 'موازنة القوام المستهدف، الاستقرار والجدوى الاقتصادية' : 'Balance target texture, stability and economics.'}
                     </span>
                   </div>
                 </div>
@@ -642,10 +642,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ display: 'block', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                      {language === 'ar' ? 'مراقبة الجودة والاعتمادات' : 'Certified Quality Control'}
+                      {language === 'ar' ? 'التميز الصناعي والتصنيع' : 'Manufacturing Excellence'}
                     </strong>
                     <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>
-                      {language === 'ar' ? 'شهادة تحليل معتمدة لكل دفعة' : 'Batch-by-batch release COA'}
+                      {language === 'ar' ? 'ترجمة خبرات التركيب إلى إنتاج صناعي موثوق' : 'Translate formulation expertise into production.'}
                     </span>
                   </div>
                 </div>
@@ -936,20 +936,29 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         <div className="container">
           <div className="reveal-fade-up">
             <div className="eyebrow" style={{ justifyContent: 'center', marginBottom: '1.5rem' }}>
-              {language === 'ar' ? 'فلسفتنا ورؤيتنا' : 'Our Guiding Commitment'}
+              {language === 'ar' ? 'التركيبات والأنظمة المخصصة' : 'TAILORED FORMULATION EXPERTISE'}
             </div>
             <h2 className="statement-large-text">
               {language === 'ar' ? (
-                <span>"مكونات أرقى. <span className="gradient-text">تركيبات أذكى.</span> إمكانيات صناعية أوسع."</span>
+                <span>"مصممة للأداء المتميز. <span className="gradient-text">مدروسة لتحقيق أعلى قيمة.</span>"</span>
               ) : (
-                <span>"Better Ingredients. <span className="gradient-text">Smarter Formulation.</span> Bigger Possibilities."</span>
+                <span>"Designed for performance. <span className="gradient-text">Considered for value.</span>"</span>
               )}
             </h2>
-            <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '640px', margin: '0 auto 2.5rem', lineHeight: 1.75 }}>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '780px', margin: '0 auto 2.5rem', lineHeight: 1.75 }}>
               {translations.home.statement.quote}
             </p>
-            <button onClick={onOpenQuote} className="btn btn-primary">
-              <span>{translations.home.hero.ctaPrimary}</span>
+            <button 
+              onClick={() => {
+                if (onOpenQuote) {
+                  onOpenQuote();
+                } else {
+                  window.location.hash = '#/contact?type=technical';
+                }
+              }} 
+              className="btn btn-primary"
+            >
+              <span>{language === 'ar' ? 'ناقش مشروعك معنا' : 'Discuss your project'}</span>
               <ArrowRight size={16} />
             </button>
           </div>
