@@ -76,44 +76,44 @@ export const en = {
       btn: 'Discover who we are ↗',
     },
     scienceToScale: {
-      eyebrow: 'TECHNICAL APPROACH & METHODOLOGY',
-      title: 'From Technical Brief to Practical Production Solutions',
-      desc: 'A seamless, five-stage technical and operational process from global procurement to certified warehouse delivery.',
+      eyebrow: 'INSIGHTS & NEWS',
+      title: 'Knowledge that supports progress.',
+      desc: 'Technical knowledge, approved innovation stories and corporate developments demonstrate how AWA applies its expertise across the food industry.',
       stages: [
         {
           step: '01',
-          tag: 'DISCOVER',
-          title: 'Global Sourcing & Supply',
-          desc: 'We identify and evaluate specialty ingredients and technologies through international principals and qualified supply relationships, matching performance needs, quality requirements and commercial feasibility.',
-          caps: ['30+ Sourcing Nations', 'Supplier Quality Audits', 'Origin Traceability']
+          tag: 'APPLICATION KNOWLEDGE',
+          title: 'Formulation Tailored to Process Requirements',
+          desc: 'Understanding how ingredients, product matrices and processing parameters affect performance in industrial food manufacturing.',
+          caps: ['Product Matrix Interaction', 'Processing Tolerance', 'Texture & Stability Control']
         },
         {
           step: '02',
-          tag: 'DEVELOP',
-          title: 'R&D & Application Development',
-          desc: 'Our technical approach connects ingredient functionality, processing parameters and application trials to understand and address specific customer challenges.',
-          caps: ['Pilot Dairy Vats', 'Texture Profiling Analyzers', 'Process Simulation']
+          tag: 'INDUSTRIAL INNOVATION',
+          title: 'From Technical Trials to Practical Solutions',
+          desc: 'How structured application development, pilot trials, and specialist technologies support food manufacturers in scaling new formulations.',
+          caps: ['Pilot Application Testing', 'Trial-to-Scale Transition', 'Commercial Feasibility']
         },
         {
           step: '03',
-          tag: 'FORMULATE',
-          title: 'Customized Formulations',
-          desc: 'We develop and refine ingredient systems around target texture, stability, sensory performance, processing conditions and formulation economics.',
-          caps: ['Texture & Stability', 'Sensory Performance', 'Cost-Effective Systems']
+          tag: 'RESPONSIBLE OPERATIONS',
+          title: 'International Standards in Daily Practice',
+          desc: 'Quality, safety and sustainability as operational disciplines rather than marketing claims, supported by recognized management systems.',
+          caps: ['FSSC 22000 & Halal Standards', 'Operational Discipline', 'Continuous Improvement']
         },
         {
           step: '04',
-          tag: 'SCALE',
-          title: 'Manufacturing Excellence',
-          desc: 'Our manufacturing capabilities support functional food systems, selected finished products and strategically approved contract-manufacturing collaborations.',
-          caps: ['15.5 MT/hr Capacity', 'Automated Micro-Dosing', 'Borg El-Arab Facility']
+          tag: 'TECHNICAL TRENDS',
+          title: 'Ingredient Functionality & Formulation Trends',
+          desc: 'Addressing technical challenges, plant-based alternatives, clean label considerations, and cost-effective reformulation across food categories.',
+          caps: ['Cost-Effective Formulations', 'Alternative Proteins', 'Clean-Label Functionality']
         },
         {
           step: '05',
-          tag: 'DELIVER',
-          title: '15,000 MT Cold-Chain Logistics & Distribution',
-          desc: 'State-of-the-art temperature-controlled warehousing in Alexandria and Cairo guaranteeing seamless supply continuity across the MENA region.',
-          caps: ['15,000 MT Capacity', 'FSSC 22000 & Halal', 'Batch COA Release']
+          tag: 'STRATEGIC PARTNERSHIPS',
+          title: 'Connecting International Expertise with Local Scale',
+          desc: 'Leveraging specialized joint ventures, global principal relationships, and direct sourcing lines to deliver advanced food technology.',
+          caps: ['Global Principal Network', 'Specialized Joint Ventures', 'MENA Industrial Reach']
         }
       ]
     },
