@@ -219,10 +219,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
   // "Science to Scale" Sticky Stages Data
   const stageImages = [
-    '/images/pages/solutions/raw-materials-warehouse.jpg',
     '/images/pages/home/pilot-plant-dairy-testing.jpg',
     '/images/pages/industries/image33.jpg',
-    '/images/pages/home/blending.jpg',
+    '/images/pages/solutions/raw-materials-warehouse.jpg',
+    '/images/pages/home/food-chemistry-formulation.jpg',
     '/images/pages/solutions/cold-chain-logistics-truck.jpg',
   ];
 
@@ -675,7 +675,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 5. "SCIENCE TO SCALE" STICKY SCROLL STORY          */}
+      {/* 5. "INSIGHTS & NEWS" STICKY SCROLL STORY           */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="sticky-story-section" ref={stickyRef}>
         <div className="container">
@@ -696,10 +696,19 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                     className={`sticky-story-step-btn ${activeStickyStep === sIdx ? 'active' : ''}`}
                   >
                     <span className="step-num">{stage.step}</span>
-                    <span>{stage.tag} — {stage.title.split('&')[0].split('·')[0]}</span>
+                    <span>{stage.tag}</span>
                   </button>
                 ))}
               </div>
+
+              <Link 
+                to="/knowledge" 
+                className="btn btn-outline" 
+                style={{ marginTop: '2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }}
+              >
+                <span>{language === 'ar' ? 'استكشف المقالات والأخبار' : 'Explore Insights & News'}</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
 
             {/* Right Progressive Cards Container */}
@@ -717,7 +726,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   </div>
                   <div className="sticky-story-card-body">
                     <div className="sticky-story-card-step">
-                      {language === 'ar' ? `المرحلة ${stage.step} · ${stage.tag}` : `Stage ${stage.step} · ${stage.tag}`}
+                      {stage.tag} · {language === 'ar' ? `المحور ${stage.step}` : `Insight ${stage.step}`}
                     </div>
                     <h3 className="sticky-story-card-title">{stage.title}</h3>
                     <p className="sticky-story-card-desc">{stage.desc}</p>
