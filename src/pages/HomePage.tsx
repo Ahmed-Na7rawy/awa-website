@@ -289,52 +289,50 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
               <span className="awa-eyebrow-accent-line" />
               <span className="awa-eyebrow-text">
                 {language === 'ar' 
-                  ? 'مجموعة AWA · العلم والتركيبات والتصنيع الصناعي' 
-                  : 'AWA GROUP · SCIENCE, FORMULATION & SCALE'}
+                  ? 'توريد · تطوير · تصنيع' 
+                  : 'SOURCE · DEVELOP · MANUFACTURE'}
               </span>
             </div>
 
-            {/* Editorial Headline — Pure White, Refined Typography, No AI Accents */}
+            {/* Editorial Headline — Corporate Navy with AWA Green Accent */}
             <h1 className="awa-editorial-headline reveal-fade-up reveal-delay-1">
               {language === 'ar' ? (
                 <>
-                  ربط الابتكار في علوم الأغذية
+                  حلول غذائية مخصصة.
                   <br />
-                  بالتصنيع والإنتاج الصناعي الواسع
+                  <span className="awa-highlight-green">مصممة لتحقيق الأداء الأمثل.</span>
                 </>
               ) : (
                 <>
-                  BRIDGING FOOD SCIENCE
+                  Tailored Food Solutions.
                   <br />
-                  INNOVATION WITH INDUSTRIAL
-                  <br />
-                  MANUFACTURING SCALE
+                  <span className="awa-highlight-green">Built to Perform.</span>
                 </>
               )}
             </h1>
 
-            {/* Supporting Description — Refined, Soft White, Editorial */}
+            {/* Supporting Description — Refined Editorial Body */}
             <p className="awa-editorial-desc reveal-fade-up reveal-delay-2">
               {language === 'ar'
-                ? 'شريككم الرائد في حلول الأغذية في مصر والشرق الأوسط. نبتكر أنظمة مثبتات الهيدروكولويد المخصصة، والبروتينات النباتية الوظيفية، والخلطات المتخصصة، بدعم من معامل التطبيقات التجريبية الحديثة وبنية تحتية معتمدة للتبريد وسلاسل الإمداد بطاقة 15,000 طن متري.'
-                : "Partner with Egypt's leading food solutions group. We engineer custom hydrocolloid stabilizer systems, functional plant proteins, and specialty blends supported by state-of-the-art pilot application laboratories and 15,000 MT certified cold-chain infrastructure."}
+                ? 'تجمع مجموعة AWA بين الخبرة العالمية في التوريد، والبحث والتطوير القائم على التطبيقات، والقدرات التصنيعية لتطوير حلول غذائية مخصصة. نعمل بشكل وثيق مع مصنعي الأغذية لمعالجة التحديات التقنية، وتحسين التركيبات وتقديم حلول مصممة خصيصاً لتلبية متطلبات الإنتاج لديهم.'
+                : 'AWA Group combines global sourcing expertise, application-driven R&D and manufacturing capabilities to develop customized food solutions. We work closely with food manufacturers to address technical challenges, optimize formulations and deliver solutions tailored to their production requirements.'}
             </p>
 
             {/* Call to Actions — Restrained Corporate Presentation */}
             <div className="awa-editorial-actions reveal-fade-up reveal-delay-3">
-              <button
-                type="button"
-                onClick={onOpenQuote || (() => handleNav('contact'))}
-                className="awa-editorial-btn-primary"
-              >
-                <span>{language === 'ar' ? 'تواصل مع علماء الأغذية لدينا' : 'Partner With Our Food Scientists'}</span>
-                <ArrowRight size={17} />
-              </button>
               <Link
                 to="/solutions"
+                className="awa-editorial-btn-primary"
+              >
+                <span>{language === 'ar' ? 'استكشف حلول الصناعات' : 'Explore Industry Solutions'}</span>
+                <ArrowUpRight size={17} />
+              </Link>
+              <Link
+                to="/about"
                 className="awa-editorial-btn-secondary"
               >
-                <span>{language === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}</span>
+                <span>{language === 'ar' ? 'اكتشف مجموعة AWA' : 'Discover AWA Group'}</span>
+                <ArrowUpRight size={17} />
               </Link>
             </div>
           </div>

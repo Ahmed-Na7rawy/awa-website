@@ -523,7 +523,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 
 
 /* ==========================================================================
-   AWA CINEMATIC VIDEO HERO — IMMERSIVE EDITORIAL CORPORATE ARCHITECTURE
+   AWA CINEMATIC VIDEO HERO — BRIGHT WHITE & GREEN CORPORATE ARCHITECTURE
    ========================================================================== */
 
 .awa-video-hero {
@@ -533,7 +533,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  background-color: #0A1826;
+  background-color: #F7FAF8;
 }
 
 .awa-video-bg-wrap {
@@ -552,9 +552,10 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   object-fit: cover;
   object-position: center;
   display: block;
+  filter: brightness(1.06) contrast(1.02) saturate(1.04);
 }
 
-/* Natural Editorial Overlay: Darker on text side, transparent toward food & equipment */
+/* Luminous White-First Overlay: Soft bright backdrop behind text, crystal clear over footage */
 .awa-video-overlay {
   position: absolute;
   inset: 0;
@@ -562,29 +563,31 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   pointer-events: none;
   background: 
     linear-gradient(90deg, 
-      rgba(10, 24, 38, 0.85) 0%, 
-      rgba(10, 24, 38, 0.70) 40%, 
-      rgba(10, 24, 38, 0.30) 68%, 
-      rgba(10, 24, 38, 0.05) 100%),
+      rgba(247, 250, 248, 0.96) 0%, 
+      rgba(247, 250, 248, 0.90) 36%, 
+      rgba(247, 250, 248, 0.52) 58%, 
+      rgba(247, 250, 248, 0.12) 80%,
+      rgba(247, 250, 248, 0.0) 100%),
     linear-gradient(180deg, 
-      rgba(10, 24, 38, 0.50) 0%, 
-      transparent 28%, 
-      transparent 75%, 
-      rgba(10, 24, 38, 0.65) 100%);
+      rgba(255, 255, 255, 0.45) 0%, 
+      transparent 22%, 
+      transparent 78%, 
+      rgba(247, 250, 248, 0.40) 100%);
 }
 
 .rtl .awa-video-overlay {
   background: 
     linear-gradient(270deg, 
-      rgba(10, 24, 38, 0.85) 0%, 
-      rgba(10, 24, 38, 0.70) 40%, 
-      rgba(10, 24, 38, 0.30) 68%, 
-      rgba(10, 24, 38, 0.05) 100%),
+      rgba(247, 250, 248, 0.96) 0%, 
+      rgba(247, 250, 248, 0.90) 36%, 
+      rgba(247, 250, 248, 0.52) 58%, 
+      rgba(247, 250, 248, 0.12) 80%,
+      rgba(247, 250, 248, 0.0) 100%),
     linear-gradient(180deg, 
-      rgba(10, 24, 38, 0.50) 0%, 
-      transparent 28%, 
-      transparent 75%, 
-      rgba(10, 24, 38, 0.65) 100%);
+      rgba(255, 255, 255, 0.45) 0%, 
+      transparent 22%, 
+      transparent 78%, 
+      rgba(247, 250, 248, 0.40) 100%);
 }
 
 .awa-video-hero-container {
@@ -599,7 +602,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 }
 
 .awa-video-hero-content {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 /* Eyebrow Label — Minimal Thin Green Accent Line */
@@ -607,7 +610,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .awa-eyebrow-accent-line {
@@ -619,33 +622,38 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 
 .awa-eyebrow-text {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.88);
+  color: #00A84F;
 }
 
-/* Editorial Headline — Pure White, Confident, Natural Line Breaks */
+/* Editorial Headline — Corporate Navy with AWA Green Accent */
 .awa-editorial-headline {
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
   font-size: clamp(2.35rem, 4.4vw, 3.85rem);
   font-weight: 750;
-  line-height: 1.12;
+  line-height: 1.14;
   letter-spacing: -0.025em;
-  color: #FFFFFF;
+  color: #10263B;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  text-shadow: none;
   max-width: 820px;
 }
 
-/* Supporting Description — Soft White, Editorial, Readable */
+.awa-highlight-green {
+  color: #00A84F;
+  font-weight: inherit;
+}
+
+/* Supporting Description — Neutral Dark Grey, Editorial */
 .awa-editorial-desc {
   font-size: clamp(1.05rem, 1.15vw, 1.15rem);
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.82);
+  color: #475569;
   max-width: 620px;
   margin-bottom: 2.25rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 
 /* Editorial Actions Cluster */
@@ -656,54 +664,56 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   flex-wrap: wrap;
 }
 
-/* Primary Button: White background with dark navy text */
+/* Primary Button: Green background with white text */
 .awa-editorial-btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background-color: #FFFFFF;
-  color: #10263B;
+  background-color: #00A84F;
+  color: #FFFFFF;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.9rem 1.85rem;
   border-radius: 8px;
-  border: 1px solid #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid #00A84F;
+  box-shadow: 0 4px 14px rgba(0, 168, 79, 0.2);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   cursor: pointer;
 }
 
 .awa-editorial-btn-primary:hover {
-  background-color: #F1F5F9;
-  color: #0A1826;
-  border-color: #F1F5F9;
+  background-color: #008f43;
+  border-color: #008f43;
+  color: #FFFFFF;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 18px rgba(0, 168, 79, 0.28);
 }
 
-/* Secondary Button: Transparent background with thin white border */
+/* Secondary Button: White/transparent background with navy text and subtle border */
 .awa-editorial-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
-  color: #FFFFFF;
-  font-weight: 600;
+  background: #FFFFFF;
+  color: #10263B;
+  font-weight: 650;
   font-size: 0.95rem;
   padding: 0.9rem 1.75rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1.5px solid #cbd5e1;
   transition: all 0.2s ease;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(16, 38, 59, 0.04);
 }
 
 .awa-editorial-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.85);
-  color: #FFFFFF;
+  background: #f8fafc;
+  border-color: #10263B;
+  color: #10263B;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 38, 59, 0.08);
 }
 
 /* Discreet Video Playback Control */
@@ -715,23 +725,23 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(10, 24, 38, 0.5);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(16, 38, 59, 0.12);
+  color: #10263B;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(16, 38, 59, 0.08);
 }
 
 .awa-video-ctrl-btn:hover {
-  background: rgba(10, 24, 38, 0.8);
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  border-color: #00A84F;
+  color: #00A84F;
   transform: scale(1.05);
 }
 
@@ -740,15 +750,16 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   left: 2rem;
 }
 
-/* Bottom Credibility Strip */
+/* Bottom Credibility Strip — Bright, Clean White-First Corporate Strip */
 .awa-video-credibility-strip {
   position: relative;
   z-index: 2;
-  background: rgba(10, 24, 38, 0.78);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #e2e8e5;
   width: 100%;
+  box-shadow: 0 -4px 20px rgba(16, 38, 59, 0.03);
 }
 
 .awa-video-credibility-inner {
@@ -761,7 +772,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   align-items: center;
   gap: 0.85rem;
   padding: 1.25rem 1.25rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid #e7eee9;
 }
 
 .awa-video-credibility-item:last-child {
@@ -770,7 +781,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 
 .rtl .awa-video-credibility-item {
   border-right: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid #e7eee9;
 }
 
 .rtl .awa-video-credibility-item:last-child {
@@ -782,13 +793,12 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   height: 24px;
   color: #00A84F;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(0, 168, 79, 0.35));
 }
 
 .awa-video-credibility-title {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #10263B;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
@@ -808,16 +818,16 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   .awa-video-overlay {
     background: 
       linear-gradient(180deg, 
-        rgba(10, 24, 38, 0.88) 0%, 
-        rgba(10, 24, 38, 0.78) 60%, 
-        rgba(10, 24, 38, 0.5) 100%);
+        rgba(247, 250, 248, 0.94) 0%, 
+        rgba(247, 250, 248, 0.85) 60%, 
+        rgba(247, 250, 248, 0.60) 100%);
   }
   .rtl .awa-video-overlay {
     background: 
       linear-gradient(180deg, 
-        rgba(10, 24, 38, 0.88) 0%, 
-        rgba(10, 24, 38, 0.78) 60%, 
-        rgba(10, 24, 38, 0.5) 100%);
+        rgba(247, 250, 248, 0.94) 0%, 
+        rgba(247, 250, 248, 0.85) 60%, 
+        rgba(247, 250, 248, 0.60) 100%);
   }
   .awa-video-credibility-inner {
     grid-template-columns: repeat(2, 1fr);
@@ -829,7 +839,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
     border-left: none;
   }
   .awa-video-credibility-item:nth-child(-n+2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #e7eee9;
   }
 }
 
@@ -873,7 +883,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   }
   .awa-video-credibility-item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #e7eee9;
     padding: 0.95rem 1rem;
   }
   .rtl .awa-video-credibility-item {
