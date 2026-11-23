@@ -661,7 +661,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   line-height: 1.7;
   color: #475569;
   max-width: 620px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 3.5rem;
   text-shadow: none;
 }
 
@@ -873,7 +873,7 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
   }
   .awa-editorial-desc {
     font-size: 0.95rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
   }
   .awa-editorial-actions {
     flex-direction: column;
