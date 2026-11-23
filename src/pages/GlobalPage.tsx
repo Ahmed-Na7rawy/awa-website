@@ -96,15 +96,24 @@ export const GlobalPage: React.FC = () => {
                       {j.desc}
                     </p>
                   </div>
-                  <a
-                    href={j.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors pt-4 border-t border-slate-100 dark:border-slate-700"
-                  >
-                    <span>{isAr ? `زيارة موقع ${j.name}` : `Visit ${j.name} website`}</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700 flex-wrap gap-3">
+                    <Link
+                      to={j.name === 'Turkphos' ? '/turkphos' : '/ingreva'}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                    >
+                      <span>{isAr ? `استعراض صفحة ${j.name} ومصفوفة المنتجات` : `Explore ${j.name} Showcase & Specs`}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <a
+                      href={j.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                    >
+                      <span>{isAr ? 'الموقع الرسمي' : 'Official Portal'}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </article>
               ))}
             </div>

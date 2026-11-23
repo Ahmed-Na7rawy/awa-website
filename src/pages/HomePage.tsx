@@ -1041,10 +1041,10 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                     <h4 className="awa-partner-scope">{jv.category}</h4>
                     <p className="awa-partner-desc">{jv.desc}</p>
                   </div>
-                  <a href={jv.url} target="_blank" rel="noopener noreferrer" className="awa-partner-link">
-                    <span>{isAr ? 'زيارة الموقع الإلكتروني ↗' : 'Explore partnership →'}</span>
-                    <ExternalLink size={13} />
-                  </a>
+                  <Link to={jv.name === 'Turkphos' ? '/turkphos' : '/ingreva'} className="awa-partner-link">
+                    <span>{isAr ? `استعراض شراكة ومواصفات ${jv.name} →` : `Explore ${jv.name} partnership →`}</span>
+                    <ArrowRight size={13} />
+                  </Link>
                 </div>
               );
             })}

@@ -163,8 +163,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {
           heading: language === 'ar' ? 'المشاريع المشتركة' : 'Strategic Joint Ventures',
           links: [
-            { label: 'Turkphos (Türkiye / Egypt)', href: '/global#joint-ventures' },
-            { label: 'Ingreva (Estonia)', href: '/global#joint-ventures' },
+            { label: 'Turkphos (Türkiye / Egypt)', href: '/turkphos' },
+            { label: 'Ingreva (Estonia)', href: '/ingreva' },
           ]
         },
         {
