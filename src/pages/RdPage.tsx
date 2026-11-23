@@ -79,48 +79,68 @@ export const RdPage: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginTop: '3.5rem' }}>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginTop: '3.5rem' }}>
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
               <div style={{ color: 'var(--primary)', marginBottom: '0.75rem' }}><FlaskConical size={24} /></div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Texture Analysis</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Measuring gel strength, elasticity, spreadability and chewiness using advanced TPA instruments.</p>
+              <h4 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تحسين القوام والاستحلاب' : 'Texture & Emulsification'}
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'تحسين اللزوجة والاستقرار والإحساس بالفم عبر درجات حرارة معالجة وظروف قص متغيرة.' : 'Viscosity, stability and mouthfeel optimization across varied processing temperatures and shear conditions.'}
+              </p>
             </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ color: 'var(--primary-blue)', marginBottom: '0.75rem' }}><Microscope size={24} /></div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Syneresis &amp; Stability</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Preventing whey-off and liquid phase separation under accelerated temperature cycling.</p>
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary-blue)', marginBottom: '0.75rem' }}><Layers size={24} /></div>
+              <h4 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تحسين الإنتاجية والتكلفة' : 'Yield & Cost Optimization'}
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'إعادة موازنة التركيبات لحماية جودة المذاق مع تحسين اقتصاديات الإنتاج.' : 'Formulation rebalancing designed to protect eating quality while improving production economics.'}
+              </p>
             </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ color: 'var(--primary)', marginBottom: '0.75rem' }}><Layers size={24} /></div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Yield Maximization</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Increasing moisture retention (up to 65% in cheese) while maintaining firm sliceability.</p>
-            </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ color: 'var(--primary-blue)', marginBottom: '0.75rem' }}><ShieldCheck size={24} /></div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Clean-Label Conversion</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Replacing artificial binders and chemical additives with natural bio-extracts and plant proteins.</p>
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--primary)', marginBottom: '0.75rem' }}><ShieldCheck size={24} /></div>
+              <h4 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'البطاقات النظيفة وتبسيط المكونات' : 'Cleaner Labels & Simplified Ingredients'}
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'إعادة صياغة التركيبات لتقليل أو استبدال مضافات معينة مع الحفاظ على الأداء وقبول المستهلك.' : 'Reformulation to reduce or replace specific additives while maintaining functionality and consumer acceptance.'}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 3. Closing CTA (Exact V9) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'معامل التطبيقات R&D' : 'APPLICATION LAB SUPPORT'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'هل تواجه مشكلة في قوام أو انصهار منتجك؟' : 'Facing texture or stability issues?'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'علماء الأغذية في AWA مستعدون لتحليل العينات واقتراح التعديلات المناسبة.' : 'Send us your reference samples or target specs for texture profiling and formula tuning.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'طلب استشارة معملية' : 'Consult our food scientists'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك' : 'Discuss your project'}</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>

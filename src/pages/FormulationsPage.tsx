@@ -82,58 +82,93 @@ export const FormulationsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. The 4-Stage Formulation Flow */}
+      {/* 3. The 4-Stage Formulation Flow (Exact V9) */}
       <section className="section tint" style={{ borderTop: '1px solid var(--border-color)' }}>
         <div className="wrap">
           <div className="section-heading">
             <div>
-              <div className="kicker">{isAr ? 'مراحل العمل' : 'FOUR-STAGE ENGINEERING PROCESS'}</div>
-              <h2>{isAr ? 'كيف نطوّر تركيبة تلائم مصنعكم تماماً' : 'How AWA Engineers Your Formulation'}</h2>
+              <div className="kicker">{isAr ? 'مراحل الشراكة الفنية' : 'TECHNICAL PARTNERSHIP'}</div>
+              <h2>
+                {isAr ? (
+                  <>تطوير التركيبات <span className="accent">بهدف محدد وواضح.</span></>
+                ) : (
+                  <>Formulation development <span className="accent">with purpose.</span></>
+                )}
+              </h2>
             </div>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--primary)', marginBottom: '0.75rem' }}>01</div>
-              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>Customer Technical Brief</h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Analyzing target texture, viscosity, melt index, shelf life and cost-in-use targets.</p>
+            <div style={{ background: '#FFFFFF', padding: '2rem 1.75rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>UNDERSTAND</div>
+              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'التطبيق والتحديات' : 'Application & challenges'}
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'تحليل المواصفات المستهدفة ومحددات خط الإنتاج وتوقعات المستهلك.' : 'Analyze target specs, factory constraints and consumer expectations.'}
+              </p>
             </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--primary-blue)', marginBottom: '0.75rem' }}>02</div>
-              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>System &amp; Ingredient Selection</h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Selecting hydrocolloid matrices, emulsifying salts, starches, and proteins from audited origins.</p>
+            <div style={{ background: '#FFFFFF', padding: '2rem 1.75rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary-blue)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>SOURCE</div>
+              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تكنولوجيا المكونات' : 'Ingredient technologies'}
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'تحديد المكونات الوظيفية والأنظمة التخصصية من أصول موثوقة ومعتمدة.' : 'Identify functional ingredients and specialty systems from vetted origins.'}
+              </p>
             </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--primary)', marginBottom: '0.75rem' }}>03</div>
-              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>Pilot Application Trials</h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Replicating client factory conditions to test firmness, cooking loss, emulsification and syneresis.</p>
+            <div style={{ background: '#FFFFFF', padding: '2rem 1.75rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>DEVELOP</div>
+              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'التركيبة والتجارب المعملية' : 'Formulation & trials'}
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'نمذجة التركيبات في مركز التطبيقات لتحقيق أعلى درجات الثبات والإنتاجية.' : 'Prototype formulations in the application center to achieve stability and yield.'}
+              </p>
             </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--primary-blue)', marginBottom: '0.75rem' }}>04</div>
-              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>Industrial Scale-up &amp; Delivery</h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Automated powder &amp; liquid compounding with batch-to-batch release COA certification.</p>
+            <div style={{ background: '#FFFFFF', padding: '2rem 1.75rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary-blue)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>VALIDATE</div>
+              <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'التشغيل الصناعي والجودة' : 'Scale-up & quality'}
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'ضمان أداء تصنيعي متسق والتوثيق والامتثال الكامل للمعايير القياسية.' : 'Ensure consistent manufacturing performance, documentation and compliance.'}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 4. Closing CTA (Exact V9) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'تركيبات مخصصة' : 'TAILORED FORMULATION BRIEF'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'ابدأ في تطوير تركيبتك الصناعية القادمة' : 'Start your next formulation project'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'أرسل إلينا مواصفات التحدي وسيقوم فريق التطوير بدراسة البدائل المناسبة.' : 'Tell our food scientists about your application specifications and cost targets.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'طلب صياغة تركيبة مخصصة' : 'Discuss formulation brief'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك' : 'Discuss your project'}</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>

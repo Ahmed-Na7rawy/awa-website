@@ -141,34 +141,39 @@ export const SustainabilityPage: React.FC = () => {
           </div>
         </section>
 
-        {/* CLOSING BANNER */}
-        <section className="v9-section">
-          <div className="v9-wrap">
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {isAr ? 'هل تريد استكشاف حلول مستدامة لمنتجاتك؟' : 'Looking to formulate with sustainable ingredients?'}
-              </h2>
-              <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-base md:text-lg">
-                {isAr
-                  ? 'فريقنا التقني جاهز لمساعدتك في استكشاف بدائل المكونات النظيفة والفعالة من حيث استهلاك الموارد.'
-                  : 'Our technical R&D team can help you evaluate clean-label, functional, and resource-efficient ingredient solutions.'}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  to="/contact?type=technical"
-                  className="px-8 py-3.5 rounded-xl font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 transition-colors inline-flex items-center gap-2 shadow-lg shadow-amber-500/20"
-                >
-                  {isAr ? 'تواصل مع الفريق التقني' : 'Start a Technical Consultation'}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/quality"
-                  className="px-8 py-3.5 rounded-xl font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors inline-flex items-center gap-2"
-                >
-                  {isAr ? 'معايير الجودة والشهادات' : 'View Quality & Certifications'}
-                </Link>
+        {/* CLOSING CTA (Exact V9 Content) */}
+        <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+          <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
+            <div>
+              <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
               </div>
+              <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+                {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
+              </h2>
+              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+                {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
+              </p>
             </div>
+            <Link 
+              to="/contact?type=technical" 
+              className="btn" 
+              style={{ 
+                background: '#FFFFFF', 
+                color: 'var(--navy)', 
+                fontWeight: 800, 
+                padding: '1rem 2rem', 
+                borderRadius: '12px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                fontSize: '1rem',
+                textDecoration: 'none'
+              }}
+            >
+              <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
+              <ArrowRight size={17} />
+            </Link>
           </div>
         </section>
       </div>
