@@ -27,6 +27,8 @@ import { QualityPage } from './pages/QualityPage';
 import { SustainabilityPage } from './pages/SustainabilityPage';
 import { GlobalPage } from './pages/GlobalPage';
 import { KnowledgePage } from './pages/KnowledgePage';
+import { TurkphosPage } from './pages/TurkphosPage';
+import { IngrevaPage } from './pages/IngrevaPage';
 import { ContactPage } from './pages/ContactPage';
 import { CareersPage } from './pages/CareersPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -137,6 +139,15 @@ function AppContent() {
             <Route path="/sustainability" element={<SustainabilityPage />} />
             <Route path="/global" element={<GlobalPage />} />
             <Route path="/knowledge" element={<KnowledgePage />} />
+            <Route path="/insights" element={<KnowledgePage />} />
+            <Route path="/news" element={<KnowledgePage />} />
+            <Route path="/insights-and-news" element={<Navigate to="/knowledge" replace />} />
+
+            {/* Strategic Joint Ventures & Entities */}
+            <Route path="/turkphos" element={<TurkphosPage />} />
+            <Route path="/joint-ventures/turkphos" element={<Navigate to="/turkphos" replace />} />
+            <Route path="/ingreva" element={<IngrevaPage />} />
+            <Route path="/joint-ventures/ingreva" element={<Navigate to="/ingreva" replace />} />
 
             {/* Operations & Communication */}
             <Route path="/contact" element={<ContactPage />} />
