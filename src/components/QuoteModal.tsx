@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { X, Send, CheckCircle2 } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
@@ -10,8 +10,8 @@ interface QuoteModalProps {
 
 export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
   const { t, language } = useLanguage();
-  const [submitted, setSubmitted] = React.useState(false);
-  const [formData, setFormData] = React.useState({
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
     fullName: '',
     company: '',
     email: '',
