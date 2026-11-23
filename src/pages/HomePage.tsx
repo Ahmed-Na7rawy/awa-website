@@ -36,7 +36,7 @@ import { useCountUp } from '../hooks/useCountUp';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { industryData, challengeData, familyData } from '../data/v9Data';
+import { industryData, challengeData, familyData, certifications } from '../data/v9Data';
 
 interface HomeProps {
   onNavigate: (pageId: string, subId?: string) => void;
@@ -257,6 +257,8 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   return (
     <div className="home-page">
       <SEO
+        title={language === 'ar' ? 'حلول الصناعات الغذائية وتطوير التركيبات' : 'Tailored Food Solutions & Industrial Ingredients'}
+        description={language === 'ar' ? 'تجمع مجموعة AWA بين الخبرة العالمية في التوريد، والبحث والتطوير التطبيقي، والقدرات التصنيعية لتطوير حلول غذائية مخصصة مصممة للأداء الأمثل.' : 'AWA Group combines global ingredient sourcing, application-driven R&D, and manufacturing to deliver tailored food solutions across Egypt, the Middle East, and Africa.'}
         path="/"
         image="/images/pages/industries/image33.jpg"
       />
@@ -832,23 +834,19 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
 
         <div className="horizontal-gallery-track">
           {[
-            '/images/gallery/1738157726256.jpg',
-            '/images/gallery/1738157728405.jpg',
-            '/images/gallery/1744640598381.jpg',
-            '/images/gallery/1759843978724.jpg',
-            '/images/gallery/1780492882946.jpg',
-            '/images/gallery/1780840717152.jpg',
-            '/images/gallery/1780840717215.jpg',
-            '/images/gallery/1738157726256.jpg',
-            '/images/gallery/1738157728405.jpg',
-            '/images/gallery/1744640598381.jpg',
-            '/images/gallery/1759843978724.jpg',
-            '/images/gallery/1780492882946.jpg',
-            '/images/gallery/1780840717152.jpg',
-            '/images/gallery/1780840717215.jpg',
-          ].map((src, idx) => (
+            { src: '/images/pages/industries/image33.jpg', alt: 'AWA Industrial Compounding Plant, Borg El-Arab' },
+            { src: '/images/v9/v8/rd-lab.webp', alt: 'AWA R&D Application Laboratory' },
+            { src: '/images/pages/home/food-chemistry-formulation.jpg', alt: 'Food Chemistry & Rheology Testing' },
+            { src: '/images/v9/v7/dairy-cheese.webp', alt: 'Processed Cheese & Dairy Applications' },
+            { src: '/images/pages/solutions/raw-materials-warehouse.jpg', alt: 'Temperature Controlled Warehousing' },
+            { src: '/images/v9/v7/meat-seafood.webp', alt: 'Meat & Savory Formulation Systems' },
+            { src: '/images/pages/solutions/cold-chain-logistics-truck.jpg', alt: 'Cold-Chain Refrigerated Distribution Fleet' },
+            { src: '/images/v9/v7/bakery.webp', alt: 'Bakery & Confectionery Applications' },
+            { src: '/images/v9/v8/industrial-plant.webp', alt: 'Precision High-Capacity Blending Line' },
+            { src: '/images/v9/v7/beverages.webp', alt: 'Beverage & Dispersion Systems' },
+          ].map((item, idx) => (
             <div key={idx} className="gallery-card-item">
-              <img src={src} alt={`AWA Visual Capability ${idx + 1}`} />
+              <img src={item.src} alt={item.alt} loading="lazy" />
             </div>
           ))}
         </div>
@@ -875,6 +873,8 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   key={item.num}
                   className={`why-awa-item ${activeWhyIndex === idx ? 'active' : ''}`}
                   onMouseEnter={() => setActiveWhyIndex(idx)}
+                  onClick={() => setActiveWhyIndex(idx)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className="why-awa-item-header">
                     <span className="why-awa-item-num">{item.num}</span>
@@ -975,7 +975,135 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 13. TRUSTED PARTNERS MARQUEE                       */}
+      {/* 13. COMMITMENT TO INTERNATIONAL STANDARDS (V9)      */}
+      {/* ═══════════════════════════════════════════════════ */}
+      <section className="standards-showcase section" id="certifications-home" style={{ padding: '5.5rem 0', background: '#FFFFFF', borderTop: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <div className="standards-top reveal-fade-up" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '3rem', alignItems: 'flex-start', marginBottom: '3rem' }}>
+            <div>
+              <div className="eyebrow">{language === 'ar' ? 'الالتزام بالمعايير الدولية' : 'COMMITMENT TO INTERNATIONAL STANDARDS'}</div>
+              <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+                {language === 'ar' ? (
+                  <>المعايير الدولية.<br /><span className="awa-highlight-green">الجودة في الممارسة اليومية.</span></>
+                ) : (
+                  <>International Standards.<br /><span className="awa-highlight-green">Quality in Practice.</span></>
+                )}
+              </h2>
+              <p className="section-desc" style={{ maxWidth: '680px' }}>
+                {language === 'ar'
+                  ? 'في مجموعة AWA، تعد الجودة وسلامة الغذاء والعمليات المسؤولة ركائز أساسية لطريقة عملنا. تدعم عملياتنا التصنيعية أنظمة إدارة معترف بها، وشهادات منتجات، وتسجيلات رقابية، مما يعكس التزاماً ثابتاً بالتجانس والانضباط التشغيلي والتحسين المستمر.'
+                  : 'At AWA Group, quality, food safety and responsible operations are fundamental to how we work. Our manufacturing operations are supported by recognized management systems, product certifications and relevant regulatory registrations, reflecting a commitment to consistency, operational discipline and continual improvement.'}
+              </p>
+            </div>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(0, 168, 79, 0.08) 0%, rgba(16, 38, 59, 0.05) 100%)',
+              border: '1px solid rgba(0, 168, 79, 0.25)',
+              borderRadius: '20px',
+              padding: '2rem',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                <span style={{ color: '#00A84F', fontSize: '1.5rem', lineHeight: 1 }}>✳</span>
+                <strong style={{ fontSize: '1.1rem', color: '#10263B', fontWeight: 800 }}>
+                  {language === 'ar' ? 'جودة مدعومة بأنظمة معترف بها عالمياً' : 'Quality, supported by recognized systems.'}
+                </strong>
+              </div>
+              <span style={{ fontSize: '0.9rem', color: '#556976', fontWeight: 600 }}>
+                {language === 'ar' ? 'سلامة الغذاء · الجودة · البيئة · الأفراد' : 'Food Safety · Quality · Environment · People'}
+              </span>
+            </div>
+          </div>
+
+          <div className="reveal-fade-up" style={{ marginBottom: '2.5rem' }}>
+            <div style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#00A84F', marginBottom: '1.25rem' }}>
+              {language === 'ar' ? 'الشهادات الدولية' : 'INTERNATIONAL CERTIFICATIONS'}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
+              {certifications.filter(c => c.group === 'international').map((cert) => (
+                <div 
+                  key={cert.id} 
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.85)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255, 255, 255, 0.95)',
+                    borderRadius: '16px',
+                    padding: '1.5rem',
+                    boxShadow: '0 8px 24px rgba(16, 38, 59, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    minHeight: '160px'
+                  }}
+                >
+                  <div>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#00A84F', display: 'block', marginBottom: '0.4rem' }}>
+                      {cert.type}
+                    </span>
+                    <strong style={{ fontSize: '1.25rem', color: '#10263B', fontWeight: 800, display: 'block', marginBottom: '0.5rem' }}>
+                      {cert.code}
+                    </strong>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: '#556976', lineHeight: 1.5, margin: 0 }}>
+                    {cert.meaning}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="reveal-fade-up" style={{ marginBottom: '2.5rem' }}>
+            <div style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#10263B', marginBottom: '1.25rem' }}>
+              {language === 'ar' ? 'التسجيل والإدراج الرقابي' : 'REGULATORY REGISTRATION & LISTING'}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+              {certifications.filter(c => c.group === 'regulatory').map((cert) => (
+                <div 
+                  key={cert.id} 
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.85)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255, 255, 255, 0.95)',
+                    borderRadius: '16px',
+                    padding: '1.5rem',
+                    boxShadow: '0 8px 24px rgba(16, 38, 59, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    minHeight: '160px'
+                  }}
+                >
+                  <div>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#10263B', display: 'block', marginBottom: '0.4rem' }}>
+                      {cert.type}
+                    </span>
+                    <strong style={{ fontSize: '1.2rem', color: '#10263B', fontWeight: 800, display: 'block', marginBottom: '0.5rem' }}>
+                      {cert.code}
+                    </strong>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: '#556976', lineHeight: 1.5, margin: 0 }}>
+                    {cert.meaning}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="reveal-fade-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(16, 38, 59, 0.08)' }}>
+            <span style={{ fontSize: '0.85rem', color: '#64748B' }}>
+              {language === 'ar' 
+                ? 'تخضع مطالبات منشأة AWA للحلول الغذائية والمنتجات المعتمدة لتأكيد النطاق والصلاحية السارية.'
+                : 'AWA Food Solutions facility and certified-product claims require confirmation of current scope and validity before publication.'}
+            </span>
+            <Link to="/quality" className="awa-editorial-btn-secondary" style={{ padding: '0.65rem 1.25rem', fontSize: '0.875rem' }}>
+              <span>{language === 'ar' ? 'استكشف الجودة والاعتمادات' : 'Explore Quality & Certifications'}</span>
+              <ArrowUpRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* 14. TRUSTED PARTNERS MARQUEE                       */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="section" style={{ padding: '5.5rem 0', background: '#F8FAFC' }} ref={marqueeRef}>
         <div className="container">

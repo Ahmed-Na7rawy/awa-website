@@ -220,52 +220,52 @@ export const CORE_PILLARS = [
 
 export const FOOD_SECTORS = [
   { 
-    id: 'dairy',
-    name: 'Dairy & Cheese Systems', 
+    id: 'dairy-cheese',
+    name: 'Dairy, Cheese & Frozen Desserts', 
     icon: '/images/pages/home/icons/cheese.png',
-    image: '/images/pages/home/s1.jpg',
-    desc: 'Stabilizer blends for processed cheese blocks, cream cheese, labneh, stirred yogurt, and UHT dairy creams.',
-    highlights: ['Syneresis Prevention', 'Melt & Stretch Optimization', 'Yield Maximization', 'Fat & Solids Replacement']
+    image: '/images/v9/v7/dairy-cheese.webp',
+    desc: 'From processed cheese and UHT milk to cultured dairy, ice cream and frozen desserts, explore functionality tailored to the product matrix and production process.',
+    highlights: ['Processed Cheese & Analogues', 'Natural & Recombined Cheese', 'Milk & UHT Products', 'Yogurt & Cultured Dairy', 'Ice Cream & Frozen Desserts', 'Dairy Alternatives']
   },
   { 
-    id: 'meat',
-    name: 'Meat & Savory Systems', 
+    id: 'meat-seafood',
+    name: 'Meat, Poultry & Seafood', 
     icon: '/images/pages/home/icons/meat.png', 
-    image: '/images/pages/home/s2.jpg',
-    desc: 'Functional protein blends, phosphates, texturizers, and antimicrobial shelf-life extenders for poultry, beef, and processed cuts.',
-    highlights: ['Water Binding 1:5', 'Cooking Loss Reduction', 'Emulsion Stability', 'Bite & Firmness Enhancement']
+    image: '/images/v9/v7/meat-seafood.webp',
+    desc: 'Functional ingredient approaches for binding, water retention, texture, sensory consistency and production yield across meat and seafood applications.',
+    highlights: ['Processed & Emulsified Meat', 'Formed & Restructured Meat', 'Poultry Processing', 'Seafood Processing', 'Plant-Based & Hybrid Proteins']
   },
   { 
     id: 'bakery',
     name: 'Bakery & Confectionery', 
     icon: '/images/pages/home/icons/breads.png', 
-    image: '/images/pages/solutions/Image24.jpg',
-    desc: 'Enzyme-based bread improvers, anti-staling systems, sponge cake emulsifiers, and moisture-retaining glazes.',
-    highlights: ['Crumb Softness Extension', 'Volume & Oven Spring', 'Sugar Reduction Systems', 'Freeze-Thaw Stability']
-  },
-  { 
-    id: 'sauces',
-    name: 'Sauces, Dressings & Culinary', 
-    icon: '/images/pages/home/icons/chili-sauce.png', 
-    image: '/images/pages/products/SquEasy.png',
-    desc: 'Cold-process modified starches, hydrocolloid texturizers, and emulsifiers for mayonnaise, ketchup, and salad dressings.',
-    highlights: ['Shear & Thermal Stability', 'No-Drip Squeeze Viscosity', 'Oil Droplet Suspension', 'Low-Fat Formulation']
+    image: '/images/v9/v7/bakery.webp',
+    desc: 'Ingredient systems addressing dough and batter performance, texture, sweetness, filling stability, moisture and finished-product consistency.',
+    highlights: ['Bread & Yeast-Raised Products', 'Cakes & Pastries', 'Biscuits, Cookies & Crackers', 'Fillings, Creams & Toppings', 'Chocolate & Compound Coatings', 'Sugar & Gelled Confectionery']
   },
   { 
     id: 'beverages',
-    name: 'Beverages, Frappes & Syrups', 
+    name: 'Beverages', 
     icon: '/images/pages/home/icons/cocktail.png', 
-    image: '/images/pages/products/frapit.jpg',
-    desc: 'Instant barista beverage bases, clouding agents, foaming boosters, and premium natural flavor essences.',
-    highlights: ['Dense Microfoam Overrun', 'Instant Hot & Cold Dissolution', 'Natural Clouding Agents', 'Zero Syneresis in Acidic Media']
+    image: '/images/v9/v7/beverages.webp',
+    desc: 'Solutions for dispersion, stabilization, taste, mouthfeel, solubility and nutritional formulation across liquid and powdered beverage formats.',
+    highlights: ['Juices & Fruit-Based Drinks', 'Dairy & Plant-Based Drinks', 'Powdered Drink Formats', 'Carbonated & Still Beverages', 'Specialty & Nutritional Drinks']
   },
   { 
-    id: 'proteins',
-    name: 'Plant Proteins & Biotechnology', 
+    id: 'culinary',
+    name: 'Culinary Solutions', 
+    icon: '/images/pages/home/icons/chili-sauce.png', 
+    image: '/images/v9/v7/culinary.webp',
+    desc: 'Functional and sensory systems for sauces, dressings, culinary bases and prepared foods addressing stability, viscosity and process tolerance.',
+    highlights: ['Dressings & Cold Emulsions', 'Hot-Processed Sauces & Gravies', 'Soups & Culinary Bases', 'Mayonnaise & Emulsified Spreads', 'Tomato & Specialty Preparations']
+  },
+  { 
+    id: 'snacks',
+    name: 'Snacks & Cereals', 
     icon: '/images/pages/home/icons/proteins.png', 
-    image: '/images/pages/about/bg_about.jpg',
-    desc: 'Non-GMO soy protein isolates (90%), textured vegetable protein (TVP), and AWABEY natural soapwort extracts.',
-    highlights: ['90%+ Isolated Soy Protein', 'Clean-Label Foaming Saponins', 'Meat Analogue Textures', 'Hypoallergenic Emulsions']
+    image: '/images/v9/v7/snacks.webp',
+    desc: 'Ingredient approaches supporting crispness, seasoning adhesion, grain consistency, structure and shelf stability across snack applications.',
+    highlights: ['Extruded & Expanded Snacks', 'Pellet-Based Snacks', 'Seasoning & Topical Applications', 'Breakfast Cereals & Granola', 'Coated Nuts & Savory Snacks']
   },
 ];
 
@@ -729,10 +729,13 @@ export const PRODUCTS_LIST: ProductItem[] = [
 
 export const COMPANY_CONTACT = {
   email: 'info@awa-group.net',
-  phoneAlex: '+203 4292030 / 4211200',
-  phoneCairo: '+202 22681519 / 22690727',
-  alexOffice: '243 Horreya Road, Sporting, Alexandria, Egypt',
+  phoneMain: '+202 22681519',
+  phoneAlt: '+202 22690728',
+  phoneAlex: '+202 22681519',
+  phoneCairo: '+202 22681519',
+  address: '15 Abd Elwahab Selim El-bishry St., Sheraton, Cairo, Egypt',
   cairoOffice: '15 Abd Elwahab Selim El-bishry St., Sheraton, Cairo, Egypt',
-  factory: 'Area 11, 12, 13 – Block 15, 4th Industrial Zone, New Borg El-Arab City, Alexandria, Egypt',
-  workingHours: 'Sunday – Thursday: 8:30 AM – 5:00 PM',
+  factory: 'New Borg El-Arab Industrial Zone, Alexandria, Egypt',
+  workingHours: 'Sunday – Thursday: 9:00 AM – 5:00 PM',
 };
+
