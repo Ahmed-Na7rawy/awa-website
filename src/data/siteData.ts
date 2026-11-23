@@ -41,7 +41,7 @@ export const NAV_LINKS = [
     id: 'products',
     children: [
       { label: 'Sweet & Slim (Diet Sweeteners)', id: 'products', subId: 'sweet-and-slim' },
-      { label: 'SquEasy (Dessert Purées)', id: 'products', subId: 'squeasy' },
+      { label: "Squ'easy (Garlic & Harissa Preparations)", id: 'products', subId: 'squeasy' },
       { label: 'Yalla Drinks (Cafe Beverages)', id: 'products', subId: 'yalla-drinks' },
       { label: 'Industrial Ingredients Portfolio', id: 'products', subId: 'industrial' },
     ]

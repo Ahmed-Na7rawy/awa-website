@@ -148,51 +148,96 @@ export const SourcingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Sourcing Features List */}
+      {/* 4. Sourcing Process (Exact V9) */}
       <section className="section">
         <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <div className="kicker">{isAr ? 'مراحل التوريد' : 'SOURCING PROCESS'}</div>
+              <h2>
+                {isAr ? (
+                  <>من الاحتياج الفعلي إلى <span className="accent">الخيار المؤهل.</span></>
+                ) : (
+                  <>From need to <span className="accent">qualified option.</span></>
+                )}
+              </h2>
+            </div>
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>01</div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Supplier Audits</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Direct factory auditing, technical dossiers, and Halal / FSSC traceability.</p>
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>BRIEF</div>
+              <h4 style={{ fontSize: '1.25rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تحديد' : 'Define'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'الأهداف الوظيفية، والمواصفات القياسية، والاقتصاديات المستهدفة للمنتج.' : 'Functional targets, specification and target economics.'}
+              </p>
             </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>02</div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Batch Documentation</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Verified Certificate of Analysis (COA) with each raw material consignment.</p>
+
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary-blue)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>SOURCE</div>
+              <h4 style={{ fontSize: '1.25rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تقييم' : 'Evaluate'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'التقنيات المناسبة، وخيارات الإمداد العالمية، والملفات والوثائق الفنية.' : 'Suitable technologies, supply options and documentation.'}
+              </p>
             </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>03</div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Temperature Control</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Multi-temperature ambient and cold storage preserving ingredient functionality.</p>
+
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>TEST</div>
+              <h4 style={{ fontSize: '1.25rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تحقق' : 'Validate'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'ملاءمة التطبيق العملي وأداء التركيبة في ظروف التشغيل الفعلية.' : 'Application suitability and formulation performance.'}
+              </p>
             </div>
-            <div style={{ background: 'var(--bg-soft)', padding: '1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>04</div>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Supply Continuity</h4>
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>Spot and long-term contract purchasing protecting against price spikes.</p>
+
+            <div style={{ background: 'var(--bg-soft)', padding: '2rem 1.75rem', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary-blue)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>SUPPLY</div>
+              <h4 style={{ fontSize: '1.25rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                {isAr ? 'تنفيذ' : 'Implement'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                {isAr ? 'الشروط التجارية واللوجستية ومتطلبات التشغيل المستمر.' : 'Commercial terms and operating requirements.'}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 5. Closing CTA (Exact V9) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'توريد الخامات' : 'RAW MATERIAL PROCUREMENT'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'تبحث عن خامة معينة أو مورد موثوق؟' : 'Inquire about specific raw ingredients'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'فريق الاستيراد والتوريد في AWA جاهز لتقديم العروض الفنية والأسعار التعاقدية.' : 'Our sourcing desk connects you with certified origin producers across 30+ countries.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'طلب تسعير ومواصفات الخامات' : 'Request ingredient quote'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك' : 'Discuss your project'}</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>

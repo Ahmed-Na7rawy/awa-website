@@ -127,40 +127,46 @@ export const KnowledgePage: React.FC = () => {
             </div>
 
             <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 rounded-2xl p-6 text-sm text-amber-900 dark:text-amber-300 max-w-4xl mx-auto text-center leading-relaxed">
-              <strong>{isAr ? 'ملاحظة تحريرية: ' : 'Editorial Standard: '}</strong>
               {isAr
-                ? 'يتم عرض هذه المحاور كنظرة عامة على هيكل المحتوى. تعرض المنصة المباشرة مقالات وأبحاثاً مؤرخة ومعتمدة فقط مع تحديد المسؤول التقني عن كل دراسة.'
-                : 'Editorial content shown represents our publication framework. The live hub displays verified, dated content with an identified technical approver and author.'}
+                ? 'المحتوى التحريري المعروض هو لأغراض توضيحية، وليس ادعاءً بأن المقالات قد نُشرت بالفعل. يجب أن تعرض المنصة الحية محتوى موثقاً ومؤرخاً فقط مع وجود معتمد ومالك محدد لكل مادة.'
+                : 'Editorial content shown is illustrative, not a claim that articles have already been published. The live hub should display only verified, dated content with an identified approver and owner.'}
             </div>
           </div>
         </section>
 
-        {/* CLOSING CTA */}
-        <section className="v9-section tint">
-          <div className="v9-wrap text-center max-w-2xl mx-auto">
-            <h2 className="v9-h2 mb-4">
-              {isAr ? 'هل تبحث عن استشارة لتطبيق محدد؟' : 'Need specific formulation insight?'}
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 mb-8">
-              {isAr
-                ? 'فريق البحث والتطوير في AWA متاح دائماً للإجابة على استفساراتكم التقنية واختبار الحلول في معاملنا التطبيقية.'
-                : 'AWA’s application and R&D specialists are ready to discuss your product challenges and benchmark solutions in our pilot laboratories.'}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                to="/contact?type=technical"
-                className="px-8 py-3.5 rounded-xl font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 transition-colors inline-flex items-center gap-2 shadow-lg shadow-amber-500/20"
-              >
-                <span>{isAr ? 'طلب استشارة تقنية' : 'Request Technical Consultation'}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/solutions/catalogue"
-                className="px-8 py-3.5 rounded-xl font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors inline-flex items-center gap-2"
-              >
-                <span>{isAr ? 'تصفح كتالوج الحلول' : 'Browse Solutions Catalogue'}</span>
-              </Link>
+        {/* CLOSING CTA (Exact V9 Content) */}
+        <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+          <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
+            <div>
+              <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
+              </div>
+              <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+                {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
+              </h2>
+              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+                {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
+              </p>
             </div>
+            <Link 
+              to="/contact?type=technical" 
+              className="btn" 
+              style={{ 
+                background: '#FFFFFF', 
+                color: 'var(--navy)', 
+                fontWeight: 800, 
+                padding: '1rem 2rem', 
+                borderRadius: '12px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                fontSize: '1rem',
+                textDecoration: 'none'
+              }}
+            >
+              <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
+              <ArrowRight size={17} />
+            </Link>
           </div>
         </section>
       </div>

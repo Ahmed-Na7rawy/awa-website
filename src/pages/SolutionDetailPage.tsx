@@ -197,23 +197,36 @@ export const SolutionDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 4. Closing CTA (Exact V9) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'تجارب معملية مخصصة' : 'TAILORED FORMULATION'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'هل تريد تجربة تركيبة مخصصة لمنتجك؟' : 'Ready to trial a customized formula?'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'معامل أبحاث وتطبيقات AWA في برج العرب مجهزة لمحاكاة ظروف مصنعكم بدقة.' : 'Our pilot plant facilities in Borg El-Arab replicate client factory environments for precise validation.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'طلب تجربة معملية' : 'Schedule a formulation trial'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك' : 'Discuss your project'}</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>

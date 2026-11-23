@@ -256,8 +256,111 @@ export const SolutionsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Solution Records Highlight Table */}
-      <section className="section tint" style={{ borderTop: '1px solid var(--border-color)' }}>
+      {/* 3. TECHNICAL PARTNERSHIP (Exact V9 Content) */}
+      <section className="section" id="technical-partnership" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', padding: '5.5rem 0' }}>
+        <div className="wrap">
+          <div className="section-heading" style={{ marginBottom: '3rem' }}>
+            <div className="kicker">{isAr ? 'الشراكة التقنية' : 'TECHNICAL PARTNERSHIP'}</div>
+            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem', lineHeight: 1.25 }}>
+              {isAr ? (
+                <>تحدياتكم. خبراتنا.<br /><span className="accent">حلول تحقق الأداء الأمثل.</span></>
+              ) : (
+                <>Your Challenges. Our Expertise.<br /><span className="accent">Solutions That Perform.</span></>
+              )}
+            </h2>
+            <div style={{ maxWidth: '820px' }}>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.025rem', marginBottom: '1rem' }}>
+                {isAr
+                  ? 'يقدم كل منتج غذائي تحديات فريدة، من تحقيق القوام والمذاق والاستقرار المطلوب إلى تحسين كفاءة المعالجة، وترشيد التكلفة، والحفاظ على الجودة الثابتة. تعمل AWA جنباً إلى جنب مع المصنعين لفهم متطلبات إنتاجهم وتطوير حلول سليمة تقنياً.'
+                  : 'Every food product presents unique challenges, from achieving the right texture, taste and stability to improving processing efficiency, optimizing cost and maintaining consistent quality. AWA works alongside manufacturers to understand their production requirements and develop technically sound solutions.'}
+              </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.975rem', marginBottom: '1rem' }}>
+                {isAr
+                  ? 'يتطلب النجاح في تصنيع الأغذية أكثر من مجرد اختيار المكونات المناسبة. إنه يتطلب معرفة تقنية، وخبرة تطبيقية عملية، وشريكاً يفهم حقائق وظروف خطوط الإنتاج. يعمل فريقنا بشكل وثيق مع المصنعين لتقييم تحديات التركيبات، وتحديد التقنيات المناسبة، وتصميم نهج تطوير يتمحور حول متطلبات منتجاتهم ومعالجتهم الخاصة.'
+                  : 'Successful food manufacturing requires more than selecting the right ingredients. It requires technical knowledge, practical application expertise and a partner who understands production realities. Our team works closely with manufacturers to assess formulation challenges, identify suitable technologies and design a development approach around their specific product and processing requirements.'}
+              </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.975rem', margin: 0 }}>
+                {isAr
+                  ? 'سواء كان الهدف تحسين تركيبة قائمة أو تطوير منتج جديد بالكامل، فإننا نجمع بين التوريد العالمي، والبحث والتطوير التطبيقي، والخبرة التصنيعية لدعم اختيار المكونات، وتحسين التركيبات، والتجارب التطبيقية ذات الصلة، والتنفيذ الصناعي على خطوط الإنتاج. وأياً كان التحدي، فإن التزامنا هو العمل جنباً إلى جنب مع عملائنا نحو حلول عملية، سليمة تقنياً ومجدية تجارياً.'
+                  : 'Whether optimizing an existing formulation or developing a new product, we combine global sourcing, applied R&D and manufacturing expertise to support ingredient selection, formulation optimization, relevant application trials and manufacturing implementation. Whatever the challenge, our commitment is to work alongside customers toward practical, technically sound and commercially viable solutions.'}
+              </p>
+            </div>
+          </div>
+
+          {/* 4-Stage Process: UNDERSTAND, SOURCE, DEVELOP, VALIDATE */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                01 · {isAr ? 'فهم الاحتياج' : 'UNDERSTAND'}
+              </div>
+              <h4 style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '0.65rem' }}>
+                {isAr ? 'تحديد التحدي' : 'Define the challenge'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+                {isAr
+                  ? 'فهم التطبيق الغذائي، وظروف المعالجة الصناعية، وموجز المشروع التقني، والنتائج المستهدفة.'
+                  : 'Understand the application, processing conditions, technical brief and desired outcomes.'}
+              </p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                02 · {isAr ? 'تحديد المصدر' : 'SOURCE'}
+              </div>
+              <h4 style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '0.65rem' }}>
+                {isAr ? 'تحديد التقنيات ذات الصلة' : 'Identify relevant technologies'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+                {isAr
+                  ? 'تقييم المكونات والأنظمة المناسبة من خلال محافظنا المتخصصة وشبكتنا العالمية من الشركاء.'
+                  : 'Evaluate suitable ingredients and systems through our specialist portfolios and global network.'}
+              </p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                03 · {isAr ? 'التطوير والتجربة' : 'DEVELOP'}
+              </div>
+              <h4 style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '0.65rem' }}>
+                {isAr ? 'التدقيق والتجريب المخبري' : 'Refine and trial'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+                {isAr
+                  ? 'تقييم خيارات التركيبات، والوظائف، والأهداف الحسية، والتوافق مع عمليات الإنتاج.'
+                  : 'Assess formulation options, functionality, sensorial targets and process compatibility.'}
+              </p>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                04 · {isAr ? 'التحقق والمطابقة' : 'VALIDATE'}
+              </div>
+              <h4 style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '0.65rem' }}>
+                {isAr ? 'دراسة إمكانية التنفيذ' : 'Consider implementation'}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+                {isAr
+                  ? 'مراجعة الأداء، وجدوى التصنيع على نطاق واسع، والبدائل المجدية تجارياً.'
+                  : 'Review performance, manufacturing feasibility and commercially viable alternatives.'}
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/solutions/catalogue" className="btn btn-secondary">
+              <span>{isAr ? 'تصفح عائلات المنتجات ↗' : 'Browse product families ↗'}</span>
+              <ArrowRight size={15} />
+            </Link>
+            <Link to="/contact?type=technical" className="btn btn-primary">
+              <span>{isAr ? 'ناقش تحديك التقني معنا ↗' : 'Discuss Your Technical Challenge ↗'}</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Solution Records Highlight Table */}
+      <section className="section" style={{ borderTop: '1px solid var(--border-color)' }}>
         <div className="wrap">
           <div className="section-heading">
             <div>
@@ -284,7 +387,8 @@ export const SolutionsPage: React.FC = () => {
                   border: '1px solid var(--border-color)',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  boxShadow: 'var(--shadow-subtle)'
                 }}
               >
                 <div>
@@ -310,7 +414,7 @@ export const SolutionsPage: React.FC = () => {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link to="/solutions/catalogue" className="btn btn-primary">
+            <Link to="/solutions/catalogue" className="btn btn-secondary">
               <span>{isAr ? 'عرض كافة حلول الكتالوج الصناعي (24+ نظام وظيفي)' : 'View All 24+ Solution Records in Catalogue'}</span>
               <ArrowRight size={16} />
             </Link>
@@ -318,23 +422,38 @@ export const SolutionsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 5. Closing CTA (Exact V9 Content) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'ابدأ محادثة فنية' : 'START A CONVERSATION'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'هل تحتاج إلى عينة تجريبية أو استشارة لخط إنتاجك؟' : 'Need formulation advice or pilot samples?'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'فريق علماء الأغذية والتطبيقات في برج العرب مستعد لدعم مشروعك.' : 'Our food science and pilot laboratory team in Borg El-Arab is ready to support your process.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'طلب عينة أو تجربة معملية' : 'Request formulation trial'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              fontSize: '1rem',
+              textDecoration: 'none'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
+            <ArrowRight size={17} />
           </Link>
         </div>
       </section>

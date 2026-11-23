@@ -205,17 +205,53 @@ export const GlobalPage: React.FC = () => {
             <div>
               <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
                 {isAr
-                  ? 'تتيح علاقاتنا الدولية توريد المكونات الموثوقة والتعاون في تطوير التطبيقات وفرص التصدير المعتمدة لأسواق الشرق الأوسط وأفريقيا وأوروبا.'
-                  : 'Our international relationships enable ingredient supply, application collaboration and approved export opportunities. We work closely with partners across MENA, Africa, and Europe.'}
+                  ? 'تتيح علاقاتنا الدولية توريد المكونات، والتعاون التطبيقي، وفرص التصدير المعتمدة. وسيحدد الموقع مواقع العمليات، ووجهات التصدير المؤكدة، والأقاليم التعاقدية، والأسواق المستهدفة للحفاظ على تمثيل دقيق للسوق.'
+                  : 'Our international relationships enable ingredient supply, application collaboration and approved export opportunities. The website will distinguish operating locations, confirmed export destinations, contractual territories and target markets to maintain accurate market representation.'}
               </p>
               <Link
                 to="/contact?type=export"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:bg-amber-500 hover:text-slate-950 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:bg-emerald-600 hover:text-white transition-colors shadow-sm"
               >
-                <span>{isAr ? 'طلب استفسار أعمال دولية وتصدير' : 'International business inquiry'}</span>
+                <span>{isAr ? 'طلب استفسار أعمال دولية وتصدير ↗' : 'International business inquiry ↗'}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* CLOSING CTA (Exact V9 Content) */}
+        <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+          <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
+            <div>
+              <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
+              </div>
+              <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+                {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
+              </h2>
+              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+                {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
+              </p>
+            </div>
+            <Link 
+              to="/contact?type=technical" 
+              className="btn" 
+              style={{ 
+                background: '#FFFFFF', 
+                color: 'var(--navy)', 
+                fontWeight: 800, 
+                padding: '1rem 2rem', 
+                borderRadius: '12px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                fontSize: '1rem',
+                textDecoration: 'none'
+              }}
+            >
+              <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </section>
       </div>

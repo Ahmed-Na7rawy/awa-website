@@ -15,32 +15,28 @@ export const CapabilitiesPage: React.FC = () => {
       route: '/capabilities/sourcing',
       desc: capabilityData[0].desc,
       image: v9Assets.v7Assets.sourcing,
-      icon: <Globe size={24} />,
-      kpi: '30+ Sourcing Nations'
+      icon: <Globe size={24} />
     },
     {
       title: isAr ? 'الأبحاث ومعامل التطبيقات R&D' : 'R&D & Application Development',
       route: '/capabilities/rd',
       desc: capabilityData[1].desc,
       image: v9Assets.v7Assets.formulation,
-      icon: <FlaskConical size={24} />,
-      kpi: 'Dedicated Pilot Plants'
+      icon: <FlaskConical size={24} />
     },
     {
       title: isAr ? 'التركيبات الوظيفية المخصصة' : 'Customized Formulations',
       route: '/capabilities/formulations',
       desc: capabilityData[2].desc,
       image: v9Assets.v8Assets.formulations || v9Assets.v7Assets.formulation,
-      icon: <Layers size={24} />,
-      kpi: '500+ Tailored Recipes'
+      icon: <Layers size={24} />
     },
     {
       title: isAr ? 'التميز الصناعي والتصنيع' : 'Manufacturing Excellence',
       route: '/capabilities/manufacturing',
       desc: capabilityData[3].desc,
       image: v9Assets.v7Assets.factory,
-      icon: <Factory size={24} />,
-      kpi: '15.5 MT/Hr Blending Capacity'
+      icon: <Factory size={24} />
     }
   ];
 
@@ -128,9 +124,6 @@ export const CapabilitiesPage: React.FC = () => {
                       <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                         Pillar #{idx + 1}
                       </span>
-                      <span style={{ fontSize: '0.75rem', padding: '3px 10px', background: 'var(--bg-soft)', borderRadius: '20px', color: 'var(--dark-navy)', fontWeight: 700 }}>
-                        {item.kpi}
-                      </span>
                     </div>
                     <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.75rem' }}>
                       {item.title}
@@ -142,7 +135,7 @@ export const CapabilitiesPage: React.FC = () => {
 
                   <div style={{ paddingTop: '1.25rem', borderTop: '1px solid var(--border-color)' }}>
                     <Link to={item.route} className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
-                      <span>{isAr ? 'عرض التفاصيل والمواصفات' : 'Explore capability details'}</span>
+                      <span>{isAr ? 'استكشف القدرة ↗' : 'Explore capability ↗'}</span>
                       <ArrowRight size={15} />
                     </Link>
                   </div>
@@ -153,8 +146,31 @@ export const CapabilitiesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Selective Contract Manufacturing Spotlight */}
-      <section className="section tint" style={{ borderTop: '1px solid var(--border-color)' }}>
+      {/* 3. FORMULATION DEVELOPMENT (Exact V9 Content) */}
+      <section className="section" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
+        <div className="wrap" style={{ maxWidth: '840px', margin: '0 auto', textAlign: 'center' }}>
+          <div className="kicker">{isAr ? 'تطوير التركيبات' : 'FORMULATION DEVELOPMENT'}</div>
+          <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
+            {isAr ? (
+              <>مصممة وفقاً لمتطلبات المنتج.<br /><span className="accent">مدروسة لتحقيق أعلى قيمة.</span></>
+            ) : (
+              <>Tailored to product requirements.<br /><span className="accent">Considered for value.</span></>
+            )}
+          </h2>
+          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.75, marginBottom: '2rem' }}>
+            {isAr
+              ? 'يأخذ فريقنا في الاعتبار الدور الدقيق لكل مكون فردي داخل التركيبة، بدءاً من الخواص الحسية والوظيفية الهيكلية ووصولاً إلى المرونة أثناء عمليات التصنيع. وعند الاقتضاء، يتعاون فريق التوريد وفريق التطوير التقني معاً لتقييم البدائل المناسبة وتحسين الحلول دون المساس بمتطلبات المنتج المحددة مسبقاً.'
+              : 'Our team considers the role of individual ingredients within a formulation, from sensory and structural functionality to processing resilience. Where appropriate, sourcing and technical development work together to evaluate suitable alternatives and optimize solutions without compromising defined product requirements.'}
+          </p>
+          <Link to="/capabilities/formulations" className="btn btn-primary" style={{ display: 'inline-flex' }}>
+            <span>{isAr ? 'اكتشف التركيبات المخصصة ↗' : 'Discover customized formulations ↗'}</span>
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 4. SELECTIVE MANUFACTURING COLLABORATION (Exact V9 Content) */}
+      <section className="section" style={{ borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
         <div className="wrap">
           <div style={{
             background: '#FFFFFF',
@@ -163,50 +179,34 @@ export const CapabilitiesPage: React.FC = () => {
             boxShadow: 'var(--shadow-subtle)',
             padding: '3.5rem',
             display: 'grid',
-            gridTemplateColumns: '1.3fr 1fr',
+            gridTemplateColumns: '1.2fr 1fr',
             gap: '3.5rem',
             alignItems: 'center'
           }}>
             <div>
-              <div className="kicker">{isAr ? 'التصنيع التعاقدي والتعبئة' : 'STRATEGIC CO-MANUFACTURING'}</div>
+              <div className="kicker">{isAr ? 'التعاون التصنيعي الانتقائي' : 'SELECTIVE MANUFACTURING COLLABORATION'}</div>
               <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
-                {isAr ? 'تصنيع تعاقدي انتقائي وتعبئة وتغليف للغير (OEM)' : 'Selective Contract Manufacturing & Co-Packing'}
+                {isAr ? (
+                  <>مشاريع استراتيجية.<br /><span className="accent">التوافق الفني أولاً.</span></>
+                ) : (
+                  <>Strategic projects.<br /><span className="accent">Technical fit first.</span></>
+                )}
               </h2>
-              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+              <p style={{ fontSize: '1.025rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '2rem' }}>
                 {isAr
-                  ? 'نوفر قدرات تصنيع وخلط وتعبئة تعاقدية لشركاء استراتيجيين مختارين عبر خطوط إنتاجنا المؤتمتة بمدينة برج العرب الجديدة، مع التزام تام بمعايير FSSC 22000 والسرية المهنية المطلقة.'
-                  : 'For qualified partners, AWA offers dedicated dry blending, liquid compounding and specialized retail packaging capabilities under selective private label or OEM co-manufacturing agreements, adhering to rigorous FSSC 22000 quality systems.'}
+                  ? 'بالإضافة إلى دعم محفظة AWA الصناعية والاستهلاكية، يتم تقييم فرص التصنيع التعاقدي والعلامات الخاصة المختارة من حيث الجدوى الفنية، والطاقة الاستيعابية، والمتطلبات التنظيمية، والمواءمة التجارية طويلة الأجل.'
+                  : 'In addition to supporting AWA’s industrial and consumer portfolio, selected private-label and contract-manufacturing opportunities are evaluated for technical feasibility, capacity, regulatory requirements and long-term commercial alignment.'}
               </p>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--primary)' }} />
-                  <span>High-Shear Dry Blending (5.5 MT/Hr)</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--primary)' }} />
-                  <span>Liquid Compounding (10 MT/Hr)</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--primary)' }} />
-                  <span>Cleanroom Environment Packaging</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--primary)' }} />
-                  <span>Full Batch COA &amp; Traceability</span>
-                </div>
-              </div>
-
-              <Link to="/capabilities/strategic-manufacturing" className="btn btn-primary">
-                <span>{isAr ? 'تفاصيل التصنيع الاستراتيجي التعاقدي' : 'View Strategic Manufacturing Details'}</span>
+              <Link to="/capabilities/strategic-manufacturing" className="btn btn-secondary">
+                <span>{isAr ? 'استكشف التصنيع الاستراتيجي ↗' : 'Explore strategic manufacturing ↗'}</span>
                 <ArrowRight size={15} />
               </Link>
             </div>
 
-            <div style={{ borderRadius: '20px', overflow: 'hidden', height: '360px', border: '1px solid var(--border-color)' }}>
+            <div style={{ borderRadius: '20px', overflow: 'hidden', height: '340px', border: '1px solid var(--border-color)' }}>
               <img 
                 src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.factory} 
-                alt="Automated Processing Plant in Borg El-Arab" 
+                alt="AWA Manufacturing Facility" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
@@ -214,23 +214,38 @@ export const CapabilitiesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 5. Closing CTA (Exact V9 Content) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'شراكات صناعية متكاملة' : 'TECHNICAL COLLABORATION'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'تحدث إلى خبرائنا حول قدرات مصنعكم' : 'Discuss your manufacturing requirements'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'سواء كنت بحاجة إلى توريد خامات نادرة، أو خلطات مخصصة، أو تجارب معملية، نحن هنا لدعمك.' : 'Whether sourcing specialty raw materials, piloting a formula or expanding contract capacity.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=manufacturing" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'تواصل مع فريق التصنيع' : 'Contact Manufacturing Team'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              fontSize: '1rem',
+              textDecoration: 'none'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
+            <ArrowRight size={17} />
           </Link>
         </div>
       </section>
