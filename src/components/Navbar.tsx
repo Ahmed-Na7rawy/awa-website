@@ -122,13 +122,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
           links: [
             { label: 'Sweet & Slim (Diet Sweeteners)', href: '/brands/sweet-and-slim' },
             { label: 'Yalla Drinks (Café Beverages)', href: '/brands/yalla-drinks' },
-            { label: 'SquEasy (Dessert Purées)', href: '/brands/squeasy' },
+            { label: "Squ'easy (Garlic & Harissa Preparations)", href: '/brands/squeasy' },
           ]
         },
         {
           heading: language === 'ar' ? 'المنتجات الشريكة' : 'Partnered Retail Products',
           links: [
-            { label: language === 'ar' ? 'SIRRI (شوربات سريعة التحضير في أكواب)' : 'SIRRI Foods (Instant Soups in Cups)', href: '/brands#partnered' },
+            { label: language === 'ar' ? 'SIRRI (شراكة تجزئة طهي)' : 'SIRRI Foods (Retail Culinary Partnership)', href: '/brands#partnered' },
           ]
         }
       ]

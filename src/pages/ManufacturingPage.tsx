@@ -162,51 +162,79 @@ export const ManufacturingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Infrastructure Numbers */}
+      {/* 4. Quality in Execution (Exact V9) */}
       <section className="section tint" style={{ borderTop: '1px solid var(--border-color)' }}>
         <div className="wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--primary)', marginBottom: '0.25rem' }}>5.5 MT</div>
-              <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Powder Blending / Hr</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>High-shear automated dry mixing lines with micro-ingredient dosing precision.</p>
+          <div className="intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '3.5rem', alignItems: 'center' }}>
+            <div>
+              <div className="kicker">{isAr ? 'الجودة في التنفيذ' : 'QUALITY IN EXECUTION'}</div>
+              <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', lineHeight: '1.25' }}>
+                {isAr ? (
+                  <>من التركيبة المخبرية إلى <br /><span className="accent">الجدوى التصنيعية.</span></>
+                ) : (
+                  <>From formulation to <br /><span className="accent">manufacturing feasibility.</span></>
+                )}
+              </h2>
             </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--primary-blue)', marginBottom: '0.25rem' }}>10 MT</div>
-              <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Liquid Compounding / Hr</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Dedicated liquid processing tanks with temperature regulation and shear control.</p>
-            </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--primary)', marginBottom: '0.25rem' }}>15,000 MT</div>
-              <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Storage Footprint</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Multi-temperature ambient and refrigerated warehousing preserving raw material integrity.</p>
-            </div>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--primary-blue)', marginBottom: '0.25rem' }}>FSSC 22000</div>
-              <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>Certified Food Safety</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Rigorous cleanroom operating discipline, HACCP protocols, and batch COA releases.</p>
+            <div>
+              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '1.25rem' }}>
+                {isAr
+                  ? 'بالنسبة للمصنعين الدوليين، يجب أن يُظهر التواصل الصناعي الموثوق قدرات العمليات الفعلية ونطاق المنتجات وضوابط الجودة والعلاقة بين تجارب التركيب والإنتاج التجاري. يستخدم موقع AWA صور إنتاج حقيقية وقدرات معتمدة ومواصفات تفصيلية للشهادات.'
+                  : 'For international manufacturers, credible manufacturing communication must demonstrate actual process capabilities, product scope, quality controls and the relationship between formulation trials and commercial production. The live website should use authentic AWA production imagery, verified equipment capabilities and approved certification details.'}
+              </p>
+              <div style={{
+                background: 'var(--bg-soft)',
+                borderLeft: '4px solid var(--primary)',
+                padding: '1rem 1.25rem',
+                borderRadius: '8px',
+                fontSize: '0.9rem',
+                color: 'var(--text-muted)',
+                marginBottom: '1.5rem',
+                lineHeight: '1.6'
+              }}>
+                {isAr
+                  ? 'يجب ألا نذكر الطاقات الإنتاجية والحد الأدنى للكميات والجداول الزمنية إلا بعد تأكيدها للمنشأة التصنيعية المعنية والترتيب التجاري المحدد.'
+                  : 'We should only state capacities, minimum quantities and timelines after they are confirmed for the relevant manufacturing facility and commercial arrangement.'}
+              </div>
+              <Link to="/quality" className="btn btn-secondary">
+                <span>{isAr ? 'الجودة والشهادات الدولية' : 'Quality & global certifications'}</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Closing CTA */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* 5. Closing CTA (Exact V9) */}
+      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
-            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
-              {isAr ? 'الإنتاج الصناعي' : 'INDUSTRIAL PRODUCTION'}
+            <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
-            <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'ناقش خطط الإنتاج والخلط الصناعي' : 'Connect with our manufacturing team'}
+            <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: 800 }}>
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
-            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'فريق العمليات في برج العرب مستعد لتلبية متطلبات التوريد والإنتاج الموسع.' : 'Our Borg El-Arab operations team is prepared to support your continuous commercial supply.'}
+            <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact?type=manufacturing" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'تواصل مع إدارة التصنيع' : 'Inquire about manufacturing'}</span>
-            <ArrowRight size={16} />
+          <Link 
+            to="/contact?type=technical" 
+            className="btn" 
+            style={{ 
+              background: '#FFFFFF', 
+              color: 'var(--navy)', 
+              fontWeight: 800, 
+              padding: '1rem 2rem', 
+              borderRadius: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>{isAr ? 'ناقش مشروعك' : 'Discuss your project'}</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>

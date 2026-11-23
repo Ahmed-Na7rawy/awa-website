@@ -99,8 +99,8 @@ export const AboutPage: React.FC = () => {
             </p>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '2rem' }}>
               {isAr
-                ? 'تشمل أعمالنا توريد وتوزيع المكونات الصناعية المتخصصة، وتطوير أنظمة التركيبات المخصصة، وتوفير حلول خدمات الأغذية (Food Services) للمطاعم والمقاهي، وإدارة محفظة علامات استهلاكية مميزة.'
-                : 'Our business spans specialized industrial ingredients, tailored formulation systems, professional food services solutions and a distinct consumer portfolio.'}
+                ? 'تشمل محفظة أعمالنا الأوسع عمليات مخصصة لخدمات الأغذية (Food Services) وعلامات تجارية استهلاكية، مدعومة بخبرات مشتركة وعلاقات دولية. يتم تقديم جميع الأنشطة تحت مظلة علامة مجموعة AWA، مع الحفاظ على التحديد الواضح للكيانات القانونية وعلاقات الشراكة حيثما كان ذلك مناسباً.'
+                : 'Our broader business portfolio includes a dedicated Food Services operation and consumer brands, supported by shared expertise and international relationships. All activities are presented under the AWA Group brand, while legal entities and partner relationships remain clearly identified where appropriate.'}
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
@@ -224,8 +224,8 @@ export const AboutPage: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
                 {isAr
-                  ? 'صياغة مستقبل الغذاء من خلال الابتكار والتميز التقني والشراكات الموثوقة التي تخلق قيمة دائمة عبر منظومة الغذاء.'
-                  : 'To shape the future of food through innovation, technical excellence, and trusted partnerships that create lasting value across the food ecosystem.'}
+                  ? 'صياغة مستقبل الغذاء من خلال الابتكار والتميز التقني والشراكات الموثوقة التي تخلق قيمة دائمة.'
+                  : 'To shape the future of food through innovation, technical excellence, and trusted partnerships that create lasting value.'}
               </p>
             </div>
 
@@ -238,8 +238,8 @@ export const AboutPage: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
                 {isAr
-                  ? 'تطوير وتقديم حلول غذائية مخصصة تعزز أداء المنتج، وتحسن كفاءة المعالجة، وتدعم النجاح التجاري لشركائنا.'
-                  : 'To develop and deliver tailored food solutions that enhance product performance, optimize processing efficiency, and support the commercial success of our partners.'}
+                  ? 'تطوير وتقديم حلول غذائية مخصصة تعزز أداء المنتج وتساعد عملاءنا على النجاح.'
+                  : 'To develop and deliver tailored food solutions that enhance product performance and help our customers succeed.'}
               </p>
             </div>
           </div>
@@ -319,44 +319,62 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Trust & Responsibility Links Banner */}
-      <section className="section">
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-          <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)' }}>
-            <div className="kicker">{isAr ? 'الجودة والمعايير' : 'QUALITY & CERTIFICATIONS'}</div>
-            <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
-              {isAr ? 'شهادات الجودة والسلامة المعتمدة' : 'International Standards in Practice'}
-            </h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
+      {/* 6. Our Commitments Section (Exact V9 Content) */}
+      <section className="section" id="commitments">
+        <div className="wrap">
+          <div className="section-heading" style={{ marginBottom: '2.5rem' }}>
+            <div className="kicker">{isAr ? 'التزاماتنا' : 'OUR COMMITMENTS'}</div>
+            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
+              {isAr ? (
+                <>الجودة والمسؤولية في <span className="accent">الممارسة اليومية.</span></>
+              ) : (
+                <>Quality and responsibility in <span className="accent">everyday practice.</span></>
+              )}
+            </h2>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '680px', lineHeight: 1.6, fontSize: '1rem' }}>
               {isAr
-                ? 'استعرض شهادات FSSC 22000 و ISO 9001 وشهادات الحلال والتسجيلات الرقابية لدى الهيئة القومية لسلامة الغذاء (NFSA) والـ FDA.'
-                : 'Explore FSSC 22000, ISO 9001, Halal certificates and regulatory facility registrations.'}
+                ? 'تدعم المعايير الدولية والعمليات المسؤولة قدرتنا على خدمة المصنعين والشركاء والعملاء المهنيين بثقة.'
+                : 'International standards and responsible operations support our ability to serve manufacturers, partners and professional customers with confidence.'}
             </p>
-            <Link to="/quality" className="btn btn-secondary">
-              <span>{isAr ? 'صفحة الجودة والشهادات' : 'View Quality & Certifications'}</span>
-              <ArrowRight size={15} />
-            </Link>
           </div>
 
-          <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)' }}>
-            <div className="kicker">{isAr ? 'النمو المسؤول' : 'SUSTAINABILITY & ESG'}</div>
-            <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
-              {isAr ? 'نهج الاستدامة والأثر الدائم' : 'Responsible Growth & Operations'}
-            </h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-              {isAr
-                ? 'تعرف على ركائز الاستدامة الأربع لدينا: التوريد المسؤول، وكفاءة الموارد، والابتكار المسؤول، وسلامة الأفراد.'
-                : 'Learn about our four pillars of sustainability: sourcing, resource efficiency, innovation and people.'}
-            </p>
-            <Link to="/sustainability" className="btn btn-secondary">
-              <span>{isAr ? 'صفحة الاستدامة' : 'View Sustainability'}</span>
-              <ArrowRight size={15} />
-            </Link>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div className="kicker">{isAr ? 'الجودة والشهادات ↗' : 'QUALITY & CERTIFICATIONS ↗'}</div>
+              <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
+                {isAr ? 'معايير تعزز الثقة.' : 'Standards that strengthen trust.'}
+              </h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
+                {isAr
+                  ? 'استكشف شهادات نظم الإدارة، والتغطية الخاصة بمنتجات الحلال، والتسجيلات الرقابية للمنشآت.'
+                  : 'Explore management-system certifications, product-specific Halal coverage and regulatory facility registrations.'}
+              </p>
+              <Link to="/quality" className="btn btn-secondary">
+                <span>{isAr ? 'استعرض الشهادات ↗' : 'View certifications ↗'}</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+              <div className="kicker">{isAr ? 'الاستدامة ↗' : 'SUSTAINABILITY ↗'}</div>
+              <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
+                {isAr ? 'نمو مسؤول، أثر دائم.' : 'Responsible growth, lasting impact.'}
+              </h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
+                {isAr
+                  ? 'اقرأ عن ممارسات الموردين، وكفاءة الموارد، والابتكار الغذائي المسؤول، ورفاهية بيئة العمل.'
+                  : 'Read about supplier practices, resource efficiency, responsible food innovation and workplace wellbeing.'}
+              </p>
+              <Link to="/sustainability" className="btn btn-secondary">
+                <span>{isAr ? 'استعرض نهجنا ↗' : 'View our approach ↗'}</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Closing CTA */}
+      {/* 7. Closing CTA (Exact V9 Content) */}
       <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
@@ -364,14 +382,14 @@ export const AboutPage: React.FC = () => {
               {isAr ? 'ابدأ محادثة' : 'START A CONVERSATION'}
             </div>
             <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
-              {isAr ? 'شريككم الموثوق في علوم وتصنيع الأغذية' : 'Partner with AWA Group'}
+              {isAr ? 'هل لديك تحدٍ غذائي تريد حله؟' : 'Have a food challenge to solve?'}
             </h2>
             <p style={{ color: '#CBD5E1', fontSize: '1.05rem', maxWidth: '580px' }}>
-              {isAr ? 'تواصل مع فريقنا الفني أو التجاري لمناقشة احتياجات مصنعكم وخطوط إنتاجكم.' : 'Connect with our technical or commercial teams to discuss your application needs.'}
+              {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link to="/contact" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
-            <span>{isAr ? 'تواصل معنا الآن' : 'Contact AWA'}</span>
+          <Link to="/contact?type=technical" className="btn" style={{ background: '#FFFFFF', color: 'var(--navy)', fontWeight: 800, padding: '0.9rem 1.8rem', borderRadius: '12px' }}>
+            <span>{isAr ? 'ناقش مشروعك ↗' : 'Discuss your project ↗'}</span>
             <ArrowRight size={16} />
           </Link>
         </div>
