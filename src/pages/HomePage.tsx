@@ -192,7 +192,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             muted
             loop
             playsInline
-            poster={v9Assets.v7Assets.factory}
+            poster="/images/pages/home/hero-food-science-lab.jpg"
           >
             <source src="/videos/awa-hero.mp4" type="video/mp4" />
           </video>
@@ -364,7 +364,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 3. EXPLORE OUR EXPERTISE — IMAGE-LED EXHIBITION      */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" id="explore" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
+      <section className="awa-editorial-section" id="explore" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
         <div className="wrap">
           <div className="awa-editorial-header">
             <span className="awa-editorial-kicker">
@@ -424,17 +424,18 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
           <div id="explorer-results">
             {exploreTab === 'industry' && (
               <div className="awa-industry-exhibition-grid">
-                {industryData.map((o) => {
+                {industryData.map((o, idx) => {
                   const arInfo = industryArabicTitles[o.id];
                   const cardTitle = (isAr && arInfo) ? arInfo.title : o.title;
                   const cardDesc = (isAr && arInfo) ? arInfo.desc : o.desc;
                   const assetKey = (o.id === 'bakery' ? 'bakery' : o.id === 'culinary' ? 'culinary' : o.id === 'snacks' ? 'snacks' : o.id) as keyof typeof v9Assets.v7Assets;
                   const photoSrc = (v9Assets.v7Assets as Record<string, string>)[assetKey] || v9Assets.v7Assets.factory;
+                  const isLead = idx === 0;
 
                   return (
                     <Link
                       key={o.id}
-                      className="awa-industry-frame"
+                      className={`awa-industry-frame ${isLead ? 'is-prominent-lead' : ''}`}
                       to={`/solutions/industry/${o.id}`}
                       aria-label={`Explore ${cardTitle}`}
                     >
@@ -445,7 +446,9 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                           loading="lazy"
                         />
                         <span className="awa-industry-sector-badge">
-                          {isAr ? 'قطاع تطبيقي' : 'Application Sector'}
+                          {isLead 
+                            ? (isAr ? 'قطاع رائد · تميز التطبيقات' : 'LEAD SECTOR · APPLICATION EXCELLENCE') 
+                            : (isAr ? 'قطاع تطبيقي' : 'Application Sector')}
                         </span>
                       </div>
 
@@ -528,7 +531,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 4. TECHNICAL EXPERTISE — ASYMMETRIC EDITORIAL SPREAD */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" ref={differenceRef}>
+      <section className="awa-editorial-section is-tint" ref={differenceRef}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'flex-start', marginBottom: '40px' }}>
             <div>
@@ -730,7 +733,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 6. INTERNATIONAL STANDARDS — CORPORATE SHOWCASE     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" id="certifications-home" ref={standardsRef}>
+      <section className="awa-editorial-section" id="certifications-home" ref={standardsRef}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 0.75fr', gap: '48px', alignItems: 'flex-start', marginBottom: '40px' }}>
             <div>
@@ -822,7 +825,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 7. RESPONSIBLE GROWTH — EDITORIAL SPLIT COLUMNS     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" ref={growthRef}>
+      <section className="awa-editorial-section is-tint" ref={growthRef}>
         <div className="wrap">
           <div className="awa-growth-layout">
             <div>
@@ -905,7 +908,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 8. KNOWLEDGE & INSIGHTS — PROFESSIONAL JOURNAL       */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" ref={insightsRef}>
+      <section className="awa-editorial-section" ref={insightsRef}>
         <div className="wrap">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
             <div>
@@ -958,7 +961,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 9. GLOBAL ALLIANCES & PRINCIPALS DIRECTORY          */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" ref={marqueeRef}>
+      <section className="awa-editorial-section is-tint" ref={marqueeRef}>
         <div className="wrap">
           <div style={{ maxWidth: '820px', marginBottom: '48px' }}>
             <span className="awa-editorial-kicker">{isAr ? 'الشركاء والشركات المشتركة' : 'STRATEGIC JOINT VENTURES & GLOBAL PRINCIPALS'}</span>
@@ -1008,7 +1011,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       {/* ═══════════════════════════════════════════════════ */}
       {/* 10. PRODUCTION FACILITIES — PANORAMIC PRESENTATION  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" ref={galleryRef} style={{ padding: '80px 0' }}>
+      <section className="awa-editorial-section" ref={galleryRef} style={{ padding: '80px 0' }}>
         <div className="wrap" style={{ marginBottom: '32px' }}>
           <span className="awa-editorial-kicker">{isAr ? 'البنية التحتية والمرافق' : 'FACILITIES & CAPABILITIES'}</span>
           <h2 className="awa-editorial-title" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.8rem)', margin: 0 }}>

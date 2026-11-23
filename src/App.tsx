@@ -159,7 +159,6 @@ function AppContent() {
 
       <Footer onNavigate={handleNavigate} />
       <BackToTop />
-      <FloatingSocialBar />
 
       <QuoteModal
         isOpen={isQuoteModalOpen}
