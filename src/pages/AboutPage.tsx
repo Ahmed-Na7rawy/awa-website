@@ -18,24 +18,24 @@ export const AboutPage: React.FC = () => {
 
   const values = [
     {
-      title: isAr ? 'الشراكة الموجهة بالعميل' : 'Customer-Driven Partnership',
-      desc: isAr ? 'فهم تحديات العملاء والتعاون الوثيق لتحقيق نتائج وحلول عملية.' : 'Understand customer challenges and collaborate on practical outcomes.'
+      title: isAr ? 'شراكة العملاء' : 'Customer Partnership',
+      desc: isAr ? 'فهم تحديات العملاء والتعاون لتحقيق نتائج عملية ملموسة.' : 'Understand customer challenges and collaborate on practical outcomes.'
     },
     {
-      title: isAr ? 'الدقة والصرامة العلمية' : 'Scientific Rigor',
-      desc: isAr ? 'تطبيق علوم الأغذية والمعرفة التقنية والتعلم والتطوير المستمر.' : 'Apply food science, technical knowledge and continuous learning.'
+      title: isAr ? 'الابتكار والخبرة' : 'Innovation & Expertise',
+      desc: isAr ? 'تطبيق علوم الأغذية، والمعرفة التقنية، والتعلم المستمر.' : 'Apply food science, technical knowledge and continuous learning.'
     },
     {
-      title: isAr ? 'النزاهة والموثوقية' : 'Integrity & Trust',
-      desc: isAr ? 'بناء الثقة من خلال الالتزامات الموثوقة والممارسات التشغيلية الصارمة.' : 'Build trust through reliable commitments and rigorous practices.'
+      title: isAr ? 'النزاهة والجودة' : 'Integrity & Quality',
+      desc: isAr ? 'بناء الثقة من خلال الالتزامات الموثوقة والممارسات الصارمة.' : 'Build trust through reliable commitments and rigorous practices.'
     },
     {
-      title: isAr ? 'الانضباط التشغيلي' : 'Operational Discipline',
-      desc: isAr ? 'تحمل المسؤولية الكاملة عن التنفيذ المنضبط والتطوير المستمر.' : 'Take responsibility for disciplined execution and improvement.'
+      title: isAr ? 'المسؤولية والتميز' : 'Ownership & Excellence',
+      desc: isAr ? 'تحمل المسؤولية عن التنفيذ المنضبط والتحسين المستمر.' : 'Take responsibility for disciplined execution and improvement.'
     },
     {
       title: isAr ? 'النمو المسؤول' : 'Responsible Growth',
-      desc: isAr ? 'مراعاة سلامة الأفراد، كفاءة الموارد والقيمة المستدامة في كافة قراراتنا.' : 'Consider people, resources and long-term value in our decisions.'
+      desc: isAr ? 'مراعاة الأفراد والموارد والقيمة طويلة الأجل في قراراتنا.' : 'Consider people, resources and long-term value in our decisions.'
     }
   ];
 
@@ -143,13 +143,13 @@ export const AboutPage: React.FC = () => {
               boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
               border: '1px solid var(--border-color)'
             }}>
-              <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: 800 }}>Eng. Wael Ghandour</strong>
-              <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700 }}>Founder &amp; Chairman, AWA Group</span>
+              <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: 800 }}>Wael Ghandour</strong>
+              <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700 }}>{isAr ? 'الرئيس التنفيذي · مجموعة AWA' : 'Chief Executive Officer · AWA Group'}</span>
             </div>
           </div>
 
           <div>
-            <div className="kicker">{isAr ? 'رسالة المؤسس ورئيس مجلس الإدارة' : 'FOUNDER & CHAIRMAN MESSAGE'}</div>
+            <div className="kicker">{isAr ? 'رسالة الرئيس التنفيذي' : 'CEO MESSAGE'}</div>
             <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', margin: '0.5rem 0 1.25rem' }}>
               {isAr ? (
                 <>من توريد المكونات إلى <span className="accent">شراكة دائمة ومستدامة.</span></>
@@ -280,8 +280,47 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Trust & Responsibility Links Banner */}
-      <section className="section tint">
+      {/* 5. Our Evolution Timeline (Exact V9 Content) */}
+      <section className="section tint scroll-margin" id="evolution">
+        <div className="wrap">
+          <div className="section-heading">
+            <div className="kicker">{isAr ? 'مسيرتنا وتطورنا' : 'OUR EVOLUTION'}</div>
+            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
+              {isAr ? (
+                <>خبرة تُبنى <span className="accent">عبر الزمن.</span></>
+              ) : (
+                <>Experience built <span className="accent">over time.</span></>
+              )}
+            </h2>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '680px', lineHeight: 1.6, fontSize: '1rem' }}>
+              {isAr
+                ? 'تعكس كل محطة رئيسية تطور قدراتنا، وتوسع شركاتنا المتخصصة، وشراكاتنا الدولية التي تسهم في مسيرة مجموعة AWA.'
+                : 'Each milestone reflects the development of capabilities, specialized businesses and international collaborations that contribute to the AWA Group story.'}
+            </p>
+          </div>
+
+          <div className="evolution-timeline">
+            {[
+              { year: '2005', title: isAr ? 'AWA للمكونات الغذائية' : 'AWA Food Ingredients', desc: isAr ? 'تأسيس أنشطة ومبيعات المكونات الغذائية المتخصصة.' : 'Establishing dedicated food ingredient activities.' },
+              { year: '2010', title: isAr ? 'AWA للحلول الغذائية' : 'AWA Food Solutions', desc: isAr ? 'توسيع نطاق التركيز التقني وتطوير الحلول التطبيقية للمصانع.' : 'Expanding the group’s technical and solution-development focus.' },
+              { year: '2018', title: isAr ? 'AWA للمكونات الحيوية' : 'AWA Bio Ingredients', desc: isAr ? 'تطوير محفظة المكونات والمستخلصات الحيوية المتخصصة.' : 'Further developing the specialized ingredient portfolio.' },
+              { year: '2020', title: isAr ? 'AWA BAY' : 'AWA BAY', desc: isAr ? 'توسيع الهيكل المؤسسي وشبكة أعمال المجموعة.' : 'Broadening the group’s business structure and reach.' },
+              { year: '2021', title: isAr ? 'مجموعة AWA' : 'AWA Group', desc: isAr ? 'توحيد كافة قطاعات ووحدات الأعمال تحت علامة مؤسسية واحدة.' : 'Bringing the businesses together under one group brand.' },
+              { year: '2022', title: isAr ? 'مشروع تركفوس المشترك' : 'Turkphos Joint Venture', desc: isAr ? 'تعزيز قدرات أملاح الاستحلاب وأنظمة الفوسفات المتخصصة.' : 'Strengthening specialized phosphate and emulsifying salt capabilities.' },
+              { year: '2025', title: isAr ? 'مشروع إنغريفا المشترك' : 'Ingreva Joint Venture', desc: isAr ? 'توسيع التعاون في أنظمة الأغذية الصناعية والوظيفية.' : 'Extending collaboration in industrial functional food systems.' },
+            ].map((m) => (
+              <div key={m.year} className="evolution-stop">
+                <span>{m.year}</span>
+                <strong>{m.title}</strong>
+                <p>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Trust & Responsibility Links Banner */}
+      <section className="section">
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
           <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)' }}>
             <div className="kicker">{isAr ? 'الجودة والمعايير' : 'QUALITY & CERTIFICATIONS'}</div>
