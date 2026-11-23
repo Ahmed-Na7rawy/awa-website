@@ -75,22 +75,37 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {
           heading: language === 'ar' ? 'استكشاف حسب الصناعة' : 'By Industry',
           links: [
-            { label: language === 'ar' ? 'الألبان والأجبان' : 'Dairy & Cheese', href: '/solutions/industry/dairy-cheese' },
-            { label: language === 'ar' ? 'اللحوم والمصنعات' : 'Meat & Seafood', href: '/solutions/industry/meat-seafood' },
-            { label: language === 'ar' ? 'المخبوزات والبسكويت' : 'Bakery & Biscuits', href: '/solutions/industry/bakery' },
-            { label: language === 'ar' ? 'المشروبات والعصائر' : 'Beverages & Juices', href: '/solutions/industry/beverages' },
-            { label: language === 'ar' ? 'الصلصات والكاتشب' : 'Culinary & Sauces', href: '/solutions/industry/culinary' },
-            { label: language === 'ar' ? 'المقرمشات والسناكس' : 'Snacks & Savory', href: '/solutions/industry/snacks' },
+            { label: language === 'ar' ? 'الألبان والأجبان والمثلجات' : 'Dairy, Cheese & Frozen Desserts', href: '/solutions/industry/dairy-cheese' },
+            { label: language === 'ar' ? 'اللحوم والدواجن والأسماك' : 'Meat, Poultry & Seafood', href: '/solutions/industry/meat-seafood' },
+            { label: language === 'ar' ? 'المخبوزات والحلويات' : 'Bakery & Confectionery', href: '/solutions/industry/bakery' },
+            { label: language === 'ar' ? 'المشروبات والعصائر' : 'Beverages', href: '/solutions/industry/beverages' },
+            { label: language === 'ar' ? 'الصلصات والشوربات والمأكولات' : 'Sauces, Soups & Culinary', href: '/solutions/industry/culinary' },
+            { label: language === 'ar' ? 'المقرمشات والسناكس وحبوب الإفطار' : 'Snacks & Cereals', href: '/solutions/industry/snacks' },
           ]
         },
         {
-          heading: language === 'ar' ? 'عائلات المنتجات والمواصفات' : 'Product Families',
+          heading: language === 'ar' ? 'استكشاف حسب التحدي' : 'By Challenge',
+          links: [
+            { label: language === 'ar' ? 'القوام والتركيب البنائي' : 'Texture & Structure', href: '/solutions/challenge/texture' },
+            { label: language === 'ar' ? 'الثبات وفترة الصلاحية' : 'Stability & Shelf Life', href: '/solutions/challenge/stability' },
+            { label: language === 'ar' ? 'المذاق والخواص الحسية' : 'Taste & Sensory', href: '/solutions/challenge/taste' },
+            { label: language === 'ar' ? 'الإنتاجية وكفاءة التصنيع' : 'Yield & Processing', href: '/solutions/challenge/yield' },
+            { label: language === 'ar' ? 'التركيبات الاقتصادية والجدوى' : 'Cost-Effective Formulations', href: '/solutions/challenge/affordability' },
+            { label: language === 'ar' ? 'التغذية وإعادة الصياغة' : 'Nutrition & Reformulation', href: '/solutions/challenge/nutrition-reformulation' },
+            { label: language === 'ar' ? 'اللون والمظهر البصري' : 'Color & Appearance', href: '/solutions/challenge/appearance' },
+            { label: language === 'ar' ? 'تطوير المنتجات الجديدة' : 'New Product Development', href: '/solutions/challenge/new-product' },
+          ]
+        },
+        {
+          heading: language === 'ar' ? 'عائلات المنتجات والمواصفات' : 'By Product Family',
           links: [
             { label: language === 'ar' ? 'كتالوج كافة المنتجات (Catalogue)' : 'All Product Families (Catalogue)', href: '/solutions/catalogue' },
-            { label: language === 'ar' ? 'أنظمة القوام والتركيب' : 'Texture & Structure', href: '/solutions/family/texture-structure' },
-            { label: language === 'ar' ? 'المذاق والنكهات' : 'Taste & Sensory', href: '/solutions/family/taste-sensory' },
-            { label: language === 'ar' ? 'الحفظ والأمان الغذائي' : 'Preservation & Shelf Life', href: '/solutions/family/preservation' },
-            { label: language === 'ar' ? 'الأداء الوظيفي' : 'Functional Processing', href: '/solutions/family/functional-processing' },
+            { label: language === 'ar' ? 'حلول القوام والتركيب البنائي' : 'Texture & Structure Solutions', href: '/solutions/family/texture-structure' },
+            { label: language === 'ar' ? 'حلول المذاق والخواص الحسية' : 'Taste & Sensory Solutions', href: '/solutions/family/taste-sensory' },
+            { label: language === 'ar' ? 'حلول الحفظ وفترة الصلاحية' : 'Preservation & Shelf Life', href: '/solutions/family/preservation' },
+            { label: language === 'ar' ? 'حلول التغذية والتدعيم' : 'Nutrition Solutions', href: '/solutions/family/nutrition' },
+            { label: language === 'ar' ? 'حلول اللون والمظهر البصري' : 'Color & Appearance Solutions', href: '/solutions/family/color-appearance' },
+            { label: language === 'ar' ? 'حلول الأداء الوظيفي والمعالجة' : 'Functional Processing Solutions', href: '/solutions/family/functional-processing' },
           ]
         }
       ]
@@ -101,13 +116,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
       route: '/food-services',
       columns: [
         {
-          heading: language === 'ar' ? 'قطاعات خدمات الأغذية' : 'Food Services Sectors',
+          heading: language === 'ar' ? 'قطاعات وحلول خدمات الأغذية' : 'Food Services Solutions & Sectors',
           links: [
-            { label: language === 'ar' ? 'نظرة عامة على القطاع' : 'Overview & Capabilities', href: '/food-services' },
+            { label: language === 'ar' ? 'نظرة عامة على القطاع والقدرات' : 'Overview & Capabilities', href: '/food-services' },
             { label: language === 'ar' ? 'حلول المقاهي والمشروبات' : 'Beverage & Café Solutions', href: '/food-services#beverages' },
-            { label: language === 'ar' ? 'حلول الطهي والمطابخ' : 'Culinary & Savory Solutions', href: '/food-services#culinary' },
-            { label: language === 'ar' ? 'المخبوزات والحلويات' : 'Bakery & Dessert Solutions', href: '/food-services#desserts' },
-            { label: language === 'ar' ? 'التوريد المؤسسي والفندقي' : 'Institutional & Bulk Catering', href: '/food-services#catering' },
+            { label: language === 'ar' ? 'حلول الفنادق والضيافة' : 'Hotel & Hospitality Solutions', href: '/food-services#hospitality' },
+            { label: language === 'ar' ? 'حلول الطهي والمطابخ الاحترافية' : 'Culinary & Savory Solutions', href: '/food-services#culinary' },
+            { label: language === 'ar' ? 'الدعم التشغيلي والحلول المخصصة' : 'Tailored Operational Support', href: '/food-services#tailored' },
           ]
         }
       ]
@@ -121,21 +136,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
           heading: language === 'ar' ? 'علامات AWA الاستهلاكية' : 'AWA-Owned Brands',
           links: [
             { label: 'Sweet & Slim (Diet Sweeteners)', href: '/brands/sweet-and-slim' },
-            { label: 'Yalla Drinks (Café Beverages)', href: '/brands/yalla-drinks' },
+            { label: 'Yalla Drinks (Café Beverages & Frappé)', href: '/brands/yalla-drinks' },
             { label: "Squ'easy (Garlic & Harissa Preparations)", href: '/brands/squeasy' },
+            { label: language === 'ar' ? 'استعراض العلامات المملوكة' : 'All Owned Brands Overview', href: '/brands#owned' },
           ]
         },
         {
           heading: language === 'ar' ? 'المنتجات الشريكة' : 'Partnered Retail Products',
           links: [
-            { label: language === 'ar' ? 'سري (أغذية التجزئة والشوربة)' : 'SIRRI Foods (Instant Soups & Culinary)', href: '/brands/sirri' },
+            { label: language === 'ar' ? 'سري (أكواب شوربة فورية وقواعد طهي)' : 'SIRRI Foods (Instant Soups & Culinary)', href: '/brands/sirri' },
+            { label: language === 'ar' ? 'استعراض الشراكة الدولية لـ SIRRI' : 'Partner Collaboration Overview', href: '/brands#partnered' },
           ]
         }
       ]
     },
     {
       id: 'capabilities',
-      label: language === 'ar' ? 'قدراتنا' : 'Capabilities',
+      label: language === 'ar' ? 'قدراتنا' : 'Our Capabilities',
       route: '/capabilities',
       columns: [
         {
@@ -164,14 +181,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
           heading: language === 'ar' ? 'المشاريع المشتركة' : 'Strategic Joint Ventures',
           links: [
             { label: 'Turkphos (Türkiye / Egypt)', href: '/turkphos' },
-            { label: 'Ingreva (Estonia)', href: '/ingreva' },
+            { label: 'Ingreva (Estonia / Europe)', href: '/ingreva' },
+            { label: language === 'ar' ? 'نظرة عامة على المشاريع المشتركة' : 'Joint Ventures Overview', href: '/global#joint-ventures' },
           ]
         },
         {
           heading: language === 'ar' ? 'الشركاء والوكالات العالمية' : 'Global Principal Network',
           links: [
-            { label: language === 'ar' ? 'استعراض الشركاء الدوليين' : 'Explore Global Principals', href: '/global/principals' },
-            { label: language === 'ar' ? 'فرص التصدير والشراكة' : 'Export & International Trade', href: '/global/exports' },
+            { label: language === 'ar' ? 'استعراض كافة التوكيلات (9 شركاء)' : 'Explore All 9 Principals', href: '/global/principals' },
+            { label: 'Siveele (The Netherlands)', href: '/global/principals' },
+            { label: 'JRS Silvateam (Germany / Italy)', href: '/global/principals' },
+            { label: 'AIPU Food (China)', href: '/global/principals' },
+            { label: 'Škrobárny Pelhřimov (Czech Republic)', href: '/global/principals' },
+            { label: 'Madhu Silica (India)', href: '/global/principals' },
+            { label: 'Mokate Ingredients (Poland)', href: '/global/principals' },
+            { label: 'Mayasan (Türkiye)', href: '/global/principals' },
+          ]
+        },
+        {
+          heading: language === 'ar' ? 'الأعمال الدولية والتصدير' : 'International Business',
+          links: [
+            { label: language === 'ar' ? 'فرص التصدير والشراكة (20+ سوق)' : 'Export & International Trade (20+ Markets)', href: '/global/exports' },
+            { label: language === 'ar' ? 'الاتفاقيات التجارية (إعفاء 0% GAFTA)' : 'Trade Agreements (0% GAFTA & COMESA)', href: '/global/exports' },
+            { label: language === 'ar' ? 'بدء مناقشة تعاون دولي' : 'Discuss a Collaboration', href: '/contact?type=partnership' },
           ]
         }
       ]
@@ -271,17 +303,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                       style={{
                         position: 'absolute',
                         top: '100%',
-                        left: language === 'ar' ? 'auto' : '0',
-                        right: language === 'ar' ? '0' : 'auto',
+                        left: language === 'ar' ? (item.id === 'global' || item.id === 'capabilities' ? '0' : 'auto') : (item.id === 'global' || item.id === 'capabilities' ? 'auto' : '0'),
+                        right: language === 'ar' ? (item.id === 'global' || item.id === 'capabilities' ? 'auto' : '0') : (item.id === 'global' || item.id === 'capabilities' ? '0' : 'auto'),
                         background: '#FFFFFF',
                         borderRadius: '16px',
                         boxShadow: '0 20px 50px rgba(15, 23, 42, 0.12)',
                         border: '1px solid var(--border-color)',
-                        padding: '1.5rem',
-                        minWidth: item.columns.length > 1 ? '540px' : '300px',
+                        padding: '1.75rem',
+                        minWidth: item.columns.length > 2 ? '860px' : (item.columns.length > 1 ? '560px' : '320px'),
+                        maxWidth: '92vw',
                         display: 'grid',
                         gridTemplateColumns: `repeat(${item.columns.length}, 1fr)`,
-                        gap: '1.5rem',
+                        gap: '1.75rem',
                         zIndex: 1000
                       }}
                     >
@@ -309,9 +342,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    padding: '0.4rem 0.6rem',
+                                    padding: '0.35rem 0.5rem',
                                     borderRadius: '8px',
-                                    fontSize: '0.875rem',
+                                    fontSize: '0.825rem',
+                                    lineHeight: 1.35,
                                     color: 'var(--text-main)',
                                     transition: 'all 0.15s ease'
                                   }}
