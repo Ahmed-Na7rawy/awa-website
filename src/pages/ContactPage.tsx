@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, ArrowRight
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { v9Assets } from '../data/v9Data';
 
 export const ContactPage: React.FC = () => {
   const { language } = useLanguage();
@@ -123,15 +124,20 @@ export const ContactPage: React.FC = () => {
       <div className="contact-page" style={{ background: '#FFFFFF' }}>
         {/* HERO SECTION */}
         <section
+          className="page-hero page-hero--visual"
           style={{
-            background: 'linear-gradient(135deg, #10263B 0%, #1A3654 100%)',
-            color: '#FFFFFF',
-            padding: '5rem 0 4.5rem',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
-          <div className="container">
+          <div className="page-hero-media">
+            <img 
+              src={v9Assets.v8Assets['industrial-plant']} 
+              alt="AWA Operations & Contacts" 
+              loading="eager" 
+            />
+          </div>
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ maxWidth: '780px' }}>
               <div
                 style={{

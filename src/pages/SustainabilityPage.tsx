@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Leaf, ShieldCheck, Cpu, Users, ArrowRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+import { v9Assets } from '../data/v9Data';
 
 export const SustainabilityPage: React.FC = () => {
   const { language } = useLanguage();
@@ -54,18 +55,30 @@ export const SustainabilityPage: React.FC = () => {
         }
       />
 
-      <div className="v9-page">
+      <div className="v9-page" style={{ background: '#FFFFFF' }}>
         {/* HERO */}
-        <section className="v9-hero">
-          <div className="v9-hero-inner">
-            <span className="v9-hero-badge">
+        <section className="page-hero page-hero--visual">
+          <div className="page-hero-media">
+            <img 
+              src={v9Assets.v8Assets['sourcing-port']} 
+              alt="Responsible Growth & Sustainability" 
+              loading="eager" 
+            />
+          </div>
+          <div className="wrap page-hero-content">
+            <div className="breadcrumb">
+              <Link to="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+              <span>›</span>
+              <span>{isAr ? 'الاستدامة' : 'Sustainability'}</span>
+            </div>
+            <div className="kicker on-dark">
               {isAr ? 'عن AWA / الاستدامة' : 'ABOUT / SUSTAINABILITY'}
-            </span>
-            <h1 className="v9-hero-title">
+            </div>
+            <h1>
               {isAr ? 'نمو مسؤول. ' : 'Responsible Growth. '}
               <em className="italic">{isAr ? 'أثر دائم.' : 'Lasting Impact.'}</em>
             </h1>
-            <p className="v9-hero-subtitle">
+            <p>
               {isAr
                 ? 'تتبع مجموعة AWA نهج الاستدامة عبر التوريد المسؤول وكفاءة الموارد والابتكار التكنولوجي والالتزام بعمليات آمنة وخاضعة للمساءلة.'
                 : 'AWA Group approaches sustainability through responsible sourcing, resource efficiency, product innovation and a commitment to safe, accountable operations.'}

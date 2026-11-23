@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BookOpen, FileText, Sparkles, Building2, ArrowRight, Lightbulb, CheckCircle2 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+import { v9Assets } from '../data/v9Data';
 
 export const KnowledgePage: React.FC = () => {
   const { language } = useLanguage();
@@ -55,18 +56,30 @@ export const KnowledgePage: React.FC = () => {
         }
       />
 
-      <div className="v9-page">
+      <div className="v9-page" style={{ background: '#FFFFFF' }}>
         {/* HERO */}
-        <section className="v9-hero">
-          <div className="v9-hero-inner">
-            <span className="v9-hero-badge">
+        <section className="page-hero page-hero--visual">
+          <div className="page-hero-media">
+            <img 
+              src={v9Assets.v8Assets['rd-lab']} 
+              alt="Knowledge Hub & Technical Insights" 
+              loading="eager" 
+            />
+          </div>
+          <div className="wrap page-hero-content">
+            <div className="breadcrumb">
+              <Link to="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+              <span>›</span>
+              <span>{isAr ? 'منصة المعرفة' : 'Knowledge Hub'}</span>
+            </div>
+            <div className="kicker on-dark">
               {isAr ? 'منصة المعرفة / التواصل المؤسسي' : 'KNOWLEDGE HUB / TECHNICAL COMMUNICATION'}
-            </span>
-            <h1 className="v9-hero-title">
+            </div>
+            <h1>
               {isAr ? 'أفكار، وتطورات، ' : 'Ideas, developments and '}
               <em className="italic">{isAr ? 'ورؤى صناعية متعمقة.' : 'industry insight.'}</em>
             </h1>
-            <p className="v9-hero-subtitle">
+            <p>
               {isAr
                 ? 'منصة معرفية مخصصة لجعل إمكانيات مجموعة AWA ملموسة من خلال محتوى تقني ومؤسسي مفيد ومعتمد يخدم قطاع تصنيع الأغذية.'
                 : 'A knowledge platform designed to make AWA’s capabilities tangible through useful, approved technical and corporate content.'}

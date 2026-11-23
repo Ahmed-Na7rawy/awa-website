@@ -73,7 +73,7 @@ export const StrategicManufacturingPage: React.FC = () => {
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
           <img 
-            src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.factory} 
+            src={v9Assets.v7Assets.factory} 
             alt="Strategic Contract Manufacturing" 
             loading="eager" 
           />
