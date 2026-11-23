@@ -194,6 +194,9 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
     }
   }, []);
 
+  // State for Section 1 filter tabs
+  const [exploreTab, setExploreTab] = useState<'industry' | 'challenge' | 'family'>('industry');
+
   // State for interactive facilities showcase
   const [activeFacility, setActiveFacility] = useState(0);
 
@@ -231,6 +234,65 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       tag: isAr ? 'أنظمة الجودة' : 'Quality Systems'
     }
   ];
+
+  // Symmetrical 3x2 Grid items for Section 1
+  const industryGridItems = industryData.map((o, idx) => {
+    const arInfo = industryArabicTitles[o.id];
+    const cardTitle = (isAr && arInfo) ? arInfo.title : o.title;
+    const cardDesc = (isAr && arInfo) ? arInfo.desc : o.desc;
+    const assetKey = (o.id === 'bakery' ? 'bakery' : o.id === 'culinary' ? 'culinary' : o.id === 'snacks' ? 'snacks' : o.id) as keyof typeof v9Assets.v7Assets;
+    const photoSrc = (v9Assets.v7Assets as Record<string, string>)[assetKey] || v9Assets.v7Assets.factory;
+    return {
+      id: o.id,
+      title: cardTitle,
+      desc: cardDesc,
+      image: photoSrc,
+      eyebrow: isAr ? `قطاع تطبيقي 0${idx + 1}` : `SECTOR 0${idx + 1}`,
+      link: `/solutions/industry/${o.id}`
+    };
+  });
+
+  const challengeGridImages = [
+    '/images/pages/home/food-chemistry-formulation.jpg',
+    '/images/pages/home/sensory-rheology-lab.jpg',
+    v9Assets.v7Assets.factory,
+    v9Assets.v7Assets.sourcing,
+    v9Assets.v8Assets['rd-lab'],
+    '/images/pages/home/pilot-plant-dairy-testing.jpg'
+  ];
+
+  const challengeGridItems = challengeData.slice(0, 6).map((c, idx) => ({
+    id: c.id,
+    title: c.title,
+    desc: c.desc,
+    image: challengeGridImages[idx] || v9Assets.v7Assets.factory,
+    eyebrow: isAr ? `تحدٍ صناعي 0${idx + 1}` : `CHALLENGE 0${idx + 1}`,
+    link: '/solutions'
+  }));
+
+  const familyGridImages = [
+    v9Assets.v7Assets['dairy-cheese'],
+    v9Assets.v8Assets['food-cuisine'],
+    v9Assets.v8Assets['rd-wide'],
+    v9Assets.v8Assets['rd-lab'],
+    v9Assets.v8Assets['cheese-banner'],
+    v9Assets.v7Assets.factory
+  ];
+
+  const familyGridItems = familyData.slice(0, 6).map((f, idx) => ({
+    id: f.id,
+    title: f.title,
+    desc: f.desc,
+    image: familyGridImages[idx] || v9Assets.v7Assets.factory,
+    eyebrow: isAr ? `عائلة منتجات 0${idx + 1}` : `PRODUCT FAMILY 0${idx + 1}`,
+    link: '/solutions/catalogue'
+  }));
+
+  const currentGridItems = exploreTab === 'challenge' 
+    ? challengeGridItems 
+    : exploreTab === 'family' 
+    ? familyGridItems 
+    : industryGridItems;
 
   return (
     <div className="home-page" style={{ background: '#FFFFFF' }}>
@@ -349,377 +411,329 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 2. FOOD INDUSTRY SOLUTIONS — MODERN ARCHITECTURAL SHOWCASE */}
+      {/* 1. FOOD INDUSTRY SOLUTIONS — SYMMETRICAL 3×2 GRID   */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" id="solutions" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
+      <section className="awa-section-swiss awa-section-white" id="solutions" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
         <div className="wrap">
-          <div className="awa-editorial-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px', marginBottom: '44px' }}>
-            <div style={{ maxWidth: '780px' }}>
-              <span className="awa-editorial-kicker">
-                {isAr ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
-              </span>
-              <h2 className="awa-editorial-title" style={{ margin: '0 0 14px 0' }}>
-                {isAr ? (
-                  <>محفظة حلول الأغذية الصناعية.<br /><span style={{ color: 'var(--awa-green-accent)' }}>تطبيقات متخصصة وأداء مثبت.</span></>
-                ) : (
-                  <>Industrial Food Solutions.<br /><span style={{ color: 'var(--awa-green-accent)' }}>Engineered for Processing Excellence.</span></>
-                )}
-              </h2>
-              <p className="awa-editorial-desc">
-                {isAr
-                  ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة حول متطلبات التصنيع الخاصة. حلول متطورة مصممة لدعم كفاءة التشغيل والجودة العالية عبر 6 قطاعات تصنيعية رئيسية.'
-                  : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Engineered to optimize texture, stability and yield across six core food processing sectors.'}
-              </p>
+          {/* Header Layout */}
+          <div style={{ marginBottom: '32px' }}>
+            <span className="awa-swiss-eyebrow">
+              <span className="awa-swiss-eyebrow-dot" />
+              {isAr ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
+            </span>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+              <div>
+                <h2 className="awa-swiss-title" style={{ margin: 0 }}>
+                  {isAr ? (
+                    <>استكشف خبراتنا <span style={{ color: '#00A859' }}>حسب متطلباتك.</span></>
+                  ) : (
+                    <>Explore our expertise <span style={{ color: '#00A859' }}>your way.</span></>
+                  )}
+                </h2>
+              </div>
+              <div>
+                <p className="awa-swiss-desc">
+                  {isAr
+                    ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة حول متطلبات التصنيع الخاصة. حلول متطورة مصممة لدعم كفاءة التشغيل والجودة العالية.'
+                    : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements across core food sectors.'}
+                </p>
+              </div>
             </div>
-            <div>
-              <Link 
-                to="/solutions/catalogue" 
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  background: 'var(--awa-surface-offwhite)',
-                  color: 'var(--awa-navy-main)',
-                  border: '1px solid var(--awa-border-hairline)',
-                  padding: '12px 22px',
-                  borderRadius: '9999px',
-                  fontWeight: 750,
-                  fontSize: '13.5px',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease',
-                  whiteSpace: 'nowrap'
-                }}
+          </div>
+
+          {/* Symmetrical Filter Tab Bar */}
+          <div className="awa-swiss-tabbar">
+            <button
+              type="button"
+              className={`awa-swiss-tab ${exploreTab === 'industry' ? 'is-active' : ''}`}
+              onClick={() => setExploreTab('industry')}
+            >
+              {isAr ? 'حسب قطاع الصناعة (06)' : 'By Industry (06)'}
+            </button>
+            <button
+              type="button"
+              className={`awa-swiss-tab ${exploreTab === 'challenge' ? 'is-active' : ''}`}
+              onClick={() => setExploreTab('challenge')}
+            >
+              {isAr ? 'حسب التحدي التقني (06)' : 'By Technical Challenge (06)'}
+            </button>
+            <button
+              type="button"
+              className={`awa-swiss-tab ${exploreTab === 'family' ? 'is-active' : ''}`}
+              onClick={() => setExploreTab('family')}
+            >
+              {isAr ? 'حسب عائلة المنتجات (06)' : 'By Product Family (06)'}
+            </button>
+          </div>
+
+          {/* Symmetrical 3-Column × 2-Row Grid */}
+          <div className="awa-swiss-grid-3">
+            {currentGridItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.link}
+                className="awa-swiss-card"
+                aria-label={`Explore ${item.title}`}
               >
-                <span>{isAr ? 'كتالوج المنتجات والمكونات ↗' : 'Browse Product Catalogue ↗'}</span>
+                <div className="awa-swiss-card-media">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+                <div className="awa-swiss-card-body">
+                  <div>
+                    <span className="awa-swiss-card-tag">{item.eyebrow}</span>
+                    <h3 className="awa-swiss-card-title">{item.title}</h3>
+                    <p className="awa-swiss-card-text">{item.desc}</p>
+                  </div>
+                  <span className="awa-swiss-card-link">
+                    <span>{isAr ? 'استكشف الحلول ↗' : 'Explore solution →'}</span>
+                  </span>
+                </div>
               </Link>
-            </div>
+            ))}
           </div>
 
-          {/* Single Modern Industry Grid */}
-          <div className="awa-industry-exhibition-grid">
-            {industryData.map((o, idx) => {
-              const arInfo = industryArabicTitles[o.id];
-              const cardTitle = (isAr && arInfo) ? arInfo.title : o.title;
-              const cardDesc = (isAr && arInfo) ? arInfo.desc : o.desc;
-              const assetKey = (o.id === 'bakery' ? 'bakery' : o.id === 'culinary' ? 'culinary' : o.id === 'snacks' ? 'snacks' : o.id) as keyof typeof v9Assets.v7Assets;
-              const photoSrc = (v9Assets.v7Assets as Record<string, string>)[assetKey] || v9Assets.v7Assets.factory;
-              const isLead = idx === 0;
-
-              return (
-                <Link
-                  key={o.id}
-                  className={`awa-industry-frame ${isLead ? 'is-prominent-lead' : ''}`}
-                  to={`/solutions/industry/${o.id}`}
-                  aria-label={`Explore ${cardTitle}`}
-                >
-                  <div className="awa-industry-media">
-                    <img
-                      src={photoSrc}
-                      alt={`Close-up food application photography for ${cardTitle}`}
-                      loading="lazy"
-                    />
-                    <span className="awa-industry-sector-badge">
-                      {isLead 
-                        ? (isAr ? 'القطاع الرئيسي · حلول الألبان' : 'FLAGSHIP SECTOR · DAIRY & CHEESE') 
-                        : (isAr ? `قطاع تطبيقي 0${idx + 1}` : `SECTOR 0${idx + 1}`)}
-                    </span>
-                  </div>
-
-                  <div className="awa-industry-content">
-                    <h3 className="awa-industry-name">{cardTitle}</h3>
-                    <p className="awa-industry-summary">{cardDesc}</p>
-                    <span className="awa-industry-action">
-                      <span>{isAr ? 'استكشف الحلول والتطبيقات' : 'Explore solutions'}</span>
-                      <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--awa-border-hairline)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-            <span style={{ fontSize: '13.5px', color: 'var(--awa-charcoal-muted)' }}>
+          {/* Bottom Directory Link */}
+          <div style={{ marginTop: '36px', paddingTop: '20px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+            <span style={{ fontSize: '13.5px', color: '#64748B' }}>
               {isAr 
                 ? 'هل تبحث عن أنظمة وظيفية مخصصة أو تركيبات خاصة؟ تواصل مع خبرائنا التطبيقيين.' 
                 : 'Need custom functional systems or specific processing support? Consult our application specialists.'}
             </span>
             <Link 
-              to="/solutions" 
+              to="/solutions/catalogue" 
               style={{ 
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '8px', 
-                fontSize: '14px', 
-                fontWeight: 800, 
-                color: 'var(--awa-green-accent)',
+                fontSize: '13.5px', 
+                fontWeight: 750, 
+                color: '#00A859',
                 textDecoration: 'none'
               }}
             >
-              <span>{isAr ? 'استكشف دليل الحلول الكامل ↗' : 'Explore full solutions directory ↗'}</span>
+              <span>{isAr ? 'كتالوج المنتجات والمكونات ↗' : 'Browse Product Catalogue ↗'}</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 4. TECHNICAL EXPERTISE — ASYMMETRIC EDITORIAL SPREAD */}
+      {/* 2. THE AWA DIFFERENCE — SYMMETRICAL 3-COLUMN CARDS  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" ref={differenceRef}>
+      <section className="awa-section-swiss awa-section-offwhite" ref={differenceRef}>
         <div className="wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'flex-start', marginBottom: '40px' }}>
+          {/* Header Layout: 6 cols title / 6 cols description */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start', marginBottom: '44px' }}>
             <div>
-              <span className="awa-editorial-kicker">{isAr ? 'تميز مجموعة AWA' : 'THE AWA DIFFERENCE'}</span>
-              <h2 className="awa-editorial-title" style={{ margin: 0 }}>
+              <span className="awa-swiss-eyebrow">
+                <span className="awa-swiss-eyebrow-dot" />
+                {isAr ? 'تميز مجموعة AWA' : 'THE AWA DIFFERENCE'}
+              </span>
+              <h2 className="awa-swiss-title" style={{ margin: 0 }}>
                 {isAr ? (
-                  <>خبرة تقنية مخصصة<br /><span style={{ color: 'var(--awa-green-accent)' }}>لتطبيقك الصناعي.</span></>
+                  <>خبرة تقنية مخصصة<br /><span style={{ color: '#00A859' }}>لتطبيقك الصناعي.</span></>
                 ) : (
-                  <>Technical expertise, tailored to<br /><span style={{ color: 'var(--awa-green-accent)' }}>your application.</span></>
+                  <>Technical expertise, tailored to<br /><span style={{ color: '#00A859' }}>your application.</span></>
                 )}
               </h2>
             </div>
-            <div style={{ paddingTop: '12px' }}>
-              <p className="awa-editorial-desc" style={{ marginBottom: '20px' }}>
+            <div style={{ paddingTop: '8px' }}>
+              <p className="awa-swiss-desc" style={{ marginBottom: '18px' }}>
                 {isAr
                   ? 'تجمع مجموعة AWA بين المعرفة الدولية بالمكونات، وعلوم الأغذية التطبيقية، والخبرة التصنيعية لمساعدة مصنعي الأغذية في معالجة تحديات المنتجات والمعالجة الصناعية. نقيم الخواص الوظيفية للمكونات، ومتطلبات التصنيع، وجدوى التركيبات الاقتصادية لتطوير حلول عملية تلائم كل تطبيق.'
                   : 'AWA brings together international ingredient expertise, applied food science and manufacturing knowledge to help food manufacturers solve product and processing challenges. We evaluate ingredient functionality, processing requirements and formulation economics to develop practical solutions suited to each application.'}
               </p>
-              <Link to="/about" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '14px', fontWeight: 800, color: 'var(--awa-green-accent)', textDecoration: 'none' }}>
+              <Link 
+                to="/about" 
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '6px', 
+                  fontSize: '13.5px', 
+                  fontWeight: 750, 
+                  color: '#00A859', 
+                  textDecoration: 'none' 
+                }}
+              >
                 <span>{isAr ? 'اكتشف من نحن ↗' : 'Discover who we are ↗'}</span>
               </Link>
             </div>
           </div>
 
-          {/* Asymmetric Composition */}
-          <div className="awa-asymmetric-spread">
-            {/* Lead Pillar 01: Global Sourcing & Supply */}
-            <Link to="/capabilities/sourcing" className="awa-lead-pillar">
-              <div className="awa-lead-pillar-media">
+          {/* Symmetrical 3-Column Equal-Height Architectural Cards */}
+          <div className="awa-swiss-grid-3">
+            {/* Card 01: Global Sourcing & Supply */}
+            <Link to="/capabilities/sourcing" className="awa-swiss-card">
+              <div className="awa-swiss-card-media">
                 <img 
                   src={v9Assets.v7Assets.sourcing} 
-                  alt="Food ingredient consignments and international sourcing operations, conceptual illustration" 
-                  loading="eager" 
+                  alt="Global Sourcing & Supply logistics operations" 
+                  loading="lazy" 
                 />
               </div>
-              <div className="awa-lead-pillar-body">
+              <div className="awa-swiss-card-body">
                 <div>
-                  <span className="awa-pillar-numeral">01 / GLOBAL REACH</span>
-                  <h3 className="awa-pillar-title">
+                  <span className="awa-swiss-card-tag">01 / GLOBAL REACH</span>
+                  <h3 className="awa-swiss-card-title">
                     {isAr ? 'التوريد وسلاسل الإمداد العالمية' : 'Global Sourcing & Supply'}
                   </h3>
-                  <h4 className="awa-pillar-subtitle">
+                  <p style={{ fontSize: '13px', fontWeight: 650, color: '#00A859', marginBottom: '8px' }}>
                     {isAr ? 'تحديد واختيار المكونات والتقنيات المناسبة.' : 'Identify the right ingredients and technologies.'}
-                  </h4>
-                  <p className="awa-pillar-text">
+                  </p>
+                  <p className="awa-swiss-card-text" style={{ WebkitLineClamp: 3 }}>
                     {capabilityData[0].desc}
                   </p>
                 </div>
-                <div className="awa-pillar-action">
-                  <span>{isAr ? 'استكشف قدرات التوريد' : 'Explore sourcing capability'}</span>
-                  <ArrowRight size={15} />
-                </div>
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف قدرات التوريد ↗' : 'Explore sourcing capability →'}</span>
+                </span>
               </div>
             </Link>
 
-            {/* Stacked Pillars 02 & 03: R&D and Manufacturing */}
-            <div className="awa-secondary-pillars-stack">
-              {/* Pillar 02: R&D */}
-              <Link to="/capabilities/rd" className="awa-compact-pillar">
-                <div className="awa-compact-pillar-media">
-                  <img 
-                    src={v9Assets.v7Assets.formulation} 
-                    alt="Illustrative food R&D laboratory conducting formulation evaluations" 
-                    loading="eager" 
-                  />
+            {/* Card 02: R&D & Application Development */}
+            <Link to="/capabilities/rd" className="awa-swiss-card">
+              <div className="awa-swiss-card-media">
+                <img 
+                  src={v9Assets.v7Assets.formulation} 
+                  alt="AWA R&D Application Development laboratory" 
+                  loading="lazy" 
+                />
+              </div>
+              <div className="awa-swiss-card-body">
+                <div>
+                  <span className="awa-swiss-card-tag">02 / APPLIED SCIENCE</span>
+                  <h3 className="awa-swiss-card-title">
+                    {isAr ? 'البحث والتطوير وتطبيقات الأغذية' : 'R&D & Application Development'}
+                  </h3>
+                  <p style={{ fontSize: '13px', fontWeight: 650, color: '#00A859', marginBottom: '8px' }}>
+                    {isAr ? 'بناء الوظيفة المطلوبة حول ظروف المعالجة.' : 'Build functionality around your process.'}
+                  </p>
+                  <p className="awa-swiss-card-text" style={{ WebkitLineClamp: 3 }}>
+                    {capabilityData[1].desc}
+                  </p>
                 </div>
-                <div className="awa-compact-pillar-body">
-                  <div>
-                    <span className="awa-pillar-numeral">02 / APPLIED SCIENCE</span>
-                    <h3 className="awa-pillar-title" style={{ fontSize: '20px' }}>
-                      {isAr ? 'البحث والتطوير وتطبيقات الأغذية' : 'R&D & Application Development'}
-                    </h3>
-                    <h4 className="awa-pillar-subtitle" style={{ fontSize: '14.5px', marginBottom: '8px' }}>
-                      {isAr ? 'بناء الوظيفة المطلوبة حول ظروف المعالجة.' : 'Build functionality around your process.'}
-                    </h4>
-                    <p className="awa-pillar-text" style={{ fontSize: '13.5px' }}>
-                      {capabilityData[1].desc}
-                    </p>
-                  </div>
-                  <div className="awa-pillar-action" style={{ marginTop: '16px', paddingTop: '12px' }}>
-                    <span>{isAr ? 'استكشف البحث والتطوير' : 'Explore R&D capability'}</span>
-                    <ArrowRight size={14} />
-                  </div>
-                </div>
-              </Link>
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف البحث والتطوير ↗' : 'Explore R&D capability →'}</span>
+                </span>
+              </div>
+            </Link>
 
-              {/* Pillar 03: Manufacturing */}
-              <Link to="/capabilities/manufacturing" className="awa-compact-pillar">
-                <div className="awa-compact-pillar-media">
-                  <img 
-                    src={v9Assets.v7Assets.factory} 
-                    alt="AWA Group manufacturing facility showing industrial powder processing machinery" 
-                    loading="eager" 
-                  />
+            {/* Card 03: Manufacturing Excellence */}
+            <Link to="/capabilities/manufacturing" className="awa-swiss-card">
+              <div className="awa-swiss-card-media">
+                <img 
+                  src={v9Assets.v7Assets.factory} 
+                  alt="AWA Manufacturing Excellence and compounding facility" 
+                  loading="lazy" 
+                />
+              </div>
+              <div className="awa-swiss-card-body">
+                <div>
+                  <span className="awa-swiss-card-tag">03 / INDUSTRIAL SCALE</span>
+                  <h3 className="awa-swiss-card-title">
+                    {isAr ? 'التميز الصناعي والتصنيع' : 'Manufacturing Excellence'}
+                  </h3>
+                  <p style={{ fontSize: '13px', fontWeight: 650, color: '#00A859', marginBottom: '8px' }}>
+                    {isAr ? 'ترجمة خبرات التركيب إلى إنتاج صناعي موثوق.' : 'Translate formulation expertise into production.'}
+                  </p>
+                  <p className="awa-swiss-card-text" style={{ WebkitLineClamp: 3 }}>
+                    {capabilityData[3].desc}
+                  </p>
                 </div>
-                <div className="awa-compact-pillar-body">
-                  <div>
-                    <span className="awa-pillar-numeral">03 / INDUSTRIAL SCALE</span>
-                    <h3 className="awa-pillar-title" style={{ fontSize: '20px' }}>
-                      {isAr ? 'التميز الصناعي والتصنيع' : 'Manufacturing Excellence'}
-                    </h3>
-                    <h4 className="awa-pillar-subtitle" style={{ fontSize: '14.5px', marginBottom: '8px' }}>
-                      {isAr ? 'ترجمة خبرات التركيب إلى إنتاج صناعي موثوق.' : 'Translate formulation expertise into production.'}
-                    </h4>
-                    <p className="awa-pillar-text" style={{ fontSize: '13.5px' }}>
-                      {capabilityData[3].desc}
-                    </p>
-                  </div>
-                  <div className="awa-pillar-action" style={{ marginTop: '16px', paddingTop: '12px' }}>
-                    <span>{isAr ? 'استكشف التميز التصنيعي' : 'Explore manufacturing'}</span>
-                    <ArrowRight size={14} />
-                  </div>
-                </div>
-              </Link>
-            </div>
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف التميز التصنيعي ↗' : 'Explore manufacturing →'}</span>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 5. DESIGNED FOR PERFORMANCE — FORMULATION CONSOLE   */}
+      {/* 3. DESIGNED FOR PERFORMANCE — DARK SLATE CONSOLE    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-formulation-console-section" ref={formulationRef}>
+      <section className="awa-section-swiss awa-section-dark" ref={formulationRef}>
         <div className="wrap">
-          <div className="awa-formulation-console-layout">
-            {/* Left: Authority Narrative & Analytical Lab Card */}
-            <div className="awa-formulation-narrative-col">
-              <span className="awa-editorial-kicker" style={{ color: '#34D399' }}>
+          <div className="awa-swiss-formulation-grid">
+            {/* Left 5 Columns: Sticky Authority Presentation */}
+            <div className="awa-swiss-formulation-sticky">
+              <span className="awa-swiss-eyebrow" style={{ color: '#00A859' }}>
+                <span className="awa-swiss-eyebrow-dot" style={{ backgroundColor: '#00A859' }} />
                 {isAr ? 'خبرات التركيبات المخصصة' : 'TAILORED FORMULATION EXPERTISE'}
               </span>
-              <h2 className="awa-formulation-console-title">
+              <h2 className="awa-swiss-title" style={{ color: '#FFFFFF', marginBottom: '18px' }}>
                 {isAr ? (
-                  <>مصممة للأداء المتميز.<br /><span style={{ color: '#34D399' }}>مدروسة لتحقيق أعلى قيمة.</span></>
+                  <>مصممة للأداء المتميز.<br /><span style={{ color: '#00A859' }}>مدروسة لتحقيق أعلى قيمة.</span></>
                 ) : (
-                  <>Designed for performance.<br /><span style={{ color: '#34D399' }}>Considered for value.</span></>
+                  <>Designed for performance.<br /><span style={{ color: '#00A859' }}>Considered for value.</span></>
                 )}
               </h2>
-              <p className="awa-formulation-console-desc">
+              <p className="awa-swiss-desc" style={{ color: '#94A3B8', marginBottom: '32px' }}>
                 {isAr
                   ? 'يتطلب تطوير التركيبات الغذائية تحقيق التوازن الدقيق بين الخواص الوظيفية، وظروف المعالجة الصناعية، والأهداف التجارية المستهدفة. تجمع مجموعة AWA بين توريد المكونات والتطوير التطبيقي لتقييم البدائل المناسبة، وتحسين أنظمة المكونات، ومساعدة العملاء على تحقيق الأداء المحدد وأهداف التكلفة.'
                   : 'Food formulation requires the right balance between functionality, process conditions and commercial targets. AWA combines ingredient sourcing and application development to assess suitable alternatives, optimize ingredient systems and support customers in meeting defined performance and cost objectives.'}
               </p>
-              
-              <div style={{ marginBottom: '36px' }}>
+              <div>
                 <Link 
                   to="/capabilities/formulations" 
-                  className="awa-formulation-cta-btn"
+                  className="awa-swiss-btn-white"
                 >
                   <span>{isAr ? 'استكشف التركيبات المخصصة ↗' : 'Explore customized formulations ↗'}</span>
                 </Link>
               </div>
-
-              {/* Lab Bench Photographic Visual Frame */}
-              <div className="awa-formulation-lab-card">
-                <img 
-                  src="/images/pages/home/food-chemistry-formulation.jpg" 
-                  alt="AWA Food Chemistry and Formulation Laboratory Matrix Testing"
-                  loading="lazy" 
-                />
-                <div className="awa-formulation-lab-overlay">
-                  <div className="awa-formulation-status-pill">
-                    <span className="awa-pulse-dot" />
-                    <span>{isAr ? 'مصفوفة بحث وتطوير معتمدة' : 'ANALYTICAL R&D MATRIX'}</span>
-                  </div>
-                  <div className="awa-formulation-lab-spec">
-                    {isAr ? 'اختبارات ريولوجيا وقوام · ثبات المستحلبات · ملاءمة خطوط الإنتاج' : 'Brookfield Viscometry · TA.XT Texture Profile · Emulsion Stability'}
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Right: High-Contrast 2x2 Technical Engineering Matrix */}
-            <div className="awa-formulation-quad-grid">
-              {/* 01 · RHEOLOGY */}
-              <div className="awa-console-quad-card">
-                <div className="awa-console-quad-header">
-                  <span className="awa-console-tag">01 · RHEOLOGY</span>
-                  <Layers size={18} className="awa-console-icon" />
-                </div>
-                <h3 className="awa-console-quad-title">
-                  {isAr ? 'القوام والبنية الوظيفية' : 'Texture & Rheology Matrix'}
-                </h3>
-                <p className="awa-console-quad-desc">
-                  {isAr 
-                    ? 'التحكم في اللزوجة، التماسك، الانصهار، وقابلية الفرد والشعور بالفم.' 
-                    : 'Control firmness, viscosity, binding, spreadability, melting and mouthfeel.'}
-                </p>
-                <div className="awa-console-param-chips">
-                  <span>{isAr ? 'التحكم باللزوجة' : 'Viscosity Curves'}</span>
-                  <span>{isAr ? 'قوة الجل والتماسك' : 'Gel Firmness'}</span>
-                  <span>{isAr ? 'الشعور بالفم' : 'Mouthfeel Profile'}</span>
+            {/* Right 7 Columns: Structured 4-Row Architectural Specification List */}
+            <div className="awa-swiss-specs-list">
+              {/* Row 1: RHEOLOGY */}
+              <div className="awa-swiss-spec-row">
+                <span className="awa-swiss-spec-tag">01 · RHEOLOGY</span>
+                <div className="awa-swiss-spec-content">
+                  <h4>{isAr ? 'القوام والبنية الوظيفية' : 'Texture & Rheology Matrix'}</h4>
+                  <p>
+                    {isAr 
+                      ? 'التحكم في اللزوجة، التماسك، الانصهار، وقابلية الفرد والشعور بالفم.' 
+                      : 'Control firmness, viscosity, binding, spreadability, melting and mouthfeel.'}
+                  </p>
                 </div>
               </div>
 
-              {/* 02 · STABILITY */}
-              <div className="awa-console-quad-card">
-                <div className="awa-console-quad-header">
-                  <span className="awa-console-tag">02 · STABILITY</span>
-                  <ShieldCheck size={18} className="awa-console-icon" />
-                </div>
-                <h3 className="awa-console-quad-title">
-                  {isAr ? 'الثبات وحفظ الصلاحية' : 'Phase Stability & Shelf Life'}
-                </h3>
-                <p className="awa-console-quad-desc">
-                  {isAr 
-                    ? 'ثبات الاستحلاب، منع النضح والانفصال أثناء المعالجة وفترات التخزين.' 
-                    : 'Manage separation, oxidation, consistency and performance through processing and storage.'}
-                </p>
-                <div className="awa-console-param-chips">
-                  <span>{isAr ? 'ثبات الاستحلاب' : 'Emulsion Integrity'}</span>
-                  <span>{isAr ? 'مقاومة النضح' : 'Anti-Syneresis'}</span>
-                  <span>{isAr ? 'مقاومة الأكسدة' : 'Oxidation Barrier'}</span>
+              {/* Row 2: STABILITY */}
+              <div className="awa-swiss-spec-row">
+                <span className="awa-swiss-spec-tag">02 · STABILITY</span>
+                <div className="awa-swiss-spec-content">
+                  <h4>{isAr ? 'الثبات وحفظ الصلاحية' : 'Phase Stability & Shelf Life'}</h4>
+                  <p>
+                    {isAr 
+                      ? 'ثبات الاستحلاب، منع النضح والانفصال أثناء المعالجة وفترات التخزين.' 
+                      : 'Manage separation, oxidation, consistency and performance through processing and storage.'}
+                  </p>
                 </div>
               </div>
 
-              {/* 03 · PROCESSING */}
-              <div className="awa-console-quad-card">
-                <div className="awa-console-quad-header">
-                  <span className="awa-console-tag">03 · PROCESSING</span>
-                  <TrendingUp size={18} className="awa-console-icon" />
-                </div>
-                <h3 className="awa-console-quad-title">
-                  {isAr ? 'إنتاجية المعالجة الصناعية' : 'Yield & Process Consistency'}
-                </h3>
-                <p className="awa-console-quad-desc">
-                  {isAr 
-                    ? 'دعم كفاءة التشغيل، زيادة إنتاجية الطهي، ومقاومة إجهاد القص الميكانيكي.' 
-                    : 'Support processing consistency, ingredient use, cooking yield and production efficiency.'}
-                </p>
-                <div className="awa-console-param-chips">
-                  <span>{isAr ? 'إنتاجية الطهي' : 'Cooking Yield'}</span>
-                  <span>{isAr ? 'مقاومة إجهاد القص' : 'Shear Resistance'}</span>
-                  <span>{isAr ? 'استقرار خطوط الإنتاج' : 'Thermal Tolerance'}</span>
+              {/* Row 3: PROCESSING */}
+              <div className="awa-swiss-spec-row">
+                <span className="awa-swiss-spec-tag">03 · PROCESSING</span>
+                <div className="awa-swiss-spec-content">
+                  <h4>{isAr ? 'إنتاجية المعالجة الصناعية' : 'Yield & Process Consistency'}</h4>
+                  <p>
+                    {isAr 
+                      ? 'دعم كفاءة التشغيل، زيادة إنتاجية الطهي، ومقاومة إجهاد القص الميكانيكي.' 
+                      : 'Support processing consistency, ingredient use, cooking yield and production efficiency.'}
+                  </p>
                 </div>
               </div>
 
-              {/* 04 · ECONOMICS */}
-              <div className="awa-console-quad-card">
-                <div className="awa-console-quad-header">
-                  <span className="awa-console-tag">04 · ECONOMICS</span>
-                  <Coins size={18} className="awa-console-icon" />
-                </div>
-                <h3 className="awa-console-quad-title">
-                  {isAr ? 'الجدوى والتكلفة بالاستخدام' : 'Formulation Economics'}
-                </h3>
-                <p className="awa-console-quad-desc">
-                  {isAr 
-                    ? 'تحقيق الأداء المحدد للمنتج بأفضل تكلفة عبر الاختيار الدقيق للمكونات.' 
-                    : 'Achieve the required product performance at a suitable cost through ingredient selection and formulation optimization.'}
-                </p>
-                <div className="awa-console-param-chips">
-                  <span>{isAr ? 'التكلفة بالاستخدام' : 'Cost-in-Use'}</span>
-                  <span>{isAr ? 'إعادة هندسة الوصفات' : 'Recipe Re-engineering'}</span>
-                  <span>{isAr ? 'بدائل الخامات' : 'Ingredient Optimization'}</span>
+              {/* Row 4: ECONOMICS */}
+              <div className="awa-swiss-spec-row">
+                <span className="awa-swiss-spec-tag">04 · ECONOMICS</span>
+                <div className="awa-swiss-spec-content">
+                  <h4>{isAr ? 'الجدوى والتكلفة بالاستخدام' : 'Formulation Economics'}</h4>
+                  <p>
+                    {isAr 
+                      ? 'تحقيق الأداء المحدد للمنتج بأفضل تكلفة عبر الاختيار الدقيق للمكونات.' 
+                      : 'Achieve the required product performance at a suitable cost through ingredient selection and formulation optimization.'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -728,23 +742,27 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 6. INTERNATIONAL STANDARDS — CORPORATE SHOWCASE     */}
+      {/* 4. INTERNATIONAL STANDARDS — 100% SYMMETRICAL FRAME */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" id="certifications-home" ref={standardsRef}>
+      <section className="awa-section-swiss awa-section-white" id="certifications-home" ref={standardsRef}>
         <div className="wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 0.75fr', gap: '48px', alignItems: 'flex-start', marginBottom: '40px' }}>
+          {/* Header Layout */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start', marginBottom: '40px' }}>
             <div>
-              <span className="awa-editorial-kicker">{isAr ? 'الالتزام بالمعايير الدولية' : 'COMMITMENT TO INTERNATIONAL STANDARDS'}</span>
-              <h2 className="awa-editorial-title" style={{ margin: 0 }}>
+              <span className="awa-swiss-eyebrow">
+                <span className="awa-swiss-eyebrow-dot" />
+                {isAr ? 'الالتزام بالمعايير الدولية' : 'COMMITMENT TO INTERNATIONAL STANDARDS'}
+              </span>
+              <h2 className="awa-swiss-title" style={{ margin: 0 }}>
                 {isAr ? (
-                  <>المعايير الدولية.<br /><span style={{ color: 'var(--awa-green-accent)' }}>الجودة في الممارسة اليومية.</span></>
+                  <>المعايير الدولية.<br /><span style={{ color: '#00A859' }}>الجودة في الممارسة اليومية.</span></>
                 ) : (
-                  <>International Standards.<br /><span style={{ color: 'var(--awa-green-accent)' }}>Quality in Practice.</span></>
+                  <>International Standards.<br /><span style={{ color: '#00A859' }}>Quality in Practice.</span></>
                 )}
               </h2>
             </div>
-            <div style={{ paddingTop: '12px' }}>
-              <p className="awa-editorial-desc">
+            <div style={{ paddingTop: '8px' }}>
+              <p className="awa-swiss-desc">
                 {isAr
                   ? 'في مجموعة AWA، تعد الجودة وسلامة الغذاء والعمليات المسؤولة ركائز أساسية لطريقة عملنا. تدعم عملياتنا التصنيعية أنظمة إدارة معترف بها، وشهادات منتجات، وتسجيلات رقابية، مما يعكس التزاماً ثابتاً بالتجانس والانضباط التشغيلي والتحسين المستمر.'
                   : 'At AWA Group, quality, food safety and responsible operations are fundamental to how we work. Our manufacturing operations are supported by recognized management systems, product certifications and relevant regulatory registrations, reflecting a commitment to consistency, operational discipline and continual improvement.'}
@@ -752,50 +770,48 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             </div>
           </div>
 
-          {/* Unified Credentials Showcase Frame */}
-          <div className="awa-credentials-showcase">
-            {/* International Certifications (5 Bays) */}
-            <div className="awa-credential-row-international">
+          {/* Unified 100% Symmetrical Credentials Frame */}
+          <div className="awa-cert-frame">
+            {/* Unified 5-Column Badge Bar */}
+            <div className="awa-cert-top-bar">
               {certifications.filter(c => c.group === 'international').map((cert) => {
                 const sealSrc = (v9Assets.corporateAssets as Record<string, string>)[cert.asset];
                 return (
                   <Link 
                     key={cert.id} 
                     to="/quality" 
-                    className="awa-credential-tile"
+                    className="awa-cert-badge-tile"
                   >
-                    <div className="awa-credential-seal-frame">
-                      {sealSrc ? (
-                        <img src={sealSrc} alt={`${cert.code} logo`} loading="eager" />
-                      ) : (
-                        <span style={{ fontWeight: 800, color: 'var(--awa-navy-main)' }}>{cert.code}</span>
-                      )}
-                    </div>
-                    <span className="awa-credential-code">{cert.code}</span>
-                    <span className="awa-credential-type">{cert.type}</span>
+                    <img 
+                      src={sealSrc} 
+                      alt={`${cert.code} official certification mark`} 
+                      className="awa-cert-badge-img"
+                      loading="lazy" 
+                    />
+                    <strong className="awa-cert-code">{cert.code}</strong>
+                    <span className="awa-cert-type">{cert.type}</span>
                   </Link>
                 );
               })}
             </div>
 
-            {/* Regulatory Listings (2 Bays) */}
-            <div className="awa-credential-row-regulatory">
+            {/* Symmetrical 2-Column Compliance Bar */}
+            <div className="awa-cert-bottom-bar">
               {certifications.filter(c => c.group === 'regulatory').map((cert) => {
                 const sealSrc = (v9Assets.corporateAssets as Record<string, string>)[cert.asset];
                 return (
                   <Link 
                     key={cert.id} 
                     to="/quality" 
-                    className="awa-regulatory-dossier"
+                    className="awa-compliance-tile"
                   >
-                    <div className="awa-regulatory-seal-frame">
-                      {sealSrc ? (
-                        <img src={sealSrc} alt={`${cert.code} logo`} loading="eager" />
-                      ) : (
-                        <span style={{ fontWeight: 800, color: 'var(--awa-navy-main)' }}>{cert.code}</span>
-                      )}
-                    </div>
-                    <div className="awa-regulatory-copy">
+                    <img 
+                      src={sealSrc} 
+                      alt={`${cert.code} logo`} 
+                      className="awa-compliance-img"
+                      loading="lazy" 
+                    />
+                    <div className="awa-compliance-info">
                       <strong>{cert.code}</strong>
                       <small>{cert.type}</small>
                       <p>{cert.meaning}</p>
@@ -806,35 +822,48 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             </div>
           </div>
 
+          {/* Bottom Compliance Disclaimer & Link */}
           <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-            <span style={{ fontSize: '12px', color: 'var(--awa-charcoal-muted)', maxWidth: '720px' }}>
+            <span style={{ fontSize: '12px', color: '#64748B', maxWidth: '720px' }}>
               {isAr 
                 ? 'تخضع مطالبات منشأة AWA للحلول الغذائية والمنتجات المعتمدة لتأكيد النطاق والصلاحية السارية.'
                 : 'AWA Food Solutions facility and certified-product claims require confirmation of current scope and validity before publication.'}
             </span>
-            <Link to="/quality" style={{ fontSize: '13px', fontWeight: 800, color: 'var(--awa-green-accent)', textDecoration: 'none' }}>
-              {isAr ? 'استكشف الجودة والاعتمادات ↗' : 'Explore Quality & Certifications ↗'}
+            <Link 
+              to="/quality" 
+              style={{ 
+                fontSize: '13.5px', 
+                fontWeight: 750, 
+                color: '#00A859', 
+                textDecoration: 'none' 
+              }}
+            >
+              <span>{isAr ? 'استكشف الجودة والاعتمادات ↗' : 'View All Certificates →'}</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 7. RESPONSIBLE GROWTH — EDITORIAL SPLIT COLUMNS     */}
+      {/* 5. RESPONSIBLE GROWTH — 12-COLUMN STRUCTURED GRID   */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" ref={growthRef}>
+      <section className="awa-section-swiss awa-section-offwhite" ref={growthRef}>
         <div className="wrap">
-          <div className="awa-growth-layout">
+          <div className="awa-growth-swiss-grid">
+            {/* Left 4 Columns */}
             <div>
-              <span className="awa-editorial-kicker">{isAr ? 'النمو المسؤول' : 'RESPONSIBLE GROWTH'}</span>
-              <h2 className="awa-editorial-title" style={{ margin: '0 0 16px 0' }}>
+              <span className="awa-swiss-eyebrow">
+                <span className="awa-swiss-eyebrow-dot" />
+                {isAr ? 'النمو المسؤول' : 'RESPONSIBLE GROWTH'}
+              </span>
+              <h2 className="awa-swiss-title" style={{ margin: '0 0 16px 0' }}>
                 {isAr ? (
-                  <>نمو مسؤول.<br /><span style={{ color: 'var(--awa-green-accent)' }}>أثر دائم ومستمر.</span></>
+                  <>نمو مسؤول.<br /><span style={{ color: '#00A859' }}>أثر دائم ومستمر.</span></>
                 ) : (
-                  <>Responsible Growth.<br /><span style={{ color: 'var(--awa-green-accent)' }}>Lasting Impact.</span></>
+                  <>Responsible Growth.<br /><span style={{ color: '#00A859' }}>Lasting Impact.</span></>
                 )}
               </h2>
-              <p className="awa-editorial-desc" style={{ marginBottom: '28px' }}>
+              <p className="awa-swiss-desc" style={{ marginBottom: '28px' }}>
                 {isAr
                   ? 'نؤمن بأن النمو طويل الأجل ينبع من قرارات مسؤولة عبر عملياتنا وسلاسل القيمة لدينا. يركز نهجنا على ممارسات الموردين، وكفاءة الموارد، والابتكار المسؤول للمنتجات، ورفاهية أفرادنا، مدعوماً بالتزام مستمر بالتحسين.'
                   : 'We believe long-term growth comes from responsible decisions across our operations and value chain. Our approach focuses on supplier practices, resource efficiency, responsible product innovation and the wellbeing of our people, supported by a commitment to continuous improvement.'}
@@ -845,55 +874,60 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  fontSize: '14px',
-                  fontWeight: 800,
-                  color: 'var(--awa-navy-main)',
+                  fontSize: '13.5px',
+                  fontWeight: 750,
+                  color: '#0F172A',
                   textDecoration: 'none',
-                  borderBottom: '2px solid var(--awa-green-accent)',
+                  borderBottom: '2px solid #00A859',
                   paddingBottom: '4px'
                 }}
               >
-                <span>{isAr ? 'استكشف الاستدامة ↗' : 'Explore sustainability ↗'}</span>
+                <span>{isAr ? 'استكشف الاستدامة ↗' : 'Learn more →'}</span>
               </Link>
             </div>
 
-            <div className="awa-growth-principles-grid">
-              <div className="awa-growth-principle">
-                <span className="awa-growth-index">01 / SOURCING</span>
-                <h3 className="awa-growth-heading">
+            {/* Right 8 Columns: Symmetrical 2x2 Matrix */}
+            <div className="awa-growth-matrix">
+              {/* Pillar 01 */}
+              <div className="awa-growth-pillar-card">
+                <span className="awa-growth-pillar-tag">01 / SOURCING</span>
+                <h3 className="awa-growth-pillar-title">
                   {isAr ? 'التوريد المسؤول' : 'Responsible Sourcing'}
                 </h3>
-                <p className="awa-growth-text">
+                <p className="awa-growth-pillar-desc">
                   {isAr ? 'تقييم الموردين وبناء علاقات توريد موثوقة ومستدامة للمكونات.' : 'Supplier evaluation and dependable ingredient relationships.'}
                 </p>
               </div>
 
-              <div className="awa-growth-principle">
-                <span className="awa-growth-index">02 / RESOURCES</span>
-                <h3 className="awa-growth-heading">
+              {/* Pillar 02 */}
+              <div className="awa-growth-pillar-card">
+                <span className="awa-growth-pillar-tag">02 / RESOURCES</span>
+                <h3 className="awa-growth-pillar-title">
                   {isAr ? 'كفاءة الموارد' : 'Resource Efficiency'}
                 </h3>
-                <p className="awa-growth-text">
+                <p className="awa-growth-pillar-desc">
                   {isAr ? 'إدارة استهلاك الطاقة والمياه والمواد وتقليل الهدر والمخلفات.' : 'Energy, water, materials and waste management.'}
                 </p>
               </div>
 
-              <div className="awa-growth-principle">
-                <span className="awa-growth-index">03 / INNOVATION</span>
-                <h3 className="awa-growth-heading">
+              {/* Pillar 03 */}
+              <div className="awa-growth-pillar-card">
+                <span className="awa-growth-pillar-tag">03 / INNOVATION</span>
+                <h3 className="awa-growth-pillar-title">
                   {isAr ? 'الابتكار المسؤول' : 'Responsible Innovation'}
                 </h3>
-                <p className="awa-growth-text">
+                <p className="awa-growth-pillar-desc">
                   {isAr ? 'كفاءة استخدام المكونات وتطوير تركيبات واعية بظروف المعالجة.' : 'Ingredient efficiency and process-aware formulation.'}
                 </p>
               </div>
 
-              <div className="awa-growth-principle">
-                <span className="awa-growth-index">04 / WORKPLACE</span>
-                <h3 className="awa-growth-heading">
+              {/* Pillar 04 */}
+              <div className="awa-growth-pillar-card">
+                <span className="awa-growth-pillar-tag">04 / WORKPLACE</span>
+                <h3 className="awa-growth-pillar-title">
                   {isAr ? 'الأفراد والسلامة' : 'People & Safety'}
                 </h3>
-                <p className="awa-growth-text">
+                <p className="awa-growth-pillar-desc">
                   {isAr ? 'بيئات عمل آمنة، برامج تدريب مستمرة، ومسؤولية تشغيلية واضحة.' : 'Safe workplaces, training and accountability.'}
                 </p>
               </div>
@@ -903,50 +937,66 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 8. KNOWLEDGE & INSIGHTS — PROFESSIONAL JOURNAL       */}
+      {/* 6. KNOWLEDGE & INSIGHTS — SYMMETRICAL 3-COL GRID    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" ref={insightsRef}>
+      <section className="awa-section-swiss awa-section-white" ref={insightsRef}>
         <div className="wrap">
+          {/* Header Layout */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <span className="awa-editorial-kicker">{isAr ? 'المقالات والأخبار' : 'INSIGHTS & NEWS'}</span>
-              <h2 className="awa-editorial-title" style={{ margin: '0 0 10px 0' }}>
+              <span className="awa-swiss-eyebrow">
+                <span className="awa-swiss-eyebrow-dot" />
+                {isAr ? 'المقالات والأخبار' : 'INSIGHTS & NEWS'}
+              </span>
+              <h2 className="awa-swiss-title" style={{ margin: '0 0 10px 0' }}>
                 {isAr ? (
-                  <>معرفة تدعم <span style={{ color: 'var(--awa-green-accent)' }}>التقدم والنمو.</span></>
+                  <>معرفة تدعم <span style={{ color: '#00A859' }}>التقدم والنمو.</span></>
                 ) : (
-                  <>Knowledge that <span style={{ color: 'var(--awa-green-accent)' }}>supports progress.</span></>
+                  <>Knowledge that <span style={{ color: '#00A859' }}>supports progress.</span></>
                 )}
               </h2>
-              <p className="awa-editorial-desc" style={{ maxWidth: '640px' }}>
+              <p className="awa-swiss-desc">
                 {isAr
                   ? 'توضح المعرفة التقنية، وقصص الابتكار المعتمدة، والتطورات المؤسسية كيف تطبق AWA خبراتها عبر قطاعات صناعة الأغذية المختلفة.'
                   : 'Technical knowledge, approved innovation stories and corporate developments demonstrate how AWA applies its expertise across the food industry.'}
               </p>
             </div>
-            <Link to="/knowledge" style={{ fontSize: '14px', fontWeight: 800, color: 'var(--awa-navy-main)', textDecoration: 'none' }}>
-              {isAr ? 'استكشف المقالات والأخبار ↗' : 'Explore Insights & News ↗'}
-            </Link>
+            <div>
+              <Link 
+                to="/knowledge" 
+                style={{ 
+                  fontSize: '13.5px', 
+                  fontWeight: 750, 
+                  color: '#00A859', 
+                  textDecoration: 'none' 
+                }}
+              >
+                <span>{isAr ? 'استكشف المقالات والأخبار ↗' : 'Explore Insights & News ↗'}</span>
+              </Link>
+            </div>
           </div>
 
-          <div className="awa-journal-layout">
+          {/* Symmetrical 3-Column Editorial Grid */}
+          <div className="awa-swiss-grid-3">
             {insightStories.map((story, sIdx) => (
               <Link 
                 key={sIdx}
                 to="/knowledge"
-                className="awa-journal-article"
+                className="awa-swiss-card"
               >
-                <div className="awa-journal-media">
+                <div className="awa-swiss-card-media">
                   <img src={story.image} alt={story.title} loading="lazy" />
-                  <span className="awa-journal-category-badge">{story.tag}</span>
                 </div>
-                <div className="awa-journal-body">
+                <div className="awa-swiss-card-body">
                   <div>
-                    <span className="awa-journal-kicker">{story.kicker}</span>
-                    <h3 className="awa-journal-title">{story.title}</h3>
-                    <p className="awa-journal-lead">{story.desc}</p>
+                    <span className="awa-swiss-card-tag">{story.kicker}</span>
+                    <h3 className="awa-swiss-card-title">{story.title}</h3>
+                    <p className="awa-swiss-card-text" style={{ WebkitLineClamp: 3 }}>
+                      {story.desc}
+                    </p>
                   </div>
-                  <span className="awa-journal-action">
-                    <span>{isAr ? 'اقرأ المزيد ↗' : 'Read more ↗'}</span>
+                  <span className="awa-swiss-card-link">
+                    <span>{isAr ? 'اقرأ المزيد ↗' : 'Read article →'}</span>
                   </span>
                 </div>
               </Link>
@@ -956,41 +1006,43 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 9. GLOBAL ALLIANCES & PRINCIPALS DIRECTORY          */}
+      {/* 7. GLOBAL PARTNERS & PRINCIPALS DIRECTORY            */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section is-tint" ref={marqueeRef}>
+      <section className="awa-section-swiss awa-section-offwhite" ref={marqueeRef}>
         <div className="wrap">
-          <div style={{ maxWidth: '820px', marginBottom: '48px' }}>
-            <span className="awa-editorial-kicker">{isAr ? 'الشركاء والشركات المشتركة' : 'STRATEGIC JOINT VENTURES & GLOBAL PRINCIPALS'}</span>
-            <h2 className="awa-editorial-title">
+          {/* Header Layout */}
+          <div style={{ maxWidth: '820px', marginBottom: '40px' }}>
+            <span className="awa-swiss-eyebrow">
+              <span className="awa-swiss-eyebrow-dot" />
+              {isAr ? 'الشركاء والشركات المشتركة' : 'STRATEGIC JOINT VENTURES & GLOBAL PRINCIPALS'}
+            </span>
+            <h2 className="awa-swiss-title">
               {isAr ? 'ربط الخبرة العالمية بالقدرة الصناعية المحلية' : 'Connecting International Expertise with Local Scale'}
             </h2>
-            <p className="awa-editorial-desc">
+            <p className="awa-swiss-desc">
               {isAr
                 ? 'توسع المشاريع المشتركة الدولية والعلاقات الراسخة مع كبرى الشركات المصنعة وصول AWA إلى تقنيات الأغذية المتخصصة والمعرفة التطبيقية المتقدمة.'
                 : "International joint ventures and established principal relationships extend AWA's access to specialist food technologies, technical knowledge and collaborative development opportunities."}
             </p>
           </div>
 
-          {/* Joint Ventures Directory Dossiers */}
-          <div className="awa-jv-directory-grid">
+          {/* Symmetrical 2-Column Strategic Partner Cards */}
+          <div className="awa-partner-cards-grid">
             {jointVentures.map((jv) => {
               const jvLogo = jv.name === 'Turkphos' ? v9Assets.v8Assets.turkphosLogo : v9Assets.v8Assets.ingrevaLogo;
               return (
-                <div key={jv.name} className="awa-jv-dossier">
+                <div key={jv.name} className="awa-partner-card">
                   <div>
-                    <div className="awa-jv-dossier-top">
-                      <div className="awa-jv-logo-frame">
-                        <img src={jvLogo} alt={`${jv.name} official logo`} />
-                      </div>
-                      <span className="awa-jv-region">{jv.region} · JOINT VENTURE</span>
+                    <div className="awa-partner-logo-box">
+                      <img src={jvLogo} alt={`${jv.name} official logo`} />
                     </div>
-                    <h3 className="awa-jv-name">{jv.name}</h3>
-                    <h4 className="awa-jv-scope">{jv.category}</h4>
-                    <p className="awa-jv-text">{jv.desc}</p>
+                    <span className="awa-partner-meta-pill">{jv.region} · JOINT VENTURE</span>
+                    <h3 className="awa-partner-title">{jv.name}</h3>
+                    <h4 className="awa-partner-scope">{jv.category}</h4>
+                    <p className="awa-partner-desc">{jv.desc}</p>
                   </div>
-                  <a href={jv.url} target="_blank" rel="noopener noreferrer" className="awa-jv-link">
-                    <span>{isAr ? 'زيارة الموقع الإلكتروني ↗' : 'Visit website ↗'}</span>
+                  <a href={jv.url} target="_blank" rel="noopener noreferrer" className="awa-partner-link">
+                    <span>{isAr ? 'زيارة الموقع الإلكتروني ↗' : 'Explore partnership →'}</span>
                     <ExternalLink size={13} />
                   </a>
                 </div>
@@ -998,128 +1050,134 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
             })}
           </div>
 
-          {/* Principal Logos Directory Marquee */}
-          <div style={{ borderTop: '1px solid var(--awa-border-hairline)', paddingTop: '36px' }}>
-            <PartnerMarquee items={Object.values(v9Assets.principalLogos)} />
+          {/* Symmetrical 6-Column Bordered Logo Grid */}
+          <div className="awa-logo-grid-6">
+            {Object.entries(v9Assets.principalLogos).slice(0, 6).map(([key, logoSrc]) => (
+              <div key={key} className="awa-logo-grid-cell">
+                <img src={logoSrc} alt={`${key} partner logo`} loading="lazy" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 10. FACILITIES & CAPABILITIES — ARCHITECTURAL DOSSIER */}
+      {/* 8. FACILITIES & CAPABILITIES — SYMMETRICAL 3-COL     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-facilities-dossier-section" ref={galleryRef}>
+      <section className="awa-section-swiss awa-section-white" ref={galleryRef}>
         <div className="wrap">
-          <div className="awa-editorial-header" style={{ marginBottom: '40px' }}>
-            <div style={{ maxWidth: '840px' }}>
-              <span className="awa-editorial-kicker">{isAr ? 'البنية التحتية والمرافق' : 'FACILITIES & CAPABILITIES'}</span>
-              <h2 className="awa-editorial-title" style={{ margin: '0 0 14px 0' }}>
-                {isAr 
-                  ? 'علوم أغذية تطبيقية، مرافق متقدمة وقدرات إنتاجية' 
-                  : 'Applied Food Science, Advanced Facilities & Production Scale'}
-              </h2>
-              <p className="awa-editorial-desc">
-                {isAr 
-                  ? 'بنية تحتية متكاملة تشمل مجمع تصنيع وخلط آلي ببرج العرب، مختبرات تحليل القوام والريولوجيا، مصانع تجريبية للتحجيم الصناعي، ومركز لوجستي بسعة 15,000 طن متري لضمان الجودة واستمرارية الإمداد.'
-                  : 'Integrated industrial infrastructure encompassing automated compounding in Borg El-Arab, specialized rheology and texture profiling labs, pilot plants for factory-scale simulation, and a 15,000 MT cold-chain logistics hub.'}
-              </p>
+          {/* Header Layout */}
+          <div style={{ marginBottom: '40px' }}>
+            <span className="awa-swiss-eyebrow">
+              <span className="awa-swiss-eyebrow-dot" />
+              {isAr ? 'البنية التحتية والمرافق' : 'FACILITIES & CAPABILITIES'}
+            </span>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+              <div>
+                <h2 className="awa-swiss-title" style={{ margin: 0 }}>
+                  {isAr 
+                    ? 'علوم أغذية تطبيقية، مرافق متقدمة وقدرات إنتاجية' 
+                    : 'Applied Food Science, Advanced Facilities & Production Scale'}
+                </h2>
+              </div>
+              <div>
+                <p className="awa-swiss-desc">
+                  {isAr 
+                    ? 'بنية تحتية متكاملة تشمل مجمع تصنيع وخلط آلي ببرج العرب، مختبرات تحليل القوام والريولوجيا، ومصانع تجريبية للتحجيم الصناعي لضمان الجودة ومطابقة المواصفات.'
+                    : 'Integrated industrial infrastructure encompassing automated compounding in Borg El-Arab, specialized rheology and texture profiling labs, and pilot plants for factory-scale simulation.'}
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Master Architectural Dossier Grid */}
-          <div className="awa-facilities-dossier-layout">
-            {/* Left: Featured Active Facility Frame */}
-            {(() => {
-              const current = facilitiesData[activeFacility] || facilitiesData[0];
-              const title = isAr ? current.nameAr : current.nameEn;
-              const location = isAr ? current.locationAr : current.locationEn;
-              const role = isAr ? current.roleAr : current.roleEn;
-              const desc = isAr ? current.descAr : current.descEn;
-              const specs = isAr ? current.specsAr : current.specsEn;
-
-              return (
-                <div className="awa-facility-featured-frame">
-                  <div className="awa-facility-photo-viewport">
-                    <img 
-                      src={current.image} 
-                      alt={title} 
-                      key={current.id}
-                      className="awa-facility-featured-img"
-                    />
-                    <div className="awa-facility-top-telemetry">
-                      <span className="awa-facility-num-pill">HUB {current.number} / 04</span>
-                      <span className="awa-facility-loc-pill">
-                        <MapPin size={13} style={{ marginRight: isAr ? 0 : '4px', marginLeft: isAr ? '4px' : 0 }} />
-                        {location}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="awa-facility-dossier-body">
-                    <div className="awa-facility-role-badge">
-                      <Factory size={14} style={{ marginRight: isAr ? 0 : '6px', marginLeft: isAr ? '6px' : 0 }} />
-                      <span>{role}</span>
-                    </div>
-                    <h3 className="awa-facility-master-title">{title}</h3>
-                    <p className="awa-facility-master-desc">{desc}</p>
-
-                    <div className="awa-facility-specs-grid">
-                      {specs.map((spec, sIdx) => (
-                        <div key={sIdx} className="awa-facility-spec-chip">
-                          <CheckCircle2 size={13} className="awa-spec-chip-icon" />
-                          <span>{spec}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid var(--awa-border-hairline)' }}>
-                      <Link 
-                        to="/capabilities" 
-                        className="awa-facility-explore-link"
-                      >
-                        <span>{isAr ? 'استكشف كافة القدرات والمرافق الصناعية ↗' : 'Explore full infrastructure & capabilities ↗'}</span>
-                      </Link>
-                    </div>
-                  </div>
+          {/* Symmetrical 3-Column Facilities Grid */}
+          <div className="awa-swiss-grid-3">
+            {/* Facility 1: Borg El-Arab */}
+            <Link to="/capabilities/manufacturing" className="awa-facility-swiss-card">
+              <div className="awa-facility-swiss-media">
+                <img 
+                  src={v9Assets.v7Assets.factory} 
+                  alt="AWA Borg El-Arab Compounding and Manufacturing Complex" 
+                  loading="lazy" 
+                />
+              </div>
+              <div className="awa-facility-swiss-caption">
+                <div>
+                  <span className="awa-facility-swiss-tag">
+                    {isAr ? 'الإسكندرية، مصر · المنطقة الصناعية' : 'ALEXANDRIA, EGYPT · INDUSTRIAL HUB'}
+                  </span>
+                  <h3 className="awa-facility-swiss-heading">
+                    {isAr ? 'مجمع الخلط والتصنيع - برج العرب' : 'Borg El-Arab Compounding Complex'}
+                  </h3>
+                  <p className="awa-facility-swiss-text">
+                    {isAr
+                      ? 'مجمع تصنيع صناعي مؤتمت بطاقة سنوية 24,000 طن، مخصص للخلط الجاف وأنظمة أملاح الاستحلاب الخاصة.'
+                      : 'High-capacity automated compounding plant with 24,000 MT annual capacity, dedicated to functional food blending and proprietary emulsifying salts.'}
+                  </p>
                 </div>
-              );
-            })()}
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف القدرات الصناعية ↗' : 'Explore facility →'}</span>
+                </span>
+              </div>
+            </Link>
 
-            {/* Right: Interactive Facility Hub Selector List */}
-            <div className="awa-facility-nav-stack">
-              {facilitiesData.map((fac, idx) => {
-                const isActive = activeFacility === idx;
-                const facTitle = isAr ? fac.nameAr : fac.nameEn;
-                const facLoc = isAr ? fac.locationAr : fac.locationEn;
-                const facRole = isAr ? fac.roleAr : fac.roleEn;
+            {/* Facility 2: Applied R&D & Rheology Lab */}
+            <Link to="/capabilities/rd" className="awa-facility-swiss-card">
+              <div className="awa-facility-swiss-media">
+                <img 
+                  src="/images/pages/home/sensory-rheology-lab.jpg" 
+                  alt="AWA Applied R&D and Texture Profiling Laboratory" 
+                  loading="lazy" 
+                />
+              </div>
+              <div className="awa-facility-swiss-caption">
+                <div>
+                  <span className="awa-facility-swiss-tag">
+                    {isAr ? 'مراكز الابتكار بالقاهرة والإسكندرية' : 'CAIRO & ALEXANDRIA INNOVATION CENTERS'}
+                  </span>
+                  <h3 className="awa-facility-swiss-heading">
+                    {isAr ? 'مختبرات البحث والتطوير وتحليل القوام' : 'Applied R&D & Texture Labs'}
+                  </h3>
+                  <p className="awa-facility-swiss-text">
+                    {isAr
+                      ? 'مختبرات تحليلية متقدمة لقياس منحنيات اللزوجة، وتحليل خواص القوام TPA، وفحوصات النشاط المائي وثبات المستحلبات.'
+                      : 'Advanced analytical suite configured for Brookfield rheometry, texture profile analysis (TPA), water activity, and accelerated shelf-life testing.'}
+                  </p>
+                </div>
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف مختبرات البحث ↗' : 'Explore laboratory →'}</span>
+                </span>
+              </div>
+            </Link>
 
-                return (
-                  <button
-                    key={fac.id}
-                    type="button"
-                    onClick={() => setActiveFacility(idx)}
-                    className={`awa-facility-nav-card ${isActive ? 'is-active' : ''}`}
-                    aria-selected={isActive}
-                    aria-label={`Select facility ${fac.number}: ${facTitle}`}
-                  >
-                    <div className="awa-facility-thumb-box">
-                      <img src={fac.image} alt={facTitle} loading="lazy" />
-                      <span className="awa-facility-thumb-num">{fac.number}</span>
-                    </div>
-                    <div className="awa-facility-nav-info">
-                      <span className="awa-facility-nav-meta">
-                        {facLoc}
-                      </span>
-                      <h4 className="awa-facility-nav-heading">{facTitle}</h4>
-                      <p className="awa-facility-nav-sub">{facRole}</p>
-                    </div>
-                    <div className="awa-facility-nav-arrow" aria-hidden="true">
-                      <ChevronRight size={16} />
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+            {/* Facility 3: Food Application Pilot Testing Facilities */}
+            <Link to="/capabilities" className="awa-facility-swiss-card">
+              <div className="awa-facility-swiss-media">
+                <img 
+                  src="/images/pages/home/pilot-plant-dairy-testing.jpg" 
+                  alt="AWA Food Application Pilot Testing Facilities" 
+                  loading="lazy" 
+                />
+              </div>
+              <div className="awa-facility-swiss-caption">
+                <div>
+                  <span className="awa-facility-swiss-tag">
+                    {isAr ? 'مرافق الإنتاج التجريبي المخصصة' : 'DEDICATED PILOT PRODUCTION PLANTS'}
+                  </span>
+                  <h3 className="awa-facility-swiss-heading">
+                    {isAr ? 'المصانع التجريبية لتطبيقات الأغذية' : 'Food Application Pilot Testing Facilities'}
+                  </h3>
+                  <p className="awa-facility-swiss-text">
+                    {isAr
+                      ? 'مصنع تجريبي نصف صناعي مجهز بطباخات ستيفان التجريبية وخطوط خلط عالية القص لمحاكاة ظروف التشغيل قبل التوسع التجاري.'
+                      : 'Semi-industrial pilot plant equipped with pilot Stephan cookers and high-shear lines simulating factory conditions before commercial scaling.'}
+                  </p>
+                </div>
+                <span className="awa-swiss-card-link">
+                  <span>{isAr ? 'استكشف المصانع التجريبية ↗' : 'Explore pilot plants →'}</span>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
