@@ -29,6 +29,7 @@ import { GlobalPage } from './pages/GlobalPage';
 import { KnowledgePage } from './pages/KnowledgePage';
 import { TurkphosPage } from './pages/TurkphosPage';
 import { IngrevaPage } from './pages/IngrevaPage';
+import { SirriPage } from './pages/SirriPage';
 import { ContactPage } from './pages/ContactPage';
 import { CareersPage } from './pages/CareersPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -43,7 +44,7 @@ const ProductsRedirect: React.FC = () => {
   if (subId === 'sweet' || subId === 'sweet-and-slim') return <Navigate to="/brands/sweet-and-slim" replace />;
   if (subId === 'yalla' || subId === 'yalla-drinks') return <Navigate to="/brands/yalla-drinks" replace />;
   if (subId === 'squeasy') return <Navigate to="/brands/squeasy" replace />;
-  if (subId === 'sirri' || subId === 'sirri-olive-oil') return <Navigate to="/brands/sirri-olive-oil" replace />;
+  if (subId === 'sirri' || subId === 'sirri-foods' || subId === 'sirri-olive-oil') return <Navigate to="/brands/sirri" replace />;
   return <Navigate to={`/brands/${subId}`} replace />;
 };
 
@@ -122,8 +123,11 @@ function AppContent() {
             <Route path="/food-services" element={<FoodServicesPage />} />
             <Route path="/food-services/:sectorId" element={<FoodServicesPage />} />
 
-            {/* Consumer Brands (B2C) */}
+            {/* Consumer Brands (B2C) & Showcases */}
             <Route path="/brands" element={<BrandsPage onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
+            <Route path="/brands/sirri" element={<SirriPage />} />
+            <Route path="/brands/sirri-foods" element={<SirriPage />} />
+            <Route path="/brands/sirri-olive-oil" element={<SirriPage />} />
             <Route path="/brands/:brandId" element={<BrandsPage onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
 
             {/* Capabilities Routes */}
