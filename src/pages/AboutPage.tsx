@@ -18,24 +18,24 @@ export const AboutPage: React.FC = () => {
 
   const values = [
     {
-      title: isAr ? 'الابتكار الموجه للعميل' : 'Customer-Centric Innovation',
-      desc: isAr ? 'نبدأ من التحدي الإنتاجي والمواصفات المستهدفة للعميل بدلاً من الترويج لحلول نمطية مسبقة.' : 'We begin with the manufacturer’s product, process and commercial objectives, developing solutions that fit their operational reality.'
+      title: isAr ? 'الشراكة الموجهة بالعميل' : 'Customer-Driven Partnership',
+      desc: isAr ? 'فهم تحديات العملاء والتعاون الوثيق لتحقيق نتائج وحلول عملية.' : 'Understand customer challenges and collaborate on practical outcomes.'
     },
     {
-      title: isAr ? 'النزاهة الفنية والعلمية' : 'Technical Integrity',
-      desc: isAr ? 'نعتمد على المعرفة العلمية الموثقة والتجارب المعملية الصارمة لضمان موثوقية الأداء.' : 'We recommend ingredients, systems and formulations based on sound food science, rigorous evaluation and transparent performance parameters.'
+      title: isAr ? 'الدقة والصرامة العلمية' : 'Scientific Rigor',
+      desc: isAr ? 'تطبيق علوم الأغذية والمعرفة التقنية والتعلم والتطوير المستمر.' : 'Apply food science, technical knowledge and continuous learning.'
     },
     {
-      title: isAr ? 'التميز التشغيلي والجودة' : 'Operational Excellence',
-      desc: isAr ? 'نلتزم بالمعايير الدولية المعتمدة لضمان تجانس الدفعات وسلامة الأغذية وسلاسة التوريد.' : 'We pursue consistency, hygiene and compliance across our sourcing, pilot trials, manufacturing and quality-assurance activities.'
+      title: isAr ? 'النزاهة والموثوقية' : 'Integrity & Trust',
+      desc: isAr ? 'بناء الثقة من خلال الالتزامات الموثوقة والممارسات التشغيلية الصارمة.' : 'Build trust through reliable commitments and rigorous practices.'
     },
     {
-      title: isAr ? 'الشراكة والشفافية' : 'Partnership & Transparency',
-      desc: isAr ? 'نبني علاقات تعاون طويلة الأمد مع عملائنا وشركائنا الدوليين قائمة على الثقة والوضوح.' : 'We build long-term relationships with customers and international principals founded on mutual respect, clear communication and commercial fairness.'
+      title: isAr ? 'الانضباط التشغيلي' : 'Operational Discipline',
+      desc: isAr ? 'تحمل المسؤولية الكاملة عن التنفيذ المنضبط والتطوير المستمر.' : 'Take responsibility for disciplined execution and improvement.'
     },
     {
-      title: isAr ? 'المسؤولية والاستدامة' : 'Responsibility & Care',
-      desc: isAr ? 'نضع سلامة الأفراد والمسؤولية البيئية وإدارة الموارد في صلب قراراتنا اليومية.' : 'We prioritize the safety of our people, responsible sourcing, resource efficiency and accountability across our business operations.'
+      title: isAr ? 'النمو المسؤول' : 'Responsible Growth',
+      desc: isAr ? 'مراعاة سلامة الأفراد، كفاءة الموارد والقيمة المستدامة في كافة قراراتنا.' : 'Consider people, resources and long-term value in our decisions.'
     }
   ];
 
@@ -105,16 +105,16 @@ export const AboutPage: React.FC = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
               <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>30+</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Years of Industrial Experience</span>
+                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>1993</strong>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'التأسيس في الإسكندرية' : 'Founded in Alexandria'}</span>
               </div>
               <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary-blue)', fontWeight: 800, display: 'block' }}>2,000+</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Manufacturers Served</span>
+                <strong style={{ fontSize: '1.8rem', color: 'var(--primary-blue)', fontWeight: 800, display: 'block' }}>30+</strong>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'عاماً من الخبرة الصناعية' : 'Years of Food Science'}</span>
               </div>
               <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>15.5 MT</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Hourly Compounding Capacity</span>
+                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>7</strong>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'معايير واعتمادات دولية' : 'Certified Standards'}</span>
               </div>
             </div>
           </div>
@@ -149,12 +149,12 @@ export const AboutPage: React.FC = () => {
           </div>
 
           <div>
-            <div className="kicker">{isAr ? 'القيادة والرؤية' : 'LEADERSHIP & VISION'}</div>
+            <div className="kicker">{isAr ? 'رسالة المؤسس ورئيس مجلس الإدارة' : 'FOUNDER & CHAIRMAN MESSAGE'}</div>
             <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', margin: '0.5rem 0 1.25rem' }}>
               {isAr ? (
-                <>مرتكزون على العمق الفني.<br /><span className="accent">وملتزمون بالقيمة الدائمة.</span></>
+                <>من توريد المكونات إلى <span className="accent">شراكة دائمة ومستدامة.</span></>
               ) : (
-                <>Built on technical depth.<br /><span className="accent">Focused on lasting value.</span></>
+                <>From ingredient supply to <span className="accent">lasting partnership.</span></>
               )}
             </h2>
             <blockquote style={{
@@ -167,13 +167,18 @@ export const AboutPage: React.FC = () => {
               margin: '1.5rem 0'
             }}>
               "{isAr
-                ? 'لقد كان تركيزنا دائماً على علوم الأغذية التطبيقية: فهم التطبيق، واحترام الواقع التشغيلي للمصنع، وابتكار حلول تؤدي وظيفتها بكفاءة وموثوقية في خطوط الإنتاج.'
-                : 'Our focus has always been on practical food science: understanding the application, respecting the manufacturer’s operational reality, and formulating solutions that perform reliably in production.'}"
+                ? 'لقد استند تطورنا في مجموعة AWA إلى قناعة عملية راسخة: يحتاج مصنعو الأغذية إلى شركاء يفهمون علم المكونات والواقع التشغيلي لخطوط الإنتاج على حد سواء.'
+                : 'Our development as AWA Group has been guided by a practical belief: food manufacturers need partners who understand both the science of ingredients and the realities of food manufacturing.'}"
             </blockquote>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '0.95rem', marginBottom: '1rem' }}>
+              {isAr
+                ? 'ومع توسعنا في شراكاتنا الدولية وتطوير أعمالنا في خدمات الأغذية والمنتجات الاستهلاكية، يظل التزامنا ثابتاً: خبرة عملية، معايير موثوقة، وحلول مصممة بدقة حول متطلبات تطبيقكم.'
+                : 'As we expand our international collaborations and build our consumer and professional food businesses, our commitment remains the same: practical expertise, dependable standards, and solutions built around your application.'}
+            </p>
             <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
               {isAr
-                ? 'منذ تأسيس المجموعة في عام 1993، تطورت AWA من شركة متخصصة في تجارة وتوزيع المكونات إلى مجموعة صناعية متكاملة تضم معامل أبحاث وتطبيقات تجريبية، ومصانع خلط آلي متطورة بمدينة برج العرب الجديدة، وشراكات عالمية مع كبرى بيوت الخبرة الدولية.'
-                : 'Since its founding in 1993, AWA has grown from a specialized ingredients distributor into an integrated food solutions group operating application pilot centers, modern automated blending facilities in New Borg El-Arab, and strategic joint ventures.'}
+                ? 'فصلنا القادم يركز على تحويل هذه القدرات المتكاملة إلى قيمة ملموسة للعملاء والأسواق التي نخدمها.'
+                : 'Our next chapter is about turning integrated capabilities into measurable value for the customers and markets we serve.'}
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <Link to="/contact?type=technical" className="btn btn-primary">
@@ -205,8 +210,8 @@ export const AboutPage: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
                 {isAr
-                  ? 'تمكين مصنعي الأغذية من تقديم منتجات أرقى عبر علوم الأغذية التطبيقية، والتوريد الموثوق، والتركيبات المخصصة.'
-                  : 'To enable food manufacturers to deliver better products through applied food science, reliable sourcing and tailored manufacturing.'}
+                  ? 'مساعدة مصنعي الأغذية على تحويل التحديات التقنية إلى حلول غذائية عملية وعالية الأداء.'
+                  : 'To help food manufacturers turn technical challenges into practical, high-performing food solutions.'}
               </p>
             </div>
 
@@ -219,8 +224,8 @@ export const AboutPage: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
                 {isAr
-                  ? 'أن نكون الشريك الأكثر موثوقية في حلول الأغذية في المنطقة، المعترف به بالنزاهة الفنية، والأداء المتجانس، والقيمة الملموسة للعملاء.'
-                  : 'To be the most trusted food solutions partner in the region, recognized for technical integrity, consistent execution and meaningful customer value.'}
+                  ? 'صياغة مستقبل الغذاء من خلال الابتكار والتميز التقني والشراكات الموثوقة التي تخلق قيمة دائمة عبر منظومة الغذاء.'
+                  : 'To shape the future of food through innovation, technical excellence, and trusted partnerships that create lasting value across the food ecosystem.'}
               </p>
             </div>
 
@@ -233,8 +238,8 @@ export const AboutPage: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
                 {isAr
-                  ? 'الربط بين أحدث تقنيات المكونات العالمية والخبرة التطبيقية المحلية لتقديم حلول غذائية مخصصة وذات جدوى اقتصادية مثبتة.'
-                  : 'To connect international ingredient technologies with local application expertise, providing tailored, commercially sound food solutions.'}
+                  ? 'تطوير وتقديم حلول غذائية مخصصة تعزز أداء المنتج، وتحسن كفاءة المعالجة، وتدعم النجاح التجاري لشركائنا.'
+                  : 'To develop and deliver tailored food solutions that enhance product performance, optimize processing efficiency, and support the commercial success of our partners.'}
               </p>
             </div>
           </div>

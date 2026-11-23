@@ -20,15 +20,41 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     requirement: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      onClose();
-    }, 2500);
+    setIsSubmitting(true);
+    try {
+      await fetch('https://formsubmit.co/ajax/info@awa-group.net', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `Formulation/Quote Request: ${formData.company || formData.fullName} [${formData.sector}]`,
+          _template: 'table',
+          fullName: formData.fullName,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone || 'N/A',
+          sector: formData.sector,
+          requirement: formData.requirement || 'N/A',
+        }),
+      });
+    } catch (err) {
+      console.warn('Form submit error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        onClose();
+      }, 3500);
+    }
   };
 
   return (
@@ -140,8 +166,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                <Send size={16} /> <span>{t('quoteModal.submit', 'Submit Inquiry')}</span>
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: isSubmitting ? 0.7 : 1 }}>
+                <Send size={16} /> <span>{isSubmitting ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...') : t('quoteModal.submit', 'Submit Inquiry')}</span>
               </button>
             </form>
           )}
