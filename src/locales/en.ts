@@ -187,17 +187,17 @@ export const en = {
       ]
     },
     timeline: {
-      eyebrow: 'HERITAGE & EVOLUTION',
-      title: 'The Evolution of AWA Group',
-      desc: 'Key milestones from our founding in Alexandria in 1993 to a consolidated food industry solutions group.',
+      eyebrow: 'OUR EVOLUTION',
+      title: 'Experience built over time.',
+      desc: 'Each milestone reflects the development of capabilities, specialized businesses and international collaborations that contribute to the AWA Group story.',
       nodes: [
-        { year: '1993', title: 'AWA Food Additives Founded', desc: 'Eng. Wael Ghandour establishes AWA Food Additives in Alexandria, pioneering direct import of certified food ingredients.' },
-        { year: '2004', title: 'Borg El Arab Facility', desc: 'Commissioning of Borg El Arab manufacturing facility; expansion into specialized food systems blending.' },
-        { year: '2010', title: 'AWA Food Solutions Established', desc: 'AWA Food Solutions established; dedicated R&D and application development laboratories opened.' },
-        { year: '2012', title: 'Enterprise SAP ERP', desc: 'Implementation of enterprise SAP ERP system across all operations, procurement, manufacturing batches and logistics.' },
-        { year: '2018', title: 'Logistics Expansion', desc: 'Expansion of cold-chain and dry warehousing infrastructure across Alexandria and Cairo facilities.' },
-        { year: '2020', title: 'Strategic Joint Ventures', desc: 'Launch of specialized strategic joint ventures Turkphos (functional phosphates) and Ingreva (industrial food systems).' },
-        { year: '2024+', title: 'Consolidated AWA Group', desc: 'Consolidated AWA Group identity spanning ingredients, food services, consumer brands and manufacturing excellence.' },
+        { year: '2005', title: 'AWA Food Ingredients', desc: 'Establishing dedicated food ingredient activities.' },
+        { year: '2010', title: 'AWA Food Solutions', desc: 'Expanding the group’s technical and solution-development focus.' },
+        { year: '2018', title: 'AWA Bio Ingredients', desc: 'Further developing the specialized ingredient portfolio.' },
+        { year: '2020', title: 'AWA BAY', desc: 'Broadening the group’s business structure and reach.' },
+        { year: '2021', title: 'AWA Group', desc: 'Bringing the businesses together under one group brand.' },
+        { year: '2022', title: 'Turkphos Joint Venture', desc: 'Strengthening specialized phosphate and emulsifying salt capabilities.' },
+        { year: '2025', title: 'Ingreva Joint Venture', desc: 'Extending collaboration in industrial functional food systems.' },
       ]
     },
     statement: {
