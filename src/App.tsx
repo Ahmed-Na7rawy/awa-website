@@ -173,7 +173,7 @@ export function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <BrowserRouter>
           <AppContent />
         </BrowserRouter>
       </LanguageProvider>
