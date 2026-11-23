@@ -97,26 +97,11 @@ export const AboutPage: React.FC = () => {
                 ? 'تجمع مجموعة AWA بين المعرفة الدولية بالمكونات الغذائية، وعلوم الأغذية التطبيقية، وقدرات التصنيع والخلط الصناعي لابتكار حلول مخصصة لصناعة الأغذية. يساعد نهجنا المتكامل المصانع على تحقيق الخواص الوظيفية المطلوبة للمنتج، وتحسين كفاءة التشغيل، وتحقيق الأهداف الاقتصادية المرجوة.'
                 : 'AWA Group brings together international ingredient expertise, applied food science and manufacturing capabilities to create tailored solutions for the food industry. Our integrated approach helps manufacturers achieve their desired product functionality, processing performance and commercial objectives.'}
             </p>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.7', margin: 0 }}>
               {isAr
                 ? 'تشمل محفظة أعمالنا الأوسع عمليات مخصصة لخدمات الأغذية (Food Services) وعلامات تجارية استهلاكية، مدعومة بخبرات مشتركة وعلاقات دولية. يتم تقديم جميع الأنشطة تحت مظلة علامة مجموعة AWA، مع الحفاظ على التحديد الواضح للكيانات القانونية وعلاقات الشراكة حيثما كان ذلك مناسباً.'
                 : 'Our broader business portfolio includes a dedicated Food Services operation and consumer brands, supported by shared expertise and international relationships. All activities are presented under the AWA Group brand, while legal entities and partner relationships remain clearly identified where appropriate.'}
             </p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
-              <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>1993</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'التأسيس في الإسكندرية' : 'Founded in Alexandria'}</span>
-              </div>
-              <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary-blue)', fontWeight: 800, display: 'block' }}>30+</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'عاماً من الخبرة الصناعية' : 'Years of Food Science'}</span>
-              </div>
-              <div>
-                <strong style={{ fontSize: '1.8rem', color: 'var(--primary)', fontWeight: 800, display: 'block' }}>7</strong>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAr ? 'معايير واعتمادات دولية' : 'Certified Standards'}</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
