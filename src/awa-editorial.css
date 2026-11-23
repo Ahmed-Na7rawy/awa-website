@@ -1,0 +1,1155 @@
+/* ═════════════════════════════════════════════════════════════════════
+   AWA GROUP — PREMIUM EDITORIAL DESIGN SYSTEM
+   European B2B Industrial Food Science & Technology Art Direction
+   ═════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --awa-navy-deep: #0A1624;
+  --awa-navy-main: #10263B;
+  --awa-navy-light: #18334E;
+  --awa-green-accent: #00A84F;
+  --awa-green-subtle: #EBF7EE;
+  --awa-charcoal-headline: #111827;
+  --awa-charcoal-body: #475569;
+  --awa-charcoal-muted: #64748B;
+  --awa-surface-pure: #FFFFFF;
+  --awa-surface-offwhite: #F8FAFC;
+  --awa-surface-subtle: #F1F5F9;
+  --awa-border-hairline: #E2E8F0;
+  --awa-border-subtle: #CBD5E1;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   1. ARCHITECTURAL STRATEGIC NAVIGATOR
+   ───────────────────────────────────────────────────────────────── */
+.awa-arch-navigator {
+  background: var(--awa-surface-pure);
+  border-bottom: 1px solid var(--awa-border-hairline);
+  position: relative;
+  z-index: 10;
+}
+
+.awa-arch-nav-grid {
+  display: grid;
+  grid-template-columns: 1.15fr repeat(3, 1fr);
+  min-height: 96px;
+  align-items: stretch;
+}
+
+.awa-arch-nav-intro {
+  padding: 24px 32px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--awa-border-hairline);
+}
+
+[dir="rtl"] .awa-arch-nav-intro {
+  padding: 24px 0 24px 32px;
+  border-right: none;
+  border-left: 1px solid var(--awa-border-hairline);
+}
+
+.awa-arch-nav-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--awa-green-accent);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.awa-arch-nav-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.awa-arch-nav-item {
+  border: none;
+  background: transparent;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  border-right: 1px solid var(--awa-border-hairline);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+[dir="rtl"] .awa-arch-nav-item {
+  text-align: right;
+  border-right: none;
+  border-left: 1px solid var(--awa-border-hairline);
+}
+
+.awa-arch-nav-item:hover {
+  background-color: #F8FAFC;
+}
+
+.awa-arch-nav-item.is-active {
+  background-color: rgba(0, 168, 79, 0.04);
+}
+
+.awa-arch-nav-item.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--awa-green-accent);
+}
+
+.awa-arch-nav-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.awa-arch-nav-index {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--awa-charcoal-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.awa-arch-nav-arrow {
+  color: var(--awa-charcoal-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.awa-arch-nav-item:hover .awa-arch-nav-arrow {
+  color: var(--awa-green-accent);
+  transform: translate(2px, -2px);
+}
+
+[dir="rtl"] .awa-arch-nav-item:hover .awa-arch-nav-arrow {
+  transform: translate(-2px, -2px);
+}
+
+.awa-arch-nav-title {
+  font-size: 15px;
+  font-weight: 750;
+  color: var(--awa-charcoal-headline);
+  display: block;
+  line-height: 1.25;
+}
+
+.awa-arch-nav-sub {
+  font-size: 12px;
+  color: var(--awa-charcoal-muted);
+  display: block;
+  margin-top: 3px;
+  font-weight: 450;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   2. EXPLORE OUR EXPERTISE — EDITORIAL EXHIBITION GRID
+   ───────────────────────────────────────────────────────────────── */
+.awa-editorial-section {
+  padding: 100px 0;
+  background-color: var(--awa-surface-pure);
+}
+
+.awa-editorial-section.is-tint {
+  background-color: var(--awa-surface-offwhite);
+  border-top: 1px solid var(--awa-border-hairline);
+  border-bottom: 1px solid var(--awa-border-hairline);
+}
+
+.awa-editorial-header {
+  margin-bottom: 48px;
+  max-width: 820px;
+}
+
+.awa-editorial-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--awa-green-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.awa-editorial-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--awa-green-accent);
+  border-radius: 50%;
+}
+
+.awa-editorial-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  color: var(--awa-charcoal-headline);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 18px 0;
+}
+
+.awa-editorial-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+/* Architectural Tabs */
+.awa-arch-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--awa-border-hairline);
+  margin-bottom: 40px;
+}
+
+.awa-arch-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--awa-charcoal-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -1px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.awa-arch-tab-btn:hover {
+  color: var(--awa-navy-main);
+}
+
+.awa-arch-tab-btn.is-active {
+  color: var(--awa-navy-main);
+  border-bottom-color: var(--awa-green-accent);
+}
+
+.awa-arch-tab-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  background-color: var(--awa-surface-subtle);
+  color: var(--awa-charcoal-muted);
+  border-radius: 4px;
+}
+
+.awa-arch-tab-btn.is-active .awa-arch-tab-count {
+  background-color: var(--awa-green-subtle);
+  color: var(--awa-green-accent);
+}
+
+/* Industry Grid: Clean Architectural Exhibition Frames */
+.awa-industry-exhibition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+}
+
+.awa-industry-frame {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--awa-surface-pure);
+  border: 1px solid var(--awa-border-hairline);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.awa-industry-frame:hover {
+  border-color: #B5C4BC;
+  transform: translateY(-2px);
+}
+
+.awa-industry-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.awa-industry-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.awa-industry-frame:hover .awa-industry-media img {
+  transform: scale(1.03);
+}
+
+.awa-industry-sector-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(16, 38, 59, 0.88);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 2px;
+}
+
+[dir="rtl"] .awa-industry-sector-badge {
+  left: auto;
+  right: 14px;
+}
+
+.awa-industry-content {
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.awa-industry-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--awa-charcoal-headline);
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.awa-industry-summary {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--awa-charcoal-body);
+  margin: 0 0 18px 0;
+  flex-grow: 1;
+}
+
+.awa-industry-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--awa-green-accent);
+  padding-top: 14px;
+  border-top: 1px solid var(--awa-border-hairline);
+}
+
+/* Technical Specification Matrix (Challenge & Family) */
+.awa-technical-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.awa-spec-item {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 24px;
+  background-color: var(--awa-surface-pure);
+  border: 1px solid var(--awa-border-hairline);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.awa-spec-item:hover {
+  border-color: #A3C7B5;
+  background-color: #FAFDFB;
+}
+
+.awa-spec-icon-box {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--awa-surface-subtle);
+  color: var(--awa-navy-main);
+  border-radius: 4px;
+}
+
+.awa-spec-item:hover .awa-spec-icon-box {
+  background-color: var(--awa-green-subtle);
+  color: var(--awa-green-accent);
+}
+
+.awa-spec-title {
+  font-size: 16px;
+  font-weight: 750;
+  color: var(--awa-charcoal-headline);
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.awa-spec-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+.awa-spec-arrow {
+  color: var(--awa-charcoal-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.awa-spec-item:hover .awa-spec-arrow {
+  color: var(--awa-green-accent);
+  transform: translateX(3px);
+}
+
+[dir="rtl"] .awa-spec-item:hover .awa-spec-arrow {
+  transform: translateX(-3px);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   3. THE AWA DIFFERENCE — ASYMMETRIC EDITORIAL SPREAD
+   ───────────────────────────────────────────────────────────────── */
+.awa-asymmetric-spread {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 48px;
+}
+
+.awa-lead-pillar {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--awa-border-hairline);
+  background: var(--awa-surface-pure);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.awa-lead-pillar:hover {
+  border-color: #B5C4BC;
+}
+
+.awa-lead-pillar-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background-color: #E2E8F0;
+}
+
+.awa-lead-pillar-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.awa-lead-pillar:hover .awa-lead-pillar-media img {
+  transform: scale(1.025);
+}
+
+.awa-lead-pillar-body {
+  padding: 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.awa-pillar-numeral {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--awa-green-accent);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.awa-pillar-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+}
+
+.awa-pillar-subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--awa-charcoal-headline);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.awa-pillar-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+.awa-pillar-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--awa-border-hairline);
+  transition: color 0.2s ease;
+}
+
+.awa-lead-pillar:hover .awa-pillar-action {
+  color: var(--awa-green-accent);
+}
+
+.awa-secondary-pillars-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.awa-compact-pillar {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--awa-border-hairline);
+  background: var(--awa-surface-pure);
+  text-decoration: none;
+  overflow: hidden;
+  flex: 1;
+  transition: border-color 0.25s ease;
+}
+
+.awa-compact-pillar:hover {
+  border-color: #B5C4BC;
+}
+
+.awa-compact-pillar-media {
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.awa-compact-pillar-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.awa-compact-pillar:hover .awa-compact-pillar-media img {
+  transform: scale(1.025);
+}
+
+.awa-compact-pillar-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   4. FORMULATION EXPERTISE — AUTHORITATIVE TECHNICAL LEDGER
+   ───────────────────────────────────────────────────────────────── */
+.awa-formulation-ledger-section {
+  padding: 100px 0;
+  background-color: var(--awa-navy-deep);
+  color: #FFFFFF;
+}
+
+.awa-formulation-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.awa-formulation-title {
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px 0;
+}
+
+.awa-formulation-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #94A3B8;
+  margin: 0 0 32px 0;
+}
+
+.awa-technical-ledger {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.awa-ledger-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.awa-ledger-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #34D399;
+}
+
+.awa-ledger-content strong {
+  display: block;
+  font-size: 17px;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.awa-ledger-content span {
+  display: block;
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   5. INTERNATIONAL STANDARDS — CORPORATE CREDENTIAL SHOWCASE
+   ───────────────────────────────────────────────────────────────── */
+.awa-credentials-showcase {
+  border: 1px solid var(--awa-border-hairline);
+  background-color: var(--awa-surface-pure);
+}
+
+.awa-credential-row-international {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--awa-border-hairline);
+}
+
+.awa-credential-tile {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid var(--awa-border-hairline);
+  transition: background-color 0.2s ease;
+}
+
+[dir="rtl"] .awa-credential-tile {
+  border-right: none;
+  border-left: 1px solid var(--awa-border-hairline);
+}
+
+.awa-credential-tile:last-child {
+  border-right: none;
+}
+
+[dir="rtl"] .awa-credential-tile:last-child {
+  border-left: none;
+}
+
+.awa-credential-tile:hover {
+  background-color: #F8FAFC;
+}
+
+.awa-credential-seal-frame {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.awa-credential-seal-frame img {
+  max-height: 72px;
+  max-width: 110px;
+  object-fit: contain;
+}
+
+.awa-credential-code {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.awa-credential-type {
+  font-size: 11.5px;
+  color: var(--awa-charcoal-muted);
+  display: block;
+  line-height: 1.4;
+}
+
+/* Regulatory Row */
+.awa-credential-row-regulatory {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.awa-regulatory-dossier {
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 24px;
+  align-items: center;
+  text-decoration: none;
+  border-right: 1px solid var(--awa-border-hairline);
+  transition: background-color 0.2s ease;
+}
+
+[dir="rtl"] .awa-regulatory-dossier {
+  border-right: none;
+  border-left: 1px solid var(--awa-border-hairline);
+}
+
+.awa-regulatory-dossier:last-child {
+  border-right: none;
+}
+
+[dir="rtl"] .awa-regulatory-dossier:last-child {
+  border-left: none;
+}
+
+.awa-regulatory-dossier:hover {
+  background-color: #F8FAFC;
+}
+
+.awa-regulatory-seal-frame {
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.awa-regulatory-seal-frame img {
+  max-height: 84px;
+  max-width: 96px;
+  object-fit: contain;
+}
+
+.awa-regulatory-copy strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.awa-regulatory-copy small {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--awa-green-accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.awa-regulatory-copy p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   6. RESPONSIBLE GROWTH — EDITORIAL SPLIT COLUMNS
+   ───────────────────────────────────────────────────────────────── */
+.awa-growth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.awa-growth-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 28px;
+}
+
+.awa-growth-principle {
+  border-top: 2px solid var(--awa-charcoal-headline);
+  padding-top: 16px;
+}
+
+.awa-growth-index {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--awa-green-accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.awa-growth-heading {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--awa-charcoal-headline);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.awa-growth-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   7. KNOWLEDGE & INSIGHTS — PROFESSIONAL PUBLICATION LAYOUT
+   ───────────────────────────────────────────────────────────────── */
+.awa-journal-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  gap: 28px;
+}
+
+.awa-journal-article {
+  background: var(--awa-surface-pure);
+  border: 1px solid var(--awa-border-hairline);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s ease;
+}
+
+.awa-journal-article:hover {
+  border-color: #B5C4BC;
+}
+
+.awa-journal-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  background-color: #E2E8F0;
+}
+
+.awa-journal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.awa-journal-article:hover .awa-journal-media img {
+  transform: scale(1.03);
+}
+
+.awa-journal-category-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(16, 38, 59, 0.88);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+}
+
+[dir="rtl"] .awa-journal-category-badge {
+  left: auto;
+  right: 14px;
+}
+
+.awa-journal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.awa-journal-kicker {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--awa-green-accent);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.awa-journal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--awa-charcoal-headline);
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.awa-journal-lead {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+.awa-journal-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--awa-green-accent);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--awa-border-hairline);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   8. JOINT VENTURES & PRINCIPALS — CORPORATE DIRECTORY
+   ───────────────────────────────────────────────────────────────── */
+.awa-jv-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.awa-jv-dossier {
+  background: var(--awa-surface-pure);
+  border: 1px solid var(--awa-border-hairline);
+  padding: 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.awa-jv-dossier-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--awa-border-hairline);
+}
+
+.awa-jv-logo-frame {
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.awa-jv-logo-frame img {
+  max-height: 48px;
+  max-width: 170px;
+  object-fit: contain;
+}
+
+.awa-jv-region {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--awa-charcoal-muted);
+}
+
+.awa-jv-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--awa-navy-main);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.awa-jv-scope {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--awa-green-accent);
+  margin: 0 0 12px 0;
+}
+
+.awa-jv-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--awa-charcoal-body);
+  margin: 0;
+}
+
+.awa-jv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--awa-navy-main);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--awa-border-hairline);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.awa-jv-link:hover {
+  color: var(--awa-green-accent);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   9. PRODUCTION FACILITIES — PANORAMIC INDUSTRIAL GALLERY
+   ───────────────────────────────────────────────────────────────── */
+.awa-facilities-viewport {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 max(24px, calc((100vw - 1280px) / 2));
+}
+
+.awa-facilities-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.awa-facilities-strip {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+.awa-facility-panoramic-card {
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border: 1px solid var(--awa-border-hairline);
+  background: var(--awa-surface-pure);
+}
+
+.awa-facility-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.awa-facility-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.awa-facility-caption {
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--awa-charcoal-headline);
+  line-height: 1.45;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE ADAPTATIONS
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .awa-arch-nav-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .awa-arch-nav-intro {
+    grid-column: span 2;
+    border-right: none;
+    border-bottom: 1px solid var(--awa-border-hairline);
+    padding: 20px 24px;
+  }
+  [dir="rtl"] .awa-arch-nav-intro {
+    border-left: none;
+  }
+  .awa-industry-exhibition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awa-asymmetric-spread {
+    grid-template-columns: 1fr;
+  }
+  .awa-formulation-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .awa-credential-row-international {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .awa-journal-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .awa-journal-layout > *:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .awa-editorial-section {
+    padding: 64px 0;
+  }
+  .awa-arch-nav-grid {
+    grid-template-columns: 1fr;
+  }
+  .awa-arch-nav-intro {
+    grid-column: span 1;
+  }
+  .awa-arch-nav-item {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--awa-border-hairline);
+    padding: 18px 20px;
+  }
+  .awa-industry-exhibition-grid {
+    grid-template-columns: 1fr;
+  }
+  .awa-technical-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .awa-growth-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .awa-growth-principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .awa-credential-row-international {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awa-credential-row-regulatory {
+    grid-template-columns: 1fr;
+  }
+  .awa-regulatory-dossier {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--awa-border-hairline);
+    padding: 24px;
+  }
+  .awa-journal-layout {
+    grid-template-columns: 1fr;
+  }
+  .awa-journal-layout > *:first-child {
+    grid-column: span 1;
+  }
+  .awa-jv-directory-grid {
+    grid-template-columns: 1fr;
+  }
+  .awa-facility-panoramic-card {
+    width: 320px;
+  }
+}
