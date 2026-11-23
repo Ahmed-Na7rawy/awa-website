@@ -170,8 +170,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {
           heading: language === 'ar' ? 'الشركاء والوكالات العالمية' : 'Global Principal Network',
           links: [
-            { label: language === 'ar' ? 'استعراض الشركاء الدوليين' : 'Explore Global Principals', href: '/global#principals' },
-            { label: language === 'ar' ? 'فرص التصدير والشراكة' : 'Export & International Trade', href: '/global#exports' },
+            { label: language === 'ar' ? 'استعراض الشركاء الدوليين' : 'Explore Global Principals', href: '/global/principals' },
+            { label: language === 'ar' ? 'فرص التصدير والشراكة' : 'Export & International Trade', href: '/global/exports' },
           ]
         }
       ]
