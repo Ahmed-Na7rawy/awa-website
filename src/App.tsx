@@ -30,6 +30,8 @@ import { KnowledgePage } from './pages/KnowledgePage';
 import { TurkphosPage } from './pages/TurkphosPage';
 import { IngrevaPage } from './pages/IngrevaPage';
 import { SirriPage } from './pages/SirriPage';
+import { PrincipalsPage } from './pages/PrincipalsPage';
+import { ExportsPage } from './pages/ExportsPage';
 import { ContactPage } from './pages/ContactPage';
 import { CareersPage } from './pages/CareersPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -142,6 +144,11 @@ function AppContent() {
             <Route path="/quality" element={<QualityPage />} />
             <Route path="/sustainability" element={<SustainabilityPage />} />
             <Route path="/global" element={<GlobalPage />} />
+            <Route path="/global/principals" element={<PrincipalsPage />} />
+            <Route path="/principals" element={<Navigate to="/global/principals" replace />} />
+            <Route path="/global/exports" element={<ExportsPage />} />
+            <Route path="/exports" element={<Navigate to="/global/exports" replace />} />
+            <Route path="/export" element={<Navigate to="/global/exports" replace />} />
             <Route path="/knowledge" element={<KnowledgePage />} />
             <Route path="/insights" element={<KnowledgePage />} />
             <Route path="/news" element={<KnowledgePage />} />

@@ -121,8 +121,8 @@ export const GlobalPage: React.FC = () => {
         </section>
 
         {/* GLOBAL PRINCIPALS */}
-        <section className="v9-section tint scroll-margin" id="principals">
-          <div className="v9-wrap">
+        <section className="v9-section tint scroll-margin" id="principals" style={{ padding: '5rem 0' }}>
+          <div className="v9-wrap" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
             <div className="v9-heading text-center max-w-3xl mx-auto mb-12">
               <span className="v9-kicker">{isAr ? 'شبكة التوكيلات العالمية' : 'GLOBAL PRINCIPAL NETWORK'}</span>
               <h2 className="v9-h2">
@@ -131,21 +131,18 @@ export const GlobalPage: React.FC = () => {
               </h2>
               <p className="v9-p">
                 {isAr
-                  ? 'تعمل AWA مع كبرى شركات تصنيع المكونات التكنولوجية العالمية لتوريد مكونات وأنظمة وظيفية لمختلف التطبيقات الغذائية.'
-                  : 'AWA works with established ingredient manufacturers and technology principals to source ingredients and systems suitable for diverse food applications.'}
+                  ? 'تعمل AWA كوكيل حصري وشريك تكنولوجي لكبرى شركات تصنيع المكونات العالمية (هولندا، ألمانيا، إيطاليا، التشيك، بولندا، تركيا، الصين، الهند) لتوريد أنظمة وظيفية متطورة.'
+                  : 'AWA acts as an exclusive agent and technology partner for premier food ingredient manufacturers across Europe and Asia, supplying specialized systems for diverse applications.'}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-12">
               {principals.map((p) => {
                 const logoSrc = p.logo ? (v9Assets.principalLogos as any)[p.logo] : null;
                 return (
-                  <a
+                  <div
                     key={p.name}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-amber-400/50 transition-all flex flex-col justify-between"
+                    className="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-emerald-500/50 transition-all flex flex-col justify-between"
                   >
                     <div>
                       <div className="h-16 flex items-center justify-center p-2 bg-slate-50 dark:bg-slate-900 rounded-xl mb-4 border border-slate-100 dark:border-slate-800">
@@ -157,74 +154,135 @@ export const GlobalPage: React.FC = () => {
                           />
                         ) : (
                           <div className="text-center">
-                            <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
+                            <span className="block text-sm font-bold text-slate-800 dark:text-slate-200 uppercase">
                               {p.name}
                             </span>
-                            <span className="text-[10px] text-slate-400">Official logo pending</span>
+                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">{isAr ? 'شريك معتمد' : 'Authorized Partner'}</span>
                           </div>
                         )}
                       </div>
                       <small className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
                         {p.location}
                       </small>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {p.name}
                       </h3>
                       <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                         {p.category}
                       </p>
                     </div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 group-hover:underline">
-                      <span>{isAr ? 'موقع الشريك' : 'Principal website'}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </span>
-                  </a>
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+                      <Link
+                        to="/global/principals"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                      >
+                        <span>{isAr ? 'المواصفات الفنية' : 'Technical Specs'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                      >
+                        <span>{isAr ? 'الموقع' : 'Portal'}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
                 );
               })}
             </div>
 
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-6 text-sm text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 text-center leading-relaxed">
+            <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-6 text-sm text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 text-center leading-relaxed">
               <strong>{isAr ? 'القيمة المضافة لـ AWA: ' : 'Our Value Extends Beyond Supply: '}</strong>
               {isAr
-                ? 'لا تقتصر قيمتنا على التمثيل التجاري، بل يقيم فريقنا التقني الوظائف الحيوية للمكونات، ومطابقة المواصفات، والجدوى الاقتصادية، وضمان استمرارية التوريد لتطبيقات العملاء.'
+                ? 'لا تقتصر قيمتنا على التمثيل التجاري، بل يقيم فريقنا التقني الوظائف الحيوية للمكونات، ومطابقة المواصفات، والجدوى الاقتصادية، وضمان استمرارية التوريد والمخزون المحلي لتطبيقات العملاء.'
                 : 'Our value extends beyond supplier representation: our team evaluates ingredient functionality, technical specifications, sourcing options, commercial feasibility and continuity of supply for customer applications.'}
             </div>
 
-            <div className="text-center">
+            <div className="flex justify-center gap-4 flex-wrap">
+              <Link
+                to="/global/principals"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition-colors shadow-sm"
+              >
+                <span>{isAr ? 'استعراض الدليل الشامل للتوكيلات والمواصفات' : 'Explore Full Principals Showcase & Tech Specs'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
               <Link
                 to="/capabilities/sourcing"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm transition-colors"
               >
-                <span>{isAr ? 'استكشف التوريد وسلاسل الإمداد العالمية' : 'Explore Global Sourcing & Supply'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>{isAr ? 'استكشف التوريد وسلاسل الإمداد العالمية' : 'Global Sourcing & Supply'}</span>
               </Link>
             </div>
           </div>
         </section>
 
         {/* INTERNATIONAL BUSINESS & EXPORTS */}
-        <section className="v9-section scroll-margin" id="exports">
-          <div className="v9-wrap v9-intro-grid">
-            <div>
-              <span className="v9-kicker">{isAr ? 'الأعمال الدولية والتصدير' : 'INTERNATIONAL BUSINESS'}</span>
-              <h2 className="v9-h2">
-                {isAr ? 'ربط الخبرات ' : 'Connecting expertise '}
-                <span className="accent">{isAr ? 'عبر الأسواق العالمية.' : 'across markets.'}</span>
-              </h2>
-            </div>
-            <div>
-              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
-                {isAr
-                  ? 'تتيح علاقاتنا الدولية توريد المكونات، والتعاون التطبيقي، وفرص التصدير المعتمدة. وسيحدد الموقع مواقع العمليات، ووجهات التصدير المؤكدة، والأقاليم التعاقدية، والأسواق المستهدفة للحفاظ على تمثيل دقيق للسوق.'
-                  : 'Our international relationships enable ingredient supply, application collaboration and approved export opportunities. The website will distinguish operating locations, confirmed export destinations, contractual territories and target markets to maintain accurate market representation.'}
-              </p>
-              <Link
-                to="/contact?type=export"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:bg-emerald-600 hover:text-white transition-colors shadow-sm"
-              >
-                <span>{isAr ? 'طلب استفسار أعمال دولية وتصدير ↗' : 'International business inquiry ↗'}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+        <section className="v9-section scroll-margin" id="exports" style={{ padding: '5rem 0', background: '#FFFFFF' }}>
+          <div className="v9-wrap" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
+              <div>
+                <span className="v9-kicker">{isAr ? 'الأعمال الدولية والتصدير' : 'INTERNATIONAL BUSINESS & EXPORTS'}</span>
+                <h2 className="v9-h2">
+                  {isAr ? 'ربط الخبرات ' : 'Connecting expertise '}
+                  <span className="accent">{isAr ? 'عبر 20+ سوقاً عالمياً.' : 'across 20+ global markets.'}</span>
+                </h2>
+                <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                  {isAr
+                    ? 'انطلاقاً من مجمع مصانعنا في مدينة برج العرب الجديدة وبالقرب من موانئ الإسكندرية وبورسعيد على البحر المتوسط، تصدر AWA حلول الصناعات الغذائية والمكونات الوظيفية إلى أكثر من 20 دولة في الخليج وإفريقيا وأوروبا، مستفيدة من إعفاءات اتفاقيات التجارة الحرة GAFTA وCOMESA بنسبة جمارك 0%.'
+                    : 'From our manufacturing hub in New Borg El-Arab near Alexandria and Port Said Mediterranean ports, AWA Group exports advanced food systems to over 20 countries across the GCC, MENA, Africa and Europe, backed by 0% duty trade agreements (GAFTA & COMESA).'}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['Saudi Arabia', 'UAE', 'Kuwait', 'Jordan', 'Iraq', 'Libya', 'Sudan', 'Kenya', 'Algeria', 'Tunisia'].map((c, i) => (
+                    <span key={i} className="text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 px-3 py-1 rounded-md">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4 flex-wrap">
+                  <Link
+                    to="/global/exports"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:bg-emerald-600 hover:text-white transition-colors shadow-sm"
+                  >
+                    <span>{isAr ? 'استكشف بوابة التصدير والتجارة الدولية ↗' : 'Explore Full Export & International Trade Portal ↗'}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    to="/contact?type=export"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm transition-colors"
+                  >
+                    <span>{isAr ? 'طلب استفسار تصدير' : 'Direct Export Inquiry'}</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
+                  {isAr ? 'مزايا التصدير مع مجموعة AWA:' : 'Export Advantages with AWA Group:'}
+                </h4>
+                <div className="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{isAr ? 'إعفاء جمركي كامل 0%:' : '0% Customs Duty:'}</strong> {isAr ? 'بموجب اتفاقية التجارة الحرة العربية الكبرى (GAFTA) والكوميسا (COMESA).' : 'Under GAFTA (Arab Free Trade) and COMESA agreements.'}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{isAr ? 'شهادات اعتماد دولية:' : 'International Accreditations:'}</strong> FSSC 22000, ISO 9001/14001/45001, Halal Certified, NFSA White List, US FDA Registered.</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{isAr ? 'شروط شحن مرنة:' : 'Flexible INCOTERMS:'}</strong> EXW, FOB Alexandria/Port Said, CFR, CIF in 20ft & 40ft FCL or consolidated LCL shipments.</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{isAr ? 'وثائق تصدير كاملة:' : 'End-to-End Documentation:'}</strong> Batch CoA, Phytosanitary Certificates, Halal, EUR.1 & Arab Origin certificates.</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
