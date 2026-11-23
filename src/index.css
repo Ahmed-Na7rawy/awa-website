@@ -266,19 +266,19 @@ img {
   box-shadow: 0 0 8px rgba(13, 120, 56, 0.4);
 }
 
-/* Back-to-Top Button */
+/* Back-to-Top Button — Fixed at bottom-right (24px, 24px) */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 48px;
-  height: 48px;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(16, 38, 59, 0.85);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(16, 38, 59, 0.92);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,9 +286,9 @@ img {
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1500;
-  box-shadow: 0 10px 28px rgba(16, 38, 59, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 90;
+  box-shadow: 0 8px 24px rgba(16, 38, 59, 0.22);
 }
 
 .back-to-top.visible {
@@ -1918,28 +1918,28 @@ img {
 }
 
 /* ═══════════════════════════════════════════════════ */
-/* 13. FLOATING CONTACT CTA (BOTTOM RIGHT)            */
+/* 13. FLOATING CONTACT CTA (BOTTOM RIGHT STACKED)     */
 /* ═══════════════════════════════════════════════════ */
 .floating-contact-cta {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 999;
+  bottom: 84px;
+  right: 24px;
+  z-index: 85;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(16, 38, 59, 0.88);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(16, 38, 59, 0.92);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
   color: #FFFFFF;
-  padding: 0.85rem 1.4rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.875rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 16px 36px rgba(16, 38, 59, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 28px rgba(16, 38, 59, 0.24);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .floating-contact-cta:hover {
@@ -2733,7 +2733,13 @@ img {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .feature-checklist { grid-template-columns: 1fr; }
   
-  .floating-contact-cta { bottom: 1.25rem; right: 1.25rem; padding: 0.7rem 1.15rem; font-size: 0.8rem; }
+  .floating-contact-cta { display: none; }
+  .back-to-top {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2984,14 +2990,22 @@ body.rtl-mode {
 /* Floating Contact Pill in RTL */
 [dir="rtl"] .floating-contact-cta {
   right: auto;
-  left: 2rem;
+  left: 24px;
   flex-direction: row;
 }
 
 /* Back to Top button in RTL */
+[dir="rtl"] .back-to-top,
 [dir="rtl"] .back-to-top-btn {
   right: auto;
-  left: 2rem;
+  left: 24px;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .back-to-top,
+  [dir="rtl"] .back-to-top-btn {
+    left: 16px;
+  }
 }
 
 /* Forms in RTL */

@@ -255,26 +255,25 @@
   color: var(--awa-green-accent);
 }
 
-/* Industry Grid: Clean Architectural Exhibition Frames */
+/* Industry Grid: Editorial Asymmetric Exhibition Composition */
 .awa-industry-exhibition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px 24px;
+  gap: 36px 28px;
 }
 
 .awa-industry-frame {
   display: flex;
   flex-direction: column;
-  background-color: var(--awa-surface-pure);
-  border: 1px solid var(--awa-border-hairline);
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.25s ease;
   text-decoration: none;
   overflow: hidden;
 }
 
 .awa-industry-frame:hover {
-  border-color: #B5C4BC;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .awa-industry-media {
@@ -282,31 +281,34 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background-color: #E2E8F0;
+  border: 1px solid var(--awa-border-hairline);
+  border-radius: 2px;
 }
 
 .awa-industry-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .awa-industry-frame:hover .awa-industry-media img {
-  transform: scale(1.03);
+  transform: scale(1.035);
 }
 
 .awa-industry-sector-badge {
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(16, 38, 59, 0.88);
-  backdrop-filter: blur(4px);
+  background: rgba(16, 38, 59, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #FFFFFF;
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 750;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 9px;
+  padding: 5px 10px;
   border-radius: 2px;
 }
 
@@ -316,38 +318,77 @@
 }
 
 .awa-industry-content {
-  padding: 24px 22px 20px;
+  padding: 20px 2px 8px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .awa-industry-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--awa-charcoal-headline);
   line-height: 1.25;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   letter-spacing: -0.02em;
 }
 
 .awa-industry-summary {
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.65;
   color: var(--awa-charcoal-body);
-  margin: 0 0 18px 0;
+  margin: 0 0 16px 0;
   flex-grow: 1;
 }
 
 .awa-industry-action {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
+  gap: 8px;
+  font-size: 13.5px;
   font-weight: 750;
   color: var(--awa-green-accent);
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid var(--awa-border-hairline);
+}
+
+/* Prominent Lead Category (Asymmetric Highlight) */
+@media (min-width: 992px) {
+  .awa-industry-frame.is-prominent-lead {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 28px;
+    background: var(--awa-surface-pure);
+    border: 1px solid var(--awa-border-hairline);
+    padding: 0;
+    align-items: stretch;
+  }
+  .awa-industry-frame.is-prominent-lead .awa-industry-media {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 320px;
+    border: none;
+    border-right: 1px solid var(--awa-border-hairline);
+    border-radius: 0;
+  }
+  [dir="rtl"] .awa-industry-frame.is-prominent-lead .awa-industry-media {
+    border-right: none;
+    border-left: 1px solid var(--awa-border-hairline);
+  }
+  .awa-industry-frame.is-prominent-lead .awa-industry-content {
+    padding: 36px 32px 32px;
+    justify-content: center;
+  }
+  .awa-industry-frame.is-prominent-lead .awa-industry-name {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  .awa-industry-frame.is-prominent-lead .awa-industry-summary {
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
 }
 
 /* Technical Specification Matrix (Challenge & Family) */
@@ -534,11 +575,12 @@
   text-decoration: none;
   overflow: hidden;
   flex: 1;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .awa-compact-pillar:hover {
   border-color: #B5C4BC;
+  transform: translateY(-2px);
 }
 
 .awa-compact-pillar-media {
@@ -564,6 +606,25 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
+}
+
+/* Desktop Side-by-Side Compact Pillars to balance lead pillar */
+@media (min-width: 900px) {
+  .awa-compact-pillar {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    align-items: stretch;
+  }
+  .awa-compact-pillar-media {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 180px;
+    border-right: 1px solid var(--awa-border-hairline);
+  }
+  [dir="rtl"] .awa-compact-pillar-media {
+    border-right: none;
+    border-left: 1px solid var(--awa-border-hairline);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -594,43 +655,50 @@
 .awa-formulation-desc {
   font-size: 16px;
   line-height: 1.75;
-  color: #94A3B8;
+  color: #CBD5E1;
   margin: 0 0 32px 0;
 }
 
 .awa-technical-ledger {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .awa-ledger-row {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 20px;
-  padding: 24px 0;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 22px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.awa-ledger-row:hover {
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .awa-ledger-tag {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #34D399;
+  color: #4ADE80;
 }
 
 .awa-ledger-content strong {
   display: block;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 750;
   color: #FFFFFF;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
 .awa-ledger-content span {
   display: block;
-  font-size: 13.5px;
-  color: #94A3B8;
-  line-height: 1.5;
+  font-size: 14.5px;
+  color: #CBD5E1;
+  line-height: 1.6;
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -648,7 +716,7 @@
 }
 
 .awa-credential-tile {
-  padding: 28px 20px;
+  padding: 32px 20px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -676,7 +744,7 @@
 }
 
 .awa-credential-seal-frame {
-  height: 80px;
+  height: 88px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -685,13 +753,13 @@
 }
 
 .awa-credential-seal-frame img {
-  max-height: 72px;
-  max-width: 110px;
+  max-height: 76px;
+  max-width: 120px;
   object-fit: contain;
 }
 
 .awa-credential-code {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--awa-navy-main);
   display: block;
@@ -699,10 +767,10 @@
 }
 
 .awa-credential-type {
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--awa-charcoal-muted);
   display: block;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* Regulatory Row */
@@ -712,9 +780,9 @@
 }
 
 .awa-regulatory-dossier {
-  padding: 32px 36px;
+  padding: 30px 36px;
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 100px 1fr;
   gap: 24px;
   align-items: center;
   text-decoration: none;
@@ -748,12 +816,12 @@
 
 .awa-regulatory-seal-frame img {
   max-height: 84px;
-  max-width: 96px;
+  max-width: 100px;
   object-fit: contain;
 }
 
 .awa-regulatory-copy strong {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--awa-navy-main);
   display: block;
@@ -761,7 +829,7 @@
 }
 
 .awa-regulatory-copy small {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--awa-green-accent);
   text-transform: uppercase;
@@ -770,8 +838,8 @@
 }
 
 .awa-regulatory-copy p {
-  font-size: 12.5px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--awa-charcoal-body);
   margin: 0;
 }
@@ -789,34 +857,34 @@
 .awa-growth-principles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px 28px;
+  gap: 36px 32px;
 }
 
 .awa-growth-principle {
-  border-top: 2px solid var(--awa-charcoal-headline);
-  padding-top: 16px;
+  border-top: 2px solid var(--awa-navy-main);
+  padding-top: 20px;
 }
 
 .awa-growth-index {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--awa-green-accent);
   display: block;
   margin-bottom: 8px;
 }
 
 .awa-growth-heading {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 800;
-  color: var(--awa-charcoal-headline);
-  margin: 0 0 6px 0;
+  color: var(--awa-navy-main);
+  margin: 0 0 8px 0;
   letter-spacing: -0.01em;
 }
 
 .awa-growth-text {
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--awa-charcoal-body);
   margin: 0;
 }
@@ -827,21 +895,21 @@
 .awa-journal-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr 0.8fr;
-  gap: 28px;
+  gap: 32px;
 }
 
 .awa-journal-article {
-  background: var(--awa-surface-pure);
-  border: 1px solid var(--awa-border-hairline);
+  background: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   text-decoration: none;
-  transition: border-color 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .awa-journal-article:hover {
-  border-color: #B5C4BC;
+  transform: translateY(-3px);
 }
 
 .awa-journal-media {
@@ -849,30 +917,34 @@
   overflow: hidden;
   position: relative;
   background-color: #E2E8F0;
+  border: 1px solid var(--awa-border-hairline);
+  border-radius: 2px;
 }
 
 .awa-journal-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.45s ease;
 }
 
 .awa-journal-article:hover .awa-journal-media img {
-  transform: scale(1.03);
+  transform: scale(1.035);
 }
 
 .awa-journal-category-badge {
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(16, 38, 59, 0.88);
-  backdrop-filter: blur(4px);
+  background: rgba(16, 38, 59, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #FFFFFF;
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 750;
   letter-spacing: 0.08em;
-  padding: 4px 8px;
+  padding: 5px 9px;
+  border-radius: 2px;
 }
 
 [dir="rtl"] .awa-journal-category-badge {
@@ -881,7 +953,7 @@
 }
 
 .awa-journal-body {
-  padding: 24px;
+  padding: 18px 2px 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -889,7 +961,7 @@
 }
 
 .awa-journal-kicker {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -899,17 +971,21 @@
 }
 
 .awa-journal-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
-  color: var(--awa-charcoal-headline);
+  color: var(--awa-navy-main);
   line-height: 1.3;
   margin: 0 0 10px 0;
   letter-spacing: -0.02em;
 }
 
+.awa-journal-article:first-child .awa-journal-title {
+  font-size: 22px;
+}
+
 .awa-journal-lead {
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.65;
   color: var(--awa-charcoal-body);
   margin: 0;
 }
@@ -918,11 +994,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 750;
   color: var(--awa-green-accent);
   margin-top: 18px;
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid var(--awa-border-hairline);
 }
 
@@ -932,17 +1008,25 @@
 .awa-jv-directory-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 36px;
   margin-bottom: 56px;
 }
 
 .awa-jv-dossier {
   background: var(--awa-surface-pure);
-  border: 1px solid var(--awa-border-hairline);
-  padding: 36px 36px 32px;
+  border: none;
+  border-top: 3px solid var(--awa-navy-main);
+  box-shadow: 0 4px 20px rgba(16, 38, 59, 0.04);
+  padding: 38px 36px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.awa-jv-dossier:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(16, 38, 59, 0.07);
 }
 
 .awa-jv-dossier-top {
@@ -955,26 +1039,26 @@
 }
 
 .awa-jv-logo-frame {
-  height: 52px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
 
 .awa-jv-logo-frame img {
-  max-height: 48px;
-  max-width: 170px;
+  max-height: 52px;
+  max-width: 180px;
   object-fit: contain;
 }
 
 .awa-jv-region {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--awa-charcoal-muted);
 }
 
 .awa-jv-name {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--awa-navy-main);
   letter-spacing: -0.02em;
@@ -982,14 +1066,14 @@
 }
 
 .awa-jv-scope {
-  font-size: 13.5px;
-  font-weight: 700;
+  font-size: 14.5px;
+  font-weight: 750;
   color: var(--awa-green-accent);
   margin: 0 0 12px 0;
 }
 
 .awa-jv-text {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--awa-charcoal-body);
   margin: 0;
@@ -998,8 +1082,8 @@
 .awa-jv-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 8px;
+  font-size: 14px;
   font-weight: 750;
   color: var(--awa-navy-main);
   margin-top: 24px;
@@ -1029,37 +1113,44 @@
 
 .awa-facilities-strip {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   width: max-content;
 }
 
 .awa-facility-panoramic-card {
-  width: 440px;
+  width: clamp(480px, 42vw, 640px);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  border: 1px solid var(--awa-border-hairline);
-  background: var(--awa-surface-pure);
+  background: transparent;
+  border: none;
 }
 
 .awa-facility-media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: #E2E8F0;
+  border: 1px solid var(--awa-border-hairline);
+  border-radius: 2px;
 }
 
 .awa-facility-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.awa-facility-panoramic-card:hover .awa-facility-media img {
+  transform: scale(1.03);
 }
 
 .awa-facility-caption {
-  padding: 16px 20px;
-  font-size: 13px;
-  font-weight: 650;
+  padding: 14px 2px 0;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--awa-charcoal-headline);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 /* ─────────────────────────────────────────────────────────────────
