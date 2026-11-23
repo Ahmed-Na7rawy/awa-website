@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {
           heading: language === 'ar' ? 'المنتجات الشريكة' : 'Partnered Retail Products',
           links: [
-            { label: language === 'ar' ? 'SIRRI (شراكة تجزئة طهي)' : 'SIRRI Foods (Retail Culinary Partnership)', href: '/brands#partnered' },
+            { label: language === 'ar' ? 'سري (أغذية التجزئة والشوربة)' : 'SIRRI Foods (Instant Soups & Culinary)', href: '/brands/sirri' },
           ]
         }
       ]

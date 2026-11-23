@@ -337,10 +337,15 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 ))}
               </div>
 
-              <Link to="/food-services#culinary-savory" className="btn btn-secondary">
-                <span>{isAr ? 'استكشف التطبيقات المطبخية المهنية ↗' : 'Explore professional culinary applications ↗'}</span>
-                <ArrowRight size={15} />
-              </Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/brands/sirri" className="btn btn-primary">
+                  <span>{isAr ? 'استكشف عالم SIRRI والشوربات الفورية' : 'Explore SIRRI Showcase & Instant Soups'}</span>
+                  <ArrowRight size={15} />
+                </Link>
+                <Link to="/food-services#culinary-savory" className="btn btn-secondary">
+                  <span>{isAr ? 'التطبيقات المطبخية المهنية ↗' : 'Professional Culinary ↗'}</span>
+                </Link>
+              </div>
             </div>
 
             <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border-color)', height: '360px' }}>
