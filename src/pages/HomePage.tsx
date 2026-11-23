@@ -18,7 +18,13 @@ import {
   Play,
   Pause,
   MessageSquare,
-  ExternalLink
+  ExternalLink,
+  Factory,
+  Microscope,
+  Building2,
+  MapPin,
+  CheckCircle2,
+  ChevronRight
 } from 'lucide-react';
 import { PartnerMarquee } from '../components/PartnerMarquee';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -96,6 +102,70 @@ const industryArabicTitles: Record<string, { title: string; desc: string }> = {
   }
 };
 
+/* Verified Industrial Facilities & Infrastructure Dossier */
+const facilitiesData = [
+  {
+    id: 'borg-el-arab',
+    number: '01',
+    nameEn: 'Borg El-Arab Compounding & Manufacturing Complex',
+    nameAr: 'مجمع الخلط والتصنيع الصناعي - برج العرب',
+    locationEn: 'Alexandria, Egypt · Borg El-Arab Industrial Zone',
+    locationAr: 'الإسكندرية، مصر · المنطقة الصناعية برج العرب',
+    roleEn: 'High-Capacity Automated Compounding & Emulsifying Salt Synthesis',
+    roleAr: 'خلط وتصنيع صناعي آلي عالي الطاقة وأملاح استحلاب متخصصة',
+    descEn: 'State-of-the-art industrial processing complex dedicated to functional food blending, proprietary emulsifying salt systems, and food ingredient formulations. Equipped with computerized recipe management and hygienic cleanroom production.',
+    descAr: 'مجمع تصنيع صناعي متطور مخصص لخلط المكونات الوظيفية، وأنظمة أملاح الاستحلاب الخاصة، وتركيبات المكونات الغذائية، مجهز بإدارة رقمية للوصفات وخطوط إنتاج مطابقة لمعايير النظافة العالية.',
+    specsEn: ['24,000 MT Annual Compounding', 'Automated Micro-Dosing Systems', 'Cleanroom-Grade Processing'],
+    specsAr: ['طاقة سنوية 24,000 طن خلط', 'أنظمة جرعات دقيقة مؤتمتة', 'مناطق إنتاج بمعايير نظافة متقدمة'],
+    image: v9Assets.v7Assets.factory,
+  },
+  {
+    id: 'applied-rd-lab',
+    number: '02',
+    nameEn: 'Applied R&D & Texture Analysis Laboratories',
+    nameAr: 'مختبرات البحث والتطوير التطبيقي وتحليل القوام',
+    locationEn: 'Cairo & Alexandria Innovation Centers',
+    locationAr: 'مراكز الابتكار والبحث - القاهرة والإسكندرية',
+    roleEn: 'Food Matrix Characterization, Rheology & Shelf-Life Diagnostics',
+    roleAr: 'توصيف مصفوفة الأغذية، قياسات الريولوجيا وفحوصات الصلاحية',
+    descEn: 'Advanced analytical suite configured for precision texture profiling, viscosity curves, emulsion stability monitoring, and water activity analysis across dairy, meat, bakery and beverage food systems.',
+    descAr: 'مختبرات تحليلية متقدمة لقياس منحنيات اللزوجة، وتحليل خواص القوام، ومراقبة ثبات المستحلبات، وفحوصات النشاط المائي عبر مصفوفات الألبان واللحوم والمخبوزات والمشروبات.',
+    specsEn: ['Brookfield Viscometry & Rheology', 'Texture Profile Analyzer (TPA)', 'Accelerated Shelf-Life Incubators'],
+    specsAr: ['أجهزة قياس اللزوجة والريولوجيا', 'محلل خواص القوام TPA', 'حاضنات اختبارات الصلاحية المسرعة'],
+    image: '/images/pages/home/sensory-rheology-lab.jpg',
+  },
+  {
+    id: 'pilot-plants',
+    number: '03',
+    nameEn: 'Food Application Pilot Testing Facilities',
+    nameAr: 'المصانع التجريبية لتطبيقات الأغذية وتجارب التوسع',
+    locationEn: 'Dedicated Pilot-Scale Production Facilities',
+    locationAr: 'مرافق إنتاج تجريبية مخصصة للتحجيم الصناعي',
+    roleEn: 'Pilot Scale-Up, High-Shear Emulsification & Thermal Trials',
+    roleAr: 'محاكاة التوسع الصناعي، الخلط عالي القص والتجارب الحرارية',
+    descEn: 'Semi-industrial pilot plant equipped with pilot-scale Stephan cookers, vacuum bowl cutters, high-pressure homogenizers, and UHT simulators to replicate real manufacturing environments before full commercial scaling.',
+    descAr: 'مصنع تجريبي نصف صناعي مجهز بطباخات ستيفان التجريبية، وقواطع مفرغة، ومجانسات الضغط العالي لمحاكاة ظروف التشغيل في المصانع قبل بدء الإنتاج التجاري الموسع.',
+    specsEn: ['Pilot Stephan Cookers', 'High-Shear Emulsification Lines', 'Thermal Scale-Up Simulation'],
+    specsAr: ['طباخات ستيفان التجريبية', 'خطوط خلط واستحلاب عالية القص', 'محاكاة المعاملات الحرارية والتوسع'],
+    image: '/images/pages/home/pilot-plant-dairy-testing.jpg',
+  },
+  {
+    id: 'cold-chain-logistics',
+    number: '04',
+    nameEn: '15,000 MT Cold-Chain & Global Logistics Hub',
+    nameAr: 'مركز الخدمات اللوجستية وسلسلة التبريد (15,000 طن)',
+    locationEn: 'Strategic Seaport Proximity · Dekheila & Alexandria Ports',
+    locationAr: 'موقع استراتيجي قرب موانئ الإسكندرية والدخيلة',
+    roleEn: 'Temperature-Controlled Storage & Resilient Supply Chain Gateway',
+    roleAr: 'تخزين مضبوط حرارياً وبوابة موثوقة لسلسلة التوريد الإقليمية',
+    descEn: 'Large-scale warehousing infrastructure maintaining strict climate control, cold-chain integrity, and automated batch traceability. Strategically positioned to ensure continuous availability and rapid regional dispatch.',
+    descAr: 'بنية تحتية تخزينية متكاملة تطبق رقابة مناخية صارمة، وتضمن سلامة سلسلة التبريد وتتبع الشحنات، بموقع استراتيجي يضمن استمرارية الإمدادات وسرعة التوزيع الإقليمي.',
+    specsEn: ['15,000 MT Storage Capacity', 'Multi-Temp Regimes (-18°C to +20°C)', 'Full Batch Traceability & Port Link'],
+    specsAr: ['طاقة تخزينية 15,000 طن', 'نطاقات حرارية متعددة (-18 إلى +20°C)', 'تتبع كامل للشحنات وربط مباشر بالموانئ'],
+    image: '/images/pages/home/logistics.jpg',
+  }
+];
+
 export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
   const { language } = useLanguage();
   const isAr = language === 'ar';
@@ -124,16 +194,8 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
     }
   }, []);
 
-  // State for explorer tabs
-  const [exploreTab, setExploreTab] = useState<'industry' | 'challenge' | 'family'>('industry');
-
-  const handleJumpExplore = (tab: 'industry' | 'challenge' | 'family') => {
-    setExploreTab(tab);
-    const el = document.getElementById('explore');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  // State for interactive facilities showcase
+  const [activeFacility, setActiveFacility] = useState(0);
 
   // Scroll reveal refs
   const heroRef = useScrollReveal();
@@ -287,229 +349,101 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 2. ARCHITECTURAL STRATEGIC NAVIGATOR (Quick Jump)    */}
+      {/* 2. FOOD INDUSTRY SOLUTIONS — MODERN ARCHITECTURAL SHOWCASE */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-arch-navigator">
+      <section className="awa-editorial-section" id="solutions" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
         <div className="wrap">
-          <div className="awa-arch-nav-grid">
-            <div className="awa-arch-nav-intro">
-              <span className="awa-arch-nav-kicker">
-                {isAr ? 'ابحث عن حلك المناسب' : 'FIND YOUR SOLUTION'}
+          <div className="awa-editorial-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px', marginBottom: '44px' }}>
+            <div style={{ maxWidth: '780px' }}>
+              <span className="awa-editorial-kicker">
+                {isAr ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
               </span>
-              <h3 className="awa-arch-nav-heading">
-                {isAr ? 'استكشف محفظة حلول AWA الصناعية' : "Explore AWA's industrial portfolio"}
-              </h3>
+              <h2 className="awa-editorial-title" style={{ margin: '0 0 14px 0' }}>
+                {isAr ? (
+                  <>محفظة حلول الأغذية الصناعية.<br /><span style={{ color: 'var(--awa-green-accent)' }}>تطبيقات متخصصة وأداء مثبت.</span></>
+                ) : (
+                  <>Industrial Food Solutions.<br /><span style={{ color: 'var(--awa-green-accent)' }}>Engineered for Processing Excellence.</span></>
+                )}
+              </h2>
+              <p className="awa-editorial-desc">
+                {isAr
+                  ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة حول متطلبات التصنيع الخاصة. حلول متطورة مصممة لدعم كفاءة التشغيل والجودة العالية عبر 6 قطاعات تصنيعية رئيسية.'
+                  : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Engineered to optimize texture, stability and yield across six core food processing sectors.'}
+              </p>
             </div>
-
-            <button 
-              type="button" 
-              onClick={() => handleJumpExplore('industry')}
-              className={`awa-arch-nav-item ${exploreTab === 'industry' ? 'is-active' : ''}`}
-            >
-              <div className="awa-arch-nav-meta">
-                <span className="awa-arch-nav-index">01 / SECTOR</span>
-                <ArrowUpRight size={16} className="awa-arch-nav-arrow" />
-              </div>
-              <div>
-                <span className="awa-arch-nav-title">
-                  {isAr ? 'حسب قطاع الصناعة' : 'By Industry'}
-                </span>
-                <span className="awa-arch-nav-sub">
-                  {isAr ? 'استكشف تطبيقات الأغذية' : 'Explore food applications'}
-                </span>
-              </div>
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => handleJumpExplore('challenge')}
-              className={`awa-arch-nav-item ${exploreTab === 'challenge' ? 'is-active' : ''}`}
-            >
-              <div className="awa-arch-nav-meta">
-                <span className="awa-arch-nav-index">02 / OBJECTIVE</span>
-                <ArrowUpRight size={16} className="awa-arch-nav-arrow" />
-              </div>
-              <div>
-                <span className="awa-arch-nav-title">
-                  {isAr ? 'حسب التحدي التقني' : 'By Challenge'}
-                </span>
-                <span className="awa-arch-nav-sub">
-                  {isAr ? 'معالجة الاحتياجات التقنية' : 'Address a technical need'}
-                </span>
-              </div>
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => handleJumpExplore('family')}
-              className={`awa-arch-nav-item ${exploreTab === 'family' ? 'is-active' : ''}`}
-            >
-              <div className="awa-arch-nav-meta">
-                <span className="awa-arch-nav-index">03 / FUNCTION</span>
-                <ArrowUpRight size={16} className="awa-arch-nav-arrow" />
-              </div>
-              <div>
-                <span className="awa-arch-nav-title">
-                  {isAr ? 'حسب عائلة المنتج' : 'By Product Family'}
-                </span>
-                <span className="awa-arch-nav-sub">
-                  {isAr ? 'استكشف الوظائف للمكونات' : 'Explore ingredient functions'}
-                </span>
-              </div>
-            </button>
+            <div>
+              <Link 
+                to="/solutions/catalogue" 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'var(--awa-surface-offwhite)',
+                  color: 'var(--awa-navy-main)',
+                  border: '1px solid var(--awa-border-hairline)',
+                  padding: '12px 22px',
+                  borderRadius: '9999px',
+                  fontWeight: 750,
+                  fontSize: '13.5px',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                <span>{isAr ? 'كتالوج المنتجات والمكونات ↗' : 'Browse Product Catalogue ↗'}</span>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ═══════════════════════════════════════════════════ */}
-      {/* 3. EXPLORE OUR EXPERTISE — IMAGE-LED EXHIBITION      */}
-      {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" id="explore" style={{ scrollMarginTop: '80px' }} ref={explorerRef}>
-        <div className="wrap">
-          <div className="awa-editorial-header">
-            <span className="awa-editorial-kicker">
-              {isAr ? 'حلول الصناعات الغذائية' : 'FOOD INDUSTRY SOLUTIONS'}
+          {/* Single Modern Industry Grid */}
+          <div className="awa-industry-exhibition-grid">
+            {industryData.map((o, idx) => {
+              const arInfo = industryArabicTitles[o.id];
+              const cardTitle = (isAr && arInfo) ? arInfo.title : o.title;
+              const cardDesc = (isAr && arInfo) ? arInfo.desc : o.desc;
+              const assetKey = (o.id === 'bakery' ? 'bakery' : o.id === 'culinary' ? 'culinary' : o.id === 'snacks' ? 'snacks' : o.id) as keyof typeof v9Assets.v7Assets;
+              const photoSrc = (v9Assets.v7Assets as Record<string, string>)[assetKey] || v9Assets.v7Assets.factory;
+              const isLead = idx === 0;
+
+              return (
+                <Link
+                  key={o.id}
+                  className={`awa-industry-frame ${isLead ? 'is-prominent-lead' : ''}`}
+                  to={`/solutions/industry/${o.id}`}
+                  aria-label={`Explore ${cardTitle}`}
+                >
+                  <div className="awa-industry-media">
+                    <img
+                      src={photoSrc}
+                      alt={`Close-up food application photography for ${cardTitle}`}
+                      loading="lazy"
+                    />
+                    <span className="awa-industry-sector-badge">
+                      {isLead 
+                        ? (isAr ? 'القطاع الرئيسي · حلول الألبان' : 'FLAGSHIP SECTOR · DAIRY & CHEESE') 
+                        : (isAr ? `قطاع تطبيقي 0${idx + 1}` : `SECTOR 0${idx + 1}`)}
+                    </span>
+                  </div>
+
+                  <div className="awa-industry-content">
+                    <h3 className="awa-industry-name">{cardTitle}</h3>
+                    <p className="awa-industry-summary">{cardDesc}</p>
+                    <span className="awa-industry-action">
+                      <span>{isAr ? 'استكشف الحلول والتطبيقات' : 'Explore solutions'}</span>
+                      <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--awa-border-hairline)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+            <span style={{ fontSize: '13.5px', color: 'var(--awa-charcoal-muted)' }}>
+              {isAr 
+                ? 'هل تبحث عن أنظمة وظيفية مخصصة أو تركيبات خاصة؟ تواصل مع خبرائنا التطبيقيين.' 
+                : 'Need custom functional systems or specific processing support? Consult our application specialists.'}
             </span>
-            <h2 className="awa-editorial-title">
-              {isAr ? (
-                <>استكشف خبراتنا <span style={{ color: 'var(--awa-green-accent)' }}>بالطريقة التي تناسبك.</span></>
-              ) : (
-                <>Explore our expertise <span style={{ color: 'var(--awa-green-accent)' }}>your way.</span></>
-              )}
-            </h2>
-            <p className="awa-editorial-desc">
-              {isAr
-                ? 'نقدم مكونات غذائية وأنظمة وظيفية وتركيبات مخصصة مصممة حول متطلبات التصنيع الخاصة. تصفح حسب التطبيق، التحدي التقني، أو عائلة المنتج الوظيفية.'
-                : 'We provide food ingredients, functional systems and customized formulations designed around specific manufacturing requirements. Browse by application, technical challenge or functional product family.'}
-            </p>
-          </div>
-
-          {/* Architectural Tabs */}
-          <div className="awa-arch-tabs" role="tablist" aria-label="Application categories">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={exploreTab === 'industry'}
-              className={`awa-arch-tab-btn ${exploreTab === 'industry' ? 'is-active' : ''}`}
-              onClick={() => setExploreTab('industry')}
-            >
-              <span>{isAr ? 'حسب قطاع الصناعة' : 'By Industry'}</span>
-              <span className="awa-arch-tab-count">6</span>
-            </button>
-
-            <button
-              type="button"
-              role="tab"
-              aria-selected={exploreTab === 'challenge'}
-              className={`awa-arch-tab-btn ${exploreTab === 'challenge' ? 'is-active' : ''}`}
-              onClick={() => setExploreTab('challenge')}
-            >
-              <span>{isAr ? 'حسب التحدي التقني' : 'By Challenge'}</span>
-              <span className="awa-arch-tab-count">8</span>
-            </button>
-
-            <button
-              type="button"
-              role="tab"
-              aria-selected={exploreTab === 'family'}
-              className={`awa-arch-tab-btn ${exploreTab === 'family' ? 'is-active' : ''}`}
-              onClick={() => setExploreTab('family')}
-            >
-              <span>{isAr ? 'حسب عائلة المنتج' : 'By Product Family'}</span>
-              <span className="awa-arch-tab-count">6</span>
-            </button>
-          </div>
-
-          {/* Exhibition Content */}
-          <div id="explorer-results">
-            {exploreTab === 'industry' && (
-              <div className="awa-industry-exhibition-grid">
-                {industryData.map((o, idx) => {
-                  const arInfo = industryArabicTitles[o.id];
-                  const cardTitle = (isAr && arInfo) ? arInfo.title : o.title;
-                  const cardDesc = (isAr && arInfo) ? arInfo.desc : o.desc;
-                  const assetKey = (o.id === 'bakery' ? 'bakery' : o.id === 'culinary' ? 'culinary' : o.id === 'snacks' ? 'snacks' : o.id) as keyof typeof v9Assets.v7Assets;
-                  const photoSrc = (v9Assets.v7Assets as Record<string, string>)[assetKey] || v9Assets.v7Assets.factory;
-                  const isLead = idx === 0;
-
-                  return (
-                    <Link
-                      key={o.id}
-                      className={`awa-industry-frame ${isLead ? 'is-prominent-lead' : ''}`}
-                      to={`/solutions/industry/${o.id}`}
-                      aria-label={`Explore ${cardTitle}`}
-                    >
-                      <div className="awa-industry-media">
-                        <img
-                          src={photoSrc}
-                          alt={`Close-up food application photography for ${cardTitle}`}
-                          loading="lazy"
-                        />
-                        <span className="awa-industry-sector-badge">
-                          {isLead 
-                            ? (isAr ? 'قطاع رائد · تميز التطبيقات' : 'LEAD SECTOR · APPLICATION EXCELLENCE') 
-                            : (isAr ? 'قطاع تطبيقي' : 'Application Sector')}
-                        </span>
-                      </div>
-
-                      <div className="awa-industry-content">
-                        <h3 className="awa-industry-name">{cardTitle}</h3>
-                        <p className="awa-industry-summary">{cardDesc}</p>
-                        <span className="awa-industry-action">
-                          <span>{isAr ? 'استكشف الحلول والتطبيقات' : 'Explore solutions'}</span>
-                          <ArrowRight size={14} />
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-
-            {exploreTab === 'challenge' && (
-              <div className="awa-technical-spec-grid">
-                {challengeData.map((o) => (
-                  <Link
-                    key={o.id}
-                    className="awa-spec-item"
-                    to={`/solutions/challenge/${o.id}`}
-                  >
-                    <div className="awa-spec-icon-box">
-                      {getChallengeIcon(o.id)}
-                    </div>
-                    <div>
-                      <h4 className="awa-spec-title">{o.title}</h4>
-                      <p className="awa-spec-desc">{o.desc}</p>
-                    </div>
-                    <ArrowRight size={16} className="awa-spec-arrow" />
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {exploreTab === 'family' && (
-              <div className="awa-technical-spec-grid">
-                {familyData.map((o) => (
-                  <Link
-                    key={o.id}
-                    className="awa-spec-item"
-                    to={`/solutions/family/${o.id}`}
-                  >
-                    <div className="awa-spec-icon-box">
-                      {getFamilyIcon(o.id)}
-                    </div>
-                    <div>
-                      <h4 className="awa-spec-title">{o.title}</h4>
-                      <p className="awa-spec-desc">{o.desc}</p>
-                    </div>
-                    <ArrowRight size={16} className="awa-spec-arrow" />
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid var(--awa-border-hairline)' }}>
             <Link 
               to="/solutions" 
               style={{ 
@@ -518,7 +452,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
                 gap: '8px', 
                 fontSize: '14px', 
                 fontWeight: 800, 
-                color: 'var(--awa-navy-main)',
+                color: 'var(--awa-green-accent)',
                 textDecoration: 'none'
               }}
             >
@@ -652,77 +586,140 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 5. DESIGNED FOR PERFORMANCE — TECHNICAL LEDGER      */}
+      {/* 5. DESIGNED FOR PERFORMANCE — FORMULATION CONSOLE   */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-formulation-ledger-section" ref={formulationRef}>
+      <section className="awa-formulation-console-section" ref={formulationRef}>
         <div className="wrap">
-          <div className="awa-formulation-layout">
-            <div>
+          <div className="awa-formulation-console-layout">
+            {/* Left: Authority Narrative & Analytical Lab Card */}
+            <div className="awa-formulation-narrative-col">
               <span className="awa-editorial-kicker" style={{ color: '#34D399' }}>
                 {isAr ? 'خبرات التركيبات المخصصة' : 'TAILORED FORMULATION EXPERTISE'}
               </span>
-              <h2 className="awa-formulation-title">
+              <h2 className="awa-formulation-console-title">
                 {isAr ? (
                   <>مصممة للأداء المتميز.<br /><span style={{ color: '#34D399' }}>مدروسة لتحقيق أعلى قيمة.</span></>
                 ) : (
                   <>Designed for performance.<br /><span style={{ color: '#34D399' }}>Considered for value.</span></>
                 )}
               </h2>
-              <p className="awa-formulation-desc">
+              <p className="awa-formulation-console-desc">
                 {isAr
                   ? 'يتطلب تطوير التركيبات الغذائية تحقيق التوازن الدقيق بين الخواص الوظيفية، وظروف المعالجة الصناعية، والأهداف التجارية المستهدفة. تجمع مجموعة AWA بين توريد المكونات والتطوير التطبيقي لتقييم البدائل المناسبة، وتحسين أنظمة المكونات، ومساعدة العملاء على تحقيق الأداء المحدد وأهداف التكلفة.'
                   : 'Food formulation requires the right balance between functionality, process conditions and commercial targets. AWA combines ingredient sourcing and application development to assess suitable alternatives, optimize ingredient systems and support customers in meeting defined performance and cost objectives.'}
               </p>
-              <Link 
-                to="/capabilities/formulations" 
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  background: '#FFFFFF',
-                  color: 'var(--awa-navy-main)',
-                  fontWeight: 800,
-                  fontSize: '14px',
-                  padding: '14px 24px',
-                  textDecoration: 'none',
-                  borderRadius: '2px'
-                }}
-              >
-                <span>{isAr ? 'استكشف التركيبات المخصصة ↗' : 'Explore customized formulations ↗'}</span>
-              </Link>
+              
+              <div style={{ marginBottom: '36px' }}>
+                <Link 
+                  to="/capabilities/formulations" 
+                  className="awa-formulation-cta-btn"
+                >
+                  <span>{isAr ? 'استكشف التركيبات المخصصة ↗' : 'Explore customized formulations ↗'}</span>
+                </Link>
+              </div>
+
+              {/* Lab Bench Photographic Visual Frame */}
+              <div className="awa-formulation-lab-card">
+                <img 
+                  src="/images/pages/home/food-chemistry-formulation.jpg" 
+                  alt="AWA Food Chemistry and Formulation Laboratory Matrix Testing"
+                  loading="lazy" 
+                />
+                <div className="awa-formulation-lab-overlay">
+                  <div className="awa-formulation-status-pill">
+                    <span className="awa-pulse-dot" />
+                    <span>{isAr ? 'مصفوفة بحث وتطوير معتمدة' : 'ANALYTICAL R&D MATRIX'}</span>
+                  </div>
+                  <div className="awa-formulation-lab-spec">
+                    {isAr ? 'اختبارات ريولوجيا وقوام · ثبات المستحلبات · ملاءمة خطوط الإنتاج' : 'Brookfield Viscometry · TA.XT Texture Profile · Emulsion Stability'}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Precision Technical Ledger */}
-            <div className="awa-technical-ledger">
-              <div className="awa-ledger-row">
-                <span className="awa-ledger-tag">01 · RHEOLOGY</span>
-                <div className="awa-ledger-content">
-                  <strong>{isAr ? 'القوام والبنية الوظيفية' : 'Texture & Rheology Matrix'}</strong>
-                  <span>{isAr ? 'التحكم في اللزوجة، التماسك، الانصهار، وقابلية الفرد والشعور بالفم.' : 'Control firmness, viscosity, binding, spreadability, melting and mouthfeel.'}</span>
+            {/* Right: High-Contrast 2x2 Technical Engineering Matrix */}
+            <div className="awa-formulation-quad-grid">
+              {/* 01 · RHEOLOGY */}
+              <div className="awa-console-quad-card">
+                <div className="awa-console-quad-header">
+                  <span className="awa-console-tag">01 · RHEOLOGY</span>
+                  <Layers size={18} className="awa-console-icon" />
+                </div>
+                <h3 className="awa-console-quad-title">
+                  {isAr ? 'القوام والبنية الوظيفية' : 'Texture & Rheology Matrix'}
+                </h3>
+                <p className="awa-console-quad-desc">
+                  {isAr 
+                    ? 'التحكم في اللزوجة، التماسك، الانصهار، وقابلية الفرد والشعور بالفم.' 
+                    : 'Control firmness, viscosity, binding, spreadability, melting and mouthfeel.'}
+                </p>
+                <div className="awa-console-param-chips">
+                  <span>{isAr ? 'التحكم باللزوجة' : 'Viscosity Curves'}</span>
+                  <span>{isAr ? 'قوة الجل والتماسك' : 'Gel Firmness'}</span>
+                  <span>{isAr ? 'الشعور بالفم' : 'Mouthfeel Profile'}</span>
                 </div>
               </div>
 
-              <div className="awa-ledger-row">
-                <span className="awa-ledger-tag">02 · STABILITY</span>
-                <div className="awa-ledger-content">
-                  <strong>{isAr ? 'الثبات وحفظ الصلاحية' : 'Phase Stability & Shelf Life'}</strong>
-                  <span>{isAr ? 'ثبات الاستحلاب، منع النضح والانفصال أثناء المعالجة وفترات التخزين.' : 'Manage separation, oxidation, consistency and performance through processing and storage.'}</span>
+              {/* 02 · STABILITY */}
+              <div className="awa-console-quad-card">
+                <div className="awa-console-quad-header">
+                  <span className="awa-console-tag">02 · STABILITY</span>
+                  <ShieldCheck size={18} className="awa-console-icon" />
+                </div>
+                <h3 className="awa-console-quad-title">
+                  {isAr ? 'الثبات وحفظ الصلاحية' : 'Phase Stability & Shelf Life'}
+                </h3>
+                <p className="awa-console-quad-desc">
+                  {isAr 
+                    ? 'ثبات الاستحلاب، منع النضح والانفصال أثناء المعالجة وفترات التخزين.' 
+                    : 'Manage separation, oxidation, consistency and performance through processing and storage.'}
+                </p>
+                <div className="awa-console-param-chips">
+                  <span>{isAr ? 'ثبات الاستحلاب' : 'Emulsion Integrity'}</span>
+                  <span>{isAr ? 'مقاومة النضح' : 'Anti-Syneresis'}</span>
+                  <span>{isAr ? 'مقاومة الأكسدة' : 'Oxidation Barrier'}</span>
                 </div>
               </div>
 
-              <div className="awa-ledger-row">
-                <span className="awa-ledger-tag">03 · PROCESSING</span>
-                <div className="awa-ledger-content">
-                  <strong>{isAr ? 'إنتاجية المعالجة الصناعية' : 'Yield & Process Consistency'}</strong>
-                  <span>{isAr ? 'دعم كفاءة التشغيل، زيادة إنتاجية الطهي، ومقاومة إجهاد القص الميكانيكي.' : 'Support processing consistency, ingredient use, cooking yield and production efficiency.'}</span>
+              {/* 03 · PROCESSING */}
+              <div className="awa-console-quad-card">
+                <div className="awa-console-quad-header">
+                  <span className="awa-console-tag">03 · PROCESSING</span>
+                  <TrendingUp size={18} className="awa-console-icon" />
+                </div>
+                <h3 className="awa-console-quad-title">
+                  {isAr ? 'إنتاجية المعالجة الصناعية' : 'Yield & Process Consistency'}
+                </h3>
+                <p className="awa-console-quad-desc">
+                  {isAr 
+                    ? 'دعم كفاءة التشغيل، زيادة إنتاجية الطهي، ومقاومة إجهاد القص الميكانيكي.' 
+                    : 'Support processing consistency, ingredient use, cooking yield and production efficiency.'}
+                </p>
+                <div className="awa-console-param-chips">
+                  <span>{isAr ? 'إنتاجية الطهي' : 'Cooking Yield'}</span>
+                  <span>{isAr ? 'مقاومة إجهاد القص' : 'Shear Resistance'}</span>
+                  <span>{isAr ? 'استقرار خطوط الإنتاج' : 'Thermal Tolerance'}</span>
                 </div>
               </div>
 
-              <div className="awa-ledger-row">
-                <span className="awa-ledger-tag">04 · ECONOMICS</span>
-                <div className="awa-ledger-content">
-                  <strong>{isAr ? 'الجدوى والتكلفة بالاستخدام' : 'Formulation Economics'}</strong>
-                  <span>{isAr ? 'تحقيق الأداء المحدد للمنتج بأفضل تكلفة عبر الاختيار الدقيق للمكونات.' : 'Achieve the required product performance at a suitable cost through ingredient selection and formulation optimization.'}</span>
+              {/* 04 · ECONOMICS */}
+              <div className="awa-console-quad-card">
+                <div className="awa-console-quad-header">
+                  <span className="awa-console-tag">04 · ECONOMICS</span>
+                  <Coins size={18} className="awa-console-icon" />
+                </div>
+                <h3 className="awa-console-quad-title">
+                  {isAr ? 'الجدوى والتكلفة بالاستخدام' : 'Formulation Economics'}
+                </h3>
+                <p className="awa-console-quad-desc">
+                  {isAr 
+                    ? 'تحقيق الأداء المحدد للمنتج بأفضل تكلفة عبر الاختيار الدقيق للمكونات.' 
+                    : 'Achieve the required product performance at a suitable cost through ingredient selection and formulation optimization.'}
+                </p>
+                <div className="awa-console-param-chips">
+                  <span>{isAr ? 'التكلفة بالاستخدام' : 'Cost-in-Use'}</span>
+                  <span>{isAr ? 'إعادة هندسة الوصفات' : 'Recipe Re-engineering'}</span>
+                  <span>{isAr ? 'بدائل الخامات' : 'Ingredient Optimization'}</span>
                 </div>
               </div>
             </div>
@@ -1009,37 +1006,120 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* 10. PRODUCTION FACILITIES — PANORAMIC PRESENTATION  */}
+      {/* 10. FACILITIES & CAPABILITIES — ARCHITECTURAL DOSSIER */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-editorial-section" ref={galleryRef} style={{ padding: '80px 0' }}>
-        <div className="wrap" style={{ marginBottom: '32px' }}>
-          <span className="awa-editorial-kicker">{isAr ? 'البنية التحتية والمرافق' : 'FACILITIES & CAPABILITIES'}</span>
-          <h2 className="awa-editorial-title" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.8rem)', margin: 0 }}>
-            {isAr ? 'علوم أغذية تطبيقية، مرافق متقدمة وقدرات إنتاجية' : 'Applied Food Science, Advanced Facilities & Production Scale'}
-          </h2>
-        </div>
+      <section className="awa-facilities-dossier-section" ref={galleryRef}>
+        <div className="wrap">
+          <div className="awa-editorial-header" style={{ marginBottom: '40px' }}>
+            <div style={{ maxWidth: '840px' }}>
+              <span className="awa-editorial-kicker">{isAr ? 'البنية التحتية والمرافق' : 'FACILITIES & CAPABILITIES'}</span>
+              <h2 className="awa-editorial-title" style={{ margin: '0 0 14px 0' }}>
+                {isAr 
+                  ? 'علوم أغذية تطبيقية، مرافق متقدمة وقدرات إنتاجية' 
+                  : 'Applied Food Science, Advanced Facilities & Production Scale'}
+              </h2>
+              <p className="awa-editorial-desc">
+                {isAr 
+                  ? 'بنية تحتية متكاملة تشمل مجمع تصنيع وخلط آلي ببرج العرب، مختبرات تحليل القوام والريولوجيا، مصانع تجريبية للتحجيم الصناعي، ومركز لوجستي بسعة 15,000 طن متري لضمان الجودة واستمرارية الإمداد.'
+                  : 'Integrated industrial infrastructure encompassing automated compounding in Borg El-Arab, specialized rheology and texture profiling labs, pilot plants for factory-scale simulation, and a 15,000 MT cold-chain logistics hub.'}
+              </p>
+            </div>
+          </div>
 
-        <div className="awa-facilities-viewport">
-          <div className="awa-facilities-strip">
-            {[
-              { src: v9Assets.v7Assets.factory, alt: 'AWA Industrial Compounding Plant, Borg El-Arab' },
-              { src: v9Assets.v8Assets['rd-lab'], alt: 'AWA R&D Application Laboratory' },
-              { src: v9Assets.v8Assets['cheese-banner'], alt: 'Processed Cheese & Dairy Applications Pilot Testing' },
-              { src: v9Assets.v8Assets['industrial-plant'], alt: 'Precision High-Capacity Blending Line' },
-              { src: v9Assets.v8Assets['food-cuisine'], alt: 'Savory & Culinary Formulation Development' },
-              { src: v9Assets.v8Assets['sourcing-port'], alt: 'Global Sourcing & Supply Chain Operations' },
-              { src: (v9Assets.v7Assets as Record<string, string>)['dairy-cheese'], alt: 'Dairy & Cultured Matrix Applications' },
-              { src: (v9Assets.v7Assets as Record<string, string>)['meat-seafood'], alt: 'Meat & Savory Formulation Systems' },
-            ].map((item, idx) => (
-              <div key={idx} className="awa-facility-panoramic-card">
-                <div className="awa-facility-media">
-                  <img src={item.src} alt={item.alt} loading="lazy" />
+          {/* Master Architectural Dossier Grid */}
+          <div className="awa-facilities-dossier-layout">
+            {/* Left: Featured Active Facility Frame */}
+            {(() => {
+              const current = facilitiesData[activeFacility] || facilitiesData[0];
+              const title = isAr ? current.nameAr : current.nameEn;
+              const location = isAr ? current.locationAr : current.locationEn;
+              const role = isAr ? current.roleAr : current.roleEn;
+              const desc = isAr ? current.descAr : current.descEn;
+              const specs = isAr ? current.specsAr : current.specsEn;
+
+              return (
+                <div className="awa-facility-featured-frame">
+                  <div className="awa-facility-photo-viewport">
+                    <img 
+                      src={current.image} 
+                      alt={title} 
+                      key={current.id}
+                      className="awa-facility-featured-img"
+                    />
+                    <div className="awa-facility-top-telemetry">
+                      <span className="awa-facility-num-pill">HUB {current.number} / 04</span>
+                      <span className="awa-facility-loc-pill">
+                        <MapPin size={13} style={{ marginRight: isAr ? 0 : '4px', marginLeft: isAr ? '4px' : 0 }} />
+                        {location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="awa-facility-dossier-body">
+                    <div className="awa-facility-role-badge">
+                      <Factory size={14} style={{ marginRight: isAr ? 0 : '6px', marginLeft: isAr ? '6px' : 0 }} />
+                      <span>{role}</span>
+                    </div>
+                    <h3 className="awa-facility-master-title">{title}</h3>
+                    <p className="awa-facility-master-desc">{desc}</p>
+
+                    <div className="awa-facility-specs-grid">
+                      {specs.map((spec, sIdx) => (
+                        <div key={sIdx} className="awa-facility-spec-chip">
+                          <CheckCircle2 size={13} className="awa-spec-chip-icon" />
+                          <span>{spec}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid var(--awa-border-hairline)' }}>
+                      <Link 
+                        to="/capabilities" 
+                        className="awa-facility-explore-link"
+                      >
+                        <span>{isAr ? 'استكشف كافة القدرات والمرافق الصناعية ↗' : 'Explore full infrastructure & capabilities ↗'}</span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className="awa-facility-caption">
-                  {item.alt}
-                </div>
-              </div>
-            ))}
+              );
+            })()}
+
+            {/* Right: Interactive Facility Hub Selector List */}
+            <div className="awa-facility-nav-stack">
+              {facilitiesData.map((fac, idx) => {
+                const isActive = activeFacility === idx;
+                const facTitle = isAr ? fac.nameAr : fac.nameEn;
+                const facLoc = isAr ? fac.locationAr : fac.locationEn;
+                const facRole = isAr ? fac.roleAr : fac.roleEn;
+
+                return (
+                  <button
+                    key={fac.id}
+                    type="button"
+                    onClick={() => setActiveFacility(idx)}
+                    className={`awa-facility-nav-card ${isActive ? 'is-active' : ''}`}
+                    aria-selected={isActive}
+                    aria-label={`Select facility ${fac.number}: ${facTitle}`}
+                  >
+                    <div className="awa-facility-thumb-box">
+                      <img src={fac.image} alt={facTitle} loading="lazy" />
+                      <span className="awa-facility-thumb-num">{fac.number}</span>
+                    </div>
+                    <div className="awa-facility-nav-info">
+                      <span className="awa-facility-nav-meta">
+                        {facLoc}
+                      </span>
+                      <h4 className="awa-facility-nav-heading">{facTitle}</h4>
+                      <p className="awa-facility-nav-sub">{facRole}</p>
+                    </div>
+                    <div className="awa-facility-nav-arrow" aria-hidden="true">
+                      <ChevronRight size={16} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -1081,16 +1161,6 @@ export const HomePage: React.FC<HomeProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* Floating Quote / Sample CTA */}
-      <button 
-        onClick={onOpenQuote} 
-        className="floating-contact-cta"
-        aria-label="Request a sample or quote"
-      >
-        <span className="floating-pulse-dot" />
-        <span>{isAr ? 'تواصل مع AWA' : 'Talk to AWA'}</span>
-        <MessageSquare size={16} />
-      </button>
     </div>
   );
 };
