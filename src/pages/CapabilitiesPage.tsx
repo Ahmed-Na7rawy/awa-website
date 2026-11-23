@@ -52,7 +52,7 @@ export const CapabilitiesPage: React.FC = () => {
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
           <img 
-            src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.factory} 
+            src={v9Assets.v8Assets['rd-wide']} 
             alt="AWA Capabilities" 
             loading="eager" 
           />

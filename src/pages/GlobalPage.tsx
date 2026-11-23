@@ -3,22 +3,11 @@ import { Link } from 'react-router-dom';
 import { Globe2, ExternalLink, ArrowRight, ShieldCheck, Handshake } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-import { principals, jointVentures } from '../data/v9Data';
+import { principals, jointVentures, v9Assets } from '../data/v9Data';
 
 export const GlobalPage: React.FC = () => {
   const { language } = useLanguage();
   const isAr = language === 'ar';
-
-  const principalLogos: Record<string, string> = {
-    siveele: '/images/v9/principals/siveele.webp',
-    jrs: '/images/v9/principals/jrs.webp',
-    aipu: '/images/v9/principals/aipu.webp',
-    skrobarny: '/images/v9/principals/skrobarny.webp',
-    madhusilica: '/images/v9/principals/madhusilica.webp',
-    mokate: '/images/v9/principals/mokate.webp',
-    goldenuts: '/images/v9/principals/goldenuts.svg',
-    mayasan: '/images/v9/principals/mayasan.webp',
-  };
 
   return (
     <>
@@ -31,18 +20,30 @@ export const GlobalPage: React.FC = () => {
         }
       />
 
-      <div className="v9-page">
+      <div className="v9-page" style={{ background: '#FFFFFF' }}>
         {/* HERO */}
-        <section className="v9-hero">
-          <div className="v9-hero-inner">
-            <span className="v9-hero-badge">
+        <section className="page-hero page-hero--visual">
+          <div className="page-hero-media">
+            <img 
+              src={v9Assets.v8Assets['sourcing-port']} 
+              alt="Global Principals & Joint Ventures" 
+              loading="eager" 
+            />
+          </div>
+          <div className="wrap page-hero-content">
+            <div className="breadcrumb">
+              <Link to="/">{isAr ? 'الرئيسية' : 'Home'}</Link>
+              <span>›</span>
+              <span>{isAr ? 'الشبكة الدولية' : 'Global Network'}</span>
+            </div>
+            <div className="kicker on-dark">
               {isAr ? 'مجموعة AWA / الشبكة الدولية' : 'AWA GROUP / INTERNATIONAL'}
-            </span>
-            <h1 className="v9-hero-title">
+            </div>
+            <h1>
               {isAr ? 'خبرة عالمية. ' : 'Global expertise. '}
               <em className="italic">{isAr ? 'طموح مشترك.' : 'Shared ambition.'}</em>
             </h1>
-            <p className="v9-hero-subtitle">
+            <p>
               {isAr
                 ? 'توسع المشاريع المشتركة الدولية وعلاقات التوكيلات المعتمدة وصول مجموعة AWA إلى تكنولوجيات الأغذية المتخصصة والمعرفة التقنية وفرص التطوير المشترك.'
                 : 'International joint ventures and established principal relationships extend AWA’s access to specialist food technologies, technical knowledge and collaborative development opportunities.'}
@@ -75,7 +76,7 @@ export const GlobalPage: React.FC = () => {
                   <div>
                     <div className="h-20 flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl mb-6 border border-slate-100 dark:border-slate-800">
                       <img
-                        src={j.name === 'Turkphos' ? '/images/v9/v8/turkphosLogo.jpg' : '/images/v9/v8/ingrevaLogo.jpg'}
+                        src={j.name === 'Turkphos' ? v9Assets.v8Assets.turkphosLogo : v9Assets.v8Assets.ingrevaLogo}
                         alt={`${j.name} logo`}
                         className="max-h-12 max-w-full object-contain"
                         loading="eager"
@@ -128,7 +129,7 @@ export const GlobalPage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
               {principals.map((p) => {
-                const logoSrc = p.logo ? principalLogos[p.logo] : null;
+                const logoSrc = p.logo ? (v9Assets.principalLogos as any)[p.logo] : null;
                 return (
                   <a
                     key={p.name}
