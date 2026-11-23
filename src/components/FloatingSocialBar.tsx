@@ -51,18 +51,7 @@ export const FloatingSocialBar: React.FC = () => {
   ];
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        right: '1.25rem',
-        bottom: '1.5rem',
-        zIndex: 900,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '0.5rem',
-      }}
-    >
+    <div className="floating-social-dock" aria-label="Social and Instant Inquiries">
       <AnimatePresence>
         {isOpen && (
           <motion.div
