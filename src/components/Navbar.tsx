@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
         {
           heading: language === 'ar' ? 'المنتجات الشريكة' : 'Partnered Retail Products',
           links: [
-            { label: 'SIRRI Foods (Traditional Soups)', href: '/brands#partnered' },
+            { label: language === 'ar' ? 'SIRRI (شوربات سريعة التحضير في أكواب)' : 'SIRRI Foods (Instant Soups in Cups)', href: '/brands#partnered' },
           ]
         }
       ]
@@ -189,13 +189,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                 <Mail size={13} />
                 <span>{COMPANY_CONTACT.email}</span>
               </a>
-              <a href={`tel:${COMPANY_CONTACT.phoneAlex.split('/')[0].trim()}`} className="top-bar-item">
+              <a href={`tel:${COMPANY_CONTACT.phoneMain}`} className="top-bar-item">
                 <Phone size={13} />
-                <span>{language === 'ar' ? `المقر الرئيسي: ${COMPANY_CONTACT.phoneAlex}` : `Alex HQ: ${COMPANY_CONTACT.phoneAlex}`}</span>
+                <span>{language === 'ar' ? `هاتف: ${COMPANY_CONTACT.phoneMain}` : `Tel: ${COMPANY_CONTACT.phoneMain}`}</span>
               </a>
               <div className="top-bar-item top-bar-hide-laptop" style={{ gap: '0.4rem' }}>
                 <Globe size={13} />
-                <span>{language === 'ar' ? 'منشآت الإسكندرية وبرج العرب والقاهرة، مصر' : 'Alexandria & Cairo Facilities, Egypt'}</span>
+                <span>{language === 'ar' ? '15 شارع عبد الوهاب سليم البشري، شيراتون، القاهرة، مصر' : '15 Abd Elwahab Selim El-bishry St., Sheraton, Cairo, Egypt'}</span>
               </div>
             </div>
             <div className="top-bar-links">
@@ -428,7 +428,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenQuote }) => {
                 }}
               >
                 <Search size={16} />
-                <span>Search pages & solutions...</span>
+                <span>{language === 'ar' ? 'البحث في الموقع والحلول...' : 'Search pages & solutions...'}</span>
               </button>
             </div>
 

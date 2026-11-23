@@ -29,6 +29,7 @@ import { GlobalPage } from './pages/GlobalPage';
 import { KnowledgePage } from './pages/KnowledgePage';
 import { ContactPage } from './pages/ContactPage';
 import { CareersPage } from './pages/CareersPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -150,8 +151,8 @@ function AppContent() {
             <Route path="/products/:subId" element={<ProductsRedirect />} />
             <Route path="/solutions/:legacySlug" element={<LegacySolutionsRedirect />} />
 
-            {/* Fallback 404 Route */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            {/* 404 — Branded Not Found */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </main>

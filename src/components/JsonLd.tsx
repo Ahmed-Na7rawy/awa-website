@@ -13,14 +13,14 @@ export const JsonLd: React.FC = () => {
     description: 'Premier Egyptian food solutions, functional ingredient blending, global trading, cold-chain logistics, and consumer retail brands since 1993.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '243 Horreya Road, Sporting',
-      addressLocality: 'Alexandria',
+      streetAddress: '15 Abd Elwahab Selim El-bishry St., Sheraton',
+      addressLocality: 'Cairo',
       addressCountry: 'EG',
     },
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+2035924111',
+        telephone: COMPANY_CONTACT.phoneMain,
         contactType: 'customer service',
         email: COMPANY_CONTACT.email,
         availableLanguage: ['English', 'Arabic'],

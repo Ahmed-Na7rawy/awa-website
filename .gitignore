@@ -25,6 +25,14 @@ dist-ssr
 
 # Temporary & Generated scratch files
 scripts/
+scratch_*
+
+# Sensitive documents — never commit
 *.pdf
 *.exe
 *.docx
+*.xlsx
+Marwan_Younes_CV.*
+Carmine_Alternatives*
+Strategic_Brief*
+Executive_Brief*

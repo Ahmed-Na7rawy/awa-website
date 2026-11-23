@@ -144,10 +144,6 @@ img {
 }
 
 /* 2026 Visual Animations & Floating Micro-Interactions */
-@keyframes floatSlow {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-8px); }
-}
 
 @keyframes pulseGlow {
   0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
