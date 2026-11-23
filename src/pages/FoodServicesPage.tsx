@@ -35,7 +35,7 @@ export const FoodServicesPage: React.FC = () => {
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
           <img 
-            src={v9Assets.foodVisuals.hotel || v9Assets.v7Assets.hero} 
+            src={v9Assets.v8Assets['food-smoothies'] || v9Assets.foodVisuals.smoothies} 
             alt="AWA Professional Food Services" 
             loading="eager" 
           />

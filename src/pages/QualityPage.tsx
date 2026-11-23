@@ -80,7 +80,7 @@ export const QualityPage: React.FC = () => {
                 key={c.id}
                 style={{
                   background: '#FFFFFF',
-                  padding: '2.5rem',
+                  padding: '2rem',
                   borderRadius: '20px',
                   border: '1px solid var(--border-color)',
                   boxShadow: 'var(--shadow-subtle)',
@@ -90,13 +90,34 @@ export const QualityPage: React.FC = () => {
                 }}
               >
                 <div>
+                  <div style={{
+                    height: '90px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    marginBottom: '1.25rem',
+                    padding: '0.75rem',
+                    background: 'var(--bg-soft)',
+                    borderRadius: '12px'
+                  }}>
+                    {v9Assets.corporateAssets[c.asset as keyof typeof v9Assets.corporateAssets] ? (
+                      <img 
+                        src={v9Assets.corporateAssets[c.asset as keyof typeof v9Assets.corporateAssets]} 
+                        alt={`${c.code} badge`}
+                        style={{ maxHeight: '70px', maxWidth: '160px', objectFit: 'contain' }}
+                        loading="eager"
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)' }}>{c.code}</span>
+                    )}
+                  </div>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '0.35rem' }}>
                     {c.type}
                   </span>
-                  <h3 style={{ fontSize: '1.6rem', color: 'var(--text-main)', marginBottom: '0.75rem', fontWeight: 800 }}>
+                  <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', marginBottom: '0.5rem', fontWeight: 800 }}>
                     {c.code}
                   </h3>
-                  <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
                     {c.meaning}
                   </p>
                 </div>
@@ -133,7 +154,7 @@ export const QualityPage: React.FC = () => {
                 key={c.id}
                 style={{
                   background: 'var(--bg-soft)',
-                  padding: '2.5rem',
+                  padding: '2rem',
                   borderRadius: '20px',
                   border: '1px solid var(--border-color)',
                   display: 'flex',
@@ -142,13 +163,34 @@ export const QualityPage: React.FC = () => {
                 }}
               >
                 <div>
+                  <div style={{
+                    height: '90px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    marginBottom: '1.25rem',
+                    padding: '0.75rem',
+                    background: '#FFFFFF',
+                    borderRadius: '12px'
+                  }}>
+                    {v9Assets.corporateAssets[c.asset as keyof typeof v9Assets.corporateAssets] ? (
+                      <img 
+                        src={v9Assets.corporateAssets[c.asset as keyof typeof v9Assets.corporateAssets]} 
+                        alt={`${c.code} badge`}
+                        style={{ maxHeight: '70px', maxWidth: '160px', objectFit: 'contain' }}
+                        loading="eager"
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary-blue)' }}>{c.code}</span>
+                    )}
+                  </div>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary-blue)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '0.35rem' }}>
                     {c.type}
                   </span>
-                  <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.75rem', fontWeight: 800 }}>
+                  <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.5rem', fontWeight: 800 }}>
                     {c.code}
                   </h3>
-                  <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
                     {c.meaning}
                   </p>
                 </div>

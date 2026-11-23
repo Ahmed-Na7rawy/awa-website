@@ -51,7 +51,7 @@ export const AboutPage: React.FC = () => {
       <section className="page-hero page-hero--visual" ref={heroRef}>
         <div className="page-hero-media">
           <img 
-            src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.hero} 
+            src={v9Assets.v7Assets.factory} 
             alt="AWA Group Corporate Expertise" 
             loading="eager" 
           />

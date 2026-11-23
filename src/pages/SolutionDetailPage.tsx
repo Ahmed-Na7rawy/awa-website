@@ -57,9 +57,32 @@ export const SolutionDetailPage: React.FC = () => {
     );
   }
 
-  const heroImage = (kind === 'industry' && v9Assets.v7Assets[item.id as keyof typeof v9Assets.v7Assets]) 
-    || v9Assets.v8Assets['cheese-banner'] 
-    || v9Assets.v7Assets.hero;
+  let heroImage = v9Assets.v8Assets['industry-mosaic'];
+  if (kind === 'industry') {
+    heroImage = (v9Assets.v7Assets as Record<string, string>)[item.id] || v9Assets.v8Assets['industry-mosaic'];
+  } else if (kind === 'challenge') {
+    const challengeMap: Record<string, string> = {
+      'texture': v9Assets.v7Assets['dairy-cheese'],
+      'stability': v9Assets.v8Assets['technical-certs'],
+      'taste': v9Assets.v7Assets['culinary'],
+      'yield': v9Assets.v7Assets['meat-seafood'],
+      'affordability': v9Assets.v8Assets['sourcing-port'],
+      'nutrition-reformulation': v9Assets.v8Assets['rd-lab'],
+      'appearance': v9Assets.v7Assets['beverages'],
+      'new-product': v9Assets.v8Assets['rd-wide']
+    };
+    heroImage = challengeMap[item.id] || v9Assets.v8Assets['industry-mosaic'];
+  } else if (kind === 'family') {
+    const familyMap: Record<string, string> = {
+      'texture-structure': v9Assets.v7Assets['dairy-cheese'],
+      'taste-sensory': v9Assets.v7Assets['culinary'],
+      'preservation': v9Assets.v8Assets['technical-certs'],
+      'nutrition': v9Assets.v8Assets['rd-lab'],
+      'color-appearance': v9Assets.v7Assets['beverages'],
+      'functional-processing': v9Assets.v7Assets['bakery']
+    };
+    heroImage = familyMap[item.id] || v9Assets.v8Assets['industry-mosaic'];
+  }
 
   return (
     <div className="solution-detail-page" style={{ background: '#FFFFFF' }}>
