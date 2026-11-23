@@ -656,12 +656,13 @@ body{background:#fff}.wrap{width:min(1340px,calc(100% - 86px))}.section{padding:
 }
 
 /* Supporting Description — Neutral Dark Grey, Editorial */
+.awa-video-hero .awa-editorial-desc,
 .awa-editorial-desc {
   font-size: clamp(1.05rem, 1.15vw, 1.15rem);
   line-height: 1.7;
   color: #475569;
   max-width: 620px;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.75rem !important;
   text-shadow: none;
 }
 
