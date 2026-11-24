@@ -269,9 +269,12 @@ export const HomePage: React.FC<HomeProps> = () => {
                 className="ref-mosaic-dominant"
               >
                 <img 
-                  src={v9Assets.v7Assets['dairy-cheese']} 
+                  src="/images/pages/home/mosaic-dairy.jpg" 
                   alt="Dairy, Cheese & Frozen Desserts" 
                   loading="eager"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = v9Assets.v7Assets['dairy-cheese'];
+                  }}
                 />
                 <div className="ref-mosaic-dominant-overlay">
                   <span className="ref-mosaic-num">01</span>
@@ -294,9 +297,12 @@ export const HomePage: React.FC<HomeProps> = () => {
                   className="ref-mosaic-sub"
                 >
                   <img 
-                    src={v9Assets.v7Assets['meat-seafood']} 
+                    src="/images/pages/home/mosaic-meat.jpg" 
                     alt="Meat, Poultry & Seafood" 
                     loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = v9Assets.v7Assets['meat-seafood'];
+                    }}
                   />
                   <div className="ref-mosaic-sub-overlay">
                     <span className="ref-mosaic-num">02</span>
@@ -317,9 +323,12 @@ export const HomePage: React.FC<HomeProps> = () => {
                   className="ref-mosaic-sub"
                 >
                   <img 
-                    src={v9Assets.v7Assets['culinary']} 
+                    src="/images/pages/home/mosaic-culinary.jpg" 
                     alt="Sauces, Soups & Culinary" 
                     loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = v9Assets.v7Assets['culinary'];
+                    }}
                   />
                   <div className="ref-mosaic-sub-overlay">
                     <span className="ref-mosaic-num">03</span>
