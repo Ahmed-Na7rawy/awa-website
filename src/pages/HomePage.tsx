@@ -373,7 +373,7 @@ export const HomePage: React.FC<HomeProps> = () => {
             {/* Left: Stainless Steel Dairy Pouring Machine Photo */}
             <div className="ref-tech-photo-wrap">
               <img
-                src="/images/pages/home/ref_dairy_machine_hd.jpg"
+                src="/images/pages/home/technical-machinery-milk.jpg"
                 alt="Technical Food Processing Equipment"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/dairy-filling-machine.png';
@@ -597,7 +597,7 @@ export const HomePage: React.FC<HomeProps> = () => {
             {/* Left: Seedling Sprout Photo */}
             <div className="ref-sustain-photo-wrap">
               <img 
-                src="/images/pages/home/ref_seedling_sustainability_hd.jpg" 
+                src="/images/pages/home/sustainability-green-seedling.jpg" 
                 alt="Responsible Growth & Agriculture" 
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/pages/sustainability/sustainability.jpg';
