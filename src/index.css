@@ -267,13 +267,6 @@ img {
 }
 
 /* Floating Social Icons Dock — Stacked cleanly above Back-to-Top */
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-}
-
 .floating-social-dock {
   position: fixed;
   bottom: 80px;
