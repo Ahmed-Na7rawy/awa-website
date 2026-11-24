@@ -20,14 +20,32 @@ export const Footer: React.FC<FooterProps> = () => {
 
           {/* Brand & Corporate Statement */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
+            <Link
+              to="/"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                marginBottom: '1.5rem',
+                textDecoration: 'none',
+              }}
+              aria-label="AWA Group Home"
+            >
               <img
                 src="/images/awa_group.png"
                 alt="AWA Group Logo"
-                style={{ height: '44px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+                style={{
+                  height: '68px',
+                  width: 'auto',
+                  maxWidth: '220px',
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)',
+                  transition: 'opacity 0.2s ease, transform 0.2s ease',
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.9'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; }}
                 onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
-            </div>
+            </Link>
             <p style={{ maxWidth: '340px', lineHeight: '1.65', fontSize: '0.9rem', color: '#94A3B8', marginBottom: '1.5rem' }}>
               {isAr
                 ? 'حلول أغذية مخصصة. مصممة للأداء. تربط AWA بين التوريد، والبحث والتطوير التطبيقي، والتصنيع لخدمة الصناعة ومشغلي الأغذية والأسواق الاستهلاكية.'
