@@ -84,7 +84,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة سوق خلطات وأملاح الفوسفات الوظيفية للأجبان المطبوخة' 
         : 'High-Protein Snacks Market Study',
-      image: '/images/pages/home/ref_article_high_protein_hd.jpg',
+      image: '/images/pages/home/article-protein-snacks.jpg',
       link: '/knowledge'
     },
     {
@@ -94,7 +94,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة تقنية حول تحسين معاملات زيوت القلي الصناعية' 
         : 'Industrial Frying Oil Technical Study',
-      image: '/images/pages/home/ref_article_frying_oil_hd.jpg',
+      image: '/images/pages/home/article-frying-oil.jpg',
       link: '/knowledge'
     },
     {
@@ -104,7 +104,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'أبحاث معجون وصلصات الطماطم وقوام الاستحلاب' 
         : 'Tomato Paste & Sauce Research',
-      image: '/images/pages/home/ref_article_tomato_sauce_hd.jpg',
+      image: '/images/pages/home/article-tomato-paste.jpg',
       link: '/knowledge'
     }
   ];
