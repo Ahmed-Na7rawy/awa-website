@@ -456,45 +456,69 @@
 
 /* ==========================================================================
    SECTION 02: TECHNICAL EXPERTISE, TAILORED TO YOUR APPLICATION
+   (FULL-BLEED SCREEN EDGE ALIGNMENT WITH LARGE CURVED RIGHT EDGE)
    ========================================================================== */
 .ref-sec-technical {
   padding: 68px 0;
   background-color: #FFFFFF;
   border-top: 1px solid #F1F5F9;
+  overflow: hidden;
+  position: relative;
 }
 
-.ref-tech-layout {
+.ref-tech-bleed-wrap {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 36px;
-  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .ref-tech-bleed-wrap {
+    padding: 0 24px;
+  }
+  .ref-tech-photo-wrap {
+    height: 240px;
+    border-radius: 0 40px 0 0;
+    width: 100%;
+  }
 }
 
 @media (min-width: 992px) {
-  .ref-tech-layout {
-    grid-template-columns: 44% 32% 24%;
-    gap: 36px;
+  .ref-tech-bleed-wrap {
+    display: grid;
+    grid-template-columns: 42% 33% 25%;
+    gap: 40px;
+    align-items: center;
+    padding-left: 0;
+    padding-right: max(24px, calc((100vw - 1240px) / 2 + 24px));
+  }
+
+  .rtl .ref-tech-bleed-wrap {
+    padding-left: max(24px, calc((100vw - 1240px) / 2 + 24px));
+    padding-right: 0;
+  }
+
+  .ref-tech-photo-wrap {
+    width: 100%;
+    height: 380px;
+    border-radius: 0 60px 0 0;
+    border-left: none;
+    box-shadow: 4px 10px 30px rgba(16, 38, 59, 0.08);
+  }
+
+  .rtl .ref-tech-photo-wrap {
+    border-radius: 60px 0 0 0;
+    border-left: 1px solid #E2E8F0;
+    border-right: none;
   }
 }
 
 .ref-tech-photo-wrap {
-  height: 230px;
-  border-radius: 0 32px 0 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(16, 38, 59, 0.08);
   background-color: #E2E8F0;
-  border: 1px solid #E2E8F0;
-}
-
-@media (min-width: 640px) {
-  .ref-tech-photo-wrap {
-    height: 330px;
-    border-radius: 0 48px 0 0;
-  }
-}
-
-.rtl .ref-tech-photo-wrap {
-  border-radius: 48px 0 0 0;
+  border-top: 1px solid #E2E8F0;
+  border-right: 1px solid #E2E8F0;
 }
 
 .ref-tech-photo-wrap img {
@@ -776,36 +800,66 @@
 
 /* ==========================================================================
    SECTION 05: RESPONSIBLE GROWTH. LASTING IMPACT.
+   (FULL-BLEED SCREEN EDGE ALIGNMENT WITH LARGE CURVED RIGHT EDGE)
    ========================================================================== */
 .ref-sec-sustain {
   padding: 72px 0;
   background-color: #FFFFFF;
+  overflow: hidden;
+  position: relative;
 }
 
-.ref-sustain-layout {
+.ref-sustain-bleed-wrap {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 36px;
-  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .ref-sustain-bleed-wrap {
+    padding: 0 24px;
+  }
+  .ref-sustain-photo-wrap {
+    height: 200px;
+    border-radius: 0 40px 40px 0;
+    width: 100%;
+  }
 }
 
 @media (min-width: 992px) {
-  .ref-sustain-layout {
-    grid-template-columns: 22% 34% 44%;
+  .ref-sustain-bleed-wrap {
+    display: grid;
+    grid-template-columns: 18% 34% 48%;
     gap: 36px;
+    align-items: center;
+    padding-left: 0;
+    padding-right: max(24px, calc((100vw - 1240px) / 2 + 24px));
+  }
+
+  .rtl .ref-sustain-bleed-wrap {
+    padding-left: max(24px, calc((100vw - 1240px) / 2 + 24px));
+    padding-right: 0;
+  }
+
+  .ref-sustain-photo-wrap {
+    width: 100%;
+    height: 230px;
+    border-radius: 0 48px 48px 0;
+    border-left: none;
+    box-shadow: 4px 8px 24px rgba(0, 168, 79, 0.08);
+  }
+
+  .rtl .ref-sustain-photo-wrap {
+    border-radius: 48px 0 0 48px;
+    border-left: 1px solid #E2E8F0;
+    border-right: none;
   }
 }
 
 .ref-sustain-photo-wrap {
-  height: 200px;
-  border-radius: 0 48px 48px 0;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 168, 79, 0.08);
   background-color: #E2E8F0;
-}
-
-.rtl .ref-sustain-photo-wrap {
-  border-radius: 48px 0 0 48px;
 }
 
 .ref-sustain-photo-wrap img {
