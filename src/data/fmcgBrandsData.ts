@@ -674,7 +674,7 @@ export const FMCG_BRANDS: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', 
       subheadline: 'Crafted with premium pharmaceutical-grade sucralose and chicory inulin soluble fiber. Replaces table sugar spoon-for-spoon in hot tea, espresso, and baking with zero bitter aftertaste.',
       ctaPrimary: 'Discover Sweet & Slim Range',
       ctaSecondary: 'Request B2B Formulation Spec',
-      mainPackImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
+      mainPackImage: '/artwork/sweet-and-slim/3d/classic-100-box.png',
       companionOrbitImages: [
         {
           image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
@@ -4725,7 +4725,7 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
       subheadline: 'مُصنّع من أجود أنواع السكرالوز الدوائي وألياف الإينولين الذائبة من جذور الهندباء. يعادل سكر القصب ملعقة بملعقة في الشاي والقهوة والحلويات بدون مرار.',
       ctaPrimary: 'اكتشف تشكيلة Sweet & Slim',
       ctaSecondary: 'طلب مواصفات التوريد B2B',
-      mainPackImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
+      mainPackImage: '/artwork/sweet-and-slim/3d/classic-100-box.png',
       companionOrbitImages: [
         {
           image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
