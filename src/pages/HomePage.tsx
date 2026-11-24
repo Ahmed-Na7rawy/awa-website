@@ -35,7 +35,6 @@ export const HomePage: React.FC<HomeProps> = () => {
   const { language } = useLanguage();
   const isAr = language === 'ar';
 
-  const [activeCapability, setActiveCapability] = useState<number>(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const heroRef = useScrollReveal();
@@ -51,86 +50,67 @@ export const HomePage: React.FC<HomeProps> = () => {
     }
   };
 
-  // Technical capabilities data & corresponding authentic industrial/laboratory imagery
+  // Technical capabilities data (Section 02)
   const capabilitiesList = [
     {
       id: 'sourcing',
       num: '01',
       title: isAr ? 'توريد المكونات والمضافات الغذائية' : 'Food Ingredients & Additives',
-      subtitle: isAr ? 'تجارب التطبيقات المعملية والتوريد' : 'PILOT APPLICATION & SOURCING',
-      desc: isAr 
-        ? 'تحديد المكونات والتقنيات المناسبة من خلال شبكة توكيلات عالمية حصرية لتلبية معايير الجودة والأداء والتكلفة.'
-        : 'Identify and evaluate specialty ingredients and technologies through international principals, matching performance needs and commercial feasibility.',
       route: '/capabilities/sourcing',
-      image: '/images/pages/home/pilot-plant-dairy-testing.jpg',
       icon: <Leaf size={18} />
     },
     {
       id: 'rd',
       num: '02',
       title: isAr ? 'حلول وتطبيقات الأغذية التطبيقية' : 'Food Solutions & Applications',
-      subtitle: isAr ? 'كيمياء الأغذية والتطوير التطبيقي' : 'FOOD CHEMISTRY & FORMULATION',
-      desc: isAr 
-        ? 'ربط وظائف المكونات بمعايير التصنيع وتجارب التطبيقات المعملية لمعالجة تحديات المنتجات والقوام بدقة.'
-        : 'Connect ingredient functionality, processing parameters and pilot application trials to address specific customer challenges.',
       route: '/capabilities/rd',
-      image: '/images/pages/home/food-chemistry-formulation.jpg',
       icon: <FlaskConical size={18} />
     },
     {
       id: 'manufacturing',
       num: '03',
       title: isAr ? 'الابتكار والتميز في التصنيع الصناعي' : 'Innovation & R&D Support',
-      subtitle: isAr ? 'خلط صناعي وتصنيع متقدم' : 'AUTOMATED INDUSTRIAL BLENDING',
-      desc: isAr 
-        ? 'ترجمة خبرات التركيب إلى خطوط إنتاج مؤتمتة تدعم الأنظمة الوظيفية والتصنيع التعاقدي بأعلى معايير النظافة.'
-        : 'Translate formulation expertise into high-capacity automated production supporting functional systems and contract manufacturing.',
       route: '/capabilities/manufacturing',
-      image: '/images/pages/home/blending.jpg',
       icon: <Lightbulb size={18} />
     }
   ];
 
-  // Articles for Section 06 (Knowledge Center - Magazine Editorial)
-  const featuredArticle = {
-    id: 'feat-1',
-    category: isAr ? 'أبحاث تطبيقية' : 'Applied Research',
-    date: 'Nov 24, 2026',
-    title: isAr 
-      ? 'دراسة سوق خلطات وأملاح الفوسفات الوظيفية للأجبان المطبوخة والبدائل النباتية' 
-      : 'High-Protein Snacks & Emulsifying Salt Systems in Modern Dairy Formulations',
-    excerpt: isAr
-      ? 'تحليل تطبيقي معمق حول استقرار الاستحلاب، والتحكم في درجة الذوبان، وتحسين قوام منتجات الألبان والأغذية الوظيفية عبر تقنيات التركيب المتقدمة.'
-      : 'An in-depth technical analysis on protein solubility, emulsification stability, and textural optimization in modern functional dairy and snack systems.',
-    image: v9Assets.v8Assets['cheese-banner'] || '/images/pages/home/food-chemistry-formulation.jpg',
-    link: '/knowledge'
-  };
-
-  const supportingArticles = [
+  // Articles for Section 06 (3 equal cards matching reference exactly)
+  const insightArticles = [
+    {
+      id: 'art-1',
+      category: isAr ? 'أبحاث' : 'Research',
+      date: 'Nov 24, 2025',
+      title: isAr 
+        ? 'دراسة سوق خلطات وأملاح الفوسفات الوظيفية للأجبان المطبوخة' 
+        : 'High-Protein Snacks Market Study',
+      image: v9Assets.v8Assets['sourcing-ingredients'] || '/images/pages/home/food-chemistry-formulation.jpg',
+      link: '/knowledge'
+    },
     {
       id: 'art-2',
       category: isAr ? 'ابتكار' : 'Innovation',
-      date: 'Nov 18, 2026',
+      date: 'Nov 18, 2025',
       title: isAr 
-        ? 'دراسة تقنية حول بدائل السكر والدهون دون التأثير على القوام الحسي' 
-        : 'Industrial Sugar & Fat Replacement Without Sensory Compromise',
+        ? 'دراسة تقنية حول تحسين معاملات زيوت القلي الصناعية' 
+        : 'Industrial Frying Oil Technical Study',
       image: '/images/pages/home/food-chemistry-formulation.jpg',
       link: '/knowledge'
     },
     {
       id: 'art-3',
       category: isAr ? 'رؤى السوق' : 'Market Insights',
-      date: 'Nov 12, 2026',
+      date: 'Nov 12, 2025',
       title: isAr 
-        ? 'أبحاث تحسين الإنتاجية والاحتفاظ بالرطوبة في مصنعات اللحوم والدواجن' 
-        : 'Yield & Moisture Retention Research in Processed Meats & Poultry',
-      image: v9Assets.v7Assets['meat-seafood'] || '/images/pages/home/pilot-plant-dairy-testing.jpg',
+        ? 'أبحاث معجون وصلصات الطماطم وقوام الاستحلاب' 
+        : 'Tomato Paste & Sauce Research',
+      image: v9Assets.v7Assets['culinary'] || '/images/pages/home/pilot-plant-dairy-testing.jpg',
       link: '/knowledge'
     }
   ];
 
   return (
-    <div className={`awa-home-ref ${isAr ? 'rtl' : 'ltr'}`}>
+    <div className={`awa-exact-ref ${isAr ? 'rtl' : 'ltr'}`}>
       <SEO
         title={isAr ? 'مجموعة AWA • حلول غذائية مخصصة مصممة لتحقيق الأداء الأمثل' : 'AWA Group • Tailored Food Solutions. Built to Perform.'}
         description="AWA Group combines global sourcing expertise, application-driven R&D and manufacturing capabilities to develop customized food solutions."
@@ -247,78 +227,74 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 01: EXPLORE OUR EXPERTISE YOUR WAY          */}
-      {/* (ASYMMETRIC EDITORIAL PHOTO COMPOSITION REFINED)    */}
+      {/* (IMAGE 1 SPECIFICATION: EXACT 1:1 REPRODUCTION)    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-expertise">
-        <div className="awa-ref-container">
-          <div className="awa-ref-expertise-grid">
-            {/* Left Content Column */}
-            <div className="awa-ref-expertise-info">
-              <div className="awa-ref-eyebrow">
-                <span>{isAr ? 'مجالات الصناعات الغذائية' : 'INDUSTRY PORTFOLIO'}</span>
-              </div>
-              <h2 className="awa-ref-sec-title">
+      <section className="ref-sec-expertise">
+        <div className="ref-container">
+          <div className="ref-expertise-grid">
+            {/* Left Content */}
+            <div className="ref-expertise-left">
+              <span className="ref-dash" />
+              <h2 className="ref-title">
                 {isAr ? 'استكشف خبراتنا' : 'Explore our expertise'} <br />
-                <span className="highlight-green">{isAr ? 'بطريقتك الخاصة' : 'your way'}</span>
+                <span className="green-text">{isAr ? 'بطريقتك الخاصة' : 'your way'}</span>
               </h2>
-              <p className="awa-ref-sec-desc">
+              <p className="ref-desc">
                 {isAr
-                  ? 'من المكونات الأساسية إلى الابتكار التطبيقي — اكتشف مجموعتنا الشاملة من حلول الصناعات الغذائية المصممة لتحقيق الأداء الأمثل.'
-                  : 'From ingredients to innovation — discover our wide range of food solutions tailored to your production process.'}
+                  ? 'من المكونات الأساسية إلى الابتكار التطبيقي — اكتشف مجموعتنا الشاملة من حلول الصناعات الغذائية.'
+                  : 'From ingredients to innovation — discover our wide range of food solutions.'}
               </p>
-              <Link to="/solutions" className="awa-ref-pill-btn outline">
+              <Link to="/solutions" className="ref-pill-btn outline">
                 <span>{isAr ? 'استعراض كافة الحلول' : 'Explore all solutions'}</span>
-                <ArrowRight size={14} className="rtl:rotate-180" />
+                <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
             </div>
 
             {/* Right Asymmetric Photo Composition */}
-            <div className="awa-ref-photo-mosaic">
+            <div className="ref-mosaic">
               {/* Dominant Featured Category: Dairy & Cheese */}
               <Link 
                 to="/solutions/industry/dairy-cheese"
-                className="awa-ref-mosaic-card"
+                className="ref-mosaic-dominant"
               >
                 <img 
                   src={v9Assets.v7Assets['dairy-cheese']} 
                   alt="Dairy, Cheese & Frozen Desserts" 
-                  className="awa-ref-mosaic-img"
                   loading="eager"
                 />
-                <div className="awa-ref-mosaic-overlay">
-                  <span className="awa-ref-mosaic-num">01</span>
-                  <div className="awa-ref-mosaic-title-row">
-                    <h3 className="awa-ref-mosaic-title">
+                <div className="ref-mosaic-dominant-overlay">
+                  <span className="ref-mosaic-num">01</span>
+                  <div className="ref-mosaic-title-row">
+                    <h3 className="ref-mosaic-title">
                       {isAr ? 'الألبان والأجبان والحلويات المجمدة' : 'Dairy, Cheese &\nFrozen Desserts'}
                     </h3>
-                    <span className="awa-ref-mosaic-arrow">
-                      <ArrowRight size={15} className="rtl:rotate-180" />
+                    <span className="ref-mosaic-circle-arrow">
+                      <ArrowRight size={13} className="rtl:rotate-180" />
                     </span>
                   </div>
                 </div>
               </Link>
 
               {/* Two Stacked Secondary Categories */}
-              <div className="awa-ref-mosaic-stacked">
+              <div className="ref-mosaic-stacked">
                 {/* Meat & Poultry */}
                 <Link 
                   to="/solutions/industry/meat-seafood"
-                  className="awa-ref-mosaic-card"
+                  className="ref-mosaic-sub"
                 >
                   <img 
                     src={v9Assets.v7Assets['meat-seafood']} 
                     alt="Meat, Poultry & Seafood" 
-                    className="awa-ref-mosaic-img"
                     loading="lazy"
                   />
-                  <div className="awa-ref-mosaic-overlay">
-                    <span className="awa-ref-mosaic-num">02</span>
-                    <div className="awa-ref-mosaic-title-row">
-                      <h4 className="awa-ref-mosaic-title" style={{ fontSize: '15.5px' }}>
+                  <div className="ref-mosaic-sub-overlay">
+                    <span className="ref-mosaic-num">02</span>
+                    <div className="ref-mosaic-title-row">
+                      <h4 className="ref-sub-title">
                         {isAr ? 'اللحوم والدواجن والأسماك' : 'Meat, Poultry &\nSeafood'}
                       </h4>
-                      <span className="awa-ref-mosaic-arrow" style={{ width: '28px', height: '28px' }}>
-                        <ArrowRight size={13} className="rtl:rotate-180" />
+                      <span className="ref-mosaic-circle-arrow" style={{ width: '22px', height: '22px', fontSize: '11px' }}>
+                        <ArrowRight size={11} className="rtl:rotate-180" />
                       </span>
                     </div>
                   </div>
@@ -327,22 +303,21 @@ export const HomePage: React.FC<HomeProps> = () => {
                 {/* Sauces & Culinary */}
                 <Link 
                   to="/solutions/industry/culinary"
-                  className="awa-ref-mosaic-card"
+                  className="ref-mosaic-sub"
                 >
                   <img 
                     src={v9Assets.v7Assets['culinary']} 
                     alt="Sauces, Soups & Culinary" 
-                    className="awa-ref-mosaic-img"
                     loading="lazy"
                   />
-                  <div className="awa-ref-mosaic-overlay">
-                    <span className="awa-ref-mosaic-num">03</span>
-                    <div className="awa-ref-mosaic-title-row">
-                      <h4 className="awa-ref-mosaic-title" style={{ fontSize: '15.5px' }}>
+                  <div className="ref-mosaic-sub-overlay">
+                    <span className="ref-mosaic-num">03</span>
+                    <div className="ref-mosaic-title-row">
+                      <h4 className="ref-sub-title">
                         {isAr ? 'الصلصات والشوربات والطهي' : 'Sauces, Soups &\nCulinary'}
                       </h4>
-                      <span className="awa-ref-mosaic-arrow" style={{ width: '28px', height: '28px' }}>
-                        <ArrowRight size={13} className="rtl:rotate-180" />
+                      <span className="ref-mosaic-circle-arrow" style={{ width: '22px', height: '22px', fontSize: '11px' }}>
+                        <ArrowRight size={11} className="rtl:rotate-180" />
                       </span>
                     </div>
                   </div>
@@ -351,26 +326,26 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
           </div>
 
-          {/* Horizontal Subcategory Navigation Strip */}
-          <div className="awa-ref-subcats-row">
-            <Link to="/solutions/industry/beverages" className="awa-ref-subcat-item">
+          {/* Horizontal Subcategory Navigation Bar */}
+          <div className="ref-cats-nav">
+            <Link to="/solutions/industry/beverages" className="ref-cat-link">
               <span>{isAr ? 'المشروبات والعصائر' : 'Beverages'}</span>
               <span>›</span>
             </Link>
-            <Link to="/solutions/industry/snacks" className="awa-ref-subcat-item">
+            <Link to="/solutions/industry/snacks" className="ref-cat-link">
               <span>{isAr ? 'المقرمشات ورقائق الإفطار' : 'Snacks & Cereals'}</span>
               <span>›</span>
             </Link>
-            <Link to="/solutions/industry/bakery" className="awa-ref-subcat-item">
+            <Link to="/solutions/industry/bakery" className="ref-cat-link">
               <span>{isAr ? 'المخبوزات والحلويات' : 'Bakery & Confectionery'}</span>
               <span>›</span>
             </Link>
-            <Link to="/capabilities/formulations" className="awa-ref-subcat-item">
-              <span>{isAr ? 'أنظمة التركيبات المخصصة' : 'Custom Formulations'}</span>
+            <Link to="/capabilities/formulations" className="ref-cat-link">
+              <span>{isAr ? 'المربيات والدهن الغذائي' : 'Preserves & Spreads'}</span>
               <span>›</span>
             </Link>
-            <Link to="/solutions/catalogue" className="awa-ref-subcat-item">
-              <span>{isAr ? 'كتالوج المكونات الكامل' : 'Ingredient Catalogue'}</span>
+            <Link to="/solutions/catalogue" className="ref-cat-link">
+              <span>{isAr ? 'البسكويت والمقرمشات' : 'Biscuits & Cereals'}</span>
               <span>›</span>
             </Link>
           </div>
@@ -379,96 +354,67 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 02: TECHNICAL EXPERTISE, TAILORED (SPLIT)   */}
-      {/* (AUTHENTIC INDUSTRIAL R&D IMAGERY + ACTIVE SWITCH)  */}
+      {/* (IMAGE 1 SPECIFICATION: PHOTO + TEXT + 3 ITEMS)     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-technical">
-        <div className="awa-ref-container">
-          <div className="awa-ref-tech-grid">
-            {/* Left 48%: Large Authentic Industrial/R&D Photograph */}
-            <div className="awa-ref-tech-visual">
-              {capabilitiesList.map((cap, idx) => (
-                <img
-                  key={cap.id}
-                  src={cap.image}
-                  alt={cap.title}
-                  className="awa-ref-tech-img"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    opacity: activeCapability === idx ? 1 : 0,
-                    transform: activeCapability === idx ? 'scale(1)' : 'scale(1.05)',
-                    pointerEvents: activeCapability === idx ? 'auto' : 'none'
-                  }}
-                  loading="lazy"
-                />
-              ))}
-              <div className="awa-ref-tech-badge">
-                {capabilitiesList[activeCapability].subtitle}
-              </div>
+      <section className="ref-sec-technical">
+        <div className="ref-container">
+          <div className="ref-tech-layout">
+            {/* Left: Stainless Steel Dairy Pouring Machine Photo */}
+            <div className="ref-tech-photo-wrap">
+              <img
+                src="/images/pages/home/dairy-filling-machine.png"
+                alt="Technical Food Processing Equipment"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/pages/home/pilot-plant-dairy-testing.jpg';
+                }}
+              />
             </div>
 
-            {/* Right 52%: Editorial Heading + Functional Interactive Items */}
-            <div className="awa-ref-tech-info">
-              <div className="awa-ref-eyebrow">
+            {/* Center: Editorial Heading & Description */}
+            <div className="ref-tech-center">
+              <div className="ref-eyebrow">
+                <span>•</span>
                 <span>{isAr ? 'الخبرة التكنولوجية والتطبيقية' : 'TECHNICAL EXPERTISE'}</span>
               </div>
 
-              <h2 className="awa-ref-sec-title">
+              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.7vw, 2.3rem)' }}>
                 {isAr ? 'خبرة فنية، مصممة ' : 'Technical expertise, '} <br />
                 {isAr ? 'خصيصاً ' : 'tailored to '}
-                <span className="highlight-green">
-                  {isAr ? 'لتطبيقاتك الصناعية.' : 'your application.'}
+                <span className="green-text">
+                  {isAr ? 'لتطبيقاتك.' : 'your\napplication.'}
                 </span>
               </h2>
 
-              <p className="awa-ref-sec-desc">
+              <p className="ref-desc">
                 {isAr
                   ? 'تساعدك خبرتنا العميقة في صناعة الأغذية وفهمنا الدقيق لمعايير التشغيل على تحويل الأفكار والتركيبات إلى حلول قابلة للتطوير وموثوقة الإنتاج.'
                   : 'Our in-depth knowledge and industry experience help you turn ideas into reliable, scalable solutions.'}
               </p>
 
-              <Link
-                to="/capabilities"
-                style={{ color: '#00A84F', fontWeight: 800, fontSize: '13.5px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}
-              >
-                <span>{isAr ? 'اكتشف قدراتنا المتكاملة' : 'Discover our capabilities'}</span>
-                <ArrowRight size={14} className="rtl:rotate-180" />
+              <Link to="/capabilities" className="ref-link-green">
+                <span>{isAr ? 'اكتشف قدراتنا' : 'Discover our capabilities'}</span>
+                <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
+            </div>
 
-              {/* 3 Refined Interactive Capabilities */}
-              <div className="awa-ref-tech-list" role="tablist">
-                {capabilitiesList.map((cap, idx) => (
-                  <div
-                    key={cap.id}
-                    role="tab"
-                    tabIndex={0}
-                    aria-selected={activeCapability === idx}
-                    onMouseEnter={() => setActiveCapability(idx)}
-                    onFocus={() => setActiveCapability(idx)}
-                    onClick={() => setActiveCapability(idx)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        setActiveCapability(idx);
-                      }
-                    }}
-                    className={`awa-ref-tech-item ${activeCapability === idx ? 'active' : ''}`}
-                  >
-                    <div className="awa-ref-tech-item-left">
-                      <span className="awa-ref-tech-num">{cap.num}</span>
-                      <div className="awa-ref-tech-icon-wrap">
-                        {cap.icon}
-                      </div>
-                      <div className="awa-ref-tech-text">
-                        <span className="awa-ref-tech-title">{cap.title}</span>
-                        <span className="awa-ref-tech-sub">{cap.subtitle}</span>
-                      </div>
+            {/* Right: 3 Horizontally Aligned Items with Mint Circle Icons */}
+            <div className="ref-tech-right">
+              {capabilitiesList.map((cap) => (
+                <Link
+                  key={cap.id}
+                  to={cap.route}
+                  className="ref-tech-item"
+                >
+                  <div className="ref-tech-item-left">
+                    <span className="ref-tech-num">{cap.num}</span>
+                    <div className="ref-tech-icon">
+                      {cap.icon}
                     </div>
-                    <Link to={cap.route} className="awa-ref-tech-arrow" title={cap.title}>
-                      ↗
-                    </Link>
+                    <span className="ref-tech-name">{cap.title}</span>
                   </div>
-                ))}
-              </div>
+                  <span className="ref-tech-arrow">↗</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -476,73 +422,65 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 03: DESIGNED FOR PERFORMANCE & VALUE        */}
-      {/* (EXPRESSIVE 2-PART COMPOSITION WITH CONNECTED VALUE)*/}
+      {/* (IMAGE 1 SPECIFICATION: LEFT TEXT + 3 COL DIVIDERS) */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-perf">
-        <div className="awa-ref-container">
-          <div className="awa-ref-perf-grid">
+      <section className="ref-sec-perf">
+        <div className="ref-container">
+          <div className="ref-perf-layout">
             {/* Left Content */}
-            <div className="awa-ref-expertise-info">
-              <div className="awa-ref-eyebrow">
+            <div className="ref-perf-left">
+              <div className="ref-eyebrow">
+                <span>•</span>
                 <span>{isAr ? 'الأداء والقيمة' : 'PERFORMANCE & VALUE'}</span>
               </div>
-              <h2 className="awa-ref-sec-title">
+              <h2 className="ref-title">
                 {isAr ? 'مصممة للأداء.' : 'Designed for'} <br />
                 {isAr ? 'ومحسوبة ' : 'performance.'} <br />
-                <span className="highlight-green">
+                <span className="green-text">
                   {isAr ? 'لتحقيق القيمة.' : 'Considered for value.'}
                 </span>
               </h2>
-              <p className="awa-ref-sec-desc">
+              <p className="ref-desc">
                 {isAr
-                  ? 'حلول عالية الجودة تقدم أثراً قابلاً للقياس عبر سلسلة القيمة الخاصة بك، محققة التوازن الدقيق بين الأداء الوظيفي والتكلفة الاقتصادية.'
-                  : 'High-quality solutions that deliver measurable impact across your entire value chain, balancing sensory performance with commercial viability.'}
+                  ? 'حلول عالية الجودة تقدم أثراً قابلاً للقياس عبر سلسلة القيمة الخاصة بك.'
+                  : 'High-quality solutions that deliver measurable impact across your entire value chain.'}
               </p>
-              <Link to="/capabilities/formulations" className="awa-ref-pill-btn dark">
+              <Link to="/capabilities/formulations" className="ref-pill-btn navy">
                 <span>{isAr ? 'اعرف المزيد' : 'Learn more'}</span>
-                <ArrowRight size={14} className="rtl:rotate-180" />
+                <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
             </div>
 
-            {/* Right: 3 Connected Principles with Distinctive Icons */}
-            <div className="awa-ref-perf-pillars">
-              {/* Pillar 1 */}
-              <div className="awa-ref-perf-pillar">
-                <div className="awa-ref-perf-icon-box">
-                  <Cog size={28} strokeWidth={1.8} />
+            {/* Right: 3 Columns with Thin Line Dividers */}
+            <div className="ref-perf-right">
+              {/* Principle 1 */}
+              <div className="ref-perf-col">
+                <div className="ref-perf-icon">
+                  <Cog size={36} strokeWidth={1.8} />
                 </div>
-                <h3 className="awa-ref-perf-name">
-                  {isAr ? 'الأداء الوظيفي' : 'Functional Performance'}
+                <h3 className="ref-perf-name">
+                  {isAr ? 'الأداء\nالوظيفي' : 'Functional\nPerformance'}
                 </h3>
-                <p className="awa-ref-perf-desc">
-                  {isAr ? 'ضبط القوام، الاستحلاب، والذوبانية لتحقيق أعلى جودة حسية.' : 'Precision texture, melt control, and shelf-life stability.'}
-                </p>
               </div>
 
-              {/* Pillar 2 */}
-              <div className="awa-ref-perf-pillar">
-                <div className="awa-ref-perf-icon-box">
-                  <Boxes size={28} strokeWidth={1.8} />
+              {/* Principle 2 */}
+              <div className="ref-perf-col">
+                <div className="ref-perf-icon">
+                  <Boxes size={36} strokeWidth={1.8} />
                 </div>
-                <h3 className="awa-ref-perf-name">
-                  {isAr ? 'التوافق الإنتاجي' : 'Production Compatibility'}
+                <h3 className="ref-perf-name">
+                  {isAr ? 'التوافق\nالإنتاجي' : 'Production\nCompatibility'}
                 </h3>
-                <p className="awa-ref-perf-desc">
-                  {isAr ? 'التوافق التام مع خطوط التشغيل الحالية وظروف المعاملات الحرارية.' : 'Seamless integration with existing industrial lines & thermal profiles.'}
-                </p>
               </div>
 
-              {/* Pillar 3 */}
-              <div className="awa-ref-perf-pillar">
-                <div className="awa-ref-perf-icon-box">
-                  <TrendingUp size={28} strokeWidth={1.8} />
+              {/* Principle 3 */}
+              <div className="ref-perf-col">
+                <div className="ref-perf-icon">
+                  <TrendingUp size={36} strokeWidth={1.8} />
                 </div>
-                <h3 className="awa-ref-perf-name">
-                  {isAr ? 'القيمة التجارية' : 'Commercial Value'}
+                <h3 className="ref-perf-name">
+                  {isAr ? 'القيمة\nالتجارية' : 'Commercial\nValue'}
                 </h3>
-                <p className="awa-ref-perf-desc">
-                  {isAr ? 'تحسين تكلفة الوصفات وزيادة إنتاجية التشغيل بهوامش ربحية مستدامة.' : 'Optimized formulation economics and reduced ingredient waste.'}
-                </p>
               </div>
             </div>
           </div>
@@ -551,78 +489,76 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 04: INTERNATIONAL STANDARDS (MINT SURFACE)  */}
-      {/* (AUTHENTIC LOGOS WITH CLEAR STRUCTURAL SEPARATION)  */}
+      {/* (IMAGE 1 SPECIFICATION: MINT BG + REAL LOGO ROW)    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-certs">
-        <div className="awa-ref-container">
-          <div className="awa-ref-certs-card">
+      <section className="ref-sec-certs">
+        <div className="ref-container">
+          <div className="ref-certs-layout">
             {/* Left Header */}
-            <div className="awa-ref-certs-intro">
-              <span className="awa-ref-eyebrow" style={{ color: '#0F5132' }}>
+            <div className="ref-certs-left">
+              <span className="ref-eyebrow" style={{ color: '#0F5132' }}>
                 <span>{isAr ? 'الشهادات والاعتمادات' : 'CERTIFICATIONS'}</span>
               </span>
-              <h2 className="awa-ref-sec-title" style={{ fontSize: 'clamp(1.9rem, 2.9vw, 2.6rem)', marginBottom: '14px' }}>
+              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)', marginBottom: '14px' }}>
                 {isAr ? 'معايير دولية.' : 'International Standards.'} <br />
                 {isAr ? 'جودة في الممارسة.' : 'Quality in Practice.'}
               </h2>
-              <p className="awa-ref-sec-desc" style={{ color: '#2D5E4A', marginBottom: '24px' }}>
+              <p className="ref-desc" style={{ color: '#2D5E4A', marginBottom: '22px' }}>
                 {isAr
                   ? 'نلتزم بأعلى معايير سلامة الأغذية العالمية، لأن الجودة والامتثال يمثلان جوهر كل ما نقوم به.'
                   : 'We meet the highest international standards, because quality is at the core of what we do.'}
               </p>
-              <Link
-                to="/quality"
-                style={{ color: '#0F5132', fontWeight: 800, fontSize: '13.5px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                <span>{isAr ? 'استعراض كافة الشهادات والاعتمادات' : 'View our certifications'}</span>
-                <ArrowRight size={14} className="rtl:rotate-180" />
+              <Link to="/quality" className="ref-link-green" style={{ color: '#0F5132' }}>
+                <span>{isAr ? 'استعراض كافة الشهادات' : 'View our certifications'}</span>
+                <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
             </div>
 
-            {/* Right: Logos in 2 Columns with Distinct Separation */}
-            <div className="awa-ref-certs-showcase">
-              {/* International Certifications Column */}
-              <div className="awa-ref-cert-group">
-                <span className="awa-ref-cert-group-label">
-                  {isAr ? 'الشهادات الدولية المعتمدة' : 'International Certifications'}
-                </span>
-                <div className="awa-ref-cert-logos">
-                  {['fssc-22000', 'iso-9001', 'iso-14001', 'iso-45001'].map((assetKey) => {
-                    const src = (v9Assets.corporateAssets as any)[assetKey];
-                    return (
-                      <div key={assetKey} className="awa-ref-cert-logo-box" title={assetKey.toUpperCase()}>
-                        <img 
-                          src={src} 
-                          alt={assetKey} 
-                          className="awa-ref-cert-logo-item" 
-                          loading="eager" 
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
+            {/* Center: International Certifications */}
+            <div className="ref-certs-center">
+              <span className="ref-certs-group-title">
+                {isAr ? 'الشهادات الدولية المعتمدة' : 'International Certifications'}
+              </span>
+              <div className="ref-certs-logos">
+                <img 
+                  src={v9Assets.corporateAssets['fssc-22000']} 
+                  alt="FSSC 22000" 
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src="/images/v9/corporate/eic.png" 
+                  alt="EIC" 
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src="/images/v9/corporate/brcgs.png" 
+                  alt="BRCGS" 
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src={v9Assets.corporateAssets['iso-9001']} 
+                  alt="ISO" 
+                  className="ref-cert-img" 
+                />
               </div>
+            </div>
 
-              {/* Regulatory Registrations Column */}
-              <div className="awa-ref-cert-group">
-                <span className="awa-ref-cert-group-label">
-                  {isAr ? 'التسجيل والاعتماد التنظيمي' : 'Regulatory Registrations'}
-                </span>
-                <div className="awa-ref-cert-logos">
-                  {['fda', 'halal', 'nfsa'].map((assetKey) => {
-                    const src = (v9Assets.corporateAssets as any)[assetKey];
-                    return (
-                      <div key={assetKey} className="awa-ref-cert-logo-box" title={assetKey.toUpperCase()}>
-                        <img 
-                          src={src} 
-                          alt={assetKey} 
-                          className="awa-ref-cert-logo-item" 
-                          loading="eager" 
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
+            {/* Right: Regulatory Registrations (Separated by Divider) */}
+            <div className="ref-certs-right">
+              <span className="ref-certs-group-title">
+                {isAr ? 'التسجيل والاعتماد التنظيمي' : 'Regulatory Registrations'}
+              </span>
+              <div className="ref-certs-logos">
+                <img 
+                  src={v9Assets.corporateAssets['fda']} 
+                  alt="FDA" 
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src={v9Assets.corporateAssets['halal']} 
+                  alt="Halal" 
+                  className="ref-cert-img" 
+                />
               </div>
             </div>
           </div>
@@ -631,187 +567,115 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 05: RESPONSIBLE GROWTH. LASTING IMPACT.     */}
-      {/* (AUTHENTIC SUSTAINABLE AGRICULTURE + 5 PILLARS)     */}
+      {/* (IMAGE 1 SPECIFICATION: SPROUT PHOTO + 5 COLUMNS)   */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-sustain">
-        <div className="awa-ref-container">
-          {/* Top Editorial Split */}
-          <div className="awa-ref-sustain-main">
-            {/* Left Authentic Agriculture/Seedling Photo */}
-            <div className="awa-ref-sustain-visual">
+      <section className="ref-sec-sustain">
+        <div className="ref-container">
+          <div className="ref-sustain-layout">
+            {/* Left: Seedling Sprout Photo */}
+            <div className="ref-sustain-photo-wrap">
               <img 
                 src="/images/pages/sustainability/sustainability.jpg" 
                 alt="Responsible Growth & Agriculture" 
-                className="awa-ref-sustain-img"
-                loading="lazy"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = v9Assets.v7Assets.sourcing;
                 }}
               />
             </div>
 
-            {/* Center-Right Content */}
-            <div className="awa-ref-sustain-intro">
-              <div className="awa-ref-eyebrow">
-                <span>{isAr ? 'الاستدامة والأثر' : 'SUSTAINABILITY & IMPACT'}</span>
-              </div>
-              <h2 className="awa-ref-sec-title">
+            {/* Center: Editorial Headline & Description */}
+            <div className="ref-sustain-center">
+              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)' }}>
                 {isAr ? 'نمو مسؤول.' : 'Responsible Growth.'} <br />
-                <span className="highlight-green">{isAr ? 'وأثر دائم.' : 'Lasting Impact.'}</span>
+                <span className="green-text">{isAr ? 'وأثر دائم.' : 'Lasting Impact.'}</span>
               </h2>
-              <p className="awa-ref-sec-desc">
+              <p className="ref-desc">
                 {isAr
-                  ? 'بناء مستقبل غذائي أكثر استدامة عبر الممارسات المسؤولة، وحماية الموارد الطبيعية، والابتكار التطبيقي المتواصل عبر عملياتنا وسلاسل القيمة.'
-                  : 'Building a more sustainable food future through responsible practices, resource efficiency, and continuous applied innovation across our operations and value chain.'}
+                  ? 'بناء مستقبل غذائي أكثر استدامة عبر الممارسات المسؤولة والابتكار.'
+                  : 'Building a more sustainable food future through responsible practices and innovation.'}
               </p>
-              <Link to="/sustainability" className="awa-ref-pill-btn outline">
+              <Link to="/sustainability" className="ref-pill-btn outline" style={{ borderColor: '#00A84F', color: '#00A84F' }}>
                 <span>{isAr ? 'أثرنا في الاستدامة' : 'Our impact'}</span>
-                <ArrowRight size={14} className="rtl:rotate-180" />
+                <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
             </div>
-          </div>
 
-          {/* 5 Full-Width Connected Editorial Pillars */}
-          <div className="awa-ref-sustain-pillars">
-            {[
-              { 
-                num: '01', 
-                title: isAr ? 'التوريد المستدام' : 'Sustainable Sourcing', 
-                desc: isAr ? 'شراكات زراعية مسؤولة وسلاسل توريد معتمدة المصدر.' : 'Ethical agricultural partnerships & traceable origins.',
-                icon: <Leaf size={20} /> 
-              },
-              { 
-                num: '02', 
-                title: isAr ? 'المسؤولية البيئية' : 'Environmental Responsibility', 
-                desc: isAr ? 'كفاءة استهلاك الطاقة وتقليل الأثر الكربوني الصناعي.' : 'Energy efficiency & reduced industrial carbon footprint.',
-                icon: <Recycle size={20} /> 
-              },
-              { 
-                num: '03', 
-                title: isAr ? 'دعم المجتمع' : 'Community & People', 
-                desc: isAr ? 'التعليم والتدريب التقني المستمر والاستثمار المجتمعي.' : 'Continuous technical education & social investment.',
-                icon: <Users size={20} /> 
-              },
-              { 
-                num: '04', 
-                title: isAr ? 'سلامة الغذاء والجودة' : 'Food Safety & Quality', 
-                desc: isAr ? 'التزام صارم بأعلى معايير النظافة والرقابة المعتمدة.' : 'Zero-compromise compliance & strict hygiene protocols.',
-                icon: <ShieldCheck size={20} /> 
-              },
-              { 
-                num: '05', 
-                title: isAr ? 'الابتكار لغد أفضل' : 'Innovation for Tomorrow', 
-                desc: isAr ? 'تطوير حلول البطاقات النظيفة والبدائل النباتية المستدامة.' : 'Clean-label formulations & plant-based solutions.',
-                icon: <Lightbulb size={20} /> 
-              },
-            ].map((pillar) => (
-              <div key={pillar.num} className="awa-ref-sustain-pillar">
-                <div className="awa-ref-sustain-top">
-                  <span className="awa-ref-sustain-num">{pillar.num}</span>
-                  <div className="awa-ref-sustain-icon">
+            {/* Right: 5 Horizontal Columns with Thin Line Dividers */}
+            <div className="ref-sustain-pillars">
+              {[
+                { num: '01', title: isAr ? 'التوريد المستدام' : 'Sustainable\nSourcing', icon: <Leaf size={22} strokeWidth={1.8} /> },
+                { num: '02', title: isAr ? 'المسؤولية البيئية' : 'Environmental\nResponsibility', icon: <Recycle size={22} strokeWidth={1.8} /> },
+                { num: '03', title: isAr ? 'دعم المجتمع' : 'Community\nSupport', icon: <Users size={22} strokeWidth={1.8} /> },
+                { num: '04', title: isAr ? 'سلامة الغذاء والجودة' : 'Food Safety\n& Quality', icon: <ShieldCheck size={22} strokeWidth={1.8} /> },
+                { num: '05', title: isAr ? 'الابتكار لغد أفضل' : 'Innovation\nfor a Better\nTomorrow', icon: <Lightbulb size={22} strokeWidth={1.8} /> },
+              ].map((pillar) => (
+                <div key={pillar.num} className="ref-sustain-col">
+                  <span className="ref-sustain-num">{pillar.num}</span>
+                  <div className="ref-sustain-icon">
                     {pillar.icon}
                   </div>
+                  <strong className="ref-sustain-name">
+                    {pillar.title}
+                  </strong>
                 </div>
-                <strong className="awa-ref-sustain-label">
-                  {pillar.title}
-                </strong>
-                <p className="awa-ref-sustain-desc">
-                  {pillar.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 06: KNOWLEDGE THAT SUPPORTS PROGRESS        */}
-      {/* (MAGAZINE EDITORIAL: 1 FEATURED + 2 SUPPORTING)     */}
+      {/* (IMAGE 1 SPECIFICATION: LEFT TEXT + 3 EQUAL CARDS)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-knowledge">
-        <div className="awa-ref-container">
-          <div className="awa-ref-knowledge-header">
-            <div>
-              <div className="awa-ref-eyebrow">
-                <span>{isAr ? 'منصة الأبحاث والمعرفة' : 'RESEARCH & INSIGHTS'}</span>
-              </div>
-              <h2 className="awa-ref-sec-title">
+      <section className="ref-sec-knowledge">
+        <div className="ref-container">
+          <div className="ref-know-layout">
+            {/* Left Content */}
+            <div className="ref-know-left">
+              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)' }}>
                 {isAr ? 'معرفة تدعم' : 'Knowledge that'} <br />
                 {isAr ? 'التقدم الصناعي.' : 'supports progress.'}
               </h2>
-              <p className="awa-ref-sec-desc">
+              <p className="ref-desc">
                 {isAr
-                  ? 'رؤى وأبحاث واتجاهات الصناعة لمساعدتك على البقاء في الصدارة في تطوير وتركيب الأغذية.'
-                  : 'Insights, research and industry trends to help you stay ahead in food formulation and manufacturing.'}
+                  ? 'رؤى وأبحاث واتجاهات الصناعة لمساعدتك على البقاء في الصدارة.'
+                  : 'Insights, research and industry trends to help you stay ahead.'}
               </p>
+              <Link to="/knowledge" className="ref-link-green">
+                <span>{isAr ? 'استكشف منصة المعرفة' : 'Explore our insights'}</span>
+                <ArrowRight size={13} className="rtl:rotate-180" />
+              </Link>
             </div>
-            <Link
-              to="/knowledge"
-              className="awa-ref-pill-btn outline"
-              style={{ marginBottom: '18px' }}
-            >
-              <span>{isAr ? 'استكشف كافة الأبحاث' : 'Explore all insights'}</span>
-              <ArrowRight size={14} className="rtl:rotate-180" />
-            </Link>
-          </div>
 
-          {/* Magazine Composition */}
-          <div className="awa-ref-mag-layout">
-            {/* Dominant Featured Article (Left) */}
-            <Link to={featuredArticle.link} className="awa-ref-mag-featured">
-              <div className="awa-ref-mag-feat-img-wrap">
-                <img 
-                  src={featuredArticle.image} 
-                  alt={featuredArticle.title} 
-                  className="awa-ref-mag-feat-img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="awa-ref-mag-feat-body">
-                <div className="awa-ref-meta-row">
-                  <span className="awa-ref-tag-pill">{featuredArticle.category}</span>
-                  <span className="awa-ref-meta-date">{featuredArticle.date}</span>
-                </div>
-                <h3 className="awa-ref-mag-feat-title">
-                  {featuredArticle.title}
-                </h3>
-                <p className="awa-ref-mag-feat-excerpt">
-                  {featuredArticle.excerpt}
-                </p>
-                <span className="awa-ref-read-more">
-                  <span>{isAr ? 'قراءة الدراسة الكاملة' : 'Read full study'}</span>
-                  <ArrowRight size={14} className="rtl:rotate-180" />
-                </span>
-              </div>
-            </Link>
-
-            {/* Two Stacked Supporting Articles (Right) */}
-            <div className="awa-ref-mag-stacked">
-              {supportingArticles.map((art) => (
+            {/* Right: 3 Equal Article Cards */}
+            <div className="ref-know-cards">
+              {insightArticles.map((art) => (
                 <Link
                   key={art.id}
                   to={art.link}
-                  className="awa-ref-mag-side-card"
+                  className="ref-article-card"
                 >
-                  <div className="awa-ref-mag-side-img-wrap">
+                  <div className="ref-article-photo">
                     <img 
                       src={art.image} 
                       alt={art.title} 
-                      className="awa-ref-mag-side-img"
                       loading="lazy"
                     />
                   </div>
-                  <div className="awa-ref-mag-side-body">
-                    <div>
-                      <div className="awa-ref-meta-row">
-                        <span className="awa-ref-tag-pill">{art.category}</span>
-                        <span className="awa-ref-meta-date">{art.date}</span>
-                      </div>
-                      <h4 className="awa-ref-mag-side-title">
-                        {art.title}
-                      </h4>
+                  <div className="ref-article-body">
+                    <div className="ref-article-meta">
+                      <span className="ref-article-badge">
+                        {art.category}
+                      </span>
+                      <span className="ref-article-date">
+                        {art.date}
+                      </span>
                     </div>
-                    <span className="awa-ref-read-more" style={{ fontSize: '12.5px' }}>
+                    <h3 className="ref-article-title">
+                      {art.title}
+                    </h3>
+                    <span className="ref-article-link">
                       <span>{isAr ? 'اقرأ المزيد' : 'Read more'}</span>
                       <ArrowRight size={12} className="rtl:rotate-180" />
                     </span>
@@ -824,16 +688,24 @@ export const HomePage: React.FC<HomeProps> = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* SECTION 07: FINAL CTA (DEEP NAVY WITH GREEN ACCENT) */}
+      {/* SECTION 07: FINAL CTA (DEEP NAVY WITH GREEN WAVE)   */}
+      {/* (IMAGE 1 SPECIFICATION: NAVY BG + WHITE BUTTON)     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-ref-sec-cta">
-        <div className="awa-ref-cta-glow" />
-        <div className="awa-ref-container">
-          <div className="awa-ref-cta-inner">
-            <div className="awa-ref-cta-text">
+      <section className="ref-sec-cta">
+        {/* Subtle Decorative Flowing Wave Lines */}
+        <div className="ref-cta-wave" aria-hidden="true">
+          <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1440 280">
+            <path fill="none" stroke="#00A84F" strokeWidth="2" d="M0,140 C320,240,480,40,720,140 C960,240,1120,40,1440,140" />
+            <path fill="none" stroke="#34D399" strokeWidth="1" strokeDasharray="5 5" d="M0,170 C320,270,480,70,720,170 C960,270,1120,70,1440,170" />
+          </svg>
+        </div>
+
+        <div className="ref-container">
+          <div className="ref-cta-layout">
+            <div className="ref-cta-left">
               <h2>
                 {isAr ? 'هل لديك ' : 'Have a '}
-                <span className="highlight-green">
+                <span className="green-text">
                   {isAr ? 'تحدٍ غذائي' : 'food challenge'}
                 </span>
                 {isAr ? ' تريد حله؟' : ' to solve?'}
@@ -847,11 +719,10 @@ export const HomePage: React.FC<HomeProps> = () => {
 
             <Link
               to="/contact?type=technical"
-              className="awa-ref-pill-btn white"
-              style={{ padding: '16px 36px', fontSize: '14.5px' }}
+              className="ref-pill-btn white"
             >
               <span>{isAr ? 'تواصل مع خبرائنا' : 'Contact our experts'}</span>
-              <ArrowRight size={16} className="rtl:rotate-180" />
+              <ArrowRight size={14} className="rtl:rotate-180" />
             </Link>
           </div>
         </div>
