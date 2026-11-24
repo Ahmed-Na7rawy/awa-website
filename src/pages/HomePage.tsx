@@ -555,12 +555,12 @@ export const HomePage: React.FC<HomeProps> = () => {
                   className="ref-cert-img" 
                 />
                 <img 
-                  src="/images/v9/corporate/eic.png" 
+                  src="/images/v9/corporate/eic_hd.png" 
                   alt="EIC" 
                   className="ref-cert-img" 
                 />
                 <img 
-                  src="/images/v9/corporate/brcgs.png" 
+                  src="/images/v9/corporate/brcgs_hd.png" 
                   alt="BRCGS" 
                   className="ref-cert-img" 
                 />
