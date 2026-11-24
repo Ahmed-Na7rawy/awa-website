@@ -543,7 +543,7 @@ export const HomePage: React.FC<HomeProps> = () => {
               </Link>
             </div>
 
-            {/* Center: International Certifications */}
+            {/* Center: International Certifications (Exact 5 from V9 Reference) */}
             <div className="ref-certs-center">
               <span className="ref-certs-group-title">
                 {isAr ? 'الشهادات الدولية المعتمدة' : 'International Certifications'}
@@ -552,27 +552,37 @@ export const HomePage: React.FC<HomeProps> = () => {
                 <img 
                   src={v9Assets.corporateAssets['fssc-22000']} 
                   alt="FSSC 22000" 
-                  className="ref-cert-img" 
-                />
-                <img 
-                  src="/images/v9/corporate/eic_hd.png" 
-                  alt="EIC" 
-                  className="ref-cert-img" 
-                />
-                <img 
-                  src="/images/v9/corporate/brcgs_hd.png" 
-                  alt="BRCGS" 
+                  title="FSSC 22000 — Food Safety Management System"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['iso-9001']} 
-                  alt="ISO" 
+                  alt="ISO 9001" 
+                  title="ISO 9001 — Quality Management System"
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src={v9Assets.corporateAssets['iso-14001']} 
+                  alt="ISO 14001" 
+                  title="ISO 14001 — Environmental Management System"
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src={v9Assets.corporateAssets['iso-45001']} 
+                  alt="ISO 45001" 
+                  title="ISO 45001 — Occupational Health & Safety"
+                  className="ref-cert-img" 
+                />
+                <img 
+                  src={v9Assets.corporateAssets['halal']} 
+                  alt="Halal Certification" 
+                  title="Halal — Certified Product Scope (EOS)"
                   className="ref-cert-img" 
                 />
               </div>
             </div>
 
-            {/* Right: Regulatory Registrations (Separated by Divider) */}
+            {/* Right: Regulatory Registrations (Exact 2 from V9 Reference) */}
             <div className="ref-certs-right">
               <span className="ref-certs-group-title">
                 {isAr ? 'التسجيل والاعتماد التنظيمي' : 'Regulatory Registrations'}
@@ -580,12 +590,14 @@ export const HomePage: React.FC<HomeProps> = () => {
               <div className="ref-certs-logos">
                 <img 
                   src={v9Assets.corporateAssets['fda']} 
-                  alt="FDA" 
+                  alt="U.S. FDA Facility Registration" 
+                  title="U.S. FDA — Food Facility Registration"
                   className="ref-cert-img" 
                 />
                 <img 
-                  src={v9Assets.corporateAssets['halal']} 
-                  alt="Halal" 
+                  src={v9Assets.corporateAssets['nfsa']} 
+                  alt="NFSA White List Facility" 
+                  title="National Food Safety Authority (NFSA) — White List Facility"
                   className="ref-cert-img" 
                 />
               </div>
