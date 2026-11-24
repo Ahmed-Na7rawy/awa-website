@@ -43,8 +43,8 @@ export const SkuGrid3D: React.FC<SkuGrid3DProps> = ({ brand, onOpenQuote }) => {
           </h2>
           <p style={{ fontSize: '0.95rem', opacity: 0.75, margin: 0 }}>
             {language === 'ar'
-              ? 'استكشف أحجام العبوات، ومؤشرات قوة النكهة، والمواصفات الفنية للتجزئة.'
-              : 'Explore packaging formats, taste intensity metrics, and retail specifications.'}
+              ? 'استكشف أحجام العبوات والأسعار الرسمية والمواصفات الفنية للتجزئة.'
+              : 'Explore packaging formats, official pricing, and retail specifications.'}
           </p>
         </div>
 

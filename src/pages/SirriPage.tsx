@@ -325,7 +325,7 @@ export const SirriPage: React.FC = () => {
                         <img 
                           src={p.image} 
                           alt={p.name}
-                          style={{ maxHeight: '190px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.12))' }}
+                          style={{ maxHeight: '190px', maxWidth: '100%', objectFit: 'contain', filter: 'none' }}
                           onError={(e) => {
                             (e.target as HTMLImageElement).src = '/images/2026/1.png';
                           }}

@@ -453,7 +453,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                     width: 'auto',
                     maxWidth: '260px',
                     objectFit: 'contain',
-                    filter: 'drop-shadow(0 22px 40px rgba(0,0,0,0.18))',
+                    filter: 'none',
                   }}
                 />
 
@@ -483,7 +483,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                       width: 'auto',
                       maxWidth: '100px',
                       objectFit: 'contain',
-                      filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.2))',
+                      filter: 'none',
                       zIndex: 20,
                     }}
                   />

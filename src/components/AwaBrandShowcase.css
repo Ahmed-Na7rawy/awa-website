@@ -133,7 +133,7 @@
   max-height: 480px;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.45));
+  filter: none;
   animation: editaFloat 6s ease-in-out infinite;
 }
 
@@ -259,7 +259,7 @@
   max-width: 100%;
   object-fit: contain;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.12));
+  filter: none;
 }
 
 .edita-molto-card:hover .edita-molto-img {
