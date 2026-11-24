@@ -84,7 +84,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة سوق خلطات وأملاح الفوسفات الوظيفية للأجبان المطبوخة' 
         : 'High-Protein Snacks Market Study',
-      image: v9Assets.v8Assets['sourcing-ingredients'] || '/images/pages/home/food-chemistry-formulation.jpg',
+      image: '/images/pages/home/ref_article_high_protein_hd.jpg',
       link: '/knowledge'
     },
     {
@@ -94,7 +94,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة تقنية حول تحسين معاملات زيوت القلي الصناعية' 
         : 'Industrial Frying Oil Technical Study',
-      image: '/images/pages/home/food-chemistry-formulation.jpg',
+      image: '/images/pages/home/ref_article_frying_oil_hd.jpg',
       link: '/knowledge'
     },
     {
@@ -104,7 +104,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'أبحاث معجون وصلصات الطماطم وقوام الاستحلاب' 
         : 'Tomato Paste & Sauce Research',
-      image: v9Assets.v7Assets['culinary'] || '/images/pages/home/pilot-plant-dairy-testing.jpg',
+      image: '/images/pages/home/ref_article_tomato_sauce_hd.jpg',
       link: '/knowledge'
     }
   ];
@@ -230,7 +230,18 @@ export const HomePage: React.FC<HomeProps> = () => {
       {/* (IMAGE 1 SPECIFICATION: EXACT 1:1 REPRODUCTION)    */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="ref-sec-expertise">
-        <div className="ref-container">
+        {/* Soft Organic Pale Mint Background Wave */}
+        <div className="ref-expertise-wave" aria-hidden="true">
+          <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M-100,-100 C150,-50 350,150 280,400 C220,600 50,680 -100,700 Z"
+              fill="#EBF7EE"
+              opacity="0.85"
+            />
+          </svg>
+        </div>
+
+        <div className="ref-container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="ref-expertise-grid">
             {/* Left Content */}
             <div className="ref-expertise-left">
@@ -362,10 +373,10 @@ export const HomePage: React.FC<HomeProps> = () => {
             {/* Left: Stainless Steel Dairy Pouring Machine Photo */}
             <div className="ref-tech-photo-wrap">
               <img
-                src="/images/pages/home/dairy-filling-machine.png"
+                src="/images/pages/home/ref_dairy_machine_hd.jpg"
                 alt="Technical Food Processing Equipment"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/pages/home/pilot-plant-dairy-testing.jpg';
+                  (e.target as HTMLImageElement).src = '/images/pages/home/dairy-filling-machine.png';
                 }}
               />
             </div>
@@ -425,7 +436,18 @@ export const HomePage: React.FC<HomeProps> = () => {
       {/* (IMAGE 1 SPECIFICATION: LEFT TEXT + 3 COL DIVIDERS) */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="ref-sec-perf">
-        <div className="ref-container">
+        {/* Organic Light Mint Wave Behind 3 Pillars */}
+        <div className="ref-perf-wave" aria-hidden="true">
+          <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M300,0 C500,40 750,10 800,0 L800,500 C650,480 400,520 200,400 C80,300 120,120 300,0 Z"
+              fill="#EBF7EE"
+              opacity="0.9"
+            />
+          </svg>
+        </div>
+
+        <div className="ref-container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="ref-perf-layout">
             {/* Left Content */}
             <div className="ref-perf-left">
@@ -575,10 +597,10 @@ export const HomePage: React.FC<HomeProps> = () => {
             {/* Left: Seedling Sprout Photo */}
             <div className="ref-sustain-photo-wrap">
               <img 
-                src="/images/pages/sustainability/sustainability.jpg" 
+                src="/images/pages/home/ref_seedling_sustainability_hd.jpg" 
                 alt="Responsible Growth & Agriculture" 
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = v9Assets.v7Assets.sourcing;
+                  (e.target as HTMLImageElement).src = '/images/pages/sustainability/sustainability.jpg';
                 }}
               />
             </div>
