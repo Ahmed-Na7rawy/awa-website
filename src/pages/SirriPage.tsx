@@ -26,44 +26,60 @@ export const SirriPage: React.FC = () => {
 
   const retailProducts = [
     {
-      name: isAr ? 'شوربة طماطم بالكريمة والأعشاب (كوب فوري)' : 'Cream of Tomato & Herb (Instant Cup)',
-      size: '65g Cup',
-      prep: 'Just add boiling water · Ready in 3 mins',
-      prepAr: 'أضف الماء المغلي فقط · جاهز في 3 دقائق',
+      name: isAr ? 'شوربة الدجاج الفاخرة سِري (4 أظرف)' : 'Sirri Gourmet Chicken Soup (4 Sachets)',
+      size: 'Box 4 Sachets (20g x 4)',
+      price: 45,
+      comparePrice: 55,
+      image: '/artwork/sirri/3d/Siiri Chicken Soup Box-Camera 1.png',
+      prep: 'Ready in 1 minute with hot water',
+      prepAr: 'جاهزة في دقيقة واحدة بالماء الساخن',
       desc: isAr
-        ? 'شوربة طماطم متوسطية غنية مع لمسة كريمة ناعمة وأعشاب برية وقطع خبز كروتون مقرمشة.'
-        : 'Rich Mediterranean sun-ripened tomato soup with velvety dairy cream, aromatic herbs, and crunchy croutons.',
-      tags: ['Vegetarian', 'No Preservatives Added', 'Instant Cup']
+        ? 'شوربة دجاج غنية بالمذاق الأصيل والتوابل الطبيعية المختارة بعناية. تحضر في دقيقة واحدة بالماء الساخن لتمنحك دفئاً ونكهة لا تقاوم.'
+        : 'Gourmet chicken soup prepared with rich broth and savory spices. Ready in 1 minute with hot water for instant comforting flavor.',
+      tags: ['100% Natural Spices', 'Zero Artificial Colors', 'Ready in 60s', 'Box 4 Sachets'],
+      buyUrl: `https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sirri`
     },
     {
-      name: isAr ? 'شوربة دجاج بالشعرية والخضار (كوب فوري)' : 'Chicken & Vermicelli Noodle (Instant Cup)',
-      size: '70g Cup',
-      prep: 'Just add boiling water · Ready in 3 mins',
-      prepAr: 'أضف الماء المغلي فقط · جاهز في 3 دقائق',
+      name: isAr ? 'شوربة المشروم بالكريمة سِري (4 أظرف)' : 'Sirri Creamy Mushroom Soup (4 Sachets)',
+      size: 'Box 4 Sachets (22g x 4)',
+      price: 45,
+      comparePrice: 55,
+      image: '/artwork/sirri/3d/Siiri Mushroom Soup Box-Camera 1.png',
+      prep: 'Velvety smooth · Ready in 1 minute',
+      prepAr: 'قوام كريمي مخملي · جاهز في دقيقة',
       desc: isAr
-        ? 'مرق دجاج بلدي غني بالنكهة مع خيوط الشعرية الذهبية، وقطع الجزر، والبصل الأخضر المجفف.'
-        : 'Hearty slow-simmered chicken broth with golden vermicelli noodles, tender diced carrots, and spring chives.',
-      tags: ['High Protein', 'Comfort Food', 'Instant Cup']
+        ? 'شوربة مشروم كريمية مخملية محضرة من قطع وخلاصة فطر عيش الغراب الطازج مع كريمة ناعمة لتجربة طهي فاخرة.'
+        : 'Velvety creamy mushroom soup crafted from premium mushroom extract and rich dairy creamer for a restaurant-grade appetizer.',
+      tags: ['Velvety Texture', 'Rich Mushroom Flavor', 'Vegetarian Friendly', 'Box 4 Sachets'],
+      buyUrl: `https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sirri`
     },
     {
-      name: isAr ? 'شوربة الفطر البري بالكريمة (كوب فوري)' : 'Wild Cream of Mushroom (Instant Cup)',
-      size: '65g Cup',
-      prep: 'Just add boiling water · Ready in 3 mins',
-      prepAr: 'أضف الماء المغلي فقط · جاهز في 3 دقائق',
+      name: isAr ? 'شوربة البطاطس الكريمية سِري (4 أظرف)' : 'Sirri Creamy Potato Soup (4 Sachets)',
+      size: 'Box 4 Sachets (24g x 4)',
+      price: 45,
+      comparePrice: 55,
+      image: '/artwork/sirri/3d/Siiri Potato Soup Box-Camera 1.png',
+      prep: 'Hearty & comforting · Ready in 1 minute',
+      prepAr: 'مشبعة ودافئة · جاهزة في دقيقة واحدة',
       desc: isAr
-        ? 'مزيج فاخر من مستخلصات الفطر البني والأبيض مع كريمة الحليب المخفوقة والفلفل الأبيض.'
-        : 'Earthly blend of brown field mushrooms, rich velvety cream base, and subtle cracked white pepper.',
-      tags: ['Gourmet Recipe', 'Velvety Mouthfeel', 'Instant Cup']
+        ? 'شوربة بطاطس كريمية دافئة مشبعة ومغذية بلمسات من البصل الأخضر والتوابل الكلاسيكية.'
+        : 'Hearty and wholesome creamy potato soup seasoned with aromatic chives and natural spices for comforting satisfaction.',
+      tags: ['Hearty & Wholesome', 'Thick Creamy Consistency', 'Natural Herbs', 'Box 4 Sachets'],
+      buyUrl: `https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sirri`
     },
     {
-      name: isAr ? 'شوربة عدس أصفر شرقية (كوب فوري)' : 'Traditional Golden Lentil (Instant Cup)',
-      size: '70g Cup',
-      prep: 'Just add boiling water · Ready in 3 mins',
-      prepAr: 'أضف الماء المغلي فقط · جاهز في 3 دقائق',
+      name: isAr ? 'شوربة الطماطم بالأعشاب سِري (4 أظرف)' : 'Sirri Herb Tomato Soup (4 Sachets)',
+      size: 'Box 4 Sachets (20g x 4)',
+      price: 45,
+      comparePrice: 55,
+      image: '/artwork/sirri/3d/Siiri tomato Soup Box-Camera 1.png',
+      prep: 'Mediterranean herbs · Ready in 1 minute',
+      prepAr: 'أعشاب متوسطية · جاهزة في دقيقة واحدة',
       desc: isAr
-        ? 'عدس أصفر مطحون ناعماً مع بهارات الكمون والكركم وزيت الزيتون البكر ومقرمشات التوست.'
-        : 'Nutrient-rich yellow lentils stone-ground with toasted cumin, turmeric, extra virgin olive oil, and crispy bites.',
-      tags: ['Plant Protein', 'High Fiber', 'Vegan']
+        ? 'شوربة طماطم متوسطية غنية مع الريحان والأوريجانو الإيطالي، تمنحك انتعاشاً ومذاقاً حمضياً دافئاً ولذيذاً.'
+        : 'Mediterranean tomato soup simmered with aromatic basil and oregano for a bright, zesty, and satisfying bowl in seconds.',
+      tags: ['Sun-Ripened Tomatoes', 'Italian Basil & Oregano', 'Plant Based', 'Box 4 Sachets'],
+      buyUrl: `https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sirri`
     }
   ];
 
@@ -305,20 +321,38 @@ export const SirriPage: React.FC = () => {
                     }}
                   >
                     <div>
-                      <div style={{ height: '160px', background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                        <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#EA580C', boxShadow: '0 4px 12px rgba(234, 88, 12, 0.15)' }}>
-                          <Soup size={40} />
-                        </div>
-                        <span style={{ position: 'absolute', top: '14px', right: '14px', fontSize: '11px', fontWeight: 800, color: '#EA580C', background: '#FFFFFF', padding: '3px 8px', borderRadius: '6px' }}>
+                      <div style={{ height: '220px', background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: '16px' }}>
+                        <img 
+                          src={p.image} 
+                          alt={p.name}
+                          style={{ maxHeight: '190px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.12))' }}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/images/2026/1.png';
+                          }}
+                        />
+                        <span style={{ position: 'absolute', top: '14px', right: '14px', fontSize: '11px', fontWeight: 800, color: '#EA580C', background: '#FFFFFF', padding: '4px 10px', borderRadius: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
                           {p.size}
                         </span>
                       </div>
 
                       <div style={{ padding: '24px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748B', marginBottom: '10px' }}>
-                          <Clock size={13} style={{ color: '#EA580C' }} />
-                          <span>{isAr ? p.prepAr : p.prep}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748B' }}>
+                            <Clock size={13} style={{ color: '#EA580C' }} />
+                            <span>{isAr ? p.prepAr : p.prep}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                            <span style={{ fontSize: '18px', fontWeight: 900, color: '#EA580C' }}>
+                              {p.price} {isAr ? 'ج.م' : 'EGP'}
+                            </span>
+                            {p.comparePrice && (
+                              <span style={{ fontSize: '12px', color: '#94A3B8', textDecoration: 'line-through' }}>
+                                {p.comparePrice} {isAr ? 'ج.م' : 'EGP'}
+                              </span>
+                            )}
+                          </div>
                         </div>
+
                         <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0F172A', marginBottom: '10px', lineHeight: 1.3 }}>
                           {p.name}
                         </h3>
@@ -328,7 +362,7 @@ export const SirriPage: React.FC = () => {
 
                         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                           {p.tags.map((t, tIdx) => (
-                            <span key={tIdx} style={{ fontSize: '11px', color: '#475569', background: '#F1F5F9', padding: '2px 8px', borderRadius: '4px' }}>
+                            <span key={tIdx} style={{ fontSize: '11px', color: '#475569', background: '#F1F5F9', padding: '3px 8px', borderRadius: '6px' }}>
                               {t}
                             </span>
                           ))}
@@ -336,21 +370,49 @@ export const SirriPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div style={{ padding: '16px 24px', borderTop: '1px solid #F1F5F9', background: '#FAFAFA' }}>
+                    <div style={{ padding: '16px 24px', borderTop: '1px solid #F1F5F9', background: '#FAFAFA', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                      <a
+                        href={p.buyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          flex: 1,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '6px',
+                          fontSize: '13px',
+                          fontWeight: 800,
+                          color: '#FFFFFF',
+                          background: '#EA580C',
+                          padding: '8px 14px',
+                          borderRadius: '8px',
+                          textDecoration: 'none',
+                          boxShadow: '0 2px 6px rgba(234, 88, 12, 0.25)'
+                        }}
+                      >
+                        <ShoppingBag size={14} />
+                        <span>{isAr ? 'شراء أونلاين' : 'Buy Online'}</span>
+                      </a>
                       <Link
                         to={`/contact?type=distribution&product=${encodeURIComponent(p.name)}`}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '6px',
-                          fontSize: '13px',
+                          justifyContent: 'center',
+                          gap: '4px',
+                          fontSize: '12px',
                           fontWeight: 700,
-                          color: '#EA580C',
+                          color: '#64748B',
+                          background: '#FFFFFF',
+                          border: '1px solid #E2E8F0',
+                          padding: '8px 12px',
+                          borderRadius: '8px',
                           textDecoration: 'none'
                         }}
                       >
-                        <span>{isAr ? 'طلب عينة أو استفسار توريد' : 'Inquire for Retail Distribution'}</span>
-                        <ArrowRight size={14} />
+                        <span>{isAr ? 'توريد تجاري' : 'Wholesale'}</span>
+                        <ArrowRight size={12} />
                       </Link>
                     </div>
                   </div>
