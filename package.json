@@ -8,7 +8,8 @@
     "build": "vite build && node copy-404.js",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "node scripts/deploy-vercel.js"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
