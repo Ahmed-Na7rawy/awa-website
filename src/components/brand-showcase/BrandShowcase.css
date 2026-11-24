@@ -307,7 +307,7 @@
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.18));
+  filter: none;
   position: relative;
   z-index: 10;
 }
@@ -434,7 +434,7 @@
   width: auto;
   max-width: 85px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.1));
+  filter: none;
 }
 
 .yalla-chip-name {
@@ -506,7 +506,7 @@
   width: auto;
   max-width: 310px;
   object-fit: contain;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2));
+  filter: none;
   position: relative;
   z-index: 10;
 }
@@ -519,7 +519,7 @@
   width: auto;
   max-width: 125px;
   object-fit: contain;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.22));
+  filter: none;
   z-index: 20;
 }
 
@@ -774,7 +774,7 @@
   width: auto;
   max-width: 90%;
   object-fit: contain;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.14));
+  filter: none;
   transition: transform 0.4s ease;
 }
 
