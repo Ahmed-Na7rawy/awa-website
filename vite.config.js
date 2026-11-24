@@ -6,8 +6,16 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   server: {
-    host: true,
+    host: '0.0.0.0',
+    port: 5173,
     cors: true,
+    strictPort: false,
+    hmr: {
+      overlay: false,
+    },
+    watch: {
+      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**'],
+    },
   },
   build: {
     emptyOutDir: true,
