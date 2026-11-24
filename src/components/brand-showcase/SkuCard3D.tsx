@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Award, Info } from 'lucide-react';
+import { Award, Info, ShoppingBag, ExternalLink } from 'lucide-react';
 import { SkuProduct } from '../../data/fmcgBrandsData';
 import { useLanguage } from '../../context/LanguageContext';
 import './BrandShowcase.css';
@@ -75,11 +75,12 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
         </div>
 
         {/* Large Prominent Pack Shot Image */}
-        <div className="fmcg-sku-img-wrapper">
+        <div className="fmcg-sku-img-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
           <img
-            src={sku.image}
+            src={(isHovered && sku.hoverImage) ? sku.hoverImage : sku.image}
             alt={sku.name}
             className="fmcg-sku-img"
+            style={{ transition: 'all 0.35s ease' }}
             onError={(e) => {
               (e.target as HTMLImageElement).src = '/images/2026/1.png';
             }}
@@ -91,7 +92,29 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
           <h4 style={{ fontSize: '1.2rem', fontWeight: 900, lineHeight: 1.25, color: '#0F172A', marginBottom: '0.35rem' }}>
             {sku.name}
           </h4>
-          <p style={{ fontSize: '0.825rem', color: '#475569', lineHeight: 1.5, marginBottom: '1rem', minHeight: '38px' }}>
+
+          {/* Price & Pack Format */}
+          {sku.priceEgp && (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', margin: '0.5rem 0' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                <span style={{ fontSize: '1.25rem', fontWeight: 900, color: brandPrimaryColor }}>
+                  {sku.priceEgp} {language === 'ar' ? 'ج.م' : 'EGP'}
+                </span>
+                {sku.compareAtPriceEgp && (
+                  <span style={{ fontSize: '0.825rem', color: '#94A3B8', textDecoration: 'line-through' }}>
+                    {sku.compareAtPriceEgp} {language === 'ar' ? 'ج.م' : 'EGP'}
+                  </span>
+                )}
+              </div>
+              {sku.packType && (
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', background: '#F1F5F9', padding: '3px 8px', borderRadius: '6px' }}>
+                  {sku.packType}
+                </span>
+              )}
+            </div>
+          )}
+
+          <p style={{ fontSize: '0.825rem', color: '#475569', lineHeight: 1.5, marginBottom: '0.85rem', minHeight: '38px' }}>
             {sku.flavorProfile}
           </p>
 
@@ -125,30 +148,59 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
             </div>
           </div>
 
-          {/* Specifications Action */}
-          <button
-            onClick={() => setShowNutritionModal(!showNutritionModal)}
-            style={{
-              width: '100%',
-              padding: '0.7rem 1rem',
-              borderRadius: '14px',
-              background: '#F8FAFC',
-              border: '1px solid rgba(0,0,0,0.08)',
-              cursor: 'pointer',
-              color: '#334155',
-              fontWeight: 700,
-              fontSize: '0.8rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.45rem',
-              transition: 'all 0.2s ease',
-            }}
-            title="View Nutrition Facts"
-          >
-            <Info size={15} style={{ color: sku.tagColor }} />
-            <span>{language === 'ar' ? 'القيمة الغذائية والمواصفات الفنية' : 'Nutritional Profile & Specs'}</span>
-          </button>
+          {/* Action Buttons: Specs & Direct Shopping */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+            <button
+              onClick={() => setShowNutritionModal(!showNutritionModal)}
+              style={{
+                width: '100%',
+                padding: '0.65rem 0.5rem',
+                borderRadius: '12px',
+                background: '#F8FAFC',
+                border: '1px solid rgba(0,0,0,0.08)',
+                cursor: 'pointer',
+                color: '#334155',
+                fontWeight: 700,
+                fontSize: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.35rem',
+                transition: 'all 0.2s ease',
+              }}
+              title="View Nutrition Facts"
+            >
+              <Info size={14} style={{ color: sku.tagColor }} />
+              <span>{language === 'ar' ? 'المواصفات' : 'Nutrition'}</span>
+            </button>
+
+            <a
+              href={sku.buyUrl || 'https://awa-shopping-chi.vercel.app/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '100%',
+                padding: '0.65rem 0.5rem',
+                borderRadius: '12px',
+                background: brandPrimaryColor,
+                border: 'none',
+                cursor: 'pointer',
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.35rem',
+                textDecoration: 'none',
+                boxShadow: `0 3px 10px ${brandPrimaryColor}40`,
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <ShoppingBag size={14} />
+              <span>{language === 'ar' ? 'شراء أونلاين' : 'Buy Online'}</span>
+            </a>
+          </div>
         </div>
 
         {/* Nutrition Facts Modal Overlay */}

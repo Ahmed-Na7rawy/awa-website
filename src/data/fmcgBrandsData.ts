@@ -14,6 +14,7 @@ export interface SkuProduct {
   name: string;
   subName: string;
   image: string;
+  hoverImage?: string;
   categoryTag: string;
   tagColor: string;
   weight: string;
@@ -24,6 +25,13 @@ export interface SkuProduct {
   nutritionFacts: NutritionFact[];
   keyBenefits: string[];
   inStock: boolean;
+  priceEgp?: number;
+  compareAtPriceEgp?: number;
+  packType?: string;
+  dietaryTags?: string[];
+  barcode?: string;
+  line?: string;
+  buyUrl?: string;
 }
 
 export interface FlavorOption {
@@ -312,115 +320,267 @@ export const FMCG_BRANDS: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', 
       },
     ],
     skus: [
+  {
+    "id": "squeasy-minced-garlic-jar-250g",
+    "name": "Minced Garlic 250 g – Jar",
+    "subName": "250g Glass Jar • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-minced-garlic-jar.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-minced-garlic-jar.png",
+    "categoryTag": "Minced Garlic Jar",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "Enhance your favorite recipes with the rich, authentic flavor of Minced Garlic 250g. Made from carefully selec...",
+    "description": "Enhance your favorite recipes with the rich, authentic flavor of Minced Garlic 250g. Made from carefully selected garlic cloves, it delivers the fresh taste and aroma of garlic without the hassle of peeling or chopping. Perfect for marinades, sauces, soups, stir-fries, and everyday cooking, this ready-to-use minced garlic saves time while adding delicious flavor to every dish.",
+    "tasteMeters": [
       {
-        id: 'sq-sku-1',
-        name: 'SquEasy Harissa Chili Spout Pouch',
-        subName: '250g Stand-Up Multi-Layer Barrier Pouch',
-        image: '/images/products/Squ_easy collection/products/harrisa pouch.png',
-        categoryTag: 'Signature Hot',
-        tagColor: '#DC2626',
-        weight: '250g',
-        servings: '50 Servings',
-        flavorProfile: 'Intense roasted Mediterranean chili with notes of cumin and garlic.',
-        description: 'Features a precision screw-top spout that eliminates spoon contamination and prevents oil separation.',
-        tasteMeters: [
-          { label: 'Heat & Spice', value: 92, color: '#EF4444' },
-          { label: 'Aroma Punch', value: 88, color: '#F97316' },
-          { label: 'Smoky Depth', value: 85, color: '#EAB308' },
-          { label: 'Smoothness', value: 95, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'Serving Size', value: '5g (1 tsp)' },
-          { label: 'Calories', value: '18 kcal' },
-          { label: 'Total Fat', value: '1.2g' },
-          { label: 'Sodium', value: '120mg' },
-          { label: 'Total Carbs', value: '1.4g' },
-        ],
-        keyBenefits: ['No artificial food colors', 'Gluten-free & Vegan', 'Easy squeeze ergonomic corner', 'Halal certified'],
-        inStock: true,
+        "label": "Garlic Pungency",
+        "value": 96,
+        "color": "#EA580C"
       },
       {
-        id: 'sq-sku-2',
-        name: 'SquEasy Garlic Paste Spout Pouch',
-        subName: '250g Stand-Up Multi-Layer Pouch',
-        image: '/images/products/Squ_easy collection/products/garlic pouch.png',
-        categoryTag: 'Kitchen Hero',
-        tagColor: '#65A30D',
-        weight: '250g',
-        servings: '50 Servings',
-        flavorProfile: 'Crisp, pungent Egyptian garlic aroma with ultra-velvety puree texture.',
-        description: 'Smooth, creamy garlic paste ideal for instant shawarma toum, chicken marinades, and pasta bases.',
-        tasteMeters: [
-          { label: 'Garlic Intensity', value: 96, color: '#84CC16' },
-          { label: 'Freshness', value: 94, color: '#10B981' },
-          { label: 'Creaminess', value: 90, color: '#06B6D4' },
-          { label: 'Mellow Finish', value: 82, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'Serving Size', value: '5g (1 tsp)' },
-          { label: 'Calories', value: '12 kcal' },
-          { label: 'Total Fat', value: '0.1g' },
-          { label: 'Sodium', value: '95mg' },
-          { label: 'Total Carbs', value: '2.1g' },
-        ],
-        keyBenefits: ['Replaces 40 raw garlic cloves', 'No sulfurous smell on hands', 'Zero added starch', 'Long refrigerated life'],
-        inStock: true,
+        "label": "Fresh Aroma",
+        "value": 98,
+        "color": "#FBBF24"
       },
       {
-        id: 'sq-sku-3',
-        name: 'SquEasy Traditional Glass Culinary Jar',
-        subName: '350g Value Glass Kitchen Jar',
-        image: '/images/products/Squ_easy collection/products/garlic jar.png',
-        categoryTag: 'Gourmet Jar',
-        tagColor: '#D97706',
-        weight: '350g',
-        servings: '70 Servings',
-        flavorProfile: 'Hand-crafted stone-ground recipe with olive oil and aromatic coriander seeds.',
-        description: 'Authentic stone-ground recipe crafted for mezze platters, grilled kebabs, and gourmet culinary dressings.',
-        tasteMeters: [
-          { label: 'Heat & Spice', value: 95, color: '#DC2626' },
-          { label: 'Coarse Texture', value: 90, color: '#D97706' },
-          { label: 'Herb Complexity', value: 88, color: '#16A34A' },
-          { label: 'Olive Richness', value: 86, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'Serving Size', value: '5g (1 tsp)' },
-          { label: 'Calories', value: '22 kcal' },
-          { label: 'Total Fat', value: '1.6g' },
-          { label: 'Sodium', value: '110mg' },
-          { label: 'Total Carbs', value: '1.2g' },
-        ],
-        keyBenefits: ['Authentic stone-ground recipe', 'Olive oil preservation', 'Ideal table condiment', 'Zero GMO'],
-        inStock: true,
+        "label": "Culinary Spread",
+        "value": 95,
+        "color": "#DC2626"
       },
       {
-        id: 'sq-sku-4',
-        name: 'SquEasy Harissa Single-Serve Sachet',
-        subName: 'Single Use Portion Sachets',
-        image: '/images/products/Squ_easy collection/products/12 gram garlic sachet front.png',
-        categoryTag: 'Single Sachet',
-        tagColor: '#BE123C',
-        weight: '15g Sachet',
-        servings: '1 Portion',
-        flavorProfile: 'Spicy Mediterranean red pepper puree packed for on-the-go meals.',
-        description: 'Convenient single-use portion pack for quick meal seasoning without storing leftover opened jars.',
-        tasteMeters: [
-          { label: 'Portion Control', value: 98, color: '#BE123C' },
-          { label: 'Heat & Spice', value: 92, color: '#EF4444' },
-          { label: 'Freshness Seal', value: 96, color: '#10B981' },
-          { label: 'Convenience', value: 100, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Serving Size', value: '15g (1 Sachet)' },
-          { label: 'Calories', value: '12 kcal' },
-          { label: 'Total Fat', value: '0.8g' },
-          { label: 'Sodium', value: '80mg' },
-          { label: 'Total Carbs', value: '1.0g' },
-        ],
-        keyBenefits: ['Single-use portion pack', 'Travel & BBQ friendly', 'Zero refrigeration needed before opening', 'FSSC 22000 certified'],
-        inStock: true,
-      },
+        "label": "Zero Prep Time",
+        "value": 100,
+        "color": "#10B981"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "55 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "250g Glass Jar"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "12 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Ready to use",
+      "No peeling or chopping",
+      "Rich garlic flavor",
+      "Saves time"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "250g Glass Jar",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/squeasy"
+  },
+  {
+    "id": "squeasy-garlic-paste-250g",
+    "name": "Garlic Paste 250 g",
+    "subName": "250g Culinary Pouch • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-garlic-paste-250g.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-garlic-paste-250g.png",
+    "categoryTag": "Garlic Paste",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "Enhance your favorite recipes with the rich, authentic flavor of Squeasy Garlic Paste 250 g. Made from careful...",
+    "description": "Enhance your favorite recipes with the rich, authentic flavor of Squeasy Garlic Paste 250 g. Made from carefully selected garlic, it delivers the fresh taste and aroma of garlic without the hassle of peeling or chopping. Perfect for marinades, sauces, soups, stir-fries, and everyday cooking, this ready-to-use garlic paste saves time while adding delicious flavor to every dish.",
+    "tasteMeters": [
+      {
+        "label": "Garlic Pungency",
+        "value": 96,
+        "color": "#EA580C"
+      },
+      {
+        "label": "Fresh Aroma",
+        "value": 98,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "Culinary Spread",
+        "value": 95,
+        "color": "#DC2626"
+      },
+      {
+        "label": "Zero Prep Time",
+        "value": 100,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "55 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "250g Culinary Pouch"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "12 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Ready to use",
+      "No peeling or chopping",
+      "Rich garlic flavor",
+      "Saves time"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "250g Culinary Pouch",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/squeasy"
+  },
+  {
+    "id": "squeasy-garlic-paste-sachets-50",
+    "name": "Garlic Paste – Pack of 50 Sachets",
+    "subName": "50 Single-Use Sachets • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png",
+    "categoryTag": "Garlic Paste Sachets",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "Enjoy the rich, authentic taste of garlic with Garlic Paste in convenient single-use sachets. Made from high-q...",
+    "description": "Enjoy the rich, authentic taste of garlic with Garlic Paste in convenient single-use sachets. Made from high-quality garlic, it adds bold flavor and aroma to your favorite dishes without the need for peeling or chopping. Perfect for marinades, sauces, soups, stir-fries, and everyday cooking, this pack of 50 sachets offers freshness, convenience, and consistent flavor in every serving.",
+    "tasteMeters": [
+      {
+        "label": "Garlic Pungency",
+        "value": 96,
+        "color": "#EA580C"
+      },
+      {
+        "label": "Fresh Aroma",
+        "value": 98,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "Culinary Spread",
+        "value": 95,
+        "color": "#DC2626"
+      },
+      {
+        "label": "Zero Prep Time",
+        "value": 100,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "55 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "50 Single-Use Sachets"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "12 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Single-use sachets",
+      "No peeling or chopping",
+      "Consistent flavor",
+      "Fresh taste"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "50 Single-Use Sachets",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/squeasy"
+  },
+  {
+    "id": "squeasy-harissa-hot-sauce-200g",
+    "name": "Harissa Hot Sauce 200 g",
+    "subName": "200g Squeeze Bottle • 65 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png",
+    "categoryTag": "Artisan Harissa Sauce",
+    "tagColor": "#DC2626",
+    "weight": "200 g",
+    "servings": "200 g",
+    "flavorProfile": "Turn up the heat with Harissa Hot Sauce 200g. Crafted from premium chili peppers and a flavorful blend of spic...",
+    "description": "Turn up the heat with Harissa Hot Sauce 200g. Crafted from premium chili peppers and a flavorful blend of spices, this bold and aromatic sauce adds the perfect spicy kick to your favorite meals. Ideal for sandwiches, grilled meats, burgers, shawarma, pasta, pizzas, and dipping, it delivers a rich, authentic taste that spice lovers will enjoy.",
+    "tasteMeters": [
+      {
+        "label": "Chili Heat",
+        "value": 94,
+        "color": "#DC2626"
+      },
+      {
+        "label": "Smoky Depth",
+        "value": 95,
+        "color": "#EA580C"
+      },
+      {
+        "label": "Spiced Balance",
+        "value": 96,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "Squeeze Precision",
+        "value": 98,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "200g Squeeze Bottle"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "12 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Bold spicy flavor",
+      "Premium chili peppers",
+      "Versatile use",
+      "Ready to use"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "packType": "200g Squeeze Bottle",
+    "dietaryTags": [],
+    "line": "harissa",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/squeasy"
+  }
+],
     story: {
       title: 'FROM EGYPTIAN FARMS TO GLOBAL KITCHENS',
       subtitle: 'The Science of Fresh Culinary Preservation',
@@ -718,218 +878,1580 @@ export const FMCG_BRANDS: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', 
       },
     ],
     skus: [
+  {
+    "id": "sweet-slim-100-sachet",
+    "name": "Sweetner 100 Sachets Classic",
+    "subName": "100 Sachets Box • 110 EGP • 6223004400155",
+    "image": "/artwork/sweet-and-slim/3d/classic-100-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "100 Sachets",
+    "flavorProfile": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people wit...",
+    "description": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people with diabetes and anyone following a healthy lifestyle.",
+    "tasteMeters": [
       {
-        id: 'ss-sku-50',
-        name: 'Sweet & Slim Classic 50 Sticks',
-        subName: '50 Moisture-Barrier Individual Sachets (1g each)',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
-        categoryTag: 'Daily Classic',
-        tagColor: '#10B981',
-        weight: '50g Box',
-        servings: '50 Servings',
-        flavorProfile: 'Authentic cane sugar sweetness without metallic or bitter aftertaste.',
-        description: 'Single-serve moisture-barrier sachets. Each 1g stick delivers the exact sweetness of 2 full teaspoons (10g) of sugar with 0 calories.',
-        tasteMeters: [
-          { label: 'Sweetness Purity', value: 98, color: '#10B981' },
-          { label: 'Solubility Speed', value: 96, color: '#06B6D4' },
-          { label: 'Sugar Match', value: 95, color: '#3B82F6' },
-          { label: 'Zero Aftertaste', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '0 kcal' },
-          { label: 'Total Carbohydrate', value: '0.0g' },
-          { label: 'Total Sugars', value: '0.0g' },
-          { label: 'Dietary Fiber', value: '0.8g' },
-          { label: 'Sodium', value: '0mg' },
-        ],
-        keyBenefits: ['Spoon-for-spoon sweetness', 'Aspartame & Cyclamate Free', 'Keto & Diabetic Safe', 'Convenient pocket sticks'],
-        inStock: true,
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
       },
       {
-        id: 'ss-sku-100',
-        name: 'Sweet & Slim 100 Value Dispenser Box',
-        subName: '100 Individual Sticks with Pull-Out Drawer Dispenser',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
-        categoryTag: 'Best Value',
-        tagColor: '#059669',
-        weight: '100g Box',
-        servings: '100 Servings',
-        flavorProfile: 'Pure sucralose sweetness with smart countertop dispensing mechanism.',
-        description: 'Countertop dispenser box designed for home coffee bars, offices, and cafes. 1 stick replaces 2 spoonfuls of sugar.',
-        tasteMeters: [
-          { label: 'Sweetness Purity', value: 98, color: '#10B981' },
-          { label: 'Value & Economy', value: 97, color: '#F59E0B' },
-          { label: 'Solubility Speed', value: 96, color: '#06B6D4' },
-          { label: 'Zero Aftertaste', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '0 kcal' },
-          { label: 'Total Carbohydrate', value: '0.0g' },
-          { label: 'Total Sugars', value: '0.0g' },
-          { label: 'Serving Size', value: '1 Sachet (1g)' },
-          { label: 'Sodium', value: '0mg' },
-        ],
-        keyBenefits: ['Pull-out drawer design', 'Best cost-per-serving', 'FSSC 22000 quality certified', '100% moisture sealed'],
-        inStock: true,
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
       },
       {
-        id: 'ss-sku-extra-50',
-        name: 'Sweet & Slim Extra Prebiotic (50 Sticks)',
-        subName: 'Enriched with Soluble Chicory Inulin Fiber',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
-        categoryTag: 'Gut Health',
-        tagColor: '#047857',
-        weight: '50g Box',
-        servings: '50 Servings',
-        flavorProfile: 'Silky sweetness fortified with prebiotic fiber for digestive vitality.',
-        description: 'Blended with natural inulin soluble fiber extracted from chicory root to nourish beneficial gut microflora while sweetening drinks.',
-        tasteMeters: [
-          { label: 'Sweetness Purity', value: 96, color: '#10B981' },
-          { label: 'Gut Prebiotic Fiber', value: 98, color: '#059669' },
-          { label: 'Mouthfeel Roundness', value: 92, color: '#F59E0B' },
-          { label: 'Zero Aftertaste', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '0 kcal' },
-          { label: 'Dietary Inulin Fiber', value: '0.9g' },
-          { label: 'Total Sugars', value: '0.0g' },
-          { label: 'Glycemic Index', value: '0' },
-          { label: 'Sodium', value: '0mg' },
-        ],
-        keyBenefits: ['Feeds beneficial gut bifidobacteria', 'Smooth texture in coffee & tea', 'Zero calorie formulation', 'Non-GMO chicory'],
-        inStock: true,
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
       },
       {
-        id: 'ss-sku-stevia-100',
-        name: 'Sweet & Slim Stevia 100 Sticks Box',
-        subName: '100% Botanical Stevia Leaf Extract',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 Stevia-View 1.png',
-        categoryTag: 'Plant Source',
-        tagColor: '#84CC16',
-        weight: '100g Box',
-        servings: '100 Servings',
-        flavorProfile: 'Pure botanical sweetness extracted from high-purity Stevia Rebaudiana leaves.',
-        description: 'Nature-derived plant sweetener crafted without chemical bleaches or artificial fillers.',
-        tasteMeters: [
-          { label: 'Plant Purity', value: 98, color: '#84CC16' },
-          { label: 'Natural Origin', value: 100, color: '#10B981' },
-          { label: 'Sweet Balance', value: 94, color: '#06B6D4' },
-          { label: 'Zero Calories', value: 100, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '0 kcal' },
-          { label: 'Sugars', value: '0.0g' },
-          { label: 'Net Carbs', value: '0.0g' },
-          { label: 'Glycemic Index', value: '0' },
-        ],
-        keyBenefits: ['100% Plant based', 'Zero glycemic load', 'Dispenser box format', 'Certified Non-GMO'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-spearmint-tin',
-        name: 'Sweet & Slim Spearmint Pocket Tin',
-        subName: 'Sugar-Free Pocket Breath Mints with Natural Spearmint Oil',
-        image: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim Spearmint Tin.png',
-        categoryTag: 'Pocket Fresh',
-        tagColor: '#06B6D4',
-        weight: '14g Embossed Tin',
-        servings: '35 Mints',
-        flavorProfile: 'Invigorating cool spearmint with clean, long-lasting breath freshness.',
-        description: 'Packaged in a sleek matte-finish embossed metal pocket tin. Perfect after meals, coffee, or before meetings.',
-        tasteMeters: [
-          { label: 'Breath Freshness', value: 98, color: '#06B6D4' },
-          { label: 'Cooling Sensation', value: 94, color: '#3B82F6' },
-          { label: 'Longevity', value: 92, color: '#8B5CF6' },
-          { label: 'Zero Sugar', value: 100, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories per Mint', value: '< 1 kcal' },
-          { label: 'Sugar', value: '0.0g' },
-          { label: 'Fat', value: '0.0g' },
-          { label: 'Sodium', value: '0mg' },
-        ],
-        keyBenefits: ['Premium embossed sliding tin', '100% Sugar-free & tooth safe', 'Instant cooling breath freshness', 'Zero artificial colors'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-peach-tin',
-        name: 'Sweet & Slim Peach Pocket Tin',
-        subName: 'Sugar-Free Gourmet Peach & Mild Mint Mints',
-        image: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim peach Tin.png',
-        categoryTag: 'Fruity Mint',
-        tagColor: '#F97316',
-        weight: '14g Embossed Tin',
-        servings: '35 Mints',
-        flavorProfile: 'Juicy summer peach essence with a crisp touch of refreshing cooling crystal.',
-        description: 'A delicate harmony of luscious sweet peach and gentle breath mint in a collectible lifestyle pocket tin.',
-        tasteMeters: [
-          { label: 'Peach Fruitiness', value: 96, color: '#F97316' },
-          { label: 'Sweetness Balance', value: 94, color: '#EC4899' },
-          { label: 'Refreshing Finish', value: 90, color: '#06B6D4' },
-          { label: 'Zero Sugar', value: 100, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories per Mint', value: '< 1 kcal' },
-          { label: 'Sugar', value: '0.0g' },
-          { label: 'Fat', value: '0.0g' },
-          { label: 'Sodium', value: '0mg' },
-        ],
-        keyBenefits: ['Artisanal peach fruit extract', 'Sugar-free guilt-free indulgence', 'Stylish pocket size', 'Made by AWA Food Solutions'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-hotchoco-hazelnut',
-        name: 'Sweet & Slim Diet Hot Chocolate (Hazelnut Box)',
-        subName: '10 Single-Serve Sachets with Zero Added Sugar',
-        image: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
-        categoryTag: 'Diet Indulgence',
-        tagColor: '#8B5CF6',
-        weight: '10 Sachets Box',
-        servings: '10 Mugs',
-        flavorProfile: 'Decadent Dutch cocoa blended with roasted hazelnut cream and zero sugar spikes.',
-        description: 'Rich velvety hot chocolate indulgence sweetened exclusively with Sweet & Slim. Creamy, comforting, and only 45 kcal per cup.',
-        tasteMeters: [
-          { label: 'Choco Creaminess', value: 96, color: '#8B5CF6' },
-          { label: 'Hazelnut Aroma', value: 94, color: '#D97706' },
-          { label: 'Sweet Balance', value: 95, color: '#10B981' },
-          { label: 'Froth Thickness', value: 90, color: '#3B82F6' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '45 kcal' },
-          { label: 'Added Sugars', value: '0.0g' },
-          { label: 'Protein', value: '1.8g' },
-          { label: 'Total Fat', value: '1.2g' },
-        ],
-        keyBenefits: ['Zero added table sugar', 'Only 45 kcal per creamy mug', 'Real Dutch cocoa & roasted hazelnut', 'Instant hot water dissolving'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-liquid-bottle',
-        name: 'Sweet & Slim Zero Calorie Liquid Dropper',
-        subName: 'Instant Cold-Soluble Liquid Sweetener Bottle',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
-        categoryTag: 'Liquid Dropper',
-        tagColor: '#0284C7',
-        weight: 'Liquid Squeeze Bottle',
-        servings: '150 Drops',
-        flavorProfile: 'Concentrated instant-dissolving liquid sweetness for iced coffee, cocktails, and fresh lemonades.',
-        description: '3 drops equal 1 teaspoon of sugar. Dissolves instantly in ice-cold drinks without stirring crystals.',
-        tasteMeters: [
-          { label: 'Cold Solubility', value: 100, color: '#0284C7' },
-          { label: 'Sweetness Purity', value: 98, color: '#10B981' },
-          { label: 'Precision Dosing', value: 96, color: '#8B5CF6' },
-          { label: 'Portability', value: 95, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'Calories', value: '0 kcal' },
-          { label: 'Sugar', value: '0.0g' },
-          { label: 'Carbs', value: '0.0g' },
-          { label: 'Serving Size', value: '3 Drops' },
-        ],
-        keyBenefits: ['Instant dissolving in iced drinks', 'Precision no-leak dropper tip', 'Zero calories & zero carbs', 'Travel friendly size'],
-        inStock: true,
-      },
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "110 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "100 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400155"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "Tastes Like Sugar",
+      "Corn & Sucralose Blend",
+      "Aspartame-Free",
+      "Diabetic & Diet Safe"
+    ],
+    "inStock": true,
+    "priceEgp": 110,
+    "compareAtPriceEgp": 125,
+    "packType": "100 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400155",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-400-sachet",
+    "name": "Sweetner 400 Sachets Classic",
+    "subName": "400 Sachets Economy Box • 300 EGP • 6223004400049",
+    "image": "/artwork/sweet-and-slim/3d/classic-400-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "400 Sachets",
+    "flavorProfile": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people wit...",
+    "description": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people with diabetes and anyone following a healthy lifestyle.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "300 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "400 Sachets Economy Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400049"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "Tastes Like Sugar",
+      "Corn & Sucralose Blend",
+      "Aspartame-Free",
+      "Diabetic & Diet Safe"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "400 Sachets Economy Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400049",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-50-sachet-extra",
+    "name": "Sweetner 50 Sachets Extra",
+    "subName": "50 Sachets Box • 85 EGP • 6223004400278",
+    "image": "/artwork/sweet-and-slim/3d/extra-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/extra-sugar-sachet.png",
+    "categoryTag": "Extra Sweetener",
+    "tagColor": "#10B981",
+    "weight": "1.4 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people wit...",
+    "description": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people with diabetes and anyone following a healthy lifestyle.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "85 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400278"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Double Sweetness • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Double Sweetness",
+      "1 Sachet = 4 Spoons",
+      "Aspartame-Free",
+      "Diabetic & Diet Safe"
+    ],
+    "inStock": true,
+    "priceEgp": 85,
+    "compareAtPriceEgp": 100,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "Double Sweetness",
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400278",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-200-sachet-stevia",
+    "name": "Sweetner 200 Sachets Stevia",
+    "subName": "200 Sachets Box • 270 EGP • 6223004400315",
+    "image": "/artwork/sweet-and-slim/3d/stevia-200-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-sugar-sachet.png",
+    "categoryTag": "Pure Stevia",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "200 Sachets",
+    "flavorProfile": "Stevia Sugar is calorie-free, gluten-free, and aspartame-free, making it suitable for people following a keto ...",
+    "description": "Stevia Sugar is calorie-free, gluten-free, and aspartame-free, making it suitable for people following a keto diet, people with diabetes, vegans, and anyone seeking a healthy lifestyle.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "270 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "200 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400315"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "100% Plant Based • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "100% Pure Stevia",
+      "Zero Calories",
+      "Aspartame-Free",
+      "Diabetic & Keto Friendly"
+    ],
+    "inStock": true,
+    "priceEgp": 270,
+    "compareAtPriceEgp": 310,
+    "packType": "200 Sachets Box",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Zero Calorie",
+      "Keto Certified",
+      "Aspartame Free"
+    ],
+    "barcode": "6223004400315",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-syrup-lite-300ml",
+    "name": "Syrup Lite",
+    "subName": "standard • 205 EGP • 6223004401312",
+    "image": "/artwork/sweet-and-slim/3d/lite-syrup-bottle.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/lite-syrup-bottle.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "300 ml / bottle",
+    "servings": "300 ml",
+    "flavorProfile": "Lite Syrup is a low-calorie syrup specially made for preparing traditional Middle Eastern desserts. Ready to u...",
+    "description": "Lite Syrup is a low-calorie syrup specially made for preparing traditional Middle Eastern desserts. Ready to use. Shelf Life: 12 Months. Net Volume: 300 ml.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "205 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "standard"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004401312"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Low Calorie • Dessert Syrup"
+      }
+    ],
+    "keyBenefits": [
+      "Low Calorie",
+      "Middle Eastern Desserts",
+      "Ready to Use",
+      "Sugar-Free"
+    ],
+    "inStock": true,
+    "priceEgp": 205,
+    "compareAtPriceEgp": 235,
+    "packType": "standard",
+    "dietaryTags": [
+      "Low Calorie",
+      "Dessert Syrup",
+      "Sugar Free"
+    ],
+    "barcode": "6223004401312",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-pouch-250g",
+    "name": "Sweetner 250 Gm Classic",
+    "subName": "250g Resealable Zipper Pouch • 140 EGP • 6223004400353",
+    "image": "/artwork/sweet-and-slim/3d/classic-pouch.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-pouch.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "250 gm / pouch",
+    "servings": "250 Gm",
+    "flavorProfile": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people wit...",
+    "description": "Sweetner made from corn and sucralose to deliver the taste of regular sugar, making it suitable for people with diabetes and anyone following a healthy lifestyle.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "140 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "250g Resealable Zipper Pouch"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400353"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Baking Friendly • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Tastes Like Sugar",
+      "Corn & Sucralose Blend",
+      "Aspartame-Free",
+      "Diabetic & Diet Safe"
+    ],
+    "inStock": true,
+    "priceEgp": 140,
+    "compareAtPriceEgp": 160,
+    "packType": "250g Resealable Zipper Pouch",
+    "dietaryTags": [
+      "Baking Friendly",
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400353",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-stevia-pouch-250g",
+    "name": "Sweetner 250 Gm Stevia",
+    "subName": "250g Resealable Zipper Pouch • 160 EGP • 6223004400377",
+    "image": "/artwork/sweet-and-slim/3d/stevia-pouch.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-pouch.png",
+    "categoryTag": "Pure Stevia",
+    "tagColor": "#10B981",
+    "weight": "250 gm / pouch",
+    "servings": "250 Gm",
+    "flavorProfile": "Stevia Sugar is the perfect solution for reducing calorie intake, making all your drinks healthier without any...",
+    "description": "Stevia Sugar is the perfect solution for reducing calorie intake, making all your drinks healthier without any bitterness. It is calorie-free, gluten-free, and aspartame-free, making it suitable for people following a keto diet, people with diabetes, vegans, and anyone pursuing a healthy lifestyle.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "160 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "250g Resealable Zipper Pouch"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400377"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "100% Plant Based • Baking Stevia"
+      }
+    ],
+    "keyBenefits": [
+      "100% Pure Stevia",
+      "Zero Calories",
+      "Aspartame-Free",
+      "Diabetic & Keto Friendly"
+    ],
+    "inStock": true,
+    "priceEgp": 160,
+    "compareAtPriceEgp": 185,
+    "packType": "250g Resealable Zipper Pouch",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Baking Stevia",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400377",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-50-sachet",
+    "name": "Sweet & Slim Classic 50 Sachets",
+    "subName": "50 Sachets Box • 65 EGP • 6223004400001",
+    "image": "/artwork/sweet-and-slim/3d/classic-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "Handy 50-sachet pack, your everyday companion for coffee and tea at home and work.",
+    "description": "Handy 50-sachet pack, your everyday companion for coffee and tea at home and work.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400001"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "Verified Quality",
+      "AWA Manufacturing"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe"
+    ],
+    "barcode": "6223004400001",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-25-sachet",
+    "name": "Sweet & Slim Classic 25 Sachets",
+    "subName": "25 Sachets Box • 35 EGP • 6223004400070",
+    "image": "/artwork/sweet-and-slim/3d/classic-25-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "Classic Sweetener",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "25 Sachets",
+    "flavorProfile": "Pocket-friendly starter pack of 25 sachets for on-the-go sweetness.",
+    "description": "Pocket-friendly starter pack of 25 sachets for on-the-go sweetness.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "35 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "25 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400070"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "Verified Quality",
+      "AWA Manufacturing"
+    ],
+    "inStock": true,
+    "priceEgp": 35,
+    "packType": "25 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400070",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-stevia-50-sachet",
+    "name": "Sweet & Slim Stevia 50 Sachets",
+    "subName": "50 Sachets Box • 75 EGP • 6223004400179",
+    "image": "/artwork/sweet-and-slim/3d/stevia-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-sugar-sachet.png",
+    "categoryTag": "Pure Stevia",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "100% plant-based stevia sachets in a convenient 50-pack.",
+    "description": "100% plant-based stevia sachets in a convenient 50-pack.",
+    "tasteMeters": [
+      {
+        "label": "Sweetness Purity",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "Solubility Speed",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Sugar Match",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "Zero Aftertaste",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "75 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004400179"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "100% Plant Based • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Verified Quality",
+      "AWA Manufacturing"
+    ],
+    "inStock": true,
+    "priceEgp": 75,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Zero Calorie",
+      "Keto Certified"
+    ],
+    "barcode": "6223004400179",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-strawberry",
+    "name": "Sugar free mints with a refreshing Strawberry Flavor",
+    "subName": "boxes • 65 EGP • 6223004404290",
+    "image": "/artwork/sweet-and-slim/3d/mints-strawberry-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "Sugar-Free Mints",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "Sugar-free candy. Strawberry flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No afte...",
+    "description": "Sugar-free candy. Strawberry flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertaste. Long-lasting freshness.",
+    "tasteMeters": [
+      {
+        "label": "Freshness Burst",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Natural Essence",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "Long-Lasting Taste",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Sugar-Free Crisp",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404290"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Zero Sugar",
+      "Tooth-Friendly",
+      "Zero Calories",
+      "Long-Lasting Freshness"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Tooth Friendly"
+    ],
+    "barcode": "6223004404290",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-peach",
+    "name": "Sugar free mints with a refreshing Peach Flavor",
+    "subName": "boxes • 65 EGP • 6223004404306",
+    "image": "/artwork/sweet-and-slim/3d/mints-peach-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "Sugar-Free Mints",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "Sugar-free candy. Peach flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertast...",
+    "description": "Sugar-free candy. Peach flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertaste. Long-lasting freshness.",
+    "tasteMeters": [
+      {
+        "label": "Freshness Burst",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Natural Essence",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "Long-Lasting Taste",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Sugar-Free Crisp",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404306"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Zero Sugar",
+      "Tooth-Friendly",
+      "Zero Calories",
+      "Long-Lasting Freshness"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Tooth Friendly"
+    ],
+    "barcode": "6223004404306",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-spearmint",
+    "name": "Sugar free mints with a refreshing SpearMint Flavor",
+    "subName": "boxes • 65 EGP • 6223004404313",
+    "image": "/artwork/sweet-and-slim/3d/mints-spearmint-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "Sugar-Free Mints",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "Sugar-free candy. Spearmint flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No after...",
+    "description": "Sugar-free candy. Spearmint flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertaste. Long-lasting freshness.",
+    "tasteMeters": [
+      {
+        "label": "Freshness Burst",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Natural Essence",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "Long-Lasting Taste",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Sugar-Free Crisp",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404313"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Zero Sugar",
+      "Tooth-Friendly",
+      "Zero Calories",
+      "Long-Lasting Freshness"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Maximum Freshness"
+    ],
+    "barcode": "6223004404313",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-orange",
+    "name": "Sugar free mints with a refreshing Orange Flavor",
+    "subName": "boxes • 65 EGP • 6223004405556",
+    "image": "/artwork/sweet-and-slim/3d/mints-orange-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "Sugar-Free Mints",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "Sugar-free candy. Orange flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertas...",
+    "description": "Sugar-free candy. Orange flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertaste. Long-lasting freshness.",
+    "tasteMeters": [
+      {
+        "label": "Freshness Burst",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Natural Essence",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "Long-Lasting Taste",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Sugar-Free Crisp",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405556"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Zero Sugar",
+      "Tooth-Friendly",
+      "Zero Calories",
+      "Long-Lasting Freshness"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Citrus Burst"
+    ],
+    "barcode": "6223004405556",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-cinnamon",
+    "name": "Sugar free mints with a refreshing Cinnamon Flavor",
+    "subName": "boxes • 65 EGP • 6223004405563",
+    "image": "/artwork/sweet-and-slim/3d/mints-cinnamon-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "Sugar-Free Mints",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "Sugar-free candy. Cinnamon flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftert...",
+    "description": "Sugar-free candy. Cinnamon flavor. Zero calories. Tooth-friendly. Suitable for people with diabetes. No aftertaste. Long-lasting freshness.",
+    "tasteMeters": [
+      {
+        "label": "Freshness Burst",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Natural Essence",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "Long-Lasting Taste",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Sugar-Free Crisp",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "65 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405563"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "Zero Sugar",
+      "Tooth-Friendly",
+      "Zero Calories",
+      "Long-Lasting Freshness"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Warm Spice"
+    ],
+    "barcode": "6223004405563",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-3in1-instant-coffee-classic",
+    "name": "3in1 Instant Coffee Sugar Free - Classic Sachet (15g)",
+    "subName": "boxes • 204 EGP • 6223004405143",
+    "image": "/artwork/sweet-and-slim/3d/3in1-classic-box.jpg",
+    "hoverImage": "/artwork/sweet-and-slim/3d/3in1-classic-sachet.png",
+    "categoryTag": "Sugar-Free 3in1 Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "15 gm/sachet",
+    "servings": "12 Sachets",
+    "flavorProfile": "Instant coffee, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 57...",
+    "description": "Instant coffee, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 57 calorie, with one spoon s&s classsic sugar",
+    "tasteMeters": [
+      {
+        "label": "Rich Roast & Cocoa",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Creamy Viscosity",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "Smoothness",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Diet Balance",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "204 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405143"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "Hydrogenated-Oil Free",
+      "Coconut Oil Creamer",
+      "57 Calories",
+      "Trans-Fat Free"
+    ],
+    "inStock": true,
+    "priceEgp": 204,
+    "compareAtPriceEgp": 235,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "57 Calories",
+      "Trans Fat Free"
+    ],
+    "barcode": "6223004405143",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-3in1-instant-coffee-extra",
+    "name": "3in1 Instant Coffee Sugar Free - Extra Sachet (15g)",
+    "subName": "boxes • 216 EGP • 6223004405150",
+    "image": "/artwork/sweet-and-slim/3d/3in1-extra-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/3in1-extra-sachet.png",
+    "categoryTag": "Sugar-Free 3in1 Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "15 gm/sachet",
+    "servings": "12 Sachets",
+    "flavorProfile": "Instant coffee, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 57...",
+    "description": "Instant coffee, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 57 calorie, with two spoons s&s classsic sugar",
+    "tasteMeters": [
+      {
+        "label": "Rich Roast & Cocoa",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Creamy Viscosity",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "Smoothness",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Diet Balance",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "216 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405150"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Extra Sweet • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "Hydrogenated-Oil Free",
+      "Coconut Oil Creamer",
+      "57 Calories",
+      "Trans-Fat Free"
+    ],
+    "inStock": true,
+    "priceEgp": 216,
+    "compareAtPriceEgp": 250,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Extra Sweet",
+      "No Hydrogenated Oils",
+      "57 Calories",
+      "Zero Sugar"
+    ],
+    "barcode": "6223004405150",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-hot-chocolate-classic",
+    "name": "Hot Chocolate –Classic- Sugar Free (25g Sachet)",
+    "subName": "boxes • 180 EGP • 6223004404344",
+    "image": "/artwork/sweet-and-slim/3d/hot-chocolate-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/hot-chocolate-sachet.png",
+    "categoryTag": "Sugar-Free Hot Chocolate",
+    "tagColor": "#8B5CF6",
+    "weight": "25 gm/ sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "Hot chocolate, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 78 ...",
+    "description": "Hot chocolate, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 78 calorie, classic chocolate flavor",
+    "tasteMeters": [
+      {
+        "label": "Rich Roast & Cocoa",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Creamy Viscosity",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "Smoothness",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Diet Balance",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404344"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "Hydrogenated-Oil Free",
+      "Premium Cocoa",
+      "78 Calories",
+      "Trans-Fat Free"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "compareAtPriceEgp": 205,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "78 Calories"
+    ],
+    "barcode": "6223004404344",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-hot-chocolate-hazelnut",
+    "name": "Hot Chocolate – Hazelnut - Sugar Free (25g Sachet)",
+    "subName": "boxes • 180 EGP • 6223004404351",
+    "image": "/artwork/sweet-and-slim/3d/hot-chocolate-hazelnut-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/hot-chocolate-hazelnut-sachet.png",
+    "categoryTag": "Sugar-Free Hot Chocolate",
+    "tagColor": "#8B5CF6",
+    "weight": "25 gm/ sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "Hot chocolate, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 78 ...",
+    "description": "Hot chocolate, trans fat free, hydrogenated oil free, creamer alternative is coconut oil and skimmed milk, 78 calorie, hazelnut flavor",
+    "tasteMeters": [
+      {
+        "label": "Rich Roast & Cocoa",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Creamy Viscosity",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "Smoothness",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Diet Balance",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404351"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "Hydrogenated-Oil Free",
+      "Premium Cocoa",
+      "78 Calories",
+      "Trans-Fat Free"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "compareAtPriceEgp": 205,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "78 Calories"
+    ],
+    "barcode": "6223004404351",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-smoothie-pina-colada-inulin",
+    "name": "Pina Colada Smoothie fortified with Inulin 20g",
+    "subName": "boxes • 300 EGP • 6223004405679",
+    "image": "/artwork/sweet-and-slim/3d/smoothie-pina-colada-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/smoothie-pina-colada-sachet.png",
+    "categoryTag": "Functional Smoothie",
+    "tagColor": "#06B6D4",
+    "weight": "20 gm/sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "Smoothie with coconut and pineapple flavor fortifed with 5 gm inulin for better digestion and gut health, swee...",
+    "description": "Smoothie with coconut and pineapple flavor fortifed with 5 gm inulin for better digestion and gut health, sweetend by s&s stevia sugar",
+    "tasteMeters": [
+      {
+        "label": "Fruit Vibrancy",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Functional Wellness",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Smoothie Texture",
+        "value": 94,
+        "color": "#10B981"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#3B82F6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "300 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405679"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Prebiotic Inulin • Gut Health"
+      }
+    ],
+    "keyBenefits": [
+      "Fortified with 5g Inulin",
+      "Digestive & Gut Health",
+      "Stevia Sweetened",
+      "Keto Friendly"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Prebiotic Inulin",
+      "Gut Health",
+      "Sugar Free",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004405679",
+    "line": "cold-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-smoothie-mixed-berries-collagen",
+    "name": "Mixed Berries Smoothie fortified with Vitamin C & Hyaluronic Acid 20g",
+    "subName": "boxes • 300 EGP • 6223004405655",
+    "image": "/artwork/sweet-and-slim/3d/smoothie-mixed-berry-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/smoothie-mixed-berry-sachet.png",
+    "categoryTag": "Functional Smoothie",
+    "tagColor": "#06B6D4",
+    "weight": "20 gm/sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "Smoothie with mixed berries fortified with 125 mg hyaluronic acid and 200 mg vitamin c for skin hydration and ...",
+    "description": "Smoothie with mixed berries fortified with 125 mg hyaluronic acid and 200 mg vitamin c for skin hydration and glow, sweetend by s&s stevia sugar",
+    "tasteMeters": [
+      {
+        "label": "Fruit Vibrancy",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "Functional Wellness",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Smoothie Texture",
+        "value": 94,
+        "color": "#10B981"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#3B82F6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "300 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "boxes"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405655"
+      },
+      {
+        "label": "Dietary Profile",
+        "value": "Skin Glow • Hyaluronic Acid"
+      }
+    ],
+    "keyBenefits": [
+      "125mg Hyaluronic Acid",
+      "200mg Vitamin C",
+      "Skin Hydration & Glow",
+      "Stevia Sweetened"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Skin Glow",
+      "Hyaluronic Acid",
+      "Vitamin C",
+      "Antioxidant",
+      "Sugar Free"
+    ],
+    "barcode": "6223004405655",
+    "line": "cold-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/sweet-and-slim"
+  }
+],
     story: {
       title: 'THE SCIENCE OF GUILT-FREE SWEETNESS',
       subtitle: 'Pioneering Sucralose Formulation in Egypt',
@@ -1234,503 +2756,1370 @@ export const FMCG_BRANDS: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', 
       },
     ],
     skus: [
+  {
+    "id": "yalla-frappit-caramel-box-10",
+    "name": "Yalla Frapp it Caramel box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404573",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-caramel-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/caramel.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Cool down with the irresistible taste of Caramel Frapp IT. This creamy caramel frappé mix blends effortlessly ...",
+    "description": "Cool down with the irresistible taste of Caramel Frapp IT. This creamy caramel frappé mix blends effortlessly with ice to create a smooth, refreshing beverage with a rich café-quality flavor in every sip.",
+    "tasteMeters": [
       {
-        id: 'yl-sku-caramel',
-        name: 'Yalla Frapp it Caramel box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404573',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/caramel new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Cool down with the irresistible taste of Caramel Frapp IT. This creamy caramel frappé mix blend...',
-        description: 'Cool down with the irresistible taste of Caramel Frapp IT. This creamy caramel frappé mix blends effortlessly with ice to create a smooth, refreshing beverage with a rich café-quality flavor in every sip.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404573' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
       },
       {
-        id: 'yl-sku-caramel-sugar-free',
-        name: 'Yalla Frapp it Caramel Sugar-free box 10 Sachets',
-        subName: 'Box 10 Sachets (35g each) • 250 EGP • EAN: 6223004404986',
-        image: '/images/products/Yalla Drinks/Yalla Frappit 0 sugar/Boxes/Yalla frappit coffe 0 sugar caramel-Camera 4.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy all the rich caramel flavor you love with fewer calories. Caramel Sweet & Slim Frapp IT d...',
-        description: 'Enjoy all the rich caramel flavor you love with fewer calories. Caramel Sweet & Slim Frapp IT delivers a creamy, refreshing frappé that blends perfectly with ice for a light yet indulgent café-style experience.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '250 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404986' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
       },
       {
-        id: 'yl-sku-coffee',
-        name: 'Yalla Frapp it Coffee box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404580',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/coffee new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Refresh your day with the bold taste of Coffee Frapp IT. Crafted with a rich coffee flavor, thi...',
-        description: 'Refresh your day with the bold taste of Coffee Frapp IT. Crafted with a rich coffee flavor, this smooth frappé mix blends effortlessly with ice to create a perfectly chilled café-style drink every time.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404580' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
       },
       {
-        id: 'yl-sku-coffee-sugar-free',
-        name: 'Yalla Frapp it coffee Sugar-free box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 250 EGP • EAN: 6223004404979',
-        image: '/images/products/Yalla Drinks/Yalla Frappit 0 sugar/Boxes/Yalla frappit coffe 0 sugar-Camera 4.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Savor the authentic taste of coffee without the extra calories. Coffee Sweet & Slim Frapp IT cr...',
-        description: 'Savor the authentic taste of coffee without the extra calories. Coffee Sweet & Slim Frapp IT creates a smooth, refreshing iced coffee frappé that\'s light, creamy, and full of café-inspired flavor.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '250 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404979' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mocha',
-        name: 'Yalla Frapp it Mocha box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404597',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/mocha new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Treat yourself to the perfect blend of coffee and chocolate with Mocha Frapp IT. This creamy fr...',
-        description: 'Treat yourself to the perfect blend of coffee and chocolate with Mocha Frapp IT. This creamy frappé mix creates a rich, velvety beverage that\'s refreshingly smooth and packed with indulgent mocha flavor.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404597' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-white-mocha',
-        name: 'Yalla Frapp it White Mocha  box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404542',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/white mocha new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Indulge in the smooth elegance of White Mocha Frapp IT. Combining creamy white chocolate with r...',
-        description: 'Indulge in the smooth elegance of White Mocha Frapp IT. Combining creamy white chocolate with rich coffee notes, this refreshing frappé delivers a luxurious café-style experience every time.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404542' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-hazelnut-chocolate',
-        name: 'Yalla Frapp it Hazelnut-Chocolate box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404566',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/chocolate hazelnut new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Savor the irresistible blend of Hazelnut Chocolate Frapp IT. Rich chocolate and roasted hazelnu...',
-        description: 'Savor the irresistible blend of Hazelnut Chocolate Frapp IT. Rich chocolate and roasted hazelnut flavors come together in a smooth, creamy frappé, delivering a deliciously indulgent café-style experience in every sip.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404566' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pistachio-latte',
-        name: 'Yalla Frapp it  Pistachio Latte box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404559',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/Pistachio new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Experience the rich sophistication of Pistachio Latte Frapp IT. Creamy pistachio blends perfect...',
-        description: 'Experience the rich sophistication of Pistachio Latte Frapp IT. Creamy pistachio blends perfectly with smooth coffee notes to create a refreshing, velvety frappé with a luxurious café-style taste.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404559' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-cofee-toffee',
-        name: 'Yalla Frapp it Cofee toffee box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404610',
-        image: '',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy the perfect harmony of Coffee Toffee Frapp IT. Rich coffee meets buttery toffee in a smoo...',
-        description: 'Enjoy the perfect harmony of Coffee Toffee Frapp IT. Rich coffee meets buttery toffee in a smooth, creamy frappé, delivering a sweet and satisfying café-style experience. Conveniently packed in a box of 10 sachets for enjoyment anytime.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404610' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-vanilla',
-        name: 'Yalla Frapp it Vanilla box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404603',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/vanilla new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Indulge in the velvety smoothness of Vanilla Frapp IT. Creamy sweet vanilla blends effortlessly...',
-        description: 'Indulge in the velvety smoothness of Vanilla Frapp IT. Creamy sweet vanilla blends effortlessly with ice for a refreshing, classic café frappe that delights any time of day.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404603' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-spanish-latte',
-        name: 'Yalla Frapp it Spanish Latte box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 200 EGP • EAN: 6223004404535',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/spanish latte new-View 1.png',
-        categoryTag: 'Frapp IT',
-        tagColor: '#0284C7',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Delight in the rich taste of Spanish Latte Frapp IT. Blending smooth coffee with creamy, sweet ...',
-        description: 'Delight in the rich taste of Spanish Latte Frapp IT. Blending smooth coffee with creamy, sweet milk notes, this refreshing frappé delivers a perfectly balanced café-style experience that\'s irresistibly smooth and satisfying.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#0284C7' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404535' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mixed-berries',
-        name: 'Yalla Smoozy Mixed Berries box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 180 EGP • EAN: 6223004404764',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/mixed berries-View 1.png',
-        categoryTag: 'Smoozy',
-        tagColor: '#E11D48',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Bursting with the vibrant taste of ripe berries, Yalla Smoozy Mixed Berries delivers a deliciou...',
-        description: 'Bursting with the vibrant taste of ripe berries, Yalla Smoozy Mixed Berries delivers a delicious blend of sweet and tangy flavors. This smoothie mix blends effortlessly into a smooth, icy drink that\'s refreshingly fruity and perfect for any time of the day.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#E11D48' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '180 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404764' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mojito',
-        name: 'Yalla Smoozy Mojito box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 180 EGP • EAN: 6223004404740',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/Mojito-View 1.png',
-        categoryTag: 'Smoozy',
-        tagColor: '#E11D48',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Cool down with the refreshing taste of Yalla Smoozy Mojito. Infused with the zesty flavor of li...',
-        description: 'Cool down with the refreshing taste of Yalla Smoozy Mojito. Infused with the zesty flavor of lime and the cool freshness of mint, this smoothie mix blends effortlessly into a smooth, icy drink that\'s crisp, invigorating, and perfect for every occasion.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#E11D48' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '180 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404740' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pina-colada',
-        name: 'Yalla Smoozy Pina colada box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 180 EGP • EAN: 6223004404757',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/Pina Colada-View 1.png',
-        categoryTag: 'Smoozy',
-        tagColor: '#E11D48',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Escape to the tropics with Yalla Smoozy Piña Colada. Bursting with the refreshing taste of juic...',
-        description: 'Escape to the tropics with Yalla Smoozy Piña Colada. Bursting with the refreshing taste of juicy pineapple and creamy coconut, this smoothie mix blends effortlessly into a smooth, icy drink that\'s perfect for cooling down any time of the day.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#E11D48' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '180 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404757' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pink-lemonade',
-        name: 'Yalla Smoozy Pink Lemonade box 10 sachets',
-        subName: 'Box 10 Sachets (35g each) • 180 EGP • EAN: 6223004404733',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/pink lemonade-View 1.png',
-        categoryTag: 'Smoozy',
-        tagColor: '#E11D48',
-        weight: 'Box 10 Sachets (35g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Refresh your day with Yalla Smoozy Pink Lemonade. Bursting with the bright citrus flavor of lem...',
-        description: 'Refresh your day with Yalla Smoozy Pink Lemonade. Bursting with the bright citrus flavor of lemons and a touch of fruity sweetness, this smoothie mix blends effortlessly into a smooth, icy drink that\'s crisp, refreshing, and full of vibrant flavor.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#E11D48' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '180 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004404733' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-caffe-latte',
-        name: 'Yalla Koffi Caffe latte box 10 Sachets',
-        subName: 'Box 10 Sachets (25g each) • 200 EGP • EAN: 6223004405341',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Coffee late-Camera 4.png',
-        categoryTag: 'Yalla Koffi',
-        tagColor: '#78350F',
-        weight: 'Box 10 Sachets (25g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy the rich taste of Coffee with Yalla Koffi. Crafted for a delicious café-style experience ...',
-        description: 'Enjoy the rich taste of Coffee with Yalla Koffi. Crafted for a delicious café-style experience that\'s easy to prepare and perfect for everyday enjoyment.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#78350F' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004405341' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-caramel',
-        name: 'Yalla Koffi Caramel box 10 Sachets',
-        subName: 'Box 10 Sachets (25g each) • 200 EGP • EAN: 6223004405358',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Caramel-Camera 4 copy.png',
-        categoryTag: 'Yalla Koffi',
-        tagColor: '#78350F',
-        weight: 'Box 10 Sachets (25g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy the rich taste of Caramel with Yalla Koffi. Crafted for a delicious café-style experience...',
-        description: 'Enjoy the rich taste of Caramel with Yalla Koffi. Crafted for a delicious café-style experience that\'s easy to prepare and perfect for everyday enjoyment.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#78350F' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004405358' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-hazelnut',
-        name: 'Yalla Koffi Hazelnut box 10 Sachets',
-        subName: 'Box 10 Sachets (25g each) • 200 EGP • EAN: 6223004405372',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Hazelnut-Camera 4.png',
-        categoryTag: 'Yalla Koffi',
-        tagColor: '#78350F',
-        weight: 'Box 10 Sachets (25g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy the rich taste of Hazelnut with Yalla Koffi. Crafted for a delicious café-style experienc...',
-        description: 'Enjoy the rich taste of Hazelnut with Yalla Koffi. Crafted for a delicious café-style experience that\'s easy to prepare and perfect for everyday enjoyment.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#78350F' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004405372' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mocha',
-        name: 'Yalla Koffi Mocha box 10 Sachets',
-        subName: 'Box 10 Sachets (25g each) • 200 EGP • EAN: 6223004405365',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Mocha-Camera 4.png',
-        categoryTag: 'Yalla Koffi',
-        tagColor: '#78350F',
-        weight: 'Box 10 Sachets (25g each)',
-        servings: '10 Servings',
-        flavorProfile: 'Enjoy the rich taste of Mocha with Yalla Koffi. Crafted for a delicious café-style experience t...',
-        description: 'Enjoy the rich taste of Mocha with Yalla Koffi. Crafted for a delicious café-style experience that\'s easy to prepare and perfect for everyday enjoyment.',
-        tasteMeters: [
-          { label: 'Taste Intensity', value: 95, color: '#78350F' },
-          { label: 'Microfoam Head', value: 96, color: '#10B981' },
-          { label: 'Smoothness', value: 98, color: '#8B5CF6' },
-          { label: 'Cold Solubility', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'Price', value: '200 EGP' },
-          { label: 'Shelf Life', value: '18 Months' },
-          { label: 'Barcode (EAN)', value: '6223004405365' },
-          { label: 'Serving Unit', value: '1 Sachet' },
-        ],
-        keyBenefits: ['Easy to prepare', 'Premium taste', 'Great texture', 'Official Yalla Drinks Formula'],
-        inStock: true,
-      },
-    
-    
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404573"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404573",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-caramel-sugar-free-box-10",
+    "name": "Yalla Frapp it Caramel Sugar-free box 10 Sachets",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404986",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-caramel-sugar-free-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/caramel-zero-sugar.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy all the rich caramel flavor you love with fewer calories. Caramel Sweet & Slim Frapp IT delivers a cream...",
+    "description": "Enjoy all the rich caramel flavor you love with fewer calories. Caramel Sweet & Slim Frapp IT delivers a creamy, refreshing frappé that blends perfectly with ice for a light yet indulgent café-style experience.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "220 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404986"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404986",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-box-10",
+    "name": "Yalla Frapp it Coffee box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404580",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Refresh your day with the bold taste of Coffee Frapp IT. Crafted with a rich coffee flavor, this smooth frappé...",
+    "description": "Refresh your day with the bold taste of Coffee Frapp IT. Crafted with a rich coffee flavor, this smooth frappé mix blends effortlessly with ice to create a perfectly chilled café-style drink every time.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404580"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404580",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-sugar-free-box-10",
+    "name": "Yalla Frapp it coffee Sugar-free box 10 sachets",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404979",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-sugar-free-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee-zero-sugar.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Savor the authentic taste of coffee without the extra calories. Coffee Sweet & Slim Frapp IT creates a smooth,...",
+    "description": "Savor the authentic taste of coffee without the extra calories. Coffee Sweet & Slim Frapp IT creates a smooth, refreshing iced coffee frappé that's light, creamy, and full of café-inspired flavor.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "220 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404979"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404979",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-mocha-box-10",
+    "name": "Yalla Frapp it Mocha box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404597",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mocha.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Treat yourself to the perfect blend of coffee and chocolate with Mocha Frapp IT. This creamy frappé mix create...",
+    "description": "Treat yourself to the perfect blend of coffee and chocolate with Mocha Frapp IT. This creamy frappé mix creates a rich, velvety beverage that's refreshingly smooth and packed with indulgent mocha flavor.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404597"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404597",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-white-mocha-box-10",
+    "name": "Yalla Frapp it White Mocha  box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404542",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-white-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/white-mocha.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Indulge in the smooth elegance of White Mocha Frapp IT. Combining creamy white chocolate with rich coffee note...",
+    "description": "Indulge in the smooth elegance of White Mocha Frapp IT. Combining creamy white chocolate with rich coffee notes, this refreshing frappé delivers a luxurious café-style experience every time.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404542"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404542",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-hazelnut-chocolate-box-10",
+    "name": "Yalla Frapp it Hazelnut-Chocolate box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404566",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-hazelnut-chocolate-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/chocolate-hazelnut.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Savor the irresistible blend of Hazelnut Chocolate Frapp IT. Rich chocolate and roasted hazelnut flavors come ...",
+    "description": "Savor the irresistible blend of Hazelnut Chocolate Frapp IT. Rich chocolate and roasted hazelnut flavors come together in a smooth, creamy frappé, delivering a deliciously indulgent café-style experience in every sip.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404566"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404566",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-pistachio-latte-box-10",
+    "name": "Yalla Frapp it  Pistachio Latte box 10 sachets",
+    "subName": "10 Sachets Box • 230 EGP • 6223004404559",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-pistachio-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pistachio-latte-2.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Experience the rich sophistication of Pistachio Latte Frapp IT. Creamy pistachio blends perfectly with smooth ...",
+    "description": "Experience the rich sophistication of Pistachio Latte Frapp IT. Creamy pistachio blends perfectly with smooth coffee notes to create a refreshing, velvety frappé with a luxurious café-style taste.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "230 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404559"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 230,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404559",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-toffee-box-10",
+    "name": "Yalla Frapp it Cofee toffee box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404610",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-toffee-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee-toffee.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy the perfect harmony of Coffee Toffee Frapp IT. Rich coffee meets buttery toffee in a smooth, creamy frap...",
+    "description": "Enjoy the perfect harmony of Coffee Toffee Frapp IT. Rich coffee meets buttery toffee in a smooth, creamy frappé, delivering a sweet and satisfying café-style experience. Conveniently packed in a box of 10 sachets for enjoyment anytime.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404610"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404610",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-vanilla-box-10",
+    "name": "Yalla Frapp it Vanilla box 10 sachets",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404603",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-vanilla-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/vanilla.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Escape to the tropics with Mango Frapp IT. Bursting with sweet, juicy mango flavor, this refreshing frappé ble...",
+    "description": "Escape to the tropics with Mango Frapp IT. Bursting with sweet, juicy mango flavor, this refreshing frappé blends effortlessly with ice for a vibrant, fruity drink that's perfect for any time of day.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "200 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404603"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404603",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-spanish-latte-box-10",
+    "name": "Yalla Frapp it Spanish Latte box 10 sachets",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404535",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-spanish-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/spanish-latte.png",
+    "categoryTag": "Instant Frappe",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Delight in the rich taste of Spanish Latte Frapp IT. Blending smooth coffee with creamy, sweet milk notes, thi...",
+    "description": "Delight in the rich taste of Spanish Latte Frapp IT. Blending smooth coffee with creamy, sweet milk notes, this refreshing frappé delivers a perfectly balanced café-style experience that's irresistibly smooth and satisfying.",
+    "tasteMeters": [
+      {
+        "label": "Taste Intensity",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Microfoam Head",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "Smoothness",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Cold Solubility",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "220 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404535"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404535",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-mixed-berries-box-10",
+    "name": "Yalla Smoozy Mixed Berries box 10 sachets",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404764",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-mixed-berries-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mixed-berries.png",
+    "categoryTag": "Powdered Drink Mix",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Bursting with the vibrant taste of ripe berries, Yalla Smoozy Mixed Berries delivers a delicious blend of swee...",
+    "description": "Bursting with the vibrant taste of ripe berries, Yalla Smoozy Mixed Berries delivers a delicious blend of sweet and tangy flavors. This smoothie mix blends effortlessly into a smooth, icy drink that's refreshingly fruity and perfect for any time of the day.",
+    "tasteMeters": [
+      {
+        "label": "Fruit Intensity",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "Velvet Texture",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "Refreshing Acidity",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Slush Stability",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "210 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404764"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404764",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-mojito-box-10",
+    "name": "Yalla Smoozy Mojito box 10 sachets",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404740",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-mojito-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mojito.png",
+    "categoryTag": "Powdered Drink Mix",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Cool down with the refreshing taste of Yalla Smoozy Mojito. Infused with the zesty flavor of lime and the cool...",
+    "description": "Cool down with the refreshing taste of Yalla Smoozy Mojito. Infused with the zesty flavor of lime and the cool freshness of mint, this smoothie mix blends effortlessly into a smooth, icy drink that's crisp, invigorating, and perfect for every occasion.",
+    "tasteMeters": [
+      {
+        "label": "Fruit Intensity",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "Velvet Texture",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "Refreshing Acidity",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Slush Stability",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "210 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404740"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404740",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-pina-colada-box-10",
+    "name": "Yalla Smoozy Pina colada box 10 sachets",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404757",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-pina-colada-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pina-colada.png",
+    "categoryTag": "Powdered Drink Mix",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Escape to the tropics with Yalla Smoozy Piña Colada. Bursting with the refreshing taste of juicy pineapple and...",
+    "description": "Escape to the tropics with Yalla Smoozy Piña Colada. Bursting with the refreshing taste of juicy pineapple and creamy coconut, this smoothie mix blends effortlessly into a smooth, icy drink that's perfect for cooling down any time of the day.",
+    "tasteMeters": [
+      {
+        "label": "Fruit Intensity",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "Velvet Texture",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "Refreshing Acidity",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Slush Stability",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "210 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404757"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404757",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-pink-lemonade-box-10",
+    "name": "Yalla Smoozy Pink Lemonade box 10 sachets",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404733",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-pink-lemonade-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pink-lemonade.png",
+    "categoryTag": "Powdered Drink Mix",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Refresh your day with Yalla Smoozy Pink Lemonade. Bursting with the bright citrus flavor of lemons and a touch...",
+    "description": "Refresh your day with Yalla Smoozy Pink Lemonade. Bursting with the bright citrus flavor of lemons and a touch of fruity sweetness, this smoothie mix blends effortlessly into a smooth, icy drink that's crisp, refreshing, and full of vibrant flavor.",
+    "tasteMeters": [
+      {
+        "label": "Fruit Intensity",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "Velvet Texture",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "Refreshing Acidity",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "Slush Stability",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "210 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004404733"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404733",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-caffe-latte-box-10",
+    "name": "Yalla Koffi Caffe latte box 10 Sachets",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405341",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-caffe-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-cofe.png",
+    "categoryTag": "Premium Instant Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy the rich taste of Coffee with Yalla Koffi. Crafted for a delicious café-style experience that's easy to ...",
+    "description": "Enjoy the rich taste of Coffee with Yalla Koffi. Crafted for a delicious café-style experience that's easy to prepare and perfect for everyday enjoyment.",
+    "tasteMeters": [
+      {
+        "label": "Arabica Roast",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Silky Foam",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Aroma Intensity",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "Cream Balance",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405341"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405341",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-caramel-box-10",
+    "name": "Yalla Koffi Caramel box 10 Sachets",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405358",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-caramel-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-caramel.png",
+    "categoryTag": "Premium Instant Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy the rich taste of Caramel with Yalla Koffi. Crafted for a delicious café-style experience that's easy to...",
+    "description": "Enjoy the rich taste of Caramel with Yalla Koffi. Crafted for a delicious café-style experience that's easy to prepare and perfect for everyday enjoyment.",
+    "tasteMeters": [
+      {
+        "label": "Arabica Roast",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Silky Foam",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Aroma Intensity",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "Cream Balance",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405358"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405358",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-hazelnut-box-10",
+    "name": "Yalla Koffi Hazelnut box 10 Sachets",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405372",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-hazelnut-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-hazelnut.png",
+    "categoryTag": "Premium Instant Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy the rich taste of Hazelnut with Yalla Koffi. Crafted for a delicious café-style experience that's easy t...",
+    "description": "Enjoy the rich taste of Hazelnut with Yalla Koffi. Crafted for a delicious café-style experience that's easy to prepare and perfect for everyday enjoyment.",
+    "tasteMeters": [
+      {
+        "label": "Arabica Roast",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Silky Foam",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Aroma Intensity",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "Cream Balance",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405372"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405372",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-mocha-box-10",
+    "name": "Yalla Koffi Mocha box 10 Sachets",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405365",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-mocha.png",
+    "categoryTag": "Premium Instant Coffee",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Enjoy the rich taste of Mocha with Yalla Koffi. Crafted for a delicious café-style experience that's easy to p...",
+    "description": "Enjoy the rich taste of Mocha with Yalla Koffi. Crafted for a delicious café-style experience that's easy to prepare and perfect for everyday enjoyment.",
+    "tasteMeters": [
+      {
+        "label": "Arabica Roast",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Silky Foam",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "Aroma Intensity",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "Cream Balance",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "180 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "6223004405365"
+      }
+    ],
+    "keyBenefits": [
+      "Easy to prepare",
+      "Premium taste",
+      "Great texture"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405365",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-choco-classic-box-10",
+    "name": "Yalla Choco Classic Italian Hot Chocolate box 10 sachets",
+    "subName": "10 Sachets Box • 195 EGP",
+    "image": "/artwork/yalla-drinks/3d/yalla-choco-classic-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-choco-hot-chocolate.png",
+    "categoryTag": "Premium Instant Hot Chocolate",
+    "tagColor": "#D97706",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Indulge in rich, thick Italian-style barista hot chocolate crafted with premium Dutch cocoa for a velvety smoo...",
+    "description": "Indulge in rich, thick Italian-style barista hot chocolate crafted with premium Dutch cocoa for a velvety smooth drinking experience in seconds.",
+    "tasteMeters": [
+      {
+        "label": "Dutch Cocoa Richness",
+        "value": 98,
+        "color": "#D97706"
+      },
+      {
+        "label": "Thick Body",
+        "value": 97,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Italian Heritage",
+        "value": 96,
+        "color": "#DC2626"
+      },
+      {
+        "label": "Sweet Harmony",
+        "value": 94,
+        "color": "#F59E0B"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "195 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Thick Italian Style",
+      "Premium Dutch Cocoa",
+      "Instant Velvet Microtexture"
+    ],
+    "inStock": true,
+    "priceEgp": 195,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "line": "choco",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  },
+  {
+    "id": "yalla-choco-hazelnut-box-10",
+    "name": "Yalla Choco Hazelnut Italian Hot Chocolate box 10 sachets",
+    "subName": "10 Sachets Box • 195 EGP",
+    "image": "/artwork/yalla-drinks/3d/yalla-choco-hazelnut-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-choco-hot-chocolate-hazelnut.png",
+    "categoryTag": "Premium Instant Hot Chocolate",
+    "tagColor": "#D97706",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "Decadent barista hot chocolate infused with toasted hazelnut notes and velvety cocoa microfoam for cozy luxury...",
+    "description": "Decadent barista hot chocolate infused with toasted hazelnut notes and velvety cocoa microfoam for cozy luxury in every cup.",
+    "tasteMeters": [
+      {
+        "label": "Dutch Cocoa Richness",
+        "value": 98,
+        "color": "#D97706"
+      },
+      {
+        "label": "Thick Body",
+        "value": 97,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "Italian Heritage",
+        "value": 96,
+        "color": "#DC2626"
+      },
+      {
+        "label": "Sweet Harmony",
+        "value": 94,
+        "color": "#F59E0B"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "Official Price",
+        "value": "195 EGP"
+      },
+      {
+        "label": "Packaging Format",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "Shelf Life",
+        "value": "18 months"
+      },
+      {
+        "label": "Barcode (EAN)",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "Toasted Hazelnut Infusion",
+      "Rich Velvety Texture",
+      "No Machine Needed"
+    ],
+    "inStock": true,
+    "priceEgp": 195,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "line": "choco",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/en/yalla-drinks"
+  }
+],
     story: {
       title: 'BARISTA SCIENCE IN INSTANT FORMULATION',
       subtitle: 'The Engineering of Cold-Soluble Overrun Matrices',
@@ -1982,115 +4371,267 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
       },
     ],
     skus: [
+  {
+    "id": "squeasy-minced-garlic-jar-250g",
+    "name": "ثوم مفروم 250 جم – برطمان",
+    "subName": "250g Glass Jar • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-minced-garlic-jar.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-minced-garlic-jar.png",
+    "categoryTag": "ثوم مفروم برطمان",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "أضف نكهة الثوم الطازجة والغنية إلى أطباقك بكل سهولة مع الثوم المفروم 250 جم. مصنوع من فصوص ثوم مختارة بعناية ل...",
+    "description": "أضف نكهة الثوم الطازجة والغنية إلى أطباقك بكل سهولة مع الثوم المفروم 250 جم. مصنوع من فصوص ثوم مختارة بعناية ليمنحك الطعم والرائحة الأصيلة دون الحاجة إلى التقشير أو الفرم. جاهز للاستخدام مباشرة، ويُعد مثاليًا لتحضير التتبيلات، الصلصات، الشوربات، القلي السريع، وجميع وصفات الطهي اليومية، مما يوفر الوقت ويضيف مذاقًا شهيًا لكل وجبة.",
+    "tasteMeters": [
       {
-        id: 'sq-sku-1',
-        name: 'كيس ضغط هريسة حارة SquEasy',
-        subName: 'كيس قائم عازل متعدد الطبقات 250 جم',
-        image: '/images/products/Squ_easy collection/products/harrisa pouch.png',
-        categoryTag: 'حار ومميز',
-        tagColor: '#DC2626',
-        weight: '250 جم',
-        servings: '50 حصة',
-        flavorProfile: 'فلفل البحر المتوسط المشوي مع الكمون والكزبرة والثوم البلدي.',
-        description: 'مزود بفوهة غلق محكمة تمنع تلوث الملعقة وتمنع انفصال الزيوت وتحافظ على الطراوة.',
-        tasteMeters: [
-          { label: 'درجة الحرارة والحرارة', value: 92, color: '#EF4444' },
-          { label: 'قوة الرائحة العطرية', value: 88, color: '#F97316' },
-          { label: 'عمق التدخين', value: 85, color: '#EAB308' },
-          { label: 'نعومة القوام', value: 95, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'حجم الحصة', value: '5 جم (ملعقة صغيرة)' },
-          { label: 'السعرات الحرارية', value: '18 سعرة' },
-          { label: 'إجمالي الدهون', value: '1.2 جم' },
-          { label: 'الصوديوم', value: '120 ملجم' },
-          { label: 'إجمالي الكربوهيدرات', value: '1.4 جم' },
-        ],
-        keyBenefits: ['خالي من الألوان الصناعية', 'خالي من الجلوتين ونباتي 100%', 'زاوية ضغط مريحة لليد', 'حاصل على شهادة حلال'],
-        inStock: true,
+        "label": "حدة نكهة الثوم",
+        "value": 96,
+        "color": "#EA580C"
       },
       {
-        id: 'sq-sku-2',
-        name: 'كيس ضغط معجون الثوم SquEasy',
-        subName: 'كيس قائم عازل متعدد الطبقات 250 جم',
-        image: '/images/products/Squ_easy collection/products/garlic pouch.png',
-        categoryTag: 'أساس المطبخ',
-        tagColor: '#65A30D',
-        weight: '250 جم',
-        servings: '50 حصة',
-        flavorProfile: 'رائحة ثوم مصري نفاذة وقوام بيوريه حريري فائق النعومة.',
-        description: 'معجون ثوم كريمي ناعم مثالي للثومية السريعة مع الشاورما، وتتبيل الدجاج، وقواعد صوص الباستا.',
-        tasteMeters: [
-          { label: 'تركيز نكهة الثوم', value: 96, color: '#84CC16' },
-          { label: 'الطزاجة', value: 94, color: '#10B981' },
-          { label: 'القوام الكريمي', value: 90, color: '#06B6D4' },
-          { label: 'توازن المذاق', value: 82, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'حجم الحصة', value: '5 جم (ملعقة صغيرة)' },
-          { label: 'السعرات الحرارية', value: '12 سعرة' },
-          { label: 'إجمالي الدهون', value: '0.1 جم' },
-          { label: 'الصوديوم', value: '95 ملجم' },
-          { label: 'إجمالي الكربوهيدرات', value: '2.1 جم' },
-        ],
-        keyBenefits: ['يعادل 40 فص ثوم طازج', 'بدون أي رائحة كبريتية باليدين', 'بدون أي نشا مضاف', 'صلاحية طويلة بالتبريد'],
-        inStock: true,
+        "label": "رائحة طازجة أصيلة",
+        "value": 98,
+        "color": "#FBBF24"
       },
       {
-        id: 'sq-sku-3',
-        name: 'برطمان زجاجي تقليدي SquEasy',
-        subName: 'برطمان مطبخ زجاجي اقتصادي 350 جم',
-        image: '/images/products/Squ_easy collection/products/garlic jar.png',
-        categoryTag: 'برطمان فاخر',
-        tagColor: '#D97706',
-        weight: '350 جم',
-        servings: '70 حصة',
-        flavorProfile: 'وصفة مطحونة حجرياً مع زيت الزيتون وبذور الكزبرة العطرية.',
-        description: 'وصفة تقليدية فاخرة معدة لأطباق المازة، المشاوي على الفحم، وصلصات التتبيل الراقية.',
-        tasteMeters: [
-          { label: 'الحرارة والتتبيل', value: 95, color: '#DC2626' },
-          { label: 'القوام الحبيبي', value: 90, color: '#D97706' },
-          { label: 'تعقيد الأعشاب', value: 88, color: '#16A34A' },
-          { label: 'ثراء زيت الزيتون', value: 86, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'حجم الحصة', value: '5 جم (ملعقة صغيرة)' },
-          { label: 'السعرات الحرارية', value: '22 سعرة' },
-          { label: 'إجمالي الدهون', value: '1.6 جم' },
-          { label: 'الصوديوم', value: '110 ملجم' },
-          { label: 'إجمالي الكربوهيدرات', value: '1.2 جم' },
-        ],
-        keyBenefits: ['وصفة مطحونة على الحجر', 'حفظ طبيعي بزيت الزيتون', 'مثالي على مائدة الطعام', 'خالي من الكائنات المعدلة وراثياً'],
-        inStock: true,
+        "label": "سهولة الانتشار بالطهي",
+        "value": 95,
+        "color": "#DC2626"
       },
       {
-        id: 'sq-sku-4',
-        name: 'أظرف هريسة SquEasy الفردية',
-        subName: 'أظرف حصة استخدام فردي محكمة',
-        image: '/images/products/Squ_easy collection/products/12 gram garlic sachet front.png',
-        categoryTag: 'ظرف فردي',
-        tagColor: '#BE123C',
-        weight: 'ظرف 15 جم',
-        servings: 'حصة واحدة',
-        flavorProfile: 'بيوريه فلفل أحمر حار متبل جاهز للوجبات السريعة والسفريات.',
-        description: 'عبوة حصة واحدة للاستخدام الفوري بدون الحاجة للاحتفاظ ببرطمانات مفتوحة في الثلاجة.',
-        tasteMeters: [
-          { label: 'دقة الحصة', value: 98, color: '#BE123C' },
-          { label: 'الحرارة والتوابل', value: 92, color: '#EF4444' },
-          { label: 'إحكام الطزاجة', value: 96, color: '#10B981' },
-          { label: 'سهولة الاستخدام', value: 100, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'حجم الحصة', value: '15 جم (ظرف كامل)' },
-          { label: 'السعرات الحرارية', value: '12 سعرة' },
-          { label: 'إجمالي الدهون', value: '0.8 جم' },
-          { label: 'الصوديوم', value: '80 ملجم' },
-          { label: 'إجمالي الكربوهيدرات', value: '1.0 جم' },
-        ],
-        keyBenefits: ['حصة وجبة واحدة جاهزة', 'مثالي للرحلات والشواء', 'لا يحتاج تبريد قبل الفتح', 'معتمد وفق FSSC 22000'],
-        inStock: true,
-      },
+        "label": "توفير وقت التقشير والفرم",
+        "value": 100,
+        "color": "#10B981"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "55 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "250g Glass Jar"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "12 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "جاهز للاستخدام",
+      "بدون تقشير أو فرم",
+      "نكهة ثوم غنية",
+      "يوفر الوقت"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "250g Glass Jar",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/squeasy"
+  },
+  {
+    "id": "squeasy-garlic-paste-250g",
+    "name": "معجون الثوم 250 جم",
+    "subName": "250g Culinary Pouch • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-garlic-paste-250g.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-garlic-paste-250g.png",
+    "categoryTag": "معجون ثوم ناعم",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "أضف نكهة الثوم الطازجة والغنية إلى أطباقك بكل سهولة مع معجون الثوم 250 جم. مصنوع من ثوم مختار بعناية ليمنحك ال...",
+    "description": "أضف نكهة الثوم الطازجة والغنية إلى أطباقك بكل سهولة مع معجون الثوم 250 جم. مصنوع من ثوم مختار بعناية ليمنحك الطعم والرائحة الأصيلة دون الحاجة إلى التقشير أو الفرم. جاهز للاستخدام مباشرة، ويُعد مثاليًا لتحضير التتبيلات، الصلصات، الشوربات، القلي السريع، وجميع وصفات الطهي اليومية، مما يوفر الوقت ويضيف مذاقًا شهيًا لكل وجبة.",
+    "tasteMeters": [
+      {
+        "label": "حدة نكهة الثوم",
+        "value": 96,
+        "color": "#EA580C"
+      },
+      {
+        "label": "رائحة طازجة أصيلة",
+        "value": 98,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "سهولة الانتشار بالطهي",
+        "value": 95,
+        "color": "#DC2626"
+      },
+      {
+        "label": "توفير وقت التقشير والفرم",
+        "value": 100,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "55 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "250g Culinary Pouch"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "12 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "جاهز للاستخدام",
+      "بدون تقشير أو فرم",
+      "نكهة ثوم غنية",
+      "يوفر الوقت"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "250g Culinary Pouch",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/squeasy"
+  },
+  {
+    "id": "squeasy-garlic-paste-sachets-50",
+    "name": "معجون الثوم – عبوة تحتوي على 50 ساشيت",
+    "subName": "50 Single-Use Sachets • 55 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png",
+    "categoryTag": "معجون ثوم ساشيت",
+    "tagColor": "#EA580C",
+    "weight": "250 g",
+    "servings": "250 g",
+    "flavorProfile": "استمتع بالنكهة الغنية والطعم الأصيل للثوم مع معجون الثوم في أكياس عملية للاستخدام الفردي. مصنوع من ثوم عالي ال...",
+    "description": "استمتع بالنكهة الغنية والطعم الأصيل للثوم مع معجون الثوم في أكياس عملية للاستخدام الفردي. مصنوع من ثوم عالي الجودة ليمنح أطباقك نكهة ورائحة مميزة دون الحاجة إلى التقشير أو الفرم. مثالي لتحضير التتبيلات، الصلصات، الشوربات، القلي السريع، ووصفات الطهي اليومية. تحتوي العبوة على 50 كيسًا لتوفر لك سهولة الاستخدام، والحفاظ على الطزاجة، ومذاقًا ثابتًا في كل مرة.",
+    "tasteMeters": [
+      {
+        "label": "حدة نكهة الثوم",
+        "value": 96,
+        "color": "#EA580C"
+      },
+      {
+        "label": "رائحة طازجة أصيلة",
+        "value": 98,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "سهولة الانتشار بالطهي",
+        "value": 95,
+        "color": "#DC2626"
+      },
+      {
+        "label": "توفير وقت التقشير والفرم",
+        "value": 100,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "55 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "50 Single-Use Sachets"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "12 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "أكياس للاستخدام الفردي",
+      "بدون تقشير أو فرم",
+      "مذاق ثابت",
+      "طعم طازج"
+    ],
+    "inStock": true,
+    "priceEgp": 55,
+    "packType": "50 Single-Use Sachets",
+    "dietaryTags": [],
+    "line": "garlic",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/squeasy"
+  },
+  {
+    "id": "squeasy-harissa-hot-sauce-200g",
+    "name": "صلصة هريسة حارة 200 جم",
+    "subName": "200g Squeeze Bottle • 65 EGP",
+    "image": "/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png",
+    "hoverImage": "/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png",
+    "categoryTag": "هريسة حارة حرفية",
+    "tagColor": "#DC2626",
+    "weight": "200 g",
+    "servings": "200 g",
+    "flavorProfile": "أضف لمسة من الحرارة والنكهة المميزة إلى أطباقك مع الهريسة الحارة 200 جم. مصنوعة من أجود أنواع الفلفل الحار ومز...",
+    "description": "أضف لمسة من الحرارة والنكهة المميزة إلى أطباقك مع الهريسة الحارة 200 جم. مصنوعة من أجود أنواع الفلفل الحار ومزيج متوازن من التوابل، لتمنح أطباقك مذاقًا غنيًا وحارًا يناسب عشاق النكهات القوية. مثالية للسندويتشات، المشويات، البرجر، الشاورما، المكرونة، البيتزا، أو كصلصة للتغميس، لتضيف طعمًا أصيلًا ومميزًا إلى كل وجبة.",
+    "tasteMeters": [
+      {
+        "label": "حرارة الفلفل الأحمر",
+        "value": 94,
+        "color": "#DC2626"
+      },
+      {
+        "label": "عمق النكهة المدخنة",
+        "value": 95,
+        "color": "#EA580C"
+      },
+      {
+        "label": "توازن التوابل والزيت",
+        "value": 96,
+        "color": "#FBBF24"
+      },
+      {
+        "label": "سهولة الاستخدام والدقة",
+        "value": 98,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "200g Squeeze Bottle"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "12 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "نكهة حارة قوية",
+      "فلفل حار عالي الجودة",
+      "متعدد الاستخدامات",
+      "جاهز للاستخدام"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "packType": "200g Squeeze Bottle",
+    "dietaryTags": [],
+    "line": "harissa",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/squeasy"
+  }
+],
     story: {
       title: 'من المزارع المصرية إلى المطابخ العالمية',
       subtitle: 'علم الحفظ الطبيعي للمكونات الطازجة',
@@ -2388,218 +4929,1580 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
       },
     ],
     skus: [
+  {
+    "id": "sweet-slim-100-sachet",
+    "name": "محلي 100 ظرف",
+    "subName": "100 Sachets Box • 110 EGP • 6223004400155",
+    "image": "/artwork/sweet-and-slim/3d/classic-100-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "100 Sachets",
+    "flavorProfile": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وكل ...",
+    "description": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وكل من يتبع نمط حياة صحي.",
+    "tasteMeters": [
       {
-        id: 'ss-sku-50',
-        name: 'سويت آند سليم كلاسيك 50 ظرف',
-        subName: '50 ظرف فردي عازل للرطوبة (1 جم لكل ظرف)',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
-        categoryTag: 'كلاسيك يومي',
-        tagColor: '#10B981',
-        weight: 'علبة 50 جم',
-        servings: '50 حصة',
-        flavorProfile: 'حلاوة سكر القصب الطبيعية بدون أي طعم معدني أو مرار.',
-        description: 'أظرف فردية معزولة عن الرطوبة. كل ظرف 1 جم يعادل حلاوة ملعقتين كبيرتين من السكر (10 جم) بصفر سعرات حرارية.',
-        tasteMeters: [
-          { label: 'نقاوة الحلاوة', value: 98, color: '#10B981' },
-          { label: 'سرعة الذوبان', value: 96, color: '#06B6D4' },
-          { label: 'مطابقة طعم السكر', value: 95, color: '#3B82F6' },
-          { label: 'انعدام المرار', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '0 سعرة' },
-          { label: 'إجمالي الكربوهيدرات', value: '0.0 جم' },
-          { label: 'السكريات', value: '0.0 جم' },
-          { label: 'ألياف غذائية', value: '0.8 جم' },
-          { label: 'الصوديوم', value: '0 ملجم' },
-        ],
-        keyBenefits: ['حلاوة تعادل السكر ملعقة بملعقة', 'خالي من الأسبارتام والسكارين', 'آمن لمرضى السكر وحمية الكيتو', 'أظرف جيب سهلة الحمل'],
-        inStock: true,
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
       },
       {
-        id: 'ss-sku-100',
-        name: 'سويت آند سليم علبة التوفير 100 ظرف',
-        subName: '100 ظرف فردي مع درج سحب للمطبخ والمكتب',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
-        categoryTag: 'أفضل توفير',
-        tagColor: '#059669',
-        weight: 'علبة 100 جم',
-        servings: '100 حصة',
-        flavorProfile: 'حلاوة السكرالوز النقية بتصميم درج سحب عملي وأنيق.',
-        description: 'علبة موزع مصممة لركنيات القهوة المنزلية والمكاتب والكافيهات. ظرف واحد يحل محل ملعقتين من السكر.',
-        tasteMeters: [
-          { label: 'نقاوة الحلاوة', value: 98, color: '#10B981' },
-          { label: 'القيمة والتوفير', value: 97, color: '#F59E0B' },
-          { label: 'سرعة الذوبان', value: 96, color: '#06B6D4' },
-          { label: 'انعدام المرار', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '0 سعرة' },
-          { label: 'إجمالي الكربوهيدرات', value: '0.0 جم' },
-          { label: 'السكريات', value: '0.0 جم' },
-          { label: 'حجم الحصة', value: 'ظرف واحد (1 جم)' },
-          { label: 'الصوديوم', value: '0 ملجم' },
-        ],
-        keyBenefits: ['تصميم درج سحب مريح', 'أفضل تكلفة للحصة', 'معتمد وفق معايير FSSC 22000', 'محكم الإغلاق ضد الرطوبة'],
-        inStock: true,
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
       },
       {
-        id: 'ss-sku-extra-50',
-        name: 'سويت آند سليم إكسترا بريبايوتك (50 ظرف)',
-        subName: 'معزز بألياف الإينولين الذائبة من جذور الهندباء',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
-        categoryTag: 'صحة الهضم',
-        tagColor: '#047857',
-        weight: 'علبة 50 جم',
-        servings: '50 حصة',
-        flavorProfile: 'حلاوة حريرية مدعمة بألياف البريبايوتك الحيوية للجهاز الهضمي.',
-        description: 'ممزوج بألياف الإينولين الطبيعية الذائبة المستخلصة من جذور الهندباء البرية لتغذية البكتيريا المعوية النافعة مع تحلية المشروبات.',
-        tasteMeters: [
-          { label: 'نقاوة الحلاوة', value: 96, color: '#10B981' },
-          { label: 'ألياف البريبايوتك', value: 98, color: '#059669' },
-          { label: 'قوام ممتلئ بالفم', value: 92, color: '#F59E0B' },
-          { label: 'انعدام المرار', value: 94, color: '#8B5CF6' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '0 سعرة' },
-          { label: 'ألياف إينولين غذائية', value: '0.9 جم' },
-          { label: 'السكريات', value: '0.0 جم' },
-          { label: 'المؤشر الجلايسيمي', value: '0' },
-          { label: 'الصوديوم', value: '0 ملجم' },
-        ],
-        keyBenefits: ['يغذي بكتيريا البيفيدوباكتيريا النافعة', 'قوام ناعم بالشاي والقهوة', 'صفر سعرات حرارية', 'هندباء غير معدلة وراثياً'],
-        inStock: true,
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
       },
       {
-        id: 'ss-sku-stevia-100',
-        name: 'سويت آند سليم ستيفيا (علبة 100 ظرف)',
-        subName: 'مستخلص أوراق الستيفيا النباتية 100%',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 Stevia-View 1.png',
-        categoryTag: 'مصدر نباتي',
-        tagColor: '#84CC16',
-        weight: 'علبة 100 جم',
-        servings: '100 حصة',
-        flavorProfile: 'حلاوة نباتية نقية مستخلصة من أوراق ستيفيا ريبوديانا عالية الجودة.',
-        description: 'محلي نباتي طبيعي مصنّع بدون مبيضات كيميائية أو مواد مالئة اصطناعية.',
-        tasteMeters: [
-          { label: 'نقاوة النبات', value: 98, color: '#84CC16' },
-          { label: 'أصل طبيعي', value: 100, color: '#10B981' },
-          { label: 'توازن الحلاوة', value: 94, color: '#06B6D4' },
-          { label: 'صفر سعرات', value: 100, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '0 سعرة' },
-          { label: 'السكريات', value: '0.0 جم' },
-          { label: 'صافي الكربوهيدرات', value: '0.0 جم' },
-          { label: 'المؤشر الجلايسيمي', value: '0' },
-        ],
-        keyBenefits: ['نباتي 100%', 'صفر حمل جلايسيمي', 'علبة موزع عملية', 'معتمد خالي من التعديل الوراثي'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-spearmint-tin',
-        name: 'حلوى نعناع سبيرمنت Sweet & Slim',
-        subName: 'حلوى نعناع خالية من السكر بزيت النعناع الطبيعي',
-        image: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim Spearmint Tin.png',
-        categoryTag: 'انتعاش الجيب',
-        tagColor: '#06B6D4',
-        weight: 'علبة معدنية 14 جم',
-        servings: '35 حبة',
-        flavorProfile: 'انتعاش سبيرمنت بارد ونقي مع نفس منعش يدوم طويلاً.',
-        description: 'في علبة معدنية منزلقة فاخرة بنقش بارز. مثالية بعد الوجبات أو القهوة وقبل الاجتماعات.',
-        tasteMeters: [
-          { label: 'انتعاش النفس', value: 98, color: '#06B6D4' },
-          { label: 'إحساس البرودة', value: 94, color: '#3B82F6' },
-          { label: 'ثبات الانتعاش', value: 92, color: '#8B5CF6' },
-          { label: 'خالي من السكر', value: 100, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات لكل حبة', value: '< 1 سعرة' },
-          { label: 'السكر', value: '0.0 جم' },
-          { label: 'الدهون', value: '0.0 جم' },
-          { label: 'الصوديوم', value: '0 ملجم' },
-        ],
-        keyBenefits: ['علبة معدنية منزلقة أنيقة', 'خالي من السكر وآمن للأسنان', 'انتعاش فوري للنفس', 'خالي من الألوان الصناعية'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-peach-tin',
-        name: 'حلوى خوخ وانتعاش النعناع Sweet & Slim',
-        subName: 'حلوى خوخ ونعناع فاخرة خالية من السكر',
-        image: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim peach Tin.png',
-        categoryTag: 'نعناع بالفواكه',
-        tagColor: '#F97316',
-        weight: 'علبة معدنية 14 جم',
-        servings: '35 حبة',
-        flavorProfile: 'خلاصة الخوخ الصيفي العصير مع لمسة بلورات النعناع المنعشة.',
-        description: 'تناغم دقيق بين مذاق الخوخ الطبيعي وانتعاش النعناع في علبة جيب عصرية قابلة للاقتناء.',
-        tasteMeters: [
-          { label: 'طعم الخوخ الطبيعي', value: 96, color: '#F97316' },
-          { label: 'توازن الحلاوة', value: 94, color: '#EC4899' },
-          { label: 'نهاية منعشة', value: 90, color: '#06B6D4' },
-          { label: 'خالي من السكر', value: 100, color: '#10B981' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات لكل حبة', value: '< 1 سعرة' },
-          { label: 'السكر', value: '0.0 جم' },
-          { label: 'الدهون', value: '0.0 جم' },
-          { label: 'الصوديوم', value: '0 ملجم' },
-        ],
-        keyBenefits: ['مستخلص خوخ طبيعي', 'حلوى بدون سكر وبدون تأنيب ضمير', 'حجم مثالي للجيب والحقيبة', 'صنع بواسطة AWA Food Solutions'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-hotchoco-hazelnut',
-        name: 'مشروب هوت شوكليت دايت بالبندق Sweet & Slim',
-        subName: '10 أظرف فردية بدون أي سكر مضاف',
-        image: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
-        categoryTag: 'شوكولاتة دايت',
-        tagColor: '#8B5CF6',
-        weight: 'علبة 10 أظرف',
-        servings: '10 أكواب',
-        flavorProfile: 'كاكاو هولندي فاخر ممزوج بكريمة البندق المحمص بدون سكر.',
-        description: 'مشروب شوكولاتة ساخنة كريمي غني محلى حصرياً بـ Sweet & Slim. لذيذ ومشبع وبـ 45 سعرة فقط للكوب.',
-        tasteMeters: [
-          { label: 'قوام الكاكاو الكريمي', value: 96, color: '#8B5CF6' },
-          { label: 'رائحة البندق المحمص', value: 94, color: '#D97706' },
-          { label: 'توازن الحلاوة', value: 95, color: '#10B981' },
-          { label: 'كثافة الرغوة', value: 90, color: '#3B82F6' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '45 سعرة' },
-          { label: 'السكريات المضافة', value: '0.0 جم' },
-          { label: 'البروتين', value: '1.8 جم' },
-          { label: 'إجمالي الدهون', value: '1.2 جم' },
-        ],
-        keyBenefits: ['صفر سكر مائدة مضاف', '45 سعرة فقط للكوب الكريمي', 'كاكاو هولندي أصيل وبندق محمص', 'ذوبان فوري بالماء الساخن'],
-        inStock: true,
-      },
-      {
-        id: 'ss-sku-liquid-bottle',
-        name: 'قطارة Sweet & Slim السائلة صفر سعرات',
-        subName: 'زجاجة محلي سائل فوري الذوبان في المشروبات الباردة',
-        image: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
-        categoryTag: 'قطارة سائلة',
-        tagColor: '#0284C7',
-        weight: 'زجاجة ضغط سائلة',
-        servings: '150 قطرة',
-        flavorProfile: 'حلاوة سائلة مركزة وفورية الذوبان للأيس كوفي والميلك شيك والكوكتيلات والليمونادة.',
-        description: '3 قطرات تعادل ملعقة سكر كاملة. تذوب فوراً في المشروبات المثلجة دون الحاجة للتقليب.',
-        tasteMeters: [
-          { label: 'الذوبان في المشروبات الباردة', value: 100, color: '#0284C7' },
-          { label: 'نقاوة الحلاوة', value: 98, color: '#10B981' },
-          { label: 'دقة التنقيط', value: 96, color: '#8B5CF6' },
-          { label: 'سهولة الحمل', value: 95, color: '#F59E0B' },
-        ],
-        nutritionFacts: [
-          { label: 'السعرات الحرارية', value: '0 سعرة' },
-          { label: 'السكر', value: '0.0 جم' },
-          { label: 'الكربوهيدرات', value: '0.0 جم' },
-          { label: 'حجم الحصة', value: '3 قطرات' },
-        ],
-        keyBenefits: ['ذوبان فوري في العصائر والمثلجات', 'فوهة تنقيط دقيقة مانعة للتسريب', 'صفر سعرات وصفر كربوهيدرات', 'حجم مثالي للسفر والعمل'],
-        inStock: true,
-      },
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "110 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "100 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400155"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "مذاق السكر الطبيعي",
+      "مصنوع من الذرة والسكرالوز",
+      "خالي من الأسبارتام",
+      "مناسب للسكري والدايت"
+    ],
+    "inStock": true,
+    "priceEgp": 110,
+    "compareAtPriceEgp": 125,
+    "packType": "100 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400155",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-400-sachet",
+    "name": "محلي400 ظرف",
+    "subName": "400 Sachets Economy Box • 300 EGP • 6223004400049",
+    "image": "/artwork/sweet-and-slim/3d/classic-400-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "400 Sachets",
+    "flavorProfile": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وكل...",
+    "description": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وكل من يتبع نمط حياة صحي.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "300 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "400 Sachets Economy Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400049"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "مذاق السكر الطبيعي",
+      "مصنوع من الذرة والسكرالوز",
+      "خالي من الأسبارتام",
+      "مناسب للسكري والدايت"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "400 Sachets Economy Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400049",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-50-sachet-extra",
+    "name": "محلي اكسترا سويت 50 ظرف",
+    "subName": "50 Sachets Box • 85 EGP • 6223004400278",
+    "image": "/artwork/sweet-and-slim/3d/extra-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/extra-sugar-sachet.png",
+    "categoryTag": "إكسترا ومشروبات الدايت",
+    "tagColor": "#10B981",
+    "weight": "1.4 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي، ،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وك...",
+    "description": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي، ،و خال من الاسبارتام مع تركيبة مناسبة لمرضى السكري وكل من يتبع نمط حياة صحي.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "85 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400278"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Double Sweetness • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "حلاوة مضاعفة",
+      "كيس واحد = 4 ملاعق سكر",
+      "خالي من الأسبارتام",
+      "مناسب للسكري والدايت"
+    ],
+    "inStock": true,
+    "priceEgp": 85,
+    "compareAtPriceEgp": 100,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "Double Sweetness",
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400278",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-200-sachet-stevia",
+    "name": "محلي ستيفيا 200 ظرف",
+    "subName": "200 Sachets Box • 270 EGP • 6223004400315",
+    "image": "/artwork/sweet-and-slim/3d/stevia-200-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-sugar-sachet.png",
+    "categoryTag": "ستيفيا طبيعي 100%",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "200 Sachets",
+    "flavorProfile": "سكر ستيفيا  خالٍ من السعرات الحرارية، وخالٍ من الجلوتين، وخالٍ من الأسبارتام، ومناسب لمتبعي نظام الكيتو، ومرضى...",
+    "description": "سكر ستيفيا  خالٍ من السعرات الحرارية، وخالٍ من الجلوتين، وخالٍ من الأسبارتام، ومناسب لمتبعي نظام الكيتو، ومرضى السكري، والنباتيين، ولكل من يسعى إلى اتباع نمط حياة صحي.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "270 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "200 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400315"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "100% Plant Based • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "ستيفيا طبيعي 100%",
+      "صفر سعرات حرارية",
+      "خالي من الأسبارتام",
+      "مناسب لمرضى السكري والكيتو"
+    ],
+    "inStock": true,
+    "priceEgp": 270,
+    "compareAtPriceEgp": 310,
+    "packType": "200 Sachets Box",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Zero Calorie",
+      "Keto Certified",
+      "Aspartame Free"
+    ],
+    "barcode": "6223004400315",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-syrup-lite-300ml",
+    "name": "سيرب لايت",
+    "subName": "standard • 205 EGP • 6223004401312",
+    "image": "/artwork/sweet-and-slim/3d/lite-syrup-bottle.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/lite-syrup-bottle.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "300 ml / bottle",
+    "servings": "300 ml",
+    "flavorProfile": "شراب سويت آند سليم لايت هو شراب منخفض السعرات الحرارية، مخصص لتحضير الحلويات الشرقية، وجاهز للاستخدام. مدة الص...",
+    "description": "شراب سويت آند سليم لايت هو شراب منخفض السعرات الحرارية، مخصص لتحضير الحلويات الشرقية، وجاهز للاستخدام. مدة الصلاحية: 12 شهرًا. الحجم الصافي: 300 مل.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "205 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "standard"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004401312"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Low Calorie • Dessert Syrup"
+      }
+    ],
+    "keyBenefits": [
+      "منخفض السعرات",
+      "مخصص للحلويات الشرقية",
+      "جاهز للاستخدام",
+      "خالي من السكر"
+    ],
+    "inStock": true,
+    "priceEgp": 205,
+    "compareAtPriceEgp": 235,
+    "packType": "standard",
+    "dietaryTags": [
+      "Low Calorie",
+      "Dessert Syrup",
+      "Sugar Free"
+    ],
+    "barcode": "6223004401312",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-pouch-250g",
+    "name": "محلي 250 جرام",
+    "subName": "250g Resealable Zipper Pouch • 140 EGP • 6223004400353",
+    "image": "/artwork/sweet-and-slim/3d/classic-pouch.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-pouch.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "250 gm / pouch",
+    "servings": "250 Gm",
+    "flavorProfile": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،،و خال من الاسبارتام مما يجعله مناسبًا لمرضى السكري ول...",
+    "description": "محلي مصنوع من الذرة والسكرالوز ليمنحك مذاق السكر العادي،،و خال من الاسبارتام مما يجعله مناسبًا لمرضى السكري ولكل من يتبع نمط حياة صحي. مدة الصلاحية: 24 شهرًا. الوزن الصافي: 250 جم.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "140 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "250g Resealable Zipper Pouch"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400353"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Baking Friendly • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "مذاق السكر الطبيعي",
+      "مصنوع من الذرة والسكرالوز",
+      "خالي من الأسبارتام",
+      "مناسب للسكري والدايت"
+    ],
+    "inStock": true,
+    "priceEgp": 140,
+    "compareAtPriceEgp": 160,
+    "packType": "250g Resealable Zipper Pouch",
+    "dietaryTags": [
+      "Baking Friendly",
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400353",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-stevia-pouch-250g",
+    "name": "محلي استيفيا 250 جرام",
+    "subName": "250g Resealable Zipper Pouch • 160 EGP • 6223004400377",
+    "image": "/artwork/sweet-and-slim/3d/stevia-pouch.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-pouch.png",
+    "categoryTag": "ستيفيا طبيعي 100%",
+    "tagColor": "#10B981",
+    "weight": "250 gm / pouch",
+    "servings": "250 Gm",
+    "flavorProfile": "سكر ستيفيا  خالٍ من السعرات الحرارية، وخالٍ من الجلوتين، وخالٍ من الأسبارتام، ومناسب لمتبعي نظام الكيتو، ومرضى...",
+    "description": "سكر ستيفيا  خالٍ من السعرات الحرارية، وخالٍ من الجلوتين، وخالٍ من الأسبارتام، ومناسب لمتبعي نظام الكيتو، ومرضى السكري، والنباتيين، ولكل من يسعى إلى اتباع نمط حياة صحي.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "160 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "250g Resealable Zipper Pouch"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400377"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "100% Plant Based • Baking Stevia"
+      }
+    ],
+    "keyBenefits": [
+      "ستيفيا طبيعي 100%",
+      "صفر سعرات حرارية",
+      "خالي من الأسبارتام",
+      "مناسب لمرضى السكري والكيتو"
+    ],
+    "inStock": true,
+    "priceEgp": 160,
+    "compareAtPriceEgp": 185,
+    "packType": "250g Resealable Zipper Pouch",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Baking Stevia",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004400377",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-50-sachet",
+    "name": "سويت آند سليم محلي كلاسيك 50 ظرف",
+    "subName": "50 Sachets Box • 65 EGP • 6223004400001",
+    "image": "/artwork/sweet-and-slim/3d/classic-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "العبوة الكلاسيكية العملية 50 ظرف، الرفيق اليومي للقهوة والشاي في العمل والمنزل.",
+    "description": "العبوة الكلاسيكية العملية 50 ظرف، الرفيق اليومي للقهوة والشاي في العمل والمنزل.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400001"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "جودة معتمدة",
+      "تصنيع AWA"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free",
+      "Diabetic Safe"
+    ],
+    "barcode": "6223004400001",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-classic-25-sachet",
+    "name": "سويت آند سليم محلي كلاسيك 25 ظرف",
+    "subName": "25 Sachets Box • 35 EGP • 6223004400070",
+    "image": "/artwork/sweet-and-slim/3d/classic-25-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/classic-sugar-sachet.png",
+    "categoryTag": "المحلي الكلاسيكي",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "25 Sachets",
+    "flavorProfile": "عبوة تجربة مدمجة 25 ظرف سهلة الحمل في الحقيبة وأثناء السفر.",
+    "description": "عبوة تجربة مدمجة 25 ظرف سهلة الحمل في الحقيبة وأثناء السفر.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "35 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "25 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400070"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Calorie • Sugar Free"
+      }
+    ],
+    "keyBenefits": [
+      "جودة معتمدة",
+      "تصنيع AWA"
+    ],
+    "inStock": true,
+    "priceEgp": 35,
+    "packType": "25 Sachets Box",
+    "dietaryTags": [
+      "Zero Calorie",
+      "Sugar Free"
+    ],
+    "barcode": "6223004400070",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-stevia-50-sachet",
+    "name": "سويت آند سليم ستيفيا 50 ظرف",
+    "subName": "50 Sachets Box • 75 EGP • 6223004400179",
+    "image": "/artwork/sweet-and-slim/3d/stevia-50-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/stevia-sugar-sachet.png",
+    "categoryTag": "ستيفيا طبيعي 100%",
+    "tagColor": "#10B981",
+    "weight": "1 gm/sachet",
+    "servings": "50 Sachets",
+    "flavorProfile": "أظرف ستيفيا نقية نباتية 100% في عبوة عملية 50 ظرف.",
+    "description": "أظرف ستيفيا نقية نباتية 100% في عبوة عملية 50 ظرف.",
+    "tasteMeters": [
+      {
+        "label": "نقاء التحلية",
+        "value": 98,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "مذاق مطابق للسكر",
+        "value": 95,
+        "color": "#3B82F6"
+      },
+      {
+        "label": "صفر مرارة أو طعم غريب",
+        "value": 98,
+        "color": "#8B5CF6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "75 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "50 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004400179"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "100% Plant Based • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "جودة معتمدة",
+      "تصنيع AWA"
+    ],
+    "inStock": true,
+    "priceEgp": 75,
+    "packType": "50 Sachets Box",
+    "dietaryTags": [
+      "100% Plant Based",
+      "Zero Calorie",
+      "Keto Certified"
+    ],
+    "barcode": "6223004400179",
+    "line": "sugar",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-strawberry",
+    "name": "مينت فراولة",
+    "subName": "boxes • 65 EGP • 6223004404290",
+    "image": "/artwork/sweet-and-slim/3d/mints-strawberry-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "حلوى النعناع المنعشة",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة الفراولة. خالية من السعرات الحرارية، صديقة للأ...",
+    "description": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة الفراولة. خالية من السعرات الحرارية، صديقة للأسنان، ومناسبة لمرضى السكري تمنحك انتعاشًا يدوم طويلًا.",
+    "tasteMeters": [
+      {
+        "label": "انتعاش النكهة والنعناع",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "نقاء المكونات",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "ثبات الطعم",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "خالي من السكر",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404290"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من السكر",
+      "صديق للأسنان",
+      "صفر سعرات",
+      "انتعاش يدوم طويلاً"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Tooth Friendly"
+    ],
+    "barcode": "6223004404290",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-peach",
+    "name": "مينت خوخ",
+    "subName": "boxes • 65 EGP • 6223004404306",
+    "image": "/artwork/sweet-and-slim/3d/mints-peach-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "حلوى النعناع المنعشة",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة الخوخ. خالية من السعرات الحرارية، صديقة للأسنا...",
+    "description": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة الخوخ. خالية من السعرات الحرارية، صديقة للأسنان، ومناسبة لمرضى السكري تمنحك انتعاشًا يدوم طويلًا.",
+    "tasteMeters": [
+      {
+        "label": "انتعاش النكهة والنعناع",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "نقاء المكونات",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "ثبات الطعم",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "خالي من السكر",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404306"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من السكر",
+      "صديق للأسنان",
+      "صفر سعرات",
+      "انتعاش يدوم طويلاً"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Tooth Friendly"
+    ],
+    "barcode": "6223004404306",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-spearmint",
+    "name": "مينت نعناع",
+    "subName": "boxes • 65 EGP • 6223004404313",
+    "image": "/artwork/sweet-and-slim/3d/mints-spearmint-tin.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "حلوى النعناع المنعشة",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة النعناع البارد. خالية من السعرات الحرارية، صدي...",
+    "description": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة النعناع البارد. خالية من السعرات الحرارية، صديقة للأسنان، ومناسبة لمرضى السكري تمنحك انتعاشًا يدوم طويلًا.",
+    "tasteMeters": [
+      {
+        "label": "انتعاش النكهة والنعناع",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "نقاء المكونات",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "ثبات الطعم",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "خالي من السكر",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404313"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من السكر",
+      "صديق للأسنان",
+      "صفر سعرات",
+      "انتعاش يدوم طويلاً"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Maximum Freshness"
+    ],
+    "barcode": "6223004404313",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-orange",
+    "name": "مينت برتقال",
+    "subName": "boxes • 65 EGP • 6223004405556",
+    "image": "/artwork/sweet-and-slim/3d/mints-orange-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "حلوى النعناع المنعشة",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة البرتقال. خالية من السعرات الحرارية، صديقة للأ...",
+    "description": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة البرتقال. خالية من السعرات الحرارية، صديقة للأسنان، ومناسبة لمرضى السكري تمنحك انتعاشًا يدوم طويلًا.",
+    "tasteMeters": [
+      {
+        "label": "انتعاش النكهة والنعناع",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "نقاء المكونات",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "ثبات الطعم",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "خالي من السكر",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405556"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من السكر",
+      "صديق للأسنان",
+      "صفر سعرات",
+      "انتعاش يدوم طويلاً"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Citrus Burst"
+    ],
+    "barcode": "6223004405556",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-mints-cinnamon",
+    "name": "مينت قرفة",
+    "subName": "boxes • 65 EGP • 6223004405563",
+    "image": "/artwork/sweet-and-slim/3d/mints-cinnamon-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/mints-pills.jpg",
+    "categoryTag": "حلوى النعناع المنعشة",
+    "tagColor": "#EC4899",
+    "weight": "32 gm / tin",
+    "servings": "40 pieces",
+    "flavorProfile": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة القرفة. خالية من السعرات الحرارية، صديقة للأسن...",
+    "description": "حلوى نعناع منعشة تحتوي العبوة على 40 قطعة. خالية من السكر بنكهة القرفة. خالية من السعرات الحرارية، صديقة للأسنان، ومناسبة لمرضى السكري تمنحك انتعاشًا يدوم طويلًا.",
+    "tasteMeters": [
+      {
+        "label": "انتعاش النكهة والنعناع",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "نقاء المكونات",
+        "value": 95,
+        "color": "#10B981"
+      },
+      {
+        "label": "ثبات الطعم",
+        "value": 94,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "خالي من السكر",
+        "value": 99,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "65 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "24 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405563"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Sugar Free • Zero Calorie"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من السكر",
+      "صديق للأسنان",
+      "صفر سعرات",
+      "انتعاش يدوم طويلاً"
+    ],
+    "inStock": true,
+    "priceEgp": 65,
+    "compareAtPriceEgp": 75,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Sugar Free",
+      "Zero Calorie",
+      "Warm Spice"
+    ],
+    "barcode": "6223004405563",
+    "line": "candy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-3in1-instant-coffee-classic",
+    "name": "قهوة سريعة التحضير 3في1 كلاسيك",
+    "subName": "boxes • 204 EGP • 6223004405143",
+    "image": "/artwork/sweet-and-slim/3d/3in1-classic-box.jpg",
+    "hoverImage": "/artwork/sweet-and-slim/3d/3in1-classic-sachet.png",
+    "categoryTag": "إكسترا ومشروبات الدايت",
+    "tagColor": "#8B5CF6",
+    "weight": "15 gm/sachet",
+    "servings": "12 Sachets",
+    "flavorProfile": "قهوة سريعة التحضير خالية من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز ا...",
+    "description": "قهوة سريعة التحضير خالية من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و حليب خالي الدسم",
+    "tasteMeters": [
+      {
+        "label": "عمق الكاكاو والقهوة",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "قوام مخملي كريمي",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "نعومة المذاق",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "توازن الدايت",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "204 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405143"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من الزيوت المهدرجة",
+      "بديل كريمر زيت جوز هند",
+      "57 سعر حراري",
+      "خالي من الدهون المتحولة"
+    ],
+    "inStock": true,
+    "priceEgp": 204,
+    "compareAtPriceEgp": 235,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "57 Calories",
+      "Trans Fat Free"
+    ],
+    "barcode": "6223004405143",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-3in1-instant-coffee-extra",
+    "name": "قهوة سريعة التحضير 3في1 اكسترا",
+    "subName": "boxes • 216 EGP • 6223004405150",
+    "image": "/artwork/sweet-and-slim/3d/3in1-extra-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/3in1-extra-sachet.png",
+    "categoryTag": "إكسترا ومشروبات الدايت",
+    "tagColor": "#8B5CF6",
+    "weight": "15 gm/sachet",
+    "servings": "12 Sachets",
+    "flavorProfile": "قهوة سريعة التحضير خالية من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز ا...",
+    "description": "قهوة سريعة التحضير خالية من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و حليب خالي الدسم",
+    "tasteMeters": [
+      {
+        "label": "عمق الكاكاو والقهوة",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "قوام مخملي كريمي",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "نعومة المذاق",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "توازن الدايت",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "216 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405150"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Extra Sweet • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من الزيوت المهدرجة",
+      "بديل كريمر زيت جوز هند",
+      "57 سعر حراري",
+      "خالي من الدهون المتحولة"
+    ],
+    "inStock": true,
+    "priceEgp": 216,
+    "compareAtPriceEgp": 250,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Extra Sweet",
+      "No Hydrogenated Oils",
+      "57 Calories",
+      "Zero Sugar"
+    ],
+    "barcode": "6223004405150",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-hot-chocolate-classic",
+    "name": "هوت شوكليت كلاسيك",
+    "subName": "boxes • 180 EGP • 6223004404344",
+    "image": "/artwork/sweet-and-slim/3d/hot-chocolate-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/hot-chocolate-sachet.png",
+    "categoryTag": "إكسترا ومشروبات الدايت",
+    "tagColor": "#8B5CF6",
+    "weight": "25 gm/ sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "هوت تشوكليت خالي من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و ح...",
+    "description": "هوت تشوكليت خالي من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و حليب خالي الدسم",
+    "tasteMeters": [
+      {
+        "label": "عمق الكاكاو والقهوة",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "قوام مخملي كريمي",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "نعومة المذاق",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "توازن الدايت",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404344"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من الزيوت المهدرجة",
+      "شوكولاتة فاخرة",
+      "78 سعر حراري",
+      "خالي من الدهون المتحولة"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "compareAtPriceEgp": 205,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "78 Calories"
+    ],
+    "barcode": "6223004404344",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-hot-chocolate-hazelnut",
+    "name": "هوت شوكليت بندق",
+    "subName": "boxes • 180 EGP • 6223004404351",
+    "image": "/artwork/sweet-and-slim/3d/hot-chocolate-hazelnut-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/hot-chocolate-hazelnut-sachet.png",
+    "categoryTag": "إكسترا ومشروبات الدايت",
+    "tagColor": "#8B5CF6",
+    "weight": "25 gm/ sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "هوت تشوكليت خالي من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و ح...",
+    "description": "هوت تشوكليت خالي من الزيوت المهدرجة و الدهون المتحولة حيث يحتوي علي بديل صحي للكريمر مكون من زيت جوز الهند و حليب خالي الدسم",
+    "tasteMeters": [
+      {
+        "label": "عمق الكاكاو والقهوة",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "قوام مخملي كريمي",
+        "value": 94,
+        "color": "#D97706"
+      },
+      {
+        "label": "نعومة المذاق",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "توازن الدايت",
+        "value": 95,
+        "color": "#06B6D4"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404351"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Zero Sugar • No Hydrogenated Oils"
+      }
+    ],
+    "keyBenefits": [
+      "خالي من الزيوت المهدرجة",
+      "شوكولاتة فاخرة",
+      "78 سعر حراري",
+      "خالي من الدهون المتحولة"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "compareAtPriceEgp": 205,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Zero Sugar",
+      "No Hydrogenated Oils",
+      "78 Calories"
+    ],
+    "barcode": "6223004404351",
+    "line": "hot-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-smoothie-pina-colada-inulin",
+    "name": "سموزي بيناكولادا مدعم بالإينولين",
+    "subName": "boxes • 300 EGP • 6223004405679",
+    "image": "/artwork/sweet-and-slim/3d/smoothie-pina-colada-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/smoothie-pina-colada-sachet.png",
+    "categoryTag": "المشروبات الباردة والسموزي",
+    "tagColor": "#06B6D4",
+    "weight": "20 gm/sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "سموزي منعش مدعم بالانيولين الذي يساعد في عملية الهضم و صحة الامعاء",
+    "description": "سموزي منعش مدعم بالانيولين الذي يساعد في عملية الهضم و صحة الامعاء",
+    "tasteMeters": [
+      {
+        "label": "انتعاش الفواكه",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "ألياف وحمض الهيالورونيك",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "قوام السموذي",
+        "value": 94,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 99,
+        "color": "#3B82F6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "300 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405679"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Prebiotic Inulin • Gut Health"
+      }
+    ],
+    "keyBenefits": [
+      "مدعم بـ 5 جم إينولين",
+      "صحة الجهاز الهضمي والأمعاء",
+      "محلى بسكر ستيفيا",
+      "مناسب للكيتو"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Prebiotic Inulin",
+      "Gut Health",
+      "Sugar Free",
+      "Keto Friendly"
+    ],
+    "barcode": "6223004405679",
+    "line": "cold-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  },
+  {
+    "id": "sweet-slim-smoothie-mixed-berries-collagen",
+    "name": "سموزي ميكس بيريز مدعم بالهالورونيك اسيد و فيتامين سي",
+    "subName": "boxes • 300 EGP • 6223004405655",
+    "image": "/artwork/sweet-and-slim/3d/smoothie-mixed-berry-box.png",
+    "hoverImage": "/artwork/sweet-and-slim/3d/smoothie-mixed-berry-sachet.png",
+    "categoryTag": "المشروبات الباردة والسموزي",
+    "tagColor": "#06B6D4",
+    "weight": "20 gm/sachet",
+    "servings": "10 Sachets",
+    "flavorProfile": "سموزي منعش مدعم باالهيالورونيك أسيد و فيتامين سي لبشرة صحية و أكثر نضارة",
+    "description": "سموزي منعش مدعم باالهيالورونيك أسيد و فيتامين سي لبشرة صحية و أكثر نضارة",
+    "tasteMeters": [
+      {
+        "label": "انتعاش الفواكه",
+        "value": 96,
+        "color": "#06B6D4"
+      },
+      {
+        "label": "ألياف وحمض الهيالورونيك",
+        "value": 98,
+        "color": "#EC4899"
+      },
+      {
+        "label": "قوام السموذي",
+        "value": 94,
+        "color": "#10B981"
+      },
+      {
+        "label": "سرعة الذوبان",
+        "value": 99,
+        "color": "#3B82F6"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "300 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "boxes"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405655"
+      },
+      {
+        "label": "الخصائص الغذائية",
+        "value": "Skin Glow • Hyaluronic Acid"
+      }
+    ],
+    "keyBenefits": [
+      "125 مجم حمض هيالورونيك",
+      "200 مجم فيتامين C",
+      "نضارة وترطيب البشرة",
+      "محلى بسكر ستيفيا"
+    ],
+    "inStock": true,
+    "priceEgp": 300,
+    "compareAtPriceEgp": 345,
+    "packType": "boxes",
+    "dietaryTags": [
+      "Skin Glow",
+      "Hyaluronic Acid",
+      "Vitamin C",
+      "Antioxidant",
+      "Sugar Free"
+    ],
+    "barcode": "6223004405655",
+    "line": "cold-beverages",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/sweet-and-slim"
+  }
+],
     story: {
       title: 'علم الحلاوة الصحية بدون تأنيب ضمير',
       subtitle: 'ريادة تصنيع السكرالوز في مصر',
@@ -2904,503 +6807,1370 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
       },
     ],
     skus: [
+  {
+    "id": "yalla-frappit-caramel-box-10",
+    "name": "يلا فرابيت كارميل بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404573",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-caramel-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/caramel.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالانتعاش مع المذاق الذي لا يُقاوم لـ فرابيت كراميل. ميكس الفرابيه الكريمي بنكهة الكراميل بسهولة مع الث...",
+    "description": "استمتع بالانتعاش مع المذاق الذي لا يُقاوم لـ فرابيت كراميل. ميكس الفرابيه الكريمي بنكهة الكراميل بسهولة مع الثلج ليمنحك مشروبًا منعشًا .",
+    "tasteMeters": [
       {
-        id: 'yl-sku-caramel',
-        name: 'يلا فرابيت كارميل بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404573',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/caramel new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالانتعاش مع المذاق الذي لا يُقاوم لـ فرابيت كراميل. ميكس الفرابيه الكريمي بنكهة الكرامي...',
-        description: 'استمتع بالانتعاش مع المذاق الذي لا يُقاوم لـ فرابيت كراميل. ميكس الفرابيه الكريمي بنكهة الكراميل بسهولة مع الثلج ليمنحك مشروبًا منعشًا .',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404573' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
       },
       {
-        id: 'yl-sku-caramel-sugar-free',
-        name: 'يلا فرابيت كارميل  سويت اند سليمبوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 250 EGP • باركود: 6223004404986',
-        image: '/images/products/Yalla Drinks/Yalla Frappit 0 sugar/Boxes/Yalla frappit coffe 0 sugar caramel-Camera 4.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بمذاق الكراميل الغني الذي تحبه مع سعرات حرارية أقل. يمنحك فرابيت  كراميل سويت آند سليم م...',
-        description: 'استمتع بمذاق الكراميل الغني الذي تحبه مع سعرات حرارية أقل. يمنحك فرابيت  كراميل سويت آند سليم مشروبًا كريميًا ومنعشًا يمتزج بسلاسة مع الثلج لتجربة خفيفة بطعم المقاهي.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '250 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404986' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
       },
       {
-        id: 'yl-sku-coffee',
-        name: 'يلا فرابيت قهوة بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404580',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/coffee new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'جدّد نشاطك مع المذاق القوي لـ فراب إت قهوة. يتميز بنكهة قهوة غنية تمتزج بسهولة مع الثلج لتمنحك ...',
-        description: 'جدّد نشاطك مع المذاق القوي لـ فراب إت قهوة. يتميز بنكهة قهوة غنية تمتزج بسهولة مع الثلج لتمنحك مشروب فرابيه باردًا وناعمًا بجودة المقاهي.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404580' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
       },
       {
-        id: 'yl-sku-coffee-sugar-free',
-        name: 'يلا فرابيت كلاسيك  سويت اند سليم بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 250 EGP • باركود: 6223004404979',
-        image: '/images/products/Yalla Drinks/Yalla Frappit 0 sugar/Boxes/Yalla frappit coffe 0 sugar-Camera 4.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالمذاق الأصيل للقهوة مع سعرات حرارية أقل. يقدم لك فراب إت قهوة سويت آند سليم مشروبًا با...',
-        description: 'استمتع بالمذاق الأصيل للقهوة مع سعرات حرارية أقل. يقدم لك فراب إت قهوة سويت آند سليم مشروبًا باردًا وكريميًا ومنعشًا بطعم غني مستوحى من المقاهي.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '250 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404979' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mocha',
-        name: 'يلا فرابيت موكا بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404597',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/mocha new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'دلّل نفسك بالمزيج المثالي من القهوة والشوكولاتة مع فراب إت موكا. يمنحك مشروبًا كريميًا وغنيًا ب...',
-        description: 'دلّل نفسك بالمزيج المثالي من القهوة والشوكولاتة مع فراب إت موكا. يمنحك مشروبًا كريميًا وغنيًا بقوام مخملي ومذاق موكا فاخر في كل رشفة.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404597' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-white-mocha',
-        name: 'يلا فرابيت وايت موكا بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404542',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/white mocha new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بفخامة المذاق مع فراب إت وايت موكا. يجمع بين الشوكولاتة البيضاء الكريمية ولمسات القهوة ا...',
-        description: 'استمتع بفخامة المذاق مع فراب إت وايت موكا. يجمع بين الشوكولاتة البيضاء الكريمية ولمسات القهوة الغنية ليمنحك مشروبًا فاخرًا ومنعشًا بجودة المقاهي.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404542' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-hazelnut-chocolate',
-        name: 'يلا فرابيت شوكلاتة بندق بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404566',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/chocolate hazelnut new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالمذاق الذي لا يُقاوم مع فراب إت شوكولاتة بالبندق. يجمع بين الشوكولاتة الغنية ونكهة الب...',
-        description: 'استمتع بالمذاق الذي لا يُقاوم مع فراب إت شوكولاتة بالبندق. يجمع بين الشوكولاتة الغنية ونكهة البندق المحمص في مشروب كريمي ومنعش ليمنحك تجربة كافيهات فاخرة مع كل رشفة.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404566' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pistachio-latte',
-        name: 'يلا فرابيت فسدق بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404559',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/Pistachio new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع برقي المذاق مع فراب إت بيستاشيو لاتيه. تمتزج نكهة الفستق الكريمية مع لمسات القهوة الناعم...',
-        description: 'استمتع برقي المذاق مع فراب إت بيستاشيو لاتيه. تمتزج نكهة الفستق الكريمية مع لمسات القهوة الناعمة لتمنحك مشروبًا مخمليًا ومنعشًا بجودة الكافيهات.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404559' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-cofee-toffee',
-        name: 'يلا فرابيت كوفي توفي بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404610',
-        image: '',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالتوازن المثالي مع فراب إت كوفي توفي. تمتزج القهوة الغنية مع نكهة التوفي الكريمية لتمنح...',
-        description: 'استمتع بالتوازن المثالي مع فراب إت كوفي توفي. تمتزج القهوة الغنية مع نكهة التوفي الكريمية لتمنحك مشروبًا منعشًا ولذيذًا بجودة الكافيهات. يأتي في عبوة تضم 10 أكياس لتستمتع به في أي وقت.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404610' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-vanilla',
-        name: 'يلا فرابيت فانيلا بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404603',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/vanilla new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالمذاق الكلاسيكي لـ فراب إت فانيليا. تمتزج نكهة الفانيليا الغنية مع الثلج لتمنحك مشروبً...',
-        description: 'استمتع بالمذاق الكلاسيكي لـ فراب إت فانيليا. تمتزج نكهة الفانيليا الغنية مع الثلج لتمنحك مشروبًا كريميًا ومنعشًا ومتوازنًا بطعم لا يُقاوم.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404603' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-spanish-latte',
-        name: 'يلا فرابيت سبانيش لاتية بوكس 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 200 EGP • باركود: 6223004404535',
-        image: '/images/products/Yalla Drinks/Yalla Frappit/Boxes/spanish latte new-View 1.png',
-        categoryTag: 'فراب إت',
-        tagColor: '#0284C7',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالمذاق الغني مع فراب إت سبانيش لاتيه. تمتزج القهوة الناعمة مع لمسات الحليب الكريمية وال...',
-        description: 'استمتع بالمذاق الغني مع فراب إت سبانيش لاتيه. تمتزج القهوة الناعمة مع لمسات الحليب الكريمية والحلاوة المتوازنة لتمنحك مشروبًا منعشًا بقوام كريمي وتجربة كافيهات لا تُقاوم.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#0284C7' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404535' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mixed-berries',
-        name: 'يلا سموزي ميكس توت 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 180 EGP • باركود: 6223004404764',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/mixed berries-View 1.png',
-        categoryTag: 'سموزي',
-        tagColor: '#E11D48',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بالمزيج الغني من نكهات التوت مع يلا سموزي مشكل التوت. يجمع بين المذاق الحلو والمنعش للتو...',
-        description: 'استمتع بالمزيج الغني من نكهات التوت مع يلا سموزي مشكل التوت. يجمع بين المذاق الحلو والمنعش للتوت ليمنحك سموزي ناعمًا ومثلجًا، مثاليًا للاستمتاع به في أي وقت من اليوم.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#E11D48' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '180 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404764' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mojito',
-        name: 'يلا سموزي  موخيتو 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 180 EGP • باركود: 6223004404740',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/Mojito-View 1.png',
-        categoryTag: 'سموزي',
-        tagColor: '#E11D48',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'انتعش مع يلا سموزي موهيتو. يجمع بين نكهة الليمون المنعشة وبرودة النعناع ليمنحك سموذي ناعمًا ومث...',
-        description: 'انتعش مع يلا سموزي موهيتو. يجمع بين نكهة الليمون المنعشة وبرودة النعناع ليمنحك سموذي ناعمًا ومثلجًا بطعم منعش ومثالي لكل الأوقات.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#E11D48' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '180 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404740' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pina-colada',
-        name: 'يلا سموزي بينا كولادا 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 180 EGP • باركود: 6223004404757',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/Pina Colada-View 1.png',
-        categoryTag: 'سموزي',
-        tagColor: '#E11D48',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'اهرب إلى أجواء الجزر الاستوائية مع يلا سموزي بينا كولادا. يجمع بين المذاق المنعش للأناناس وجوز ...',
-        description: 'اهرب إلى أجواء الجزر الاستوائية مع يلا سموزي بينا كولادا. يجمع بين المذاق المنعش للأناناس وجوز الهند الكريمي ليمنحك سموذي ناعمًا ومنعشًا، مثاليًا للاستمتاع به في أي وقت من اليوم.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#E11D48' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '180 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404757' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-pink-lemonade',
-        name: 'يلا سموزي بينك ليمون 10 ساشيت',
-        subName: 'علبة 10 أظرف (35 جم للظرف) • 180 EGP • باركود: 6223004404733',
-        image: '/images/products/Yalla Drinks/Yalla Smoozy/Boxes/pink lemonade-View 1.png',
-        categoryTag: 'سموزي',
-        tagColor: '#E11D48',
-        weight: 'علبة 10 أظرف (35 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'أنعش يومك مع يلا سموزي بينك ليمونيد. يجمع بين نكهة الليمون المنعشة و الفراولة ولمسة من الحلاوة ...',
-        description: 'أنعش يومك مع يلا سموزي بينك ليمونيد. يجمع بين نكهة الليمون المنعشة و الفراولة ولمسة من الحلاوة الفاكهية ليمنحك سموزي ناعمًا ومثلجًا بطعم منعش وحيوي في كل رشفة.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#E11D48' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '180 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004404733' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-caffe-latte',
-        name: 'يلا كوفي لاتية 10 ساشيت',
-        subName: 'علبة 10 أظرف (25 جم للظرف) • 200 EGP • باركود: 6223004405341',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Coffee late-Camera 4.png',
-        categoryTag: 'يلا كوفي',
-        tagColor: '#78350F',
-        weight: 'علبة 10 أظرف (25 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بمذاق Coffee مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت....',
-        description: 'استمتع بمذاق Coffee مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#78350F' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004405341' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-caramel',
-        name: 'يلا كوفي كارميل 10 ساشيت',
-        subName: 'علبة 10 أظرف (25 جم للظرف) • 200 EGP • باركود: 6223004405358',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Caramel-Camera 4 copy.png',
-        categoryTag: 'يلا كوفي',
-        tagColor: '#78350F',
-        weight: 'علبة 10 أظرف (25 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بمذاق Caramel مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت....',
-        description: 'استمتع بمذاق Caramel مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#78350F' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004405358' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-hazelnut',
-        name: 'يلا كوفي بندق 10 ساشيت',
-        subName: 'علبة 10 أظرف (25 جم للظرف) • 200 EGP • باركود: 6223004405372',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Hazelnut-Camera 4.png',
-        categoryTag: 'يلا كوفي',
-        tagColor: '#78350F',
-        weight: 'علبة 10 أظرف (25 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بمذاق Hazelnut مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت....',
-        description: 'استمتع بمذاق Hazelnut مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#78350F' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004405372' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-      {
-        id: 'yl-sku-mocha',
-        name: 'يلا كوفي موكا 10 ساشيت',
-        subName: 'علبة 10 أظرف (25 جم للظرف) • 200 EGP • باركود: 6223004405365',
-        image: '/images/products/Yalla Drinks/Yalla Koffi/Boxes/Yalla Mocha-Camera 4.png',
-        categoryTag: 'يلا كوفي',
-        tagColor: '#78350F',
-        weight: 'علبة 10 أظرف (25 جم للظرف)',
-        servings: '10 أكواب',
-        flavorProfile: 'استمتع بمذاق Mocha مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت....',
-        description: 'استمتع بمذاق Mocha مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.',
-        tasteMeters: [
-          { label: 'قوة النكهة', value: 95, color: '#78350F' },
-          { label: 'كثافة الرغوة', value: 96, color: '#10B981' },
-          { label: 'نعومة القوام', value: 98, color: '#8B5CF6' },
-          { label: 'الذوبان بالثلج', value: 99, color: '#38BDF8' },
-        ],
-        nutritionFacts: [
-          { label: 'السعر الرسمي', value: '200 EGP' },
-          { label: 'فترة الصلاحية', value: '18 شهراً' },
-          { label: 'الباركود الدولي', value: '6223004405365' },
-          { label: 'حجم الحصة', value: 'ظرف واحد' },
-        ],
-        keyBenefits: ['سهل التحضير', 'مذاق غني', 'جودة عالية', 'تركيبة يلا درينكس الرسمية'],
-        inStock: true,
-      },
-    
-    
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
     ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404573"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404573",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-caramel-sugar-free-box-10",
+    "name": "يلا فرابيت كارميل  سويت اند سليمبوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404986",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-caramel-sugar-free-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/caramel-zero-sugar.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق الكراميل الغني الذي تحبه مع سعرات حرارية أقل. يمنحك فرابيت  كراميل سويت آند سليم مشروبًا كريميًا ...",
+    "description": "استمتع بمذاق الكراميل الغني الذي تحبه مع سعرات حرارية أقل. يمنحك فرابيت  كراميل سويت آند سليم مشروبًا كريميًا ومنعشًا يمتزج بسلاسة مع الثلج لتجربة خفيفة بطعم المقاهي.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "220 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404986"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404986",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-box-10",
+    "name": "يلا فرابيت قهوة بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404580",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "جدّد نشاطك مع المذاق القوي لـ فراب إت قهوة. يتميز بنكهة قهوة غنية تمتزج بسهولة مع الثلج لتمنحك مشروب فرابيه با...",
+    "description": "جدّد نشاطك مع المذاق القوي لـ فراب إت قهوة. يتميز بنكهة قهوة غنية تمتزج بسهولة مع الثلج لتمنحك مشروب فرابيه باردًا وناعمًا بجودة المقاهي.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404580"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404580",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-sugar-free-box-10",
+    "name": "يلا فرابيت كلاسيك  سويت اند سليم بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404979",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-sugar-free-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee-zero-sugar.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالمذاق الأصيل للقهوة مع سعرات حرارية أقل. يقدم لك فراب إت قهوة سويت آند سليم مشروبًا باردًا وكريميًا و...",
+    "description": "استمتع بالمذاق الأصيل للقهوة مع سعرات حرارية أقل. يقدم لك فراب إت قهوة سويت آند سليم مشروبًا باردًا وكريميًا ومنعشًا بطعم غني مستوحى من المقاهي.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "220 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404979"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404979",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-mocha-box-10",
+    "name": "يلا فرابيت موكا بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404597",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mocha.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "دلّل نفسك بالمزيج المثالي من القهوة والشوكولاتة مع فراب إت موكا. يمنحك مشروبًا كريميًا وغنيًا بقوام مخملي ومذا...",
+    "description": "دلّل نفسك بالمزيج المثالي من القهوة والشوكولاتة مع فراب إت موكا. يمنحك مشروبًا كريميًا وغنيًا بقوام مخملي ومذاق موكا فاخر في كل رشفة.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404597"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404597",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-white-mocha-box-10",
+    "name": "يلا فرابيت وايت موكا بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404542",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-white-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/white-mocha.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بفخامة المذاق مع فراب إت وايت موكا. يجمع بين الشوكولاتة البيضاء الكريمية ولمسات القهوة الغنية ليمنحك مش...",
+    "description": "استمتع بفخامة المذاق مع فراب إت وايت موكا. يجمع بين الشوكولاتة البيضاء الكريمية ولمسات القهوة الغنية ليمنحك مشروبًا فاخرًا ومنعشًا بجودة المقاهي.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404542"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404542",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-hazelnut-chocolate-box-10",
+    "name": "يلا فراب إت شوكولاتة بالبندق بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404566",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-hazelnut-chocolate-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/chocolate-hazelnut.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالمذاق الذي لا يُقاوم مع فراب إت شوكولاتة بالبندق. يجمع بين الشوكولاتة الغنية ونكهة البندق المحمص في م...",
+    "description": "استمتع بالمذاق الذي لا يُقاوم مع فراب إت شوكولاتة بالبندق. يجمع بين الشوكولاتة الغنية ونكهة البندق المحمص في مشروب كريمي ومنعش ليمنحك تجربة كافيهات فاخرة مع كل رشفة.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404566"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404566",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-pistachio-latte-box-10",
+    "name": "يلا فرابيت فسدق بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 230 EGP • 6223004404559",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-pistachio-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pistachio-latte-2.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع برقي المذاق مع فراب إت بيستاشيو لاتيه. تمتزج نكهة الفستق الكريمية مع لمسات القهوة الناعمة لتمنحك مشروبً...",
+    "description": "استمتع برقي المذاق مع فراب إت بيستاشيو لاتيه. تمتزج نكهة الفستق الكريمية مع لمسات القهوة الناعمة لتمنحك مشروبًا مخمليًا ومنعشًا بجودة الكافيهات.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "230 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404559"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 230,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404559",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-coffee-toffee-box-10",
+    "name": "يلا فرابيت كوفي توفي بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404610",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-coffee-toffee-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/coffee-toffee.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالتوازن المثالي مع فراب إت كوفي توفي. تمتزج القهوة الغنية مع نكهة التوفي الكريمية لتمنحك مشروبًا منعشً...",
+    "description": "استمتع بالتوازن المثالي مع فراب إت كوفي توفي. تمتزج القهوة الغنية مع نكهة التوفي الكريمية لتمنحك مشروبًا منعشًا ولذيذًا بجودة الكافيهات. يأتي في عبوة تضم 10 أكياس لتستمتع به في أي وقت.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404610"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404610",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-vanilla-box-10",
+    "name": "يلا فرابيت فانيلا بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 200 EGP • 6223004404603",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-vanilla-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/vanilla.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالمذاق الكلاسيكي لـ فراب إت فانيليا. تمتزج نكهة الفانيليا الغنية مع الثلج لتمنحك مشروبًا كريميًا ومنعش...",
+    "description": "استمتع بالمذاق الكلاسيكي لـ فراب إت فانيليا. تمتزج نكهة الفانيليا الغنية مع الثلج لتمنحك مشروبًا كريميًا ومنعشًا ومتوازنًا بطعم لا يُقاوم.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "200 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404603"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 200,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404603",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-frappit-spanish-latte-box-10",
+    "name": "يلا فرابيت سبانيش لاتية بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 220 EGP • 6223004404535",
+    "image": "/artwork/yalla-drinks/3d/yalla-frappit-spanish-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/spanish-latte.png",
+    "categoryTag": "فرابيه مثلج سريع التحضير",
+    "tagColor": "#0284C7",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالمذاق الغني مع فراب إت سبانيش لاتيه. تمتزج القهوة الناعمة مع لمسات الحليب الكريمية والحلاوة المتوازنة...",
+    "description": "استمتع بالمذاق الغني مع فراب إت سبانيش لاتيه. تمتزج القهوة الناعمة مع لمسات الحليب الكريمية والحلاوة المتوازنة لتمنحك مشروبًا منعشًا بقوام كريمي وتجربة كافيهات لا تُقاوم.",
+    "tasteMeters": [
+      {
+        "label": "كثافة النكهة",
+        "value": 96,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رغوة المايكروفوم",
+        "value": 97,
+        "color": "#10B981"
+      },
+      {
+        "label": "نعومة الملمس",
+        "value": 98,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "سرعة الذوبان البارد",
+        "value": 99,
+        "color": "#38BDF8"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "220 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404535"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 220,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404535",
+    "line": "frappit",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-mixed-berries-box-10",
+    "name": "يلا سموزي ميكس توت 10 ساشيت",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404764",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-mixed-berries-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mixed-berries.png",
+    "categoryTag": "سموزي فواكه طبيعية بودر",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بالمزيج الغني من نكهات التوت مع يلا سموزي مشكل التوت. يجمع بين المذاق الحلو والمنعش للتوت ليمنحك سموزي ...",
+    "description": "استمتع بالمزيج الغني من نكهات التوت مع يلا سموزي مشكل التوت. يجمع بين المذاق الحلو والمنعش للتوت ليمنحك سموزي ناعمًا ومثلجًا، مثاليًا للاستمتاع به في أي وقت من اليوم.",
+    "tasteMeters": [
+      {
+        "label": "كثافة الفاكهة الطبيعية",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "ملمس مخملي في الخلاط",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "حموضة منعشة",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "ثبات السلاش مع الثلج",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "210 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404764"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404764",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-mojito-box-10",
+    "name": "يلا سموزي  موخيتو 10 ساشيت",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404740",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-mojito-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/mojito.png",
+    "categoryTag": "سموزي فواكه طبيعية بودر",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "انتعش مع يلا سموزي موهيتو. يجمع بين نكهة الليمون المنعشة وبرودة النعناع ليمنحك سموذي ناعمًا ومثلجًا بطعم منعش ...",
+    "description": "انتعش مع يلا سموزي موهيتو. يجمع بين نكهة الليمون المنعشة وبرودة النعناع ليمنحك سموذي ناعمًا ومثلجًا بطعم منعش ومثالي لكل الأوقات.",
+    "tasteMeters": [
+      {
+        "label": "كثافة الفاكهة الطبيعية",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "ملمس مخملي في الخلاط",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "حموضة منعشة",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "ثبات السلاش مع الثلج",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "210 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404740"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404740",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-pina-colada-box-10",
+    "name": "يلا سموزي بينا كولادا 10 ساشيت",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404757",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-pina-colada-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pina-colada.png",
+    "categoryTag": "سموزي فواكه طبيعية بودر",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "اهرب إلى أجواء الجزر الاستوائية مع يلا سموزي بينا كولادا. يجمع بين المذاق المنعش للأناناس وجوز الهند الكريمي ل...",
+    "description": "اهرب إلى أجواء الجزر الاستوائية مع يلا سموزي بينا كولادا. يجمع بين المذاق المنعش للأناناس وجوز الهند الكريمي ليمنحك سموذي ناعمًا ومنعشًا، مثاليًا للاستمتاع به في أي وقت من اليوم.",
+    "tasteMeters": [
+      {
+        "label": "كثافة الفاكهة الطبيعية",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "ملمس مخملي في الخلاط",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "حموضة منعشة",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "ثبات السلاش مع الثلج",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "210 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404757"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404757",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-smoozy-pink-lemonade-box-10",
+    "name": "يلا سموزي بينك ليمون 10 ساشيت",
+    "subName": "10 Sachets Box • 210 EGP • 6223004404733",
+    "image": "/artwork/yalla-drinks/3d/yalla-smoozy-pink-lemonade-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/pink-lemonade.png",
+    "categoryTag": "سموزي فواكه طبيعية بودر",
+    "tagColor": "#F59E0B",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "أنعش يومك مع يلا سموزي بينك ليمونيد. يجمع بين نكهة الليمون المنعشة و الفراولة ولمسة من الحلاوة الفاكهية ليمنحك...",
+    "description": "أنعش يومك مع يلا سموزي بينك ليمونيد. يجمع بين نكهة الليمون المنعشة و الفراولة ولمسة من الحلاوة الفاكهية ليمنحك سموزي ناعمًا ومثلجًا بطعم منعش وحيوي في كل رشفة.",
+    "tasteMeters": [
+      {
+        "label": "كثافة الفاكهة الطبيعية",
+        "value": 97,
+        "color": "#F59E0B"
+      },
+      {
+        "label": "ملمس مخملي في الخلاط",
+        "value": 96,
+        "color": "#10B981"
+      },
+      {
+        "label": "حموضة منعشة",
+        "value": 94,
+        "color": "#EC4899"
+      },
+      {
+        "label": "ثبات السلاش مع الثلج",
+        "value": 98,
+        "color": "#0284C7"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "210 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004404733"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 210,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004404733",
+    "line": "smoozy",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-caffe-latte-box-10",
+    "name": "يلا كوفي لاتية 10 ساشيت",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405341",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-caffe-latte-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-cofe.png",
+    "categoryTag": "قهوة لاتيه باريستا فاخرة",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق Coffee مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "description": "استمتع بمذاق Coffee مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "tasteMeters": [
+      {
+        "label": "تحميص بن أرابيكا",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "رغوة حريرية غنية",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رائحة القهوة المركزة",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "توازن الحليب والكريمة",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405341"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405341",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-caramel-box-10",
+    "name": "يلا كوفي كارميل 10 ساشيت",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405358",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-caramel-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-caramel.png",
+    "categoryTag": "قهوة لاتيه باريستا فاخرة",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق Caramel مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "description": "استمتع بمذاق Caramel مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "tasteMeters": [
+      {
+        "label": "تحميص بن أرابيكا",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "رغوة حريرية غنية",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رائحة القهوة المركزة",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "توازن الحليب والكريمة",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405358"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405358",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-hazelnut-box-10",
+    "name": "يلا كوفي بندق 10 ساشيت",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405372",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-hazelnut-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-hazelnut.png",
+    "categoryTag": "قهوة لاتيه باريستا فاخرة",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق Hazelnut مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "description": "استمتع بمذاق Hazelnut مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "tasteMeters": [
+      {
+        "label": "تحميص بن أرابيكا",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "رغوة حريرية غنية",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رائحة القهوة المركزة",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "توازن الحليب والكريمة",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405372"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405372",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-koffi-mocha-box-10",
+    "name": "يلا كوفي موكا 10 ساشيت",
+    "subName": "10 Sachets Box • 180 EGP • 6223004405365",
+    "image": "/artwork/yalla-drinks/3d/yalla-koffi-mocha-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-koffi-mocha.png",
+    "categoryTag": "قهوة لاتيه باريستا فاخرة",
+    "tagColor": "#8B5CF6",
+    "weight": "25 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق Mocha مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "description": "استمتع بمذاق Mocha مع Yalla Koffi. تجربة غنية وسهلة التحضير تمنحك جودة الكافيه في أي وقت.",
+    "tasteMeters": [
+      {
+        "label": "تحميص بن أرابيكا",
+        "value": 96,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "رغوة حريرية غنية",
+        "value": 95,
+        "color": "#0284C7"
+      },
+      {
+        "label": "رائحة القهوة المركزة",
+        "value": 97,
+        "color": "#D97706"
+      },
+      {
+        "label": "توازن الحليب والكريمة",
+        "value": 94,
+        "color": "#10B981"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "180 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "6223004405365"
+      }
+    ],
+    "keyBenefits": [
+      "سهل التحضير",
+      "مذاق غني",
+      "جودة عالية"
+    ],
+    "inStock": true,
+    "priceEgp": 180,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "barcode": "6223004405365",
+    "line": "koffi",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-choco-classic-box-10",
+    "name": "يلا شوكو كلاسيك شوكولاتة إيطالية ساخنة بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 195 EGP",
+    "image": "/artwork/yalla-drinks/3d/yalla-choco-classic-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-choco-hot-chocolate.png",
+    "categoryTag": "شوكولاتة ساخنة فاخرة",
+    "tagColor": "#D97706",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "استمتع بمذاق الشوكولاتة الساخنة الإيطالية الفاخرة بقوام كريمي كثيف ومخملي مصنوعة من أجود أنواع الكاكاو الهولند...",
+    "description": "استمتع بمذاق الشوكولاتة الساخنة الإيطالية الفاخرة بقوام كريمي كثيف ومخملي مصنوعة من أجود أنواع الكاكاو الهولندي الفاخر.",
+    "tasteMeters": [
+      {
+        "label": "غنى الكاكاو الهولندي",
+        "value": 98,
+        "color": "#D97706"
+      },
+      {
+        "label": "قوام شوكولاتة كثيف",
+        "value": 97,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "طابع إيطالي أصيل",
+        "value": 96,
+        "color": "#DC2626"
+      },
+      {
+        "label": "تناغم الحلاوة",
+        "value": 94,
+        "color": "#F59E0B"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "195 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "قوام إيطالي كثيف",
+      "كاكاو هولندي فاخر",
+      "رغوة مخملية سريعة التحضير"
+    ],
+    "inStock": true,
+    "priceEgp": 195,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "line": "choco",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  },
+  {
+    "id": "yalla-choco-hazelnut-box-10",
+    "name": "يلا شوكو شوكولاتة ساخنة بالبندق بوكس 10 ساشيت",
+    "subName": "10 Sachets Box • 195 EGP",
+    "image": "/artwork/yalla-drinks/3d/yalla-choco-hazelnut-box.png",
+    "hoverImage": "/artwork/yalla-drinks/thumbnails/yalla-choco-hot-chocolate-hazelnut.png",
+    "categoryTag": "شوكولاتة ساخنة فاخرة",
+    "tagColor": "#D97706",
+    "weight": "35 g",
+    "servings": "10 sachets",
+    "flavorProfile": "شوكولاتة ساخنة فاخرة ممزوجة بنكهة البندق المحمص وقوام كريمي دافئ وغني بجودة المقاهي العالمية.",
+    "description": "شوكولاتة ساخنة فاخرة ممزوجة بنكهة البندق المحمص وقوام كريمي دافئ وغني بجودة المقاهي العالمية.",
+    "tasteMeters": [
+      {
+        "label": "غنى الكاكاو الهولندي",
+        "value": 98,
+        "color": "#D97706"
+      },
+      {
+        "label": "قوام شوكولاتة كثيف",
+        "value": 97,
+        "color": "#8B5CF6"
+      },
+      {
+        "label": "طابع إيطالي أصيل",
+        "value": 96,
+        "color": "#DC2626"
+      },
+      {
+        "label": "تناغم الحلاوة",
+        "value": 94,
+        "color": "#F59E0B"
+      }
+    ],
+    "nutritionFacts": [
+      {
+        "label": "السعر الرسمي",
+        "value": "195 EGP"
+      },
+      {
+        "label": "العبوة والتنسيق",
+        "value": "10 Sachets Box"
+      },
+      {
+        "label": "صلاحية المنتج",
+        "value": "18 months"
+      },
+      {
+        "label": "باركود دولي",
+        "value": "AWA-Verified"
+      }
+    ],
+    "keyBenefits": [
+      "نكهة البندق المحمص",
+      "قوام كريمي غني",
+      "بدون ماكينة إسبريسو"
+    ],
+    "inStock": true,
+    "priceEgp": 195,
+    "packType": "10 Sachets Box",
+    "dietaryTags": [],
+    "line": "choco",
+    "buyUrl": "https://awa-shopping-chi.vercel.app/ar/yalla-drinks"
+  }
+],
     story: {
       title: 'إعادة ابتكار تجربة المشروبات سريعة التحضير',
       subtitle: 'تكنولوجيا مستحلبات ومشروبات الباريستا من AWA',

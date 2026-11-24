@@ -96,6 +96,58 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             </p>
           </div>
 
+          {/* Official Shopping Site Announcement Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+            borderRadius: '20px',
+            padding: '1.5rem 2rem',
+            marginBottom: '2.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1.25rem',
+            color: '#FFFFFF',
+            boxShadow: '0 10px 25px rgba(15, 23, 42, 0.12)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4ADE80' }}>
+                <ShoppingBag size={24} />
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0, color: '#FFFFFF' }}>
+                  {isAr ? 'متجر AWA الرسمي للتسوق الإلكتروني متاح الآن!' : 'AWA Official Online Store is Now Live!'}
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: '#94A3B8', margin: '4px 0 0 0' }}>
+                  {isAr
+                    ? 'تسوق كافة منتجات Sweet & Slim و Yalla Drinks و Squ\'easy و Sirri مباشرة بالأسعار الرسمية المعتمدة والتوصيل المنزلي.'
+                    : 'Shop the complete verified Sweet & Slim, Yalla Drinks, Squ’easy and Sirri catalogs with official retail pricing.'}
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://awa-shopping-chi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+              style={{
+                background: '#00A84F',
+                borderColor: '#00A84F',
+                color: '#FFFFFF',
+                fontWeight: 800,
+                padding: '0.75rem 1.5rem',
+                borderRadius: '10px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                textDecoration: 'none'
+              }}
+            >
+              <span>{isAr ? 'زيارة المتجر الرسمي ↗' : 'Visit Official Store ↗'}</span>
+              <ExternalLink size={15} />
+            </a>
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* Sweet & Slim Card */}
             <div 
@@ -110,12 +162,17 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #059669 0%, #10B981 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px', width: 'fit-content' }}>
-                  {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px' }}>
+                    {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#FFFFFF', color: '#059669', padding: '3px 8px', borderRadius: '8px' }}>
+                    {isAr ? '21 منتج معتمد' : '21 SKUs Verified'}
+                  </span>
+                </div>
                 <div>
                   <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.25rem' }}>Sweet &amp; Slim</h3>
-                  <span style={{ fontSize: '0.85rem', opacity: 0.9 }}>{isAr ? 'محليات ومنتجات مريحة' : 'Sweeteners & Functional Formats'}</span>
+                  <span style={{ fontSize: '0.85rem', opacity: 0.9 }}>{isAr ? 'محليات ومنتجات دايت وظيفية' : '0-Calorie Sweeteners & Functional Formats'}</span>
                 </div>
               </div>
 
@@ -123,14 +180,14 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 <div>
                   <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
                     {isAr
-                      ? 'منتجات التحلية والأغذية والمشروبات المريحة التي تشمل المحليات المكتبية والنعناع الخالي من السكر وتنسيقات المشروبات الفورية.'
-                      : 'Sweetening and convenient food-and-beverage products spanning tabletop sweeteners, sugar-free mints and instant drink formats.'}
+                      ? 'العلامة الرائدة في المحليات الخالية من السعرات والأسبرتام، وعلب الحلوى والنعناع، ومشروبات القهوة والشوكولاتة والسموذي المدعم.'
+                      : 'Market leader in sucralose & stevia zero-calorie tabletop sweeteners, pocket sliding mint tins, instant 3-in-1 coffees, and functional smoothies.'}
                   </p>
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
                     {(isAr 
-                      ? ['المحليات', 'نعناع خالي من السكر', 'قهوة وشوكولاتة سريعة التحضير', 'منتجات وظيفية']
-                      : ['Sweeteners', 'Sugar-free mints', 'Instant coffee & chocolate', 'Functional products']
+                      ? ['خط المحليات (10)', 'حلوى ونعناع (5)', 'مشروبات ساخنة (4)', 'سموذي وعصائر (2)']
+                      : ['Sugar Line (10)', 'Pocket Candy (5)', 'Hot Beverages (4)', 'Cold Smoothies (2)']
                     ).map((chip, cIdx) => (
                       <span key={cIdx} style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-main)', border: '1px solid var(--border-color)' }}>
                         {chip}
@@ -139,14 +196,26 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                   </div>
                 </div>
 
-                <Link 
-                  to="/brands/sweet-and-slim" 
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                >
-                  <span>{isAr ? 'استكشف عالم Sweet & Slim' : 'Explore Sweet & Slim'}</span>
-                  <ArrowRight size={15} />
-                </Link>
+                <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+                  <Link 
+                    to="/brands/sweet-and-slim" 
+                    className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    <span>{isAr ? 'استكشف كتالوج Sweet & Slim' : 'Explore Sweet & Slim'}</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                  <a
+                    href={`https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sweet-and-slim`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem 1rem' }}
+                  >
+                    <ShoppingBag size={14} style={{ color: '#059669' }} />
+                    <span>{isAr ? 'شراء أونلاين عبر المتجر الرسمي ↗' : 'Buy Online on Official Store ↗'}</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -163,12 +232,17 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px', width: 'fit-content' }}>
-                  {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px' }}>
+                    {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#FFFFFF', color: '#D97706', padding: '3px 8px', borderRadius: '8px' }}>
+                    {isAr ? '21 منتج معتمد' : '21 SKUs Verified'}
+                  </span>
+                </div>
                 <div>
                   <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.25rem' }}>Yalla Drinks</h3>
-                  <span style={{ fontSize: '0.85rem', opacity: 0.9 }}>{isAr ? 'مشروبات بأسلوب الكافيه' : 'Café-Style Beverage Formats'}</span>
+                  <span style={{ fontSize: '0.85rem', opacity: 0.9 }}>{isAr ? 'مشروبات باريستا وكافيه فورية' : 'Café-Style Beverage Formats'}</span>
                 </div>
               </div>
 
@@ -176,12 +250,17 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 <div>
                   <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
                     {isAr
-                      ? 'تنسيقات مشروبات بأسلوب الكافيه تشمل Frappit و Smoozy و Koffi و Choco، إلى جانب تطبيقات المشروبات الاحترافية المختارة.'
-                      : 'Café-style beverage formats including Frappit, Smoozy, Koffi and Choco, alongside selected professional beverage applications.'}
+                      ? 'مشروبات بأسلوب الكافيه تشمل Frappit المثلجة، و Smoozy الفواكه الطبيعية، و Koffi اللاتيه الساخن، و Choco الشوكولاتة الإيطالية الفاخرة.'
+                      : 'Café-grade beverage systems spanning Frapp it iced frappes, Smoozy real fruit refreshers, Koffi rich latte blends, and Choco Italian hot chocolate.'}
                   </p>
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                    {['Frappit', 'Smoozy', 'Yalla Koffi', 'Yalla Choco'].map((chip, cIdx) => (
+                    {[
+                      isAr ? 'فراب إت (11)' : 'Frapp it (11)',
+                      isAr ? 'سموزي (4)' : 'Smoozy (4)',
+                      isAr ? 'يلا كوفي (4)' : 'Yalla Koffi (4)',
+                      isAr ? 'يلا شوكو (2)' : 'Yalla Choco (2)'
+                    ].map((chip, cIdx) => (
                       <span key={cIdx} style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-main)', border: '1px solid var(--border-color)' }}>
                         {chip}
                       </span>
@@ -189,14 +268,26 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                   </div>
                 </div>
 
-                <Link 
-                  to="/brands/yalla-drinks" 
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', backgroundColor: '#D97706' }}
-                >
-                  <span>{isAr ? 'استكشف عالم Yalla Drinks' : 'Explore Yalla Drinks'}</span>
-                  <ArrowRight size={15} />
-                </Link>
+                <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+                  <Link 
+                    to="/brands/yalla-drinks" 
+                    className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', backgroundColor: '#D97706' }}
+                  >
+                    <span>{isAr ? 'استكشف عالم Yalla Drinks' : 'Explore Yalla Drinks'}</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                  <a
+                    href={`https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/yalla-drinks`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem 1rem' }}
+                  >
+                    <ShoppingBag size={14} style={{ color: '#D97706' }} />
+                    <span>{isAr ? 'شراء أونلاين عبر المتجر الرسمي ↗' : 'Buy Online on Official Store ↗'}</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -213,9 +304,14 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #DC2626 0%, #EF4444 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px', width: 'fit-content' }}>
-                  {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.2)', padding: '4px 10px', borderRadius: '20px' }}>
+                    {isAr ? 'علامة AWA المملوكة' : 'AWA-OWNED BRAND'}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#FFFFFF', color: '#DC2626', padding: '3px 8px', borderRadius: '8px' }}>
+                    {isAr ? '4 منتجات معتمدة' : '4 SKUs Verified'}
+                  </span>
+                </div>
                 <div>
                   <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.25rem' }}>Squ'easy</h3>
                   <span style={{ fontSize: '0.85rem', opacity: 0.9 }}>Garlic &amp; Harissa Culinary Preparations</span>
@@ -226,33 +322,44 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 <div>
                   <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem' }}>
                     {isAr
-                      ? 'مستحضرات الثوم والهريسة الموفرة للوقت التي تلبي متطلبات الطهي المنزلي واحتياجات مطابخ المطاعم المهنية المختارة.'
-                      : 'Time-saving garlic and harissa preparations serving home cooking and selected professional kitchen needs.'}
+                      ? 'مستحضرات الثوم والهريسة الموفرة للوقت المصنوعة من فصوص ثوم طازجة وفلفل حار مختار بعناية للطهي اليومي والمطاعم.'
+                      : 'Time-saving garlic and harissa preparations made from hand-selected cloves and chili peppers for home kitchens and chefs.'}
                   </p>
 
-                  <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--dark-navy)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-                    {isAr ? 'المنتجات الرئيسية:' : 'Key Product Lines:'}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                    {[
+                      isAr ? 'ثوم مفروم برطمان 250جم' : 'Minced Garlic Jar 250g',
+                      isAr ? 'معجون ثوم باوتش 250جم' : 'Garlic Paste Pouch 250g',
+                      isAr ? 'معجون ثوم 50 ساشيت' : '50 Garlic Sachets',
+                      isAr ? 'هريسة حارة 200جم' : 'Harissa Hot Sauce 200g'
+                    ].map((chip, cIdx) => (
+                      <span key={cIdx} style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-main)', border: '1px solid var(--border-color)' }}>
+                        {chip}
+                      </span>
+                    ))}
                   </div>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                      <CheckCircle2 size={13} style={{ color: '#DC2626' }} />
-                      <span>{isAr ? 'معجون الثوم' : 'Garlic paste'}</span>
-                    </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                      <CheckCircle2 size={13} style={{ color: '#DC2626' }} />
-                      <span>{isAr ? 'الهريسة التونسية' : 'Harissa'}</span>
-                    </li>
-                  </ul>
                 </div>
 
-                <Link 
-                  to="/brands/squeasy" 
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', backgroundColor: '#DC2626' }}
-                >
-                  <span>{isAr ? 'استكشف عالم Squ\'easy' : 'Explore Squ\'easy Showcase'}</span>
-                  <ArrowRight size={15} />
-                </Link>
+                <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+                  <Link 
+                    to="/brands/squeasy" 
+                    className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', backgroundColor: '#DC2626' }}
+                  >
+                    <span>{isAr ? 'استكشف عالم Squ\'easy' : 'Explore Squ\'easy Showcase'}</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                  <a
+                    href={`https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/squeasy`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.65rem 1rem' }}
+                  >
+                    <ShoppingBag size={14} style={{ color: '#DC2626' }} />
+                    <span>{isAr ? 'شراء أونلاين عبر المتجر الرسمي ↗' : 'Buy Online on Official Store ↗'}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -337,11 +444,21 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/brands/sirri" className="btn btn-primary">
                   <span>{isAr ? 'استكشف عالم SIRRI والشوربات الفورية' : 'Explore SIRRI Showcase & Instant Soups'}</span>
                   <ArrowRight size={15} />
                 </Link>
+                <a 
+                  href={`https://awa-shopping-chi.vercel.app/${isAr ? 'ar' : 'en'}/sirri`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  <ShoppingBag size={14} style={{ color: '#00A84F' }} />
+                  <span>{isAr ? 'شراء أونلاين ↗' : 'Shop Online ↗'}</span>
+                </a>
                 <Link to="/food-services#culinary-savory" className="btn btn-secondary">
                   <span>{isAr ? 'التطبيقات المطبخية المهنية ↗' : 'Professional Culinary ↗'}</span>
                 </Link>
