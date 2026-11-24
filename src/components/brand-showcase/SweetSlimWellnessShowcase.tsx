@@ -26,8 +26,8 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
     title: 'Daily Table-Top Sachets & Value Dispensers',
     badge: 'Daily Essentials',
     tagline: '1 Stick Replaces 2 Teaspoons of Sugar with 0 Calories & 0 Glycemic Index',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
-    companionImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
+    leadImage: '/artwork/sweet-and-slim/3d/classic-100-box.png',
+    companionImage: '/artwork/sweet-and-slim/3d/extra-50-box.png',
     color: '#10B981',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #ECFDF5 0%, #D1FAE5 40%, #F8FAFC 80%)',
     textColor: '#047857',
@@ -55,8 +55,8 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
     title: 'Artisan Sugar-Free Pocket Breath Mints',
     badge: 'Pocket Fresh',
     tagline: 'Collectible Metal Sliding Tins with Natural Essential Oils & Zero Tooth Decay',
-    leadImage: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim Spearmint Tin.png',
-    companionImage: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim peach Tin.png',
+    leadImage: '/artwork/sweet-and-slim/3d/mints-spearmint-tin.png',
+    companionImage: '/artwork/sweet-and-slim/3d/mints-peach-tin.png',
     color: '#06B6D4',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #CFFAFE 0%, #A5F3FC 40%, #F8FAFC 80%)',
     textColor: '#0E7490',
@@ -84,7 +84,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
     title: 'Instant Zero-Calorie Liquid Dropper',
     badge: 'Cold Mixology',
     tagline: 'Instant Cold-Soluble Dropper Bottle for Iced Lattes, Cocktails & Juices',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
+    leadImage: '/artwork/sweet-and-slim/3d/lite-syrup-bottle.png',
     color: '#3B82F6',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #DBEAFE 0%, #BFDBFE 40%, #F8FAFC 80%)',
     textColor: '#1D4ED8',
@@ -112,8 +112,8 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
     title: 'Diet Hot Cocoa & 3-in-1 Coffee Boxes',
     badge: 'Warm Indulgence',
     tagline: 'Decadent Dutch Chocolate & Arabica Coffee with Zero Added Table Sugar',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
-    companionImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Sachet/sachet hot choco-Sachet 1.png',
+    leadImage: '/artwork/sweet-and-slim/3d/hot-chocolate-box.png',
+    companionImage: '/artwork/sweet-and-slim/3d/3in1-extra-box.png',
     color: '#8B5CF6',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #EDE9FE 0%, #DDD6FE 40%, #F8FAFC 80%)',
     textColor: '#6D28D9',
@@ -144,8 +144,8 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
     title: 'أظرف التحلية اليومية وعلب التوفير',
     badge: 'الأساسيات اليومية',
     tagline: 'ظرف واحد يحل محل ملعقتين سكر بصفر سعرات وصفر مؤشر جلايسيمي',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 classic-View 4.png',
-    companionImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 50 Sachets/50 extra-View 4.png',
+    leadImage: '/artwork/sweet-and-slim/3d/classic-100-box.png',
+    companionImage: '/artwork/sweet-and-slim/3d/extra-50-box.png',
     color: '#10B981',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #ECFDF5 0%, #D1FAE5 40%, #F8FAFC 80%)',
     textColor: '#047857',
@@ -173,8 +173,8 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
     title: 'حلوى نعناع الجيب الفاخرة بدون سكر',
     badge: 'انتعاش الجيب',
     tagline: 'علب معدنية منزلقة أنيقة بزيوت طبيعية وبدون أي تسوس للأسنان',
-    leadImage: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim Spearmint Tin.png',
-    companionImage: '/images/products/Sweet & Slim Collection/Mints/Tray & Tint/Copy of Sweet & Slim peach Tin.png',
+    leadImage: '/artwork/sweet-and-slim/3d/mints-spearmint-tin.png',
+    companionImage: '/artwork/sweet-and-slim/3d/mints-peach-tin.png',
     color: '#06B6D4',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #CFFAFE 0%, #A5F3FC 40%, #F8FAFC 80%)',
     textColor: '#0E7490',
@@ -202,7 +202,7 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
     title: 'قطارة التحلية السائلة الفورية',
     badge: 'ذوبان بارد فوري',
     tagline: 'زجاجة قطارة فورية الذوبان للأيس كوفي والعصائر المثلجة والكوكتيلات',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Sweetener/boxes/Boxes 100 sachets/100 Classic-View 1.png',
+    leadImage: '/artwork/sweet-and-slim/3d/lite-syrup-bottle.png',
     color: '#3B82F6',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #DBEAFE 0%, #BFDBFE 40%, #F8FAFC 80%)',
     textColor: '#1D4ED8',
@@ -230,8 +230,8 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
     title: 'مشروب الشوكولاتة الساخنة دايت',
     badge: 'دفء دايت فاخر',
     tagline: 'كاكاو هولندي غني وبندق محمص بدون أي سكر مائدة مضاف',
-    leadImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
-    companionImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Sachet/sachet hot choco-Sachet 1.png',
+    leadImage: '/artwork/sweet-and-slim/3d/hot-chocolate-box.png',
+    companionImage: '/artwork/sweet-and-slim/3d/3in1-extra-box.png',
     color: '#8B5CF6',
     lightGradient: 'radial-gradient(ellipse at 50% 30%, #EDE9FE 0%, #DDD6FE 40%, #F8FAFC 80%)',
     textColor: '#6D28D9',
@@ -425,7 +425,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
           </div>
 
           {/* Right Column: 3D Transparent Floating Packs Stage */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '380px' }}>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '520px' }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activePillar.id}
@@ -449,9 +449,9 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                   src={activePillar.leadImage}
                   alt={activePillar.title}
                   style={{
-                    height: '350px',
+                    height: 'clamp(460px, 38vw, 540px)',
                     width: 'auto',
-                    maxWidth: '260px',
+                    maxWidth: '440px',
                     objectFit: 'contain',
                     filter: 'none',
                   }}
@@ -477,11 +477,11 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                     alt="Companion Pack"
                     style={{
                       position: 'absolute',
-                      bottom: '-10px',
-                      right: '-15px',
-                      height: '160px',
+                      bottom: '-20px',
+                      right: '-30px',
+                      height: 'clamp(210px, 18vw, 260px)',
                       width: 'auto',
-                      maxWidth: '100px',
+                      maxWidth: '170px',
                       objectFit: 'contain',
                       filter: 'none',
                       zIndex: 20,
