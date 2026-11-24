@@ -374,68 +374,66 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 02: TECHNICAL EXPERTISE, TAILORED (SPLIT)   */}
-      {/* (IMAGE 1 SPECIFICATION: PHOTO + TEXT + 3 ITEMS)     */}
+      {/* (IMAGE 1 SPECIFICATION: FULL BLEED LEFT PHOTO)      */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="ref-sec-technical">
-        <div className="ref-container">
-          <div className="ref-tech-layout">
-            {/* Left: Stainless Steel Dairy Pouring Machine Photo */}
-            <div className="ref-tech-photo-wrap">
-              <img
-                src="/images/pages/home/technical-machinery-milk.jpg"
-                alt="Technical Food Processing Equipment"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/pages/home/dairy-filling-machine.png';
-                }}
-              />
+        <div className="ref-tech-bleed-wrap">
+          {/* Left: Stainless Steel Dairy Pouring Machine Photo (Full Bleed to Left Edge) */}
+          <div className="ref-tech-photo-wrap">
+            <img
+              src="/images/pages/home/technical-machinery-milk.jpg"
+              alt="Technical Food Processing Equipment"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/pages/home/dairy-filling-machine.png';
+              }}
+            />
+          </div>
+
+          {/* Center: Editorial Heading & Description */}
+          <div className="ref-tech-center">
+            <div className="ref-eyebrow">
+              <span>•</span>
+              <span>{isAr ? 'الخبرة التكنولوجية والتطبيقية' : 'TECHNICAL EXPERTISE'}</span>
             </div>
 
-            {/* Center: Editorial Heading & Description */}
-            <div className="ref-tech-center">
-              <div className="ref-eyebrow">
-                <span>•</span>
-                <span>{isAr ? 'الخبرة التكنولوجية والتطبيقية' : 'TECHNICAL EXPERTISE'}</span>
-              </div>
+            <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.7vw, 2.3rem)' }}>
+              {isAr ? 'خبرة فنية، مصممة ' : 'Technical expertise, '} <br />
+              {isAr ? 'خصيصاً ' : 'tailored to '}
+              <span className="green-text">
+                {isAr ? 'لتطبيقاتك.' : 'your\napplication.'}
+              </span>
+            </h2>
 
-              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.7vw, 2.3rem)' }}>
-                {isAr ? 'خبرة فنية، مصممة ' : 'Technical expertise, '} <br />
-                {isAr ? 'خصيصاً ' : 'tailored to '}
-                <span className="green-text">
-                  {isAr ? 'لتطبيقاتك.' : 'your\napplication.'}
-                </span>
-              </h2>
+            <p className="ref-desc">
+              {isAr
+                ? 'تساعدك خبرتنا العميقة في صناعة الأغذية وفهمنا الدقيق لمعايير التشغيل على تحويل الأفكار والتركيبات إلى حلول قابلة للتطوير وموثوقة الإنتاج.'
+                : 'Our in-depth knowledge and industry experience help you turn ideas into reliable, scalable solutions.'}
+            </p>
 
-              <p className="ref-desc">
-                {isAr
-                  ? 'تساعدك خبرتنا العميقة في صناعة الأغذية وفهمنا الدقيق لمعايير التشغيل على تحويل الأفكار والتركيبات إلى حلول قابلة للتطوير وموثوقة الإنتاج.'
-                  : 'Our in-depth knowledge and industry experience help you turn ideas into reliable, scalable solutions.'}
-              </p>
+            <Link to="/capabilities" className="ref-link-green">
+              <span>{isAr ? 'اكتشف قدراتنا' : 'Discover our capabilities'}</span>
+              <ArrowRight size={13} className="rtl:rotate-180" />
+            </Link>
+          </div>
 
-              <Link to="/capabilities" className="ref-link-green">
-                <span>{isAr ? 'اكتشف قدراتنا' : 'Discover our capabilities'}</span>
-                <ArrowRight size={13} className="rtl:rotate-180" />
-              </Link>
-            </div>
-
-            {/* Right: 3 Horizontally Aligned Items with Mint Circle Icons */}
-            <div className="ref-tech-right">
-              {capabilitiesList.map((cap) => (
-                <Link
-                  key={cap.id}
-                  to={cap.route}
-                  className="ref-tech-item"
-                >
-                  <div className="ref-tech-item-left">
-                    <span className="ref-tech-num">{cap.num}</span>
-                    <div className="ref-tech-icon">
-                      {cap.icon}
-                    </div>
-                    <span className="ref-tech-name">{cap.title}</span>
+          {/* Right: 3 Horizontally Aligned Items with Mint Circle Icons */}
+          <div className="ref-tech-right">
+            {capabilitiesList.map((cap) => (
+              <Link
+                key={cap.id}
+                to={cap.route}
+                className="ref-tech-item"
+              >
+                <div className="ref-tech-item-left">
+                  <span className="ref-tech-num">{cap.num}</span>
+                  <div className="ref-tech-icon">
+                    {cap.icon}
                   </div>
-                  <span className="ref-tech-arrow">↗</span>
-                </Link>
-              ))}
-            </div>
+                  <span className="ref-tech-name">{cap.title}</span>
+                </div>
+                <span className="ref-tech-arrow">↗</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -598,59 +596,57 @@ export const HomePage: React.FC<HomeProps> = () => {
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 05: RESPONSIBLE GROWTH. LASTING IMPACT.     */}
-      {/* (IMAGE 1 SPECIFICATION: SPROUT PHOTO + 5 COLUMNS)   */}
+      {/* (IMAGE 1 SPECIFICATION: FULL BLEED LEFT SPROUT)     */}
       {/* ═══════════════════════════════════════════════════ */}
       <section className="ref-sec-sustain">
-        <div className="ref-container">
-          <div className="ref-sustain-layout">
-            {/* Left: Seedling Sprout Photo */}
-            <div className="ref-sustain-photo-wrap">
-              <img 
-                src="/images/pages/home/sustainability-green-seedling.jpg" 
-                alt="Responsible Growth & Agriculture" 
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/pages/sustainability/sustainability.jpg';
-                }}
-              />
-            </div>
+        <div className="ref-sustain-bleed-wrap">
+          {/* Left: Seedling Sprout Photo (Full Bleed to Left Edge) */}
+          <div className="ref-sustain-photo-wrap">
+            <img 
+              src="/images/pages/home/sustainability-green-seedling.jpg" 
+              alt="Responsible Growth & Agriculture" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/pages/sustainability/sustainability.jpg';
+              }}
+            />
+          </div>
 
-            {/* Center: Editorial Headline & Description */}
-            <div className="ref-sustain-center">
-              <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)' }}>
-                {isAr ? 'نمو مسؤول.' : 'Responsible Growth.'} <br />
-                <span className="green-text">{isAr ? 'وأثر دائم.' : 'Lasting Impact.'}</span>
-              </h2>
-              <p className="ref-desc">
-                {isAr
-                  ? 'بناء مستقبل غذائي أكثر استدامة عبر الممارسات المسؤولة والابتكار.'
-                  : 'Building a more sustainable food future through responsible practices and innovation.'}
-              </p>
-              <Link to="/sustainability" className="ref-pill-btn outline" style={{ borderColor: '#00A84F', color: '#00A84F' }}>
-                <span>{isAr ? 'أثرنا في الاستدامة' : 'Our impact'}</span>
-                <ArrowRight size={13} className="rtl:rotate-180" />
-              </Link>
-            </div>
+          {/* Center: Editorial Headline & Description */}
+          <div className="ref-sustain-center">
+            <h2 className="ref-title" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)' }}>
+              {isAr ? 'نمو مسؤول.' : 'Responsible Growth.'} <br />
+              <span className="green-text">{isAr ? 'وأثر دائم.' : 'Lasting Impact.'}</span>
+            </h2>
+            <p className="ref-desc">
+              {isAr
+                ? 'بناء مستقبل غذائي أكثر استدامة عبر الممارسات المسؤولة والابتكار.'
+                : 'Building a more sustainable food future through responsible practices and innovation.'}
+            </p>
+            <Link to="/sustainability" className="ref-pill-btn outline" style={{ borderColor: '#00A84F', color: '#00A84F' }}>
+              <span>{isAr ? 'أثرنا في الاستدامة' : 'Our impact'}</span>
+              <ArrowRight size={13} className="rtl:rotate-180" />
+            </Link>
+          </div>
 
-            {/* Right: 5 Horizontal Columns with Thin Line Dividers */}
-            <div className="ref-sustain-pillars">
-              {[
-                { num: '01', title: isAr ? 'التوريد المستدام' : 'Sustainable\nSourcing', icon: <Leaf size={22} strokeWidth={1.8} /> },
-                { num: '02', title: isAr ? 'المسؤولية البيئية' : 'Environmental\nResponsibility', icon: <Recycle size={22} strokeWidth={1.8} /> },
-                { num: '03', title: isAr ? 'دعم المجتمع' : 'Community\nSupport', icon: <Users size={22} strokeWidth={1.8} /> },
-                { num: '04', title: isAr ? 'سلامة الغذاء والجودة' : 'Food Safety\n& Quality', icon: <ShieldCheck size={22} strokeWidth={1.8} /> },
-                { num: '05', title: isAr ? 'الابتكار لغد أفضل' : 'Innovation\nfor a Better\nTomorrow', icon: <Lightbulb size={22} strokeWidth={1.8} /> },
-              ].map((pillar) => (
-                <div key={pillar.num} className="ref-sustain-col">
-                  <span className="ref-sustain-num">{pillar.num}</span>
-                  <div className="ref-sustain-icon">
-                    {pillar.icon}
-                  </div>
-                  <strong className="ref-sustain-name">
-                    {pillar.title}
-                  </strong>
+          {/* Right: 5 Horizontal Columns with Thin Line Dividers */}
+          <div className="ref-sustain-pillars">
+            {[
+              { num: '01', title: isAr ? 'التوريد المستدام' : 'Sustainable\nSourcing', icon: <Leaf size={22} strokeWidth={1.8} /> },
+              { num: '02', title: isAr ? 'المسؤولية البيئية' : 'Environmental\nResponsibility', icon: <Recycle size={22} strokeWidth={1.8} /> },
+              { num: '03', title: isAr ? 'دعم المجتمع' : 'Community\nSupport', icon: <Users size={22} strokeWidth={1.8} /> },
+              { num: '04', title: isAr ? 'سلامة الغذاء والجودة' : 'Food Safety\n& Quality', icon: <ShieldCheck size={22} strokeWidth={1.8} /> },
+              { num: '05', title: isAr ? 'الابتكار لغد أفضل' : 'Innovation\nfor a Better\nTomorrow', icon: <Lightbulb size={22} strokeWidth={1.8} /> },
+            ].map((pillar) => (
+              <div key={pillar.num} className="ref-sustain-col">
+                <span className="ref-sustain-num">{pillar.num}</span>
+                <div className="ref-sustain-icon">
+                  {pillar.icon}
                 </div>
-              ))}
-            </div>
+                <strong className="ref-sustain-name">
+                  {pillar.title}
+                </strong>
+              </div>
+            ))}
           </div>
         </div>
       </section>
