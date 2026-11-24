@@ -48,36 +48,62 @@ export const SkuGrid3D: React.FC<SkuGrid3DProps> = ({ brand, onOpenQuote }) => {
           </p>
         </div>
 
-        {/* Category Filter Chips */}
-        <div style={{
-          display: 'flex',
-          gap: '0.4rem',
-          background: isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)',
-          padding: '0.3rem',
-          borderRadius: '14px',
-          border: isLight ? '1px solid rgba(0,0,0,0.08)' : '1px solid rgba(255,255,255,0.1)'
-        }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              style={{
-                padding: '0.4rem 1rem',
-                borderRadius: '10px',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                textTransform: 'capitalize',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                backgroundColor: activeCategory === cat ? (isLight ? '#0F172A' : '#FFFFFF') : 'transparent',
-                color: activeCategory === cat ? '#FFFFFF' : 'inherit',
-                opacity: activeCategory === cat ? 1 : 0.7,
-              }}
-            >
-              {cat === 'all' ? (language === 'ar' ? 'الكل' : 'All') : cat}
-            </button>
-          ))}
+        {/* Category Filter Chips & Direct Store Action */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div style={{
+            display: 'flex',
+            gap: '0.4rem',
+            background: isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)',
+            padding: '0.3rem',
+            borderRadius: '14px',
+            border: isLight ? '1px solid rgba(0,0,0,0.08)' : '1px solid rgba(255,255,255,0.1)',
+            flexWrap: 'wrap'
+          }}>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                style={{
+                  padding: '0.4rem 1rem',
+                  borderRadius: '10px',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  textTransform: 'capitalize',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  backgroundColor: activeCategory === cat ? (isLight ? '#0F172A' : '#FFFFFF') : 'transparent',
+                  color: activeCategory === cat ? (isLight ? '#FFFFFF' : '#0F172A') : 'inherit',
+                  opacity: activeCategory === cat ? 1 : 0.7,
+                }}
+              >
+                {cat === 'all' ? (language === 'ar' ? 'الكل' : 'All') : cat}
+              </button>
+            ))}
+          </div>
+
+          <a
+            href={`https://awa-shopping-chi.vercel.app/${language === 'ar' ? 'ar' : 'en'}/${brand.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: '0.55rem 1.1rem',
+              borderRadius: '12px',
+              fontSize: '0.8rem',
+              fontWeight: 800,
+              backgroundColor: '#00A84F',
+              color: '#FFFFFF',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              boxShadow: '0 4px 12px rgba(0,168,79,0.3)',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <ShoppingBag size={14} />
+            <span>{language === 'ar' ? 'المتجر الإلكتروني ↗' : 'Shop Online ↗'}</span>
+          </a>
         </div>
       </div>
 

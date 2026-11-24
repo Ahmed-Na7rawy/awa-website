@@ -83,15 +83,33 @@ export const BrandNavBar: React.FC<BrandNavBarProps> = ({
           })}
         </div>
 
-        {/* Right: Quick Action CTA */}
-        <button
-          onClick={onOpenQuote}
-          className="fmcg-nav-cta"
-          style={{ backgroundColor: currentBrand.theme.primary }}
-        >
-          <ShoppingBag size={15} />
-          <span>{language === 'ar' ? 'استفسارات التوزيع والتوريد' : 'Distribution Inquiries'}</span>
-        </button>
+        {/* Right: Quick Action CTAs */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <a
+            href={`https://awa-shopping-chi.vercel.app/${language === 'ar' ? 'ar' : 'en'}/${activeBrandId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fmcg-nav-cta"
+            style={{ 
+              backgroundColor: '#FFFFFF', 
+              color: '#0F172A',
+              border: '1px solid rgba(0,0,0,0.12)',
+              textDecoration: 'none',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+            }}
+          >
+            <ShoppingBag size={14} style={{ color: currentBrand.theme.primary }} />
+            <span>{language === 'ar' ? 'المتجر الإلكتروني ↗' : 'Shop Online ↗'}</span>
+          </a>
+
+          <button
+            onClick={onOpenQuote}
+            className="fmcg-nav-cta"
+            style={{ backgroundColor: currentBrand.theme.primary }}
+          >
+            <span>{language === 'ar' ? 'طلب توريد تجاري' : 'B2B Wholesale'}</span>
+          </button>
+        </div>
       </div>
     </nav>
   );

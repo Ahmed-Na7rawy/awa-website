@@ -46,32 +46,32 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     ],
     products: [
       {
-        name: 'Sweet & Slim Sachet Dispenser Box (50/100 Sachets)',
-        image: '/images/pages/products/retail/sweet-slim/picture5.png',
-        volume: '50 / 100 Sticks',
-        flavor: 'Original Sucralose',
-        description: 'Single-serve moisture-barrier sachets. Each stick equals 2 teaspoons of sugar.'
+        name: 'Sweet & Slim Classic Sweetener 100 Sachets Box',
+        image: '/artwork/sweet-and-slim/3d/classic-100-box.png',
+        volume: '100 Sachets Box (110 EGP)',
+        flavor: 'Original Sucralose & Corn Carrier',
+        description: 'Single-serve moisture-barrier sachets. Each stick equals 2 teaspoons of table sugar with zero calories.'
       },
       {
-        name: 'Sweet & Slim Table-Top Culinary Jar (250g)',
-        image: '/images/pages/products/retail/sweet-slim/picture5-2.png',
-        volume: '250g Jar with Spoon',
-        flavor: 'Original Granular',
-        description: 'Spoon-for-spoon equivalent to standard table sugar for home kitchen use.'
+        name: 'Sweet & Slim Spearmint Pocket Sliding Tin',
+        image: '/artwork/sweet-and-slim/3d/spearmint-tin.png',
+        volume: '40 Pcs Pocket Tin (65 EGP)',
+        flavor: 'Cool Spearmint Essential Oil',
+        description: 'Sugar-free dental-safe breath mints in a sleek sliding metal tin.'
       },
       {
-        name: 'Sweet & Slim Stevia Nature Blend',
-        image: '/images/pages/products/retail/sweet-slim/stevia.png',
-        volume: '100 Sachets Box',
-        flavor: 'Plant-Based Stevia',
-        description: 'Pure Steviol Glycosides (Reb-A 98%) blended with prebiotic erythritol.'
+        name: 'Sweet & Slim 3in1 Coffee Classic Sachet',
+        image: '/artwork/sweet-and-slim/3d/coffee-3in1-box.png',
+        volume: 'Box 12 Sachets (95 EGP)',
+        flavor: 'Diet Arabica Coffee & Creamer',
+        description: 'Instant rich coffee blend sweetened with Sweet & Slim, low in calories.'
       },
       {
-        name: 'Sweet & Slim Pocket Dispenser Tablets',
-        image: '/images/pages/products/retail/sweet-slim/ss.png',
-        volume: '100 & 300 Micro Tablets',
-        flavor: 'Instant Dissolve',
-        description: 'Convenient one-click pocket dispenser for on-the-go coffee and tea.'
+        name: 'Sweet & Slim Piña Colada Functional Smoothie',
+        image: '/artwork/sweet-and-slim/3d/smoothie-pina-colada-box.png',
+        volume: 'Box 10 Sachets (120 EGP)',
+        flavor: 'Pineapple & Coconut with Inulin',
+        description: 'Cold smoothie beverage enriched with natural chicory inulin fiber.'
       }
     ],
     gallery: [
@@ -122,32 +122,32 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     ],
     products: [
       {
-        name: 'SquEasy Strawberry Supreme Purée',
-        image: '/images/pages/products/retail/squeasy/p1.png',
-        volume: '1000g & 500g Bottle',
-        flavor: 'Fresh Mediterranean Strawberry',
-        description: 'Vibrant crimson puree with real strawberry seeds and intense natural aroma.'
+        name: 'SquEasy Minced Garlic 250g Jar',
+        image: '/artwork/squeasy/3d/squeasy-minced-garlic-jar.png',
+        volume: '250g Glass Jar (55 EGP)',
+        flavor: 'Fresh Crushed Garlic',
+        description: 'Selected cloves deliver authentic aroma and taste without peeling or chopping.'
       },
       {
-        name: 'SquEasy Belgian Dark Chocolate Drizzle',
-        image: '/images/pages/products/retail/squeasy/p2.png',
-        volume: '1000g Bottle',
-        flavor: 'Rich Dutch Cocoa',
-        description: 'Velvety cocoa reduction with glossy sheen for mocha, frappes, and churros.'
+        name: 'SquEasy Garlic Paste 250g Pouch',
+        image: '/artwork/squeasy/3d/squeasy-garlic-paste-250g.png',
+        volume: '250g Culinary Pouch (55 EGP)',
+        flavor: 'Smooth Pure Garlic',
+        description: 'Smooth emulsion ready for chef marinades, dressings, stir-fries and cooking.'
       },
       {
-        name: 'SquEasy Salted Caramel Confiture',
-        image: '/images/pages/products/retail/squeasy/p3.png',
-        volume: '1000g Bottle',
-        flavor: 'Golden Butter Caramel',
-        description: 'Slow-cooked caramelized sugar with a delicate pinch of sea salt.'
+        name: 'SquEasy Garlic Paste 50 Sachets Pack',
+        image: '/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png',
+        volume: 'Pack of 50 Sachets (55 EGP)',
+        flavor: 'Single-Use Fresh Garlic',
+        description: 'Perfect portion control and freshness for home kitchens and takeaway service.'
       },
       {
-        name: 'SquEasy Mango & Passionfruit Coulis',
-        image: '/images/pages/products/retail/squeasy/p4.png',
-        volume: '1000g Bottle',
-        flavor: 'Tropical Alphonso Mango',
-        description: 'Sweet, exotic fruit blend bursting with tropical acidity and sunshine.'
+        name: 'SquEasy Harissa Hot Sauce 200g',
+        image: '/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png',
+        volume: '200g Squeeze Bottle (65 EGP)',
+        flavor: 'Fiery Mediterranean Chili',
+        description: 'Crafted from premium red chili peppers and spices for burgers, grills, and dips.'
       }
     ],
     gallery: [
@@ -191,32 +191,32 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     ],
     products: [
       {
-        name: 'Yalla Frapp It - Caramel Velvet Frappe',
-        image: '/images/pages/products/retail/yalla-drinks/yallacarmel.png',
-        volume: '1kg Aluminium Foil Bag',
-        flavor: 'Buttery Caramel & Vanilla',
-        description: 'The definitive iced frappe mix with thick frosty body and rich aroma.'
+        name: 'Yalla Frapp It Caramel (Box 10 Sachets)',
+        image: '/artwork/yalla-drinks/3d/frappit-caramel-box.png',
+        volume: 'Box 10 Sachets (200 EGP)',
+        flavor: 'Rich Caramel & Microfoam',
+        description: 'Smooth, refreshing iced caramel frappé blending effortlessly with ice.'
       },
       {
-        name: 'Yalla Frapp It - Choco Fudge Mocha',
-        image: '/images/pages/products/retail/yalla-drinks/yallachoco.png',
-        volume: '1kg Aluminium Foil Bag',
-        flavor: 'Dark Chocolate Fudge',
-        description: 'Decadent cocoa blend with balanced sweetness for iced or hot frappes.'
+        name: 'Yalla Smoozy Mixed Berries (Box 10 Sachets)',
+        image: '/artwork/yalla-drinks/3d/smoozy-mixed-berries-box.png',
+        volume: 'Box 10 Sachets (210 EGP)',
+        flavor: 'Wild Mixed Berries',
+        description: 'Vibrant fruit puree mix for frosty slush smoothies in seconds.'
       },
       {
-        name: 'Yalla Smoozy - Mixed Berry Smoothie Base',
-        image: '/images/pages/products/retail/yalla-drinks/yallasmozy.png',
-        volume: '1kg Aluminium Foil Bag',
-        flavor: 'Wild Berry Fruit Burst',
-        description: 'Real fruit-powder smoothie base that thickens beautifully in blender.'
+        name: 'Yalla Koffi Caffe Latte (Box 10 Sachets)',
+        image: '/artwork/yalla-drinks/3d/koffi-latte-box.png',
+        volume: 'Box 10 Sachets (180 EGP)',
+        flavor: 'Roasted Arabica & Milk',
+        description: 'Barista-quality hot or iced caffè latte with a velvety microfoam head.'
       },
       {
-        name: 'Yalla Koffi - 3-in-1 Specialty Instant Coffee',
-        image: '/images/pages/products/retail/yalla-drinks/yallakofi.png',
-        volume: '1kg Bag / 24 Sachets Box',
-        flavor: 'Golden Roasted Arabica',
-        description: 'Premium roasted instant coffee with rich silky dairy foam head.'
+        name: 'Yalla Choco Italian Hot Chocolate (Box 10 Sachets)',
+        image: '/artwork/yalla-drinks/3d/choco-classic-box.png',
+        volume: 'Box 10 Sachets (190 EGP)',
+        flavor: 'Classic Dutch Dark Cocoa',
+        description: 'Thick, decadent Italian-style drinking chocolate.'
       }
     ],
     gallery: [
