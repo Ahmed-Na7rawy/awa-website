@@ -80,7 +80,7 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
             src={(isHovered && sku.hoverImage) ? sku.hoverImage : sku.image}
             alt={sku.name}
             className="fmcg-sku-img"
-            style={{ transition: 'all 0.35s ease' }}
+            style={{ transition: 'all 0.35s ease', filter: 'none' }}
             onError={(e) => {
               (e.target as HTMLImageElement).src = '/images/2026/1.png';
             }}
@@ -118,35 +118,27 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
             {sku.flavorProfile}
           </p>
 
-          {/* Taste Profile Meters */}
-          <div style={{ padding: '0.85rem 0', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)', marginBottom: '1.25rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.75rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.6rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Award size={13} style={{ color: '#D97706' }} />
-                <span>{language === 'ar' ? 'مصفوفة خصائص التذوق' : 'Taste Profile Matrix'}</span>
-              </span>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {sku.tasteMeters.slice(0, 3).map((meter, idx) => (
-                <div key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.725rem', fontWeight: 700, color: '#475569' }}>
-                    <span>{meter.label}</span>
-                    <span style={{ color: meter.color, fontWeight: 800 }}>{meter.value}%</span>
-                  </div>
-                  <div className="fmcg-meter-bar-bg">
-                    <div
-                      className="fmcg-meter-bar-fill"
-                      style={{
-                        width: isHovered ? `${meter.value}%` : `${meter.value * 0.75}%`,
-                        backgroundColor: meter.color,
-                      }}
-                    />
-                  </div>
-                </div>
+          {/* Key Product Highlights / Features */}
+          {sku.keyBenefits && sku.keyBenefits.length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', margin: '0.75rem 0 1.25rem 0' }}>
+              {sku.keyBenefits.slice(0, 3).map((benefit, bIdx) => (
+                <span
+                  key={bIdx}
+                  style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    color: '#475569',
+                    background: '#F8FAFC',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    padding: '3px 8px',
+                    borderRadius: '6px',
+                  }}
+                >
+                  {benefit}
+                </span>
               ))}
             </div>
-          </div>
+          )}
 
           {/* Action Buttons: Specs & Direct Shopping */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>

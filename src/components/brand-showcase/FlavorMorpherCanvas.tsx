@@ -260,7 +260,7 @@ export const FlavorMorpherCanvas: React.FC<FlavorMorpherCanvasProps> = ({ brand,
                   width: 'auto',
                   maxWidth: '260px',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 22px 40px rgba(0,0,0,0.18))',
+                  filter: 'none',
                   position: 'relative',
                   zIndex: 10,
                 }}
@@ -296,7 +296,7 @@ export const FlavorMorpherCanvas: React.FC<FlavorMorpherCanvasProps> = ({ brand,
                     maxWidth: '95px',
                     objectFit: 'contain',
                     zIndex: 20,
-                    filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.2))',
+                    filter: 'none',
                   }}
                 />
               )}
