@@ -151,7 +151,7 @@ export const FoodServicesPage: React.FC = () => {
                   </h3>
 
                   <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.65', marginBottom: '1.75rem' }}>
-                    {cat.desc}
+                    {cat.summary || cat.lead}
                   </p>
 
                   <div style={{ paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
