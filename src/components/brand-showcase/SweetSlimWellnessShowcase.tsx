@@ -324,9 +324,9 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
       <div className="ss-wellness-container-light">
         {/* Editorial Section Header */}
         <div className="ss-editorial-header">
-          <h2 className="ss-editorial-title">
+          <h1 className="ss-editorial-title">
             {isAr ? 'حلاوة حقيقية. بدون أدنى تنازل.' : 'PURE SWEETNESS. ZERO COMPROMISE.'}
-          </h2>
+          </h1>
 
           <p className="ss-editorial-subtitle">
             {isAr

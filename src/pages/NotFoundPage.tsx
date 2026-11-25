@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const NotFoundPage: React.FC = () => {
   const { language } = useLanguage();
@@ -19,6 +20,11 @@ export const NotFoundPage: React.FC = () => {
         background: '#F8FAFC',
       }}
     >
+      <SEO
+        title={isAr ? 'الصفحة غير موجودة • مجموعة AWA' : 'Page Not Found • AWA Group'}
+        description="The requested page could not be found on AWA Group."
+        noindex
+      />
       <div style={{ maxWidth: '560px', margin: '0 auto' }}>
         {/* Large 404 */}
         <div

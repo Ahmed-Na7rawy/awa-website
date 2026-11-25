@@ -32,10 +32,23 @@ export const JsonLd: React.FC = () => {
     ],
   };
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://awagroup.net/#website',
+    url: 'https://awagroup.net',
+    name: 'AWA Group',
+    publisher: { '@id': 'https://awagroup.net/#organization' },
+    inLanguage: ['en', 'ar'],
+  };
+
   return (
     <Helmet>
       <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
       </script>
     </Helmet>
   );
