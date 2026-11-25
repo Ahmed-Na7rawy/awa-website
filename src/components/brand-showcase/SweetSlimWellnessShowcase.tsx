@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Heart, CheckCircle2, ShoppingBag, ArrowRight, Activity, Coffee, Droplets } from 'lucide-react';
+import { Award, CheckCircle2, Activity, Coffee, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './BrandShowcase.css';
 
@@ -262,7 +261,8 @@ interface SweetSlimWellnessShowcaseProps {
 
 export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps> = ({ onOpenQuote }) => {
   const { language } = useLanguage();
-  const pillars = language === 'ar' ? SWEET_SLIM_PILLARS_AR : SWEET_SLIM_PILLARS_EN;
+  const isAr = language === 'ar';
+  const pillars = isAr ? SWEET_SLIM_PILLARS_AR : SWEET_SLIM_PILLARS_EN;
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
 
   const activePillar = pillars[activePillarIndex] || pillars[0];
@@ -277,105 +277,56 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
   const yearlySugarKg = ((dailySugarSpoons * 5 * 365) / 1000).toFixed(1);
   const yearlyFatLossKg = (yearlyCaloriesSaved / 7700).toFixed(1);
 
+  const nutritionalHighlights = isAr
+    ? [
+        { label: 'السعرات الحرارية', value: activePillar.keySpec },
+        { label: 'السكر المضاف', value: '0.0 جم' },
+        { label: 'الأسبارتام والسيكلامات', value: 'خالي 100%' },
+        { label: 'ملاءمة الاستخدام', value: 'السكري والكيتو' },
+      ]
+    : [
+        { label: 'Energy Metric', value: activePillar.keySpec },
+        { label: 'Added Sugar', value: '0.0g' },
+        { label: 'Aspartame & Cyclamate', value: '100% Free' },
+        { label: 'Dietary Suitability', value: 'Diabetic & Keto Safe' },
+      ];
+
   return (
     <section className="ss-wellness-section-light">
-      {/* Dynamic Ambient Light Gradient */}
-      <motion.div
-        key={activePillar.id + '-light-bg'}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.7 }}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: activePillar.lightGradient,
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Omnidirectional Floating Animated Graphics Across the Entire Stage */}
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 3 }}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activePillar.id + '-graphics'}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{ width: '100%', height: '100%', position: 'relative' }}
-          >
-            {activePillar.floatingGraphics.map((item, idx) => (
-              <motion.div
-                key={idx}
-                animate={{
-                  y: [0, idx % 2 === 0 ? -22 : 22, 0],
-                  x: [0, idx % 2 === 0 ? 16 : -16, 0],
-                  rotate: [0, idx % 2 === 0 ? 18 : -18, 0],
-                }}
-                transition={{
-                  duration: 4 + idx * 0.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: item.delay,
-                }}
-                style={{
-                  position: 'absolute',
-                  top: item.top,
-                  left: item.left,
-                  fontSize: `${item.size}px`,
-                  userSelect: 'none',
-                  filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.12))',
-                }}
-              >
-                {item.emoji}
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
       <div className="ss-wellness-container-light">
-        {/* Header */}
-        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}>
-          <div
-            className="fmcg-eyebrow"
-            style={{
-              borderColor: `${activePillar.color}55`,
-              color: activePillar.textColor,
-            }}
-          >
-            <Award size={14} style={{ color: activePillar.color }} />
-            <span>{language === 'ar' ? 'منظومة أسلوب الحياة الصحي بدون سكر' : 'The Sugar-Free Lifestyle Ecosystem'}</span>
+        {/* Editorial Section Header */}
+        <div className="ss-editorial-header">
+          <div className="ss-eyebrow">
+            <Award size={14} style={{ color: '#059669' }} />
+            <span>{isAr ? 'منظومة أسلوب الحياة الصحي بدون سكر' : 'The Sugar-Free Lifestyle Ecosystem'}</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)', fontWeight: 900, textTransform: 'uppercase', color: '#0F172A', letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
-            {language === 'ar' ? 'حلاوة حقيقية. بدون أدنى تنازل.' : 'PURE SWEETNESS. ZERO COMPROMISE.'}
+          <h2 className="ss-editorial-title">
+            {isAr ? 'حلاوة حقيقية. بدون أدنى تنازل.' : 'PURE SWEETNESS. ZERO COMPROMISE.'}
           </h2>
 
-          <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-            {language === 'ar'
+          <p className="ss-editorial-subtitle">
+            {isAr
               ? 'من أظرف القهوة الصباحية إلى حلوى النعناع في الجيب والشوكولاتة الساخنة دايت، يستبدل Sweet & Slim سكر المائدة في كل لحظة من يومك.'
               : 'From morning espresso sticks to pocket breath mints and warm diet cocoa, Sweet & Slim replaces table sugar across every moment of your day.'}
           </p>
 
-          {/* Lifestyle Pillar Switcher */}
-          <div className="ss-pillars-nav-light">
+          {/* Product Line Switcher */}
+          <div className="ss-pillars-nav-light" role="tablist" aria-label={isAr ? 'خطوط منتجات Sweet & Slim' : 'Sweet & Slim product lines'}>
             {pillars.map((p, idx) => {
               const isSelected = activePillarIndex === idx;
               return (
                 <button
                   key={p.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isSelected}
                   onClick={() => setActivePillarIndex(idx)}
                   className={`ss-pillar-btn-light ${isSelected ? 'active' : ''}`}
                 >
                   <span
-                    style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      backgroundColor: isSelected ? '#FFFFFF' : p.color,
-                    }}
+                    className="ss-pillar-dot"
+                    style={{ backgroundColor: isSelected ? '#FFFFFF' : p.color }}
                   />
                   <span>{p.title.split(' ').slice(0, 2).join(' ')}</span>
                 </button>
@@ -384,127 +335,92 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
           </div>
         </div>
 
-        {/* 1. 3D Floating Multi-Product Stage */}
-        <div className="ss-stage-grid-light">
-          {/* Left Column: Pillar Specs */}
-          <div className="yalla-glass-card-light">
-            <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: activePillar.textColor, marginBottom: '0.25rem' }}>
-                {activePillar.badge}
-              </div>
-              <h3 style={{ fontSize: '1.65rem', fontWeight: 900, color: '#0F172A', lineHeight: 1.2 }}>
-                {activePillar.title}
-              </h3>
-              <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '0.4rem', lineHeight: 1.5 }}>
-                "{activePillar.tagline}"
-              </p>
-            </div>
-
-            {/* Checklist */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '0.75rem' }}>
-              {activePillar.benefits.map((b, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: '#1E293B' }}>
-                  <CheckCircle2 size={16} style={{ color: activePillar.color, flexShrink: 0 }} />
-                  <span>{b}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Hero Metric */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.9rem', borderRadius: '16px', background: '#F8FAFC', border: '1px solid rgba(0,0,0,0.06)' }}>
+        {/* Cohesive White Editorial Spotlight Container */}
+        <div className="ss-editorial-card">
+          <div className="ss-editorial-grid">
+            {/* Left Column: Product Intro, Benefits & Nutritional Info */}
+            <div className="ss-editorial-copy">
               <div>
-                <div style={{ fontSize: '1.65rem', fontWeight: 900, color: activePillar.textColor }}>
-                  {activePillar.keySpec}
+                <div className="ss-editorial-badge">
+                  {activePillar.badge}
                 </div>
-                <div style={{ fontSize: '0.725rem', fontWeight: 700, color: '#64748B' }}>
-                  {activePillar.keySpecLabel}
-                </div>
+                <h3 className="ss-editorial-product-title">
+                  {activePillar.title}
+                </h3>
+                <p className="ss-editorial-tagline">
+                  {activePillar.tagline}
+                </p>
               </div>
-              <Heart size={24} style={{ color: activePillar.color }} />
+
+              {/* Benefits Checklist */}
+              <div className="ss-editorial-benefits">
+                {activePillar.benefits.map((b, idx) => (
+                  <div key={idx} className="ss-editorial-benefit-item">
+                    <CheckCircle2 size={17} style={{ color: '#059669', flexShrink: 0 }} />
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Key Nutritional Metric Box & Quote Action */}
+              <div className="ss-editorial-metric-row">
+                <div className="ss-editorial-metric">
+                  <div className="ss-editorial-metric-value">
+                    {activePillar.keySpec}
+                  </div>
+                  <div className="ss-editorial-metric-label">
+                    {activePillar.keySpecLabel}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={onOpenQuote}
+                  className="ss-editorial-cta-link"
+                >
+                  <ShieldCheck size={16} />
+                  <span>{isAr ? 'طلب المواصفات الفنية' : 'Request Specs'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: Light-Mint Display Stage with White Image Frame */}
+            <div className="ss-editorial-stage">
+              <div className="ss-product-frame ss-product-frame--editorial">
+                <img
+                  src={activePillar.leadImage}
+                  alt={activePillar.title}
+                  className="ss-product-frame-img ss-product-frame-img--editorial"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/2026/1.png';
+                  }}
+                />
+              </div>
             </div>
           </div>
 
-          {/* Right Column: 3D Transparent Floating Packs Stage */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '520px' }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activePillar.id}
-                initial={{ rotateY: 180, scale: 0.8, opacity: 0 }}
-                animate={{ rotateY: 0, scale: 1, opacity: 1 }}
-                exit={{ rotateY: -180, scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                {/* Lead Transparent Pack */}
-                <motion.img
-                  animate={{
-                    y: [0, -12, 0],
-                    rotateZ: [0, -1.5, 1.5, 0],
-                  }}
-                  transition={{
-                    duration: 4.5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                  src={activePillar.leadImage}
-                  alt={activePillar.title}
-                  style={{
-                    height: 'clamp(460px, 38vw, 540px)',
-                    width: 'auto',
-                    maxWidth: '440px',
-                    objectFit: 'contain',
-                    filter: 'none',
-                  }}
-                />
-
-                {/* Companion Floating Pack if available */}
-                {activePillar.companionImage && (
-                  <motion.img
-                    initial={{ x: 30, opacity: 0 }}
-                    animate={{
-                      x: 0,
-                      opacity: 1,
-                      y: [0, -14, 0],
-                      rotateZ: [0, 8, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 0.2,
-                    }}
-                    src={activePillar.companionImage}
-                    alt="Companion Pack"
-                    style={{
-                      position: 'absolute',
-                      bottom: '-20px',
-                      right: '-30px',
-                      height: 'clamp(210px, 18vw, 260px)',
-                      width: 'auto',
-                      maxWidth: '170px',
-                      objectFit: 'contain',
-                      filter: 'none',
-                      zIndex: 20,
-                    }}
-                  />
-                )}
-              </motion.div>
-            </AnimatePresence>
+          {/* Clean Nutritional Highlights Strip Beneath Main Content */}
+          <div className="ss-nutrition-strip">
+            {nutritionalHighlights.map((item, idx) => (
+              <div key={idx} className="ss-nutrition-strip-item">
+                <span className="ss-nutrition-strip-label">{item.label}</span>
+                <span className="ss-nutrition-strip-value">{item.value}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* 2. Interactive Sugar & Calorie Replacement Calculator Widget */}
+        {/* Interactive Sugar & Calorie Replacement Calculator */}
         <div className="ss-calculator-card-light">
           <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', background: '#ECFDF5', color: '#047857', border: '1px solid rgba(16, 185, 129, 0.3)', marginBottom: '0.35rem' }}>
-              <Activity size={14} />
-              <span>{language === 'ar' ? 'حاسبة الأثر الصحي التفاعلية' : 'Interactive Health Impact Calculator'}</span>
+            <div className="ss-eyebrow" style={{ marginBottom: '0.5rem' }}>
+              <Activity size={14} style={{ color: '#059669' }} />
+              <span>{isAr ? 'حاسبة الأثر الصحي التفاعلية' : 'Interactive Health Impact Calculator'}</span>
             </div>
-            <h3 style={{ fontSize: '1.65rem', fontWeight: 900, color: '#0F172A', textTransform: 'uppercase' }}>
-              {language === 'ar' ? 'احسب وفر السكر والسعرات الحرارية سنوياً' : 'CALCULATE YOUR SUGAR & CALORIE SAVINGS'}
+            <h3 style={{ fontSize: '1.55rem', fontWeight: 900, color: '#0F172A', textTransform: 'uppercase', margin: 0 }}>
+              {isAr ? 'احسب وفر السكر والسعرات الحرارية سنوياً' : 'CALCULATE YOUR SUGAR & CALORIE SAVINGS'}
             </h3>
-            <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '0.25rem' }}>
-              {language === 'ar'
+            <p style={{ fontSize: '0.9rem', color: '#475569', marginTop: '0.4rem', marginBottom: 0 }}>
+              {isAr
                 ? 'حرّك المؤشرات لترى كيف يؤدي استبدال السكر بـ Sweet & Slim إلى تحسين صحتك على مدار العام.'
                 : 'Adjust the sliders to see how replacing sugar with Sweet & Slim transforms your yearly health.'}
             </p>
@@ -516,11 +432,11 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.5rem' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Coffee size={15} style={{ color: '#D97706' }} />
-                    <span>{language === 'ar' ? 'عدد المشروبات يومياً:' : 'Drinks per Day:'}</span>
+                    <Coffee size={15} style={{ color: '#059669' }} />
+                    <span>{isAr ? 'عدد المشروبات يومياً:' : 'Drinks per Day:'}</span>
                   </span>
                   <span style={{ color: '#047857', fontWeight: 800 }}>
-                    {cupsPerDay} {language === 'ar' ? 'أكواب' : 'Cups'}
+                    {cupsPerDay} {isAr ? 'أكواب' : 'Cups'}
                   </span>
                 </div>
                 <input
@@ -529,18 +445,18 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                   max="8"
                   value={cupsPerDay}
                   onChange={(e) => setCupsPerDay(Number(e.target.value))}
-                  style={{ width: '100%', cursor: 'pointer', accentColor: '#10B981' }}
+                  style={{ width: '100%', cursor: 'pointer', accentColor: '#059669' }}
                 />
               </div>
 
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.5rem' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Coffee size={15} style={{ color: '#10B981' }} />
-                    <span>{language === 'ar' ? 'ملاعق السكر لكل كوب:' : 'Sugar Spoons per Cup:'}</span>
+                    <Coffee size={15} style={{ color: '#059669' }} />
+                    <span>{isAr ? 'ملاعق السكر لكل كوب:' : 'Sugar Spoons per Cup:'}</span>
                   </span>
                   <span style={{ color: '#047857', fontWeight: 800 }}>
-                    {spoonsPerCup} {language === 'ar' ? 'ملاعق' : 'Spoons'}
+                    {spoonsPerCup} {isAr ? 'ملاعق' : 'Spoons'}
                   </span>
                 </div>
                 <input
@@ -549,7 +465,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                   max="4"
                   value={spoonsPerCup}
                   onChange={(e) => setSpoonsPerCup(Number(e.target.value))}
-                  style={{ width: '100%', cursor: 'pointer', accentColor: '#10B981' }}
+                  style={{ width: '100%', cursor: 'pointer', accentColor: '#059669' }}
                 />
               </div>
             </div>
@@ -558,28 +474,28 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
             <div className="ss-calc-results-light">
               <div className="ss-stat-box-light">
                 <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#047857' }}>
-                  {dailyCaloriesSaved} {language === 'ar' ? 'سعرة' : 'kcal'}
+                  {dailyCaloriesSaved} {isAr ? 'سعرة' : 'kcal'}
                 </div>
                 <div style={{ fontSize: '0.725rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', marginTop: '0.25rem' }}>
-                  {language === 'ar' ? 'وفر السعرات يومياً' : 'Daily Calories Saved'}
+                  {isAr ? 'وفر السعرات يومياً' : 'Daily Calories Saved'}
                 </div>
               </div>
 
               <div className="ss-stat-box-light">
                 <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#0F172A' }}>
-                  {yearlySugarKg} {language === 'ar' ? 'كجم' : 'kg'}
+                  {yearlySugarKg} {isAr ? 'كجم' : 'kg'}
                 </div>
                 <div style={{ fontSize: '0.725rem', fontWeight: 700, color: '#047857', textTransform: 'uppercase', marginTop: '0.25rem' }}>
-                  {language === 'ar' ? 'سكر مستبعد سنوياً' : 'Sugar Cut / Year'}
+                  {isAr ? 'سكر مستبعد سنوياً' : 'Sugar Cut / Year'}
                 </div>
               </div>
 
               <div className="ss-stat-box-light">
-                <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#D97706' }}>
+                <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#059669' }}>
                   {yearlyCaloriesSaved.toLocaleString()}
                 </div>
                 <div style={{ fontSize: '0.725rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', marginTop: '0.25rem' }}>
-                  {language === 'ar' 
+                  {isAr
                     ? `سعرات سنوية (~${yearlyFatLossKg} كجم دهون)`
                     : `Yearly Calories (~${yearlyFatLossKg}kg fat)`}
                 </div>
