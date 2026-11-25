@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Globe, FlaskConical, Factory, ShieldCheck, ArrowRight, Layers, CheckCircle2, Sparkles, Building2 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 import { v9Assets, capabilityData } from '../data/v9Data';
 
 export const CapabilitiesPage: React.FC = () => {
@@ -51,10 +52,10 @@ export const CapabilitiesPage: React.FC = () => {
       {/* 1. Page Hero Banner */}
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
-          <img 
-            src={v9Assets.v8Assets['rd-wide']} 
-            alt="AWA Capabilities" 
-            loading="eager" 
+          <img
+            src={v9Assets.v8Assets['rd-wide']}
+            alt="AWA Capabilities"
+            loading="eager"
           />
         </div>
         <div className="wrap page-hero-content">
@@ -80,8 +81,9 @@ export const CapabilitiesPage: React.FC = () => {
       </section>
 
       {/* 2. Overview Section */}
-      <section className="section">
+      <Reveal as="section" className="section">
         <div className="wrap">
+          <Reveal>
           <div className="section-heading">
             <div>
               <div className="kicker">{isAr ? 'منظومة عمل متكاملة' : 'OUR CAPABILITIES'}</div>
@@ -99,11 +101,12 @@ export const CapabilitiesPage: React.FC = () => {
                 : 'Our capabilities operate together to match ingredient technologies with processing conditions, product performance requirements and commercially feasible manufacturing options.'}
             </p>
           </div>
+          </Reveal>
 
-          <div className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '3.5rem' }}>
+          <StaggerParent className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '3.5rem' }}>
             {capabilityItems.map((item, idx) => (
-              <div 
-                key={idx}
+              <StaggerChild key={idx}>
+              <div
                 style={{
                   background: '#FFFFFF',
                   borderRadius: '20px',
@@ -112,7 +115,8 @@ export const CapabilitiesPage: React.FC = () => {
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  height: '100%'
                 }}
               >
                 <div style={{ height: '220px', overflow: 'hidden' }}>
@@ -141,13 +145,14 @@ export const CapabilitiesPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* 3. FORMULATION DEVELOPMENT (Exact V9 Content) */}
-      <section className="section" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
+      <Reveal as="section" className="section" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
         <div className="wrap" style={{ maxWidth: '840px', margin: '0 auto', textAlign: 'center' }}>
           <div className="kicker">{isAr ? 'تطوير التركيبات' : 'FORMULATION DEVELOPMENT'}</div>
           <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
@@ -167,10 +172,10 @@ export const CapabilitiesPage: React.FC = () => {
             <ArrowRight size={15} />
           </Link>
         </div>
-      </section>
+      </Reveal>
 
       {/* 4. SELECTIVE MANUFACTURING COLLABORATION (Exact V9 Content) */}
-      <section className="section" style={{ borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
+      <Reveal as="section" className="section" style={{ borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
         <div className="wrap">
           <div className="awa-split-grid" style={{
             background: '#FFFFFF',
@@ -183,7 +188,7 @@ export const CapabilitiesPage: React.FC = () => {
             gap: '3.5rem',
             alignItems: 'center'
           }}>
-            <div>
+            <Reveal direction="right">
               <div className="kicker">{isAr ? 'التعاون التصنيعي الانتقائي' : 'SELECTIVE MANUFACTURING COLLABORATION'}</div>
               <h2 style={{ fontSize: '2.2rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
                 {isAr ? (
@@ -201,21 +206,23 @@ export const CapabilitiesPage: React.FC = () => {
                 <span>{isAr ? 'استكشف التصنيع الاستراتيجي ↗' : 'Explore strategic manufacturing ↗'}</span>
                 <ArrowRight size={15} />
               </Link>
-            </div>
+            </Reveal>
 
+            <Reveal direction="left" delay={0.1}>
             <div style={{ borderRadius: '20px', overflow: 'hidden', height: '340px', border: '1px solid var(--border-color)' }}>
-              <img 
-                src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.factory} 
-                alt="AWA Manufacturing Facility" 
+              <img
+                src={v9Assets.v8Assets['industrial-plant'] || v9Assets.v7Assets.factory}
+                alt="AWA Manufacturing Facility"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
+            </Reveal>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* 5. Closing CTA (Exact V9 Content) */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+      <Reveal as="section" className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
             <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
@@ -228,14 +235,14 @@ export const CapabilitiesPage: React.FC = () => {
               {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link 
-            to="/contact?type=technical" 
-            className="btn" 
-            style={{ 
-              background: '#FFFFFF', 
-              color: 'var(--navy)', 
-              fontWeight: 800, 
-              padding: '1rem 2rem', 
+          <Link
+            to="/contact?type=technical"
+            className="btn"
+            style={{
+              background: '#FFFFFF',
+              color: 'var(--navy)',
+              fontWeight: 800,
+              padding: '1rem 2rem',
               borderRadius: '12px',
               display: 'inline-flex',
               alignItems: 'center',
@@ -248,7 +255,7 @@ export const CapabilitiesPage: React.FC = () => {
             <ArrowRight size={17} />
           </Link>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };

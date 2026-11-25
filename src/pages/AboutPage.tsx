@@ -1,20 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Award, ShieldCheck, Factory, Microscope, Users, Sparkles, Target, Eye, HeartHandshake } from 'lucide-react';
+import { ArrowRight, Target, Eye, HeartHandshake } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 import { v9Assets } from '../data/v9Data';
 
 export const AboutPage: React.FC = () => {
   const { language } = useLanguage();
   const isAr = language === 'ar';
-
-  const heroRef = useScrollReveal();
-  const whoRef = useScrollReveal();
-  const leaderRef = useScrollReveal();
-  const purposeRef = useScrollReveal();
-  const valuesRef = useScrollReveal();
 
   const values = [
     {
@@ -48,12 +42,12 @@ export const AboutPage: React.FC = () => {
       />
 
       {/* 1. Page Hero Banner */}
-      <section className="page-hero page-hero--visual" ref={heroRef}>
+      <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
-          <img 
-            src={v9Assets.v7Assets.factory} 
-            alt="AWA Group Corporate Expertise" 
-            loading="eager" 
+          <img
+            src={v9Assets.v7Assets.factory}
+            alt="AWA Group Corporate Expertise"
+            loading="eager"
           />
         </div>
         <div className="wrap page-hero-content">
@@ -79,7 +73,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* 2. Who We Are Section */}
-      <section className="section scroll-margin" id="who-we-are" ref={whoRef}>
+      <Reveal as="section" className="section scroll-margin" id="who-we-are">
         <div className="wrap intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '3.5rem', alignItems: 'flex-start' }}>
           <div>
             <div className="kicker">{isAr ? 'من نحن' : 'WHO WE ARE'}</div>
@@ -104,16 +98,16 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* 3. Leadership & CEO Message */}
-      <section className="section scroll-margin" id="leadership" style={{ background: 'var(--bg-soft)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }} ref={leaderRef}>
+      <Reveal as="section" className="section scroll-margin" id="leadership" style={{ background: 'var(--bg-soft)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="wrap leadership-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '3.5rem', alignItems: 'center' }}>
           <div className="ceo-photo-wrap" style={{ position: 'relative' }}>
             <div style={{ borderRadius: '24px', overflow: 'hidden', border: '2px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
-              <img 
-                src={v9Assets.v7Assets.ceo} 
-                alt="Eng. Wael Ghandour, Chairman & Founder of AWA Group" 
+              <img
+                src={v9Assets.v7Assets.ceo}
+                alt="Eng. Wael Ghandour, Chairman & Founder of AWA Group"
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
               />
             </div>
@@ -173,20 +167,23 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* 4. Purpose, Vision, Mission & Values */}
-      <section className="section scroll-margin" id="purpose" ref={purposeRef}>
+      <Reveal as="section" className="section scroll-margin" id="purpose">
         <div className="wrap">
+          <Reveal>
           <div className="section-heading text-center" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <div className="kicker">{isAr ? 'الرؤية والرسالة' : 'PURPOSE, VISION & MISSION'}</div>
             <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)' }}>
               {isAr ? 'الغاية التي تقود مسيرتنا' : 'Guided by Purpose and Clear Principles'}
             </h2>
           </div>
+          </Reveal>
 
-          <div className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+          <StaggerParent className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)', height: '100%' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <Target size={22} />
               </div>
@@ -199,8 +196,10 @@ export const AboutPage: React.FC = () => {
                   : 'To help food manufacturers turn technical challenges into practical, high-performing food solutions.'}
               </p>
             </div>
+            </StaggerChild>
 
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)', height: '100%' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(20, 30, 154, 0.08)', color: 'var(--primary-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <Eye size={22} />
               </div>
@@ -213,8 +212,10 @@ export const AboutPage: React.FC = () => {
                   : 'To shape the future of food through innovation, technical excellence, and trusted partnerships that create lasting value.'}
               </p>
             </div>
+            </StaggerChild>
 
-            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)', height: '100%' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <HeartHandshake size={22} />
               </div>
@@ -227,26 +228,30 @@ export const AboutPage: React.FC = () => {
                   : 'To develop and deliver tailored food solutions that enhance product performance and help our customers succeed.'}
               </p>
             </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
 
           {/* Core Values */}
-          <div ref={valuesRef}>
+          <div>
+            <Reveal>
             <div className="section-heading">
               <div>
                 <div className="kicker">{isAr ? 'قيمنا الجوهرية' : 'OUR CORE VALUES'}</div>
                 <h2>{isAr ? 'المبادئ التي تحكم ممارساتنا اليومية' : 'Principles That Guide How We Operate'}</h2>
               </div>
             </div>
+            </Reveal>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            <StaggerParent style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
               {values.map((val, idx) => (
-                <div 
-                  key={idx}
+                <StaggerChild key={idx}>
+                <div
                   style={{
                     background: 'var(--bg-soft)',
                     padding: '1.75rem',
                     borderRadius: '16px',
-                    border: '1px solid var(--border-color)'
+                    border: '1px solid var(--border-color)',
+                    height: '100%'
                   }}
                 >
                   <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>
@@ -259,15 +264,17 @@ export const AboutPage: React.FC = () => {
                     {val.desc}
                   </p>
                 </div>
+                </StaggerChild>
               ))}
-            </div>
+            </StaggerParent>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* 5. Our Evolution Timeline (Exact V9 Content) */}
-      <section className="section tint scroll-margin" id="evolution">
+      <Reveal as="section" className="section tint scroll-margin" id="evolution">
         <div className="wrap">
+          <Reveal>
           <div className="section-heading">
             <div>
               <div className="kicker">{isAr ? 'مسيرتنا وتطورنا' : 'OUR EVOLUTION'}</div>
@@ -285,8 +292,9 @@ export const AboutPage: React.FC = () => {
                 : 'Each milestone reflects the development of capabilities, specialized businesses and international collaborations that contribute to the AWA Group story.'}
             </p>
           </div>
+          </Reveal>
 
-          <div className="evolution-timeline">
+          <StaggerParent className="evolution-timeline">
             {[
               { year: '2005', title: isAr ? 'AWA للمكونات الغذائية' : 'AWA Food Ingredients', desc: isAr ? 'تأسيس أنشطة ومبيعات المكونات الغذائية المتخصصة.' : 'Establishing dedicated food ingredient activities.' },
               { year: '2010', title: isAr ? 'AWA للحلول الغذائية' : 'AWA Food Solutions', desc: isAr ? 'توسيع نطاق التركيز التقني وتطوير الحلول التطبيقية للمصانع.' : 'Expanding the group’s technical and solution-development focus.' },
@@ -296,19 +304,22 @@ export const AboutPage: React.FC = () => {
               { year: '2022', title: isAr ? 'مشروع تركفوس المشترك' : 'Turkphos Joint Venture', desc: isAr ? 'تعزيز قدرات أملاح الاستحلاب وأنظمة الفوسفات المتخصصة.' : 'Strengthening specialized phosphate and emulsifying salt capabilities.' },
               { year: '2025', title: isAr ? 'مشروع إنغريفا المشترك' : 'Ingreva Joint Venture', desc: isAr ? 'توسيع التعاون في أنظمة الأغذية الصناعية والوظيفية.' : 'Extending collaboration in industrial functional food systems.' },
             ].map((m) => (
-              <div key={m.year} className="evolution-stop">
+              <StaggerChild key={m.year}>
+              <div className="evolution-stop">
                 <span>{m.year}</span>
                 <strong>{m.title}</strong>
                 <p>{m.desc}</p>
               </div>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* 6. Our Commitments Section (Exact V9 Content) */}
-      <section className="section" id="commitments">
+      <Reveal as="section" className="section" id="commitments">
         <div className="wrap">
+          <Reveal>
           <div className="section-heading" style={{ marginBottom: '2.5rem' }}>
             <div>
               <div className="kicker">{isAr ? 'التزاماتنا' : 'OUR COMMITMENTS'}</div>
@@ -326,9 +337,11 @@ export const AboutPage: React.FC = () => {
                 : 'International standards and responsible operations support our ability to serve manufacturers, partners and professional customers with confidence.'}
             </p>
           </div>
+          </Reveal>
 
-          <div className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+          <StaggerParent className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)', height: '100%' }}>
               <div className="kicker">{isAr ? 'الجودة والشهادات ↗' : 'QUALITY & CERTIFICATIONS ↗'}</div>
               <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
                 {isAr ? 'معايير تعزز الثقة.' : 'Standards that strengthen trust.'}
@@ -343,8 +356,10 @@ export const AboutPage: React.FC = () => {
                 <ArrowRight size={15} />
               </Link>
             </div>
+            </StaggerChild>
 
-            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)', height: '100%' }}>
               <div className="kicker">{isAr ? 'الاستدامة ↗' : 'SUSTAINABILITY ↗'}</div>
               <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
                 {isAr ? 'نمو مسؤول، أثر دائم.' : 'Responsible growth, lasting impact.'}
@@ -359,12 +374,13 @@ export const AboutPage: React.FC = () => {
                 <ArrowRight size={15} />
               </Link>
             </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* 7. Closing CTA (Exact V9 Content) */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
+      <Reveal as="section" className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5rem 0', color: '#FFFFFF' }}>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
             <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>
@@ -382,7 +398,7 @@ export const AboutPage: React.FC = () => {
             <ArrowRight size={16} />
           </Link>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };

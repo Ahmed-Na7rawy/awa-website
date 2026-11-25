@@ -108,7 +108,16 @@ try {
 
   for (const route of keyRoutes) {
     await send('Page.navigate', { url: `http://127.0.0.1:${PORT}${route}` });
-    await sleep(1100);
+    const deadline = Date.now() + 6000;
+    while (Date.now() < deadline) {
+      const ready = await send('Runtime.evaluate', {
+        returnByValue: true,
+        expression: '!!(document.querySelector("main#main-content") && document.querySelector("h1"))',
+      });
+      if (ready.result?.value) break;
+      await sleep(150);
+    }
+    await sleep(300);
     await send('Runtime.evaluate', { expression: 'window.scrollTo(0, document.body.scrollHeight / 2);' });
     await sleep(350);
     await send('Runtime.evaluate', { expression: 'window.scrollTo(0, 0);' });

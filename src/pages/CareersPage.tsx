@@ -3,6 +3,7 @@ import { Send, CheckCircle2, Award, HeartHandshake, Microscope } from 'lucide-re
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 
 export const CareersPage: React.FC = () => {
   const { t, translations, language } = useLanguage();
@@ -119,19 +120,20 @@ export const CareersPage: React.FC = () => {
       </section>
 
       {/* Why Work With Us */}
-      <section className="section">
+      <Reveal as="section" className="section">
         <div className="container">
-          <div className="section-header text-center">
+          <Reveal className="section-header text-center">
             <div className="eyebrow" style={{ justifyContent: 'center' }}>
               {translations.careers.culture.eyebrow}
             </div>
             <h2 className="section-title">
               {translations.careers.culture.title}
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+          <StaggerParent className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Microscope size={26} />
               </div>
@@ -142,8 +144,10 @@ export const CareersPage: React.FC = () => {
                 {translations.careers.culture.card1Desc}
               </p>
             </div>
+            </StaggerChild>
 
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Award size={26} />
               </div>
@@ -154,8 +158,10 @@ export const CareersPage: React.FC = () => {
                 {translations.careers.culture.card2Desc}
               </p>
             </div>
+            </StaggerChild>
 
-            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <StaggerChild>
+            <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <HeartHandshake size={26} />
               </div>
@@ -166,12 +172,13 @@ export const CareersPage: React.FC = () => {
                 {translations.careers.culture.card3Desc}
               </p>
             </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* Openings & Application Form */}
-      <section className="section section-stone">
+      <Reveal as="section" className="section section-stone">
         <div className="container">
           <div className="awa-split-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3.5rem' }}>
             {/* Job Openings */}
@@ -180,9 +187,10 @@ export const CareersPage: React.FC = () => {
               <h2 className="section-title" style={{ fontSize: '2.2rem' }}>
                 {translations.careers.vacancies.title}
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
+              <StaggerParent style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
                 {openings.map((job, idx) => (
-                  <div key={idx} style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                  <StaggerChild key={idx}>
+                  <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                       <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--dark-navy)' }}>{job.title}</h4>
                       <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--primary)', background: 'var(--primary-light)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-full)' }}>
@@ -196,8 +204,9 @@ export const CareersPage: React.FC = () => {
                       {job.desc}
                     </p>
                   </div>
+                  </StaggerChild>
                 ))}
-              </div>
+              </StaggerParent>
             </div>
 
             {/* Direct Application Form */}
@@ -329,7 +338,7 @@ export const CareersPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };

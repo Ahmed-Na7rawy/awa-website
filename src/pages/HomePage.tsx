@@ -17,7 +17,6 @@ import {
   Boxes,
   TrendingUp
 } from 'lucide-react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
@@ -38,7 +37,6 @@ export const HomePage: React.FC<HomeProps> = () => {
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const heroRef = useScrollReveal();
 
   const toggleVideoPlayback = () => {
     if (!videoRef.current) return;
@@ -123,7 +121,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       {/* 1. CINEMATIC VIDEO HERO                              */}
       {/* (APPROVED AND UNMODIFIED PER ABSOLUTE RESTRICTIONS)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-video-hero" ref={heroRef}>
+      <section className="awa-video-hero">
         <div className="awa-video-bg-wrap" aria-hidden="true">
           <video
             ref={videoRef}
