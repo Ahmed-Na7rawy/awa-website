@@ -79,6 +79,10 @@ export const SkuCard3D: React.FC<SkuCard3DProps> = ({ sku, brandPrimaryColor, on
           <img
             src={(isHovered && sku.hoverImage) ? sku.hoverImage : sku.image}
             alt={sku.name}
+            width={360}
+            height={220}
+            loading="lazy"
+            decoding="async"
             className="fmcg-sku-img"
             style={{ transition: 'all 0.35s ease', filter: 'none' }}
             onError={(e) => {

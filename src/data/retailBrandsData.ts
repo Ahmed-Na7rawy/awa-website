@@ -47,28 +47,28 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     products: [
       {
         name: 'Sweet & Slim Classic Sweetener 100 Sachets Box',
-        image: '/artwork/sweet-and-slim/3d/classic-100-box.png',
+        image: '/artwork/sweet-and-slim/3d/classic-100-box.webp',
         volume: '100 Sachets Box (110 EGP)',
         flavor: 'Original Sucralose & Corn Carrier',
         description: 'Single-serve moisture-barrier sachets. Each stick equals 2 teaspoons of table sugar with zero calories.'
       },
       {
         name: 'Sweet & Slim Spearmint Pocket Sliding Tin',
-        image: '/artwork/sweet-and-slim/3d/mints-spearmint-tin.png',
+        image: '/artwork/sweet-and-slim/3d/mints-spearmint-tin.webp',
         volume: '40 Pcs Pocket Tin (65 EGP)',
         flavor: 'Cool Spearmint Essential Oil',
         description: 'Sugar-free dental-safe breath mints in a sleek sliding metal tin.'
       },
       {
         name: 'Sweet & Slim 3in1 Coffee Classic Sachet',
-        image: '/artwork/sweet-and-slim/3d/3in1-classic-box.jpg',
+        image: '/artwork/sweet-and-slim/3d/3in1-classic-box.webp',
         volume: 'Box 12 Sachets (95 EGP)',
         flavor: 'Diet Arabica Coffee & Creamer',
         description: 'Instant rich coffee blend sweetened with Sweet & Slim, low in calories.'
       },
       {
         name: 'Sweet & Slim Piña Colada Functional Smoothie',
-        image: '/artwork/sweet-and-slim/3d/smoothie-pina-colada-box.png',
+        image: '/artwork/sweet-and-slim/3d/smoothie-pina-colada-box.webp',
         volume: 'Box 10 Sachets (120 EGP)',
         flavor: 'Pineapple & Coconut with Inulin',
         description: 'Cold smoothie beverage enriched with natural chicory inulin fiber.'
@@ -123,28 +123,28 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     products: [
       {
         name: 'SquEasy Minced Garlic 250g Jar',
-        image: '/artwork/squeasy/3d/squeasy-minced-garlic-jar.png',
+        image: '/artwork/squeasy/3d/squeasy-minced-garlic-jar.webp',
         volume: '250g Glass Jar (55 EGP)',
         flavor: 'Fresh Crushed Garlic',
         description: 'Selected cloves deliver authentic aroma and taste without peeling or chopping.'
       },
       {
         name: 'SquEasy Garlic Paste 250g Pouch',
-        image: '/artwork/squeasy/3d/squeasy-garlic-paste-250g.png',
+        image: '/artwork/squeasy/3d/squeasy-garlic-paste-250g.webp',
         volume: '250g Culinary Pouch (55 EGP)',
         flavor: 'Smooth Pure Garlic',
         description: 'Smooth emulsion ready for chef marinades, dressings, stir-fries and cooking.'
       },
       {
         name: 'SquEasy Garlic Paste 50 Sachets Pack',
-        image: '/artwork/squeasy/3d/squeasy-garlic-paste-sachet.png',
+        image: '/artwork/squeasy/3d/squeasy-garlic-paste-sachet.webp',
         volume: 'Pack of 50 Sachets (55 EGP)',
         flavor: 'Single-Use Fresh Garlic',
         description: 'Perfect portion control and freshness for home kitchens and takeaway service.'
       },
       {
         name: 'SquEasy Harissa Hot Sauce 200g',
-        image: '/artwork/squeasy/3d/squeasy-harissa-pouch-200g.png',
+        image: '/artwork/squeasy/3d/squeasy-harissa-pouch-200g.webp',
         volume: '200g Squeeze Bottle (65 EGP)',
         flavor: 'Fiery Mediterranean Chili',
         description: 'Crafted from premium red chili peppers and spices for burgers, grills, and dips.'
@@ -213,7 +213,7 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
       },
       {
         name: 'Yalla Choco Italian Hot Chocolate (Box 10 Sachets)',
-        image: '/artwork/yalla-drinks/3d/choco-classic-box.png',
+        image: '/artwork/yalla-drinks/3d/choco-classic-box.webp',
         volume: 'Box 10 Sachets (190 EGP)',
         flavor: 'Classic Dutch Dark Cocoa',
         description: 'Thick, decadent Italian-style drinking chocolate.'
