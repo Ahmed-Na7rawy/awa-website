@@ -84,7 +84,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة سوق خلطات وأملاح الفوسفات الوظيفية للأجبان المطبوخة' 
         : 'High-Protein Snacks Market Study',
-      image: '/images/pages/home/article-protein-snacks.jpg',
+      image: '/images/pages/home/article-protein-snacks.webp',
       link: '/knowledge'
     },
     {
@@ -94,7 +94,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'دراسة تقنية حول تحسين معاملات زيوت القلي الصناعية' 
         : 'Industrial Frying Oil Technical Study',
-      image: '/images/pages/home/article-frying-oil.jpg',
+      image: '/images/pages/home/article-frying-oil.webp',
       link: '/knowledge'
     },
     {
@@ -104,7 +104,7 @@ export const HomePage: React.FC<HomeProps> = () => {
       title: isAr 
         ? 'أبحاث معجون وصلصات الطماطم وقوام الاستحلاب' 
         : 'Tomato Paste & Sauce Research',
-      image: '/images/pages/home/article-tomato-paste.jpg',
+      image: '/images/pages/home/article-tomato-paste.webp',
       link: '/knowledge'
     }
   ];
@@ -131,7 +131,8 @@ export const HomePage: React.FC<HomeProps> = () => {
             muted
             loop
             playsInline
-            poster="/images/pages/home/hero-food-science-lab.jpg"
+            preload="metadata"
+            poster="/images/pages/home/hero-food-science-lab.webp"
           >
             <source src="/videos/awa-hero.mp4" type="video/mp4" />
           </video>
@@ -269,9 +270,10 @@ export const HomePage: React.FC<HomeProps> = () => {
                 className="ref-mosaic-dominant"
               >
                 <img 
-                  src="/images/pages/home/mosaic-dairy.jpg" 
+                  src="/images/pages/home/mosaic-dairy.webp" 
                   alt="Dairy, Cheese & Frozen Desserts" 
                   loading="eager"
+                  decoding="async"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = v9Assets.v7Assets['dairy-cheese'];
                   }}
@@ -297,9 +299,10 @@ export const HomePage: React.FC<HomeProps> = () => {
                   className="ref-mosaic-sub"
                 >
                   <img 
-                    src="/images/pages/home/mosaic-meat.jpg" 
+                    src="/images/pages/home/mosaic-meat.webp" 
                     alt="Meat, Poultry & Seafood" 
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = v9Assets.v7Assets['meat-seafood'];
                     }}
@@ -323,9 +326,10 @@ export const HomePage: React.FC<HomeProps> = () => {
                   className="ref-mosaic-sub"
                 >
                   <img 
-                    src="/images/pages/home/mosaic-culinary.jpg" 
+                    src="/images/pages/home/mosaic-culinary.webp" 
                     alt="Sauces, Soups & Culinary" 
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = v9Assets.v7Assets['culinary'];
                     }}
@@ -381,8 +385,10 @@ export const HomePage: React.FC<HomeProps> = () => {
           {/* Left: Stainless Steel Dairy Pouring Machine Photo (Full Bleed to Left Edge) */}
           <div className="ref-tech-photo-wrap">
             <img
-              src="/images/pages/home/technical-machinery-milk.jpg"
+              src="/images/pages/home/technical-machinery-milk.webp"
               alt="Technical Food Processing Equipment"
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/images/pages/home/dairy-filling-machine.png';
               }}
@@ -553,30 +559,40 @@ export const HomePage: React.FC<HomeProps> = () => {
                   src={v9Assets.corporateAssets['fssc-22000']} 
                   alt="FSSC 22000" 
                   title="FSSC 22000 — Food Safety Management System"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['iso-9001']} 
                   alt="ISO 9001" 
                   title="ISO 9001 — Quality Management System"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['iso-14001']} 
                   alt="ISO 14001" 
                   title="ISO 14001 — Environmental Management System"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['iso-45001']} 
                   alt="ISO 45001" 
                   title="ISO 45001 — Occupational Health & Safety"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['halal']} 
                   alt="Halal Certification" 
                   title="Halal — Certified Product Scope (EOS)"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
               </div>
@@ -592,12 +608,16 @@ export const HomePage: React.FC<HomeProps> = () => {
                   src={v9Assets.corporateAssets['fda']} 
                   alt="U.S. FDA Facility Registration" 
                   title="U.S. FDA — Food Facility Registration"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
                 <img 
                   src={v9Assets.corporateAssets['nfsa']} 
                   alt="NFSA White List Facility" 
                   title="National Food Safety Authority (NFSA) — White List Facility"
+                  loading="lazy"
+                  decoding="async"
                   className="ref-cert-img" 
                 />
               </div>
@@ -615,8 +635,10 @@ export const HomePage: React.FC<HomeProps> = () => {
           {/* Left: Seedling Sprout Photo (Full Bleed to Left Edge) */}
           <div className="ref-sustain-photo-wrap">
             <img 
-              src="/images/pages/home/sustainability-green-seedling.jpg" 
+              src="/images/pages/home/sustainability-green-seedling.webp" 
               alt="Responsible Growth & Agriculture" 
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/images/pages/sustainability/sustainability.jpg';
               }}
