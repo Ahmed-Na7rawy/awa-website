@@ -54,14 +54,14 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
       },
       {
         name: 'Sweet & Slim Spearmint Pocket Sliding Tin',
-        image: '/artwork/sweet-and-slim/3d/spearmint-tin.png',
+        image: '/artwork/sweet-and-slim/3d/mints-spearmint-tin.png',
         volume: '40 Pcs Pocket Tin (65 EGP)',
         flavor: 'Cool Spearmint Essential Oil',
         description: 'Sugar-free dental-safe breath mints in a sleek sliding metal tin.'
       },
       {
         name: 'Sweet & Slim 3in1 Coffee Classic Sachet',
-        image: '/artwork/sweet-and-slim/3d/coffee-3in1-box.png',
+        image: '/artwork/sweet-and-slim/3d/3in1-classic-box.jpg',
         volume: 'Box 12 Sachets (95 EGP)',
         flavor: 'Diet Arabica Coffee & Creamer',
         description: 'Instant rich coffee blend sweetened with Sweet & Slim, low in calories.'
@@ -192,21 +192,21 @@ export const RETAIL_BRANDS_DATA: RetailBrand[] = [
     products: [
       {
         name: 'Yalla Frapp It Caramel (Box 10 Sachets)',
-        image: '/artwork/yalla-drinks/3d/frappit-caramel-box.png',
+        image: '/artwork/yalla-drinks/3d/yalla-frappit-caramel-box.png',
         volume: 'Box 10 Sachets (200 EGP)',
         flavor: 'Rich Caramel & Microfoam',
         description: 'Smooth, refreshing iced caramel frappé blending effortlessly with ice.'
       },
       {
         name: 'Yalla Smoozy Mixed Berries (Box 10 Sachets)',
-        image: '/artwork/yalla-drinks/3d/smoozy-mixed-berries-box.png',
+        image: '/artwork/yalla-drinks/3d/yalla-smoozy-mixed-berries-box.png',
         volume: 'Box 10 Sachets (210 EGP)',
         flavor: 'Wild Mixed Berries',
         description: 'Vibrant fruit puree mix for frosty slush smoothies in seconds.'
       },
       {
         name: 'Yalla Koffi Caffe Latte (Box 10 Sachets)',
-        image: '/artwork/yalla-drinks/3d/koffi-latte-box.png',
+        image: '/artwork/yalla-drinks/3d/yalla-koffi-caffe-latte-box.png',
         volume: 'Box 10 Sachets (180 EGP)',
         flavor: 'Roasted Arabica & Milk',
         description: 'Barista-quality hot or iced caffè latte with a velvety microfoam head.'

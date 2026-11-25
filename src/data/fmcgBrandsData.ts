@@ -859,7 +859,7 @@ export const FMCG_BRANDS: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', 
         id: 'ss-flv-hotchoco-box',
         name: 'Diet Hot Chocolate Hazelnut Box',
         badge: 'Guilt-Free Cocoa',
-        heroImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
+        heroImage: '/artwork/sweet-and-slim/3d/hot-chocolate-box.png',
         colorPalette: {
           primary: '#8B5CF6',
           secondary: '#7C3AED',
@@ -4910,7 +4910,7 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
         id: 'ss-flv-hotchoco-box',
         name: 'هوت شوكليت دايت بالبندق Sweet & Slim',
         badge: 'كاكاو دايت فاخر',
-        heroImage: '/images/products/Sweet & Slim Collection/S&S Hotchocolate/Box/S&S Hot chocolate-View 1.png',
+        heroImage: '/artwork/sweet-and-slim/3d/hot-chocolate-box.png',
         colorPalette: {
           primary: '#8B5CF6',
           secondary: '#7C3AED',
@@ -8187,7 +8187,7 @@ export const FMCG_BRANDS_AR: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks
         { title: 'مستخلصات قهوة أرابيكا طبيعية', desc: 'تحافظ على النوتات العطرية للتحميص دون مرارة الحرق.' },
         { title: 'حلول متكاملة للمنازل والكافيهات', desc: 'نوفر أظرف التجزئة اليومية وعبوات 1 كجم المخصصة للمطاعم ومحلات المشروبات.' },
       ],
-      image: '/images/pages/products/retail/yalla/cover.png',
+      image: '/images/pages/products/frapit.jpg',
       badgeText: 'قطاع المشروبات والعصائر في AWA',
     },
     faqs: [

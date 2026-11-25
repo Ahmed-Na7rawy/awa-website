@@ -100,7 +100,7 @@ export const CapabilitiesPage: React.FC = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '3.5rem' }}>
+          <div className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '3.5rem' }}>
             {capabilityItems.map((item, idx) => (
               <div 
                 key={idx}
@@ -172,7 +172,7 @@ export const CapabilitiesPage: React.FC = () => {
       {/* 4. SELECTIVE MANUFACTURING COLLABORATION (Exact V9 Content) */}
       <section className="section" style={{ borderTop: '1px solid var(--border-color)', padding: '5rem 0' }}>
         <div className="wrap">
-          <div style={{
+          <div className="awa-split-grid" style={{
             background: '#FFFFFF',
             borderRadius: '24px',
             border: '1px solid var(--border-color)',
