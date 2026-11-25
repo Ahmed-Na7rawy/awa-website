@@ -307,7 +307,7 @@ export const AWA_STYLE_BRANDS: BrandIdentity[] = [
     brandName: 'Yalla Drinks',
     brandTag: 'Instant Café Beverage Systems',
     slogan: 'Café Quality, Anytime Anywhere',
-    heroImage: '/images/yalla-drinks/banners/yalla_main_web_hero_banner.png',
+    heroImage: '/images/yalla-drinks/banners/yalla_main_web_hero_banner.webp',
     heroBgGradient: 'linear-gradient(135deg, #041f3d 0%, #03487d 40%, #0284c7 100%)',
     accentColor: '#38bdf8',
     secondaryColor: '#7dd3fc',
