@@ -185,7 +185,7 @@ export const AboutPage: React.FC = () => {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
+          <div className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
             <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <Target size={22} />
@@ -269,15 +269,17 @@ export const AboutPage: React.FC = () => {
       <section className="section tint scroll-margin" id="evolution">
         <div className="wrap">
           <div className="section-heading">
-            <div className="kicker">{isAr ? 'مسيرتنا وتطورنا' : 'OUR EVOLUTION'}</div>
-            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
-              {isAr ? (
-                <>خبرة تُبنى <span className="accent">عبر الزمن.</span></>
-              ) : (
-                <>Experience built <span className="accent">over time.</span></>
-              )}
-            </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '680px', lineHeight: 1.6, fontSize: '1rem' }}>
+            <div>
+              <div className="kicker">{isAr ? 'مسيرتنا وتطورنا' : 'OUR EVOLUTION'}</div>
+              <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 0' }}>
+                {isAr ? (
+                  <>خبرة تُبنى <span className="accent">عبر الزمن.</span></>
+                ) : (
+                  <>Experience built <span className="accent">over time.</span></>
+                )}
+              </h2>
+            </div>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '520px', lineHeight: 1.6, fontSize: '1rem' }}>
               {isAr
                 ? 'تعكس كل محطة رئيسية تطور قدراتنا، وتوسع شركاتنا المتخصصة، وشراكاتنا الدولية التي تسهم في مسيرة مجموعة AWA.'
                 : 'Each milestone reflects the development of capabilities, specialized businesses and international collaborations that contribute to the AWA Group story.'}
@@ -308,22 +310,24 @@ export const AboutPage: React.FC = () => {
       <section className="section" id="commitments">
         <div className="wrap">
           <div className="section-heading" style={{ marginBottom: '2.5rem' }}>
-            <div className="kicker">{isAr ? 'التزاماتنا' : 'OUR COMMITMENTS'}</div>
-            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
-              {isAr ? (
-                <>الجودة والمسؤولية في <span className="accent">الممارسة اليومية.</span></>
-              ) : (
-                <>Quality and responsibility in <span className="accent">everyday practice.</span></>
-              )}
-            </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '680px', lineHeight: 1.6, fontSize: '1rem' }}>
+            <div>
+              <div className="kicker">{isAr ? 'التزاماتنا' : 'OUR COMMITMENTS'}</div>
+              <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 0' }}>
+                {isAr ? (
+                  <>الجودة والمسؤولية في <span className="accent">الممارسة اليومية.</span></>
+                ) : (
+                  <>Quality and responsibility in <span className="accent">everyday practice.</span></>
+                )}
+              </h2>
+            </div>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '520px', lineHeight: 1.6, fontSize: '1rem' }}>
               {isAr
                 ? 'تدعم المعايير الدولية والعمليات المسؤولة قدرتنا على خدمة المصنعين والشركاء والعملاء المهنيين بثقة.'
                 : 'International standards and responsible operations support our ability to serve manufacturers, partners and professional customers with confidence.'}
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="awa-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             <div style={{ background: '#FFFFFF', padding: '2.5rem', borderRadius: '20px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
               <div className="kicker">{isAr ? 'الجودة والشهادات ↗' : 'QUALITY & CERTIFICATIONS ↗'}</div>
               <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem' }}>
