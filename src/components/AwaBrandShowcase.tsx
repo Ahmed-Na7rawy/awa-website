@@ -3,7 +3,6 @@ import { getFmcgBrandData, FmcgBrandData } from '../data/fmcgBrandsData';
 import { useLanguage } from '../context/LanguageContext';
 import { BrandNavBar } from './brand-showcase/BrandNavBar';
 import { StickyScrollyHero } from './brand-showcase/StickyScrollyHero';
-import { SweetSlimHero } from './brand-showcase/SweetSlimHero';
 import { FlavorMorpherCanvas } from './brand-showcase/FlavorMorpherCanvas';
 import { YallaFlavorSplashShowcase } from './brand-showcase/YallaFlavorSplashShowcase';
 import { SweetSlimWellnessShowcase } from './brand-showcase/SweetSlimWellnessShowcase';
@@ -60,21 +59,14 @@ export const AwaBrandShowcase: React.FC<AwaBrandShowcaseProps> = ({
       {activeBrandId === 'yalla-drinks' ? (
         /* Yalla: Flagship Light Mode 360° Flavor Splash Stage with Graphic Overlays */
         <YallaFlavorSplashShowcase onOpenQuote={onOpenQuote} />
-      ) : activeBrandId === 'sweet-and-slim' ? (
-        /* Sweet & Slim: Clean Studio Product Framing Hero */
-        <SweetSlimHero
-          key={'sweet-and-slim-hero-' + language}
-          brand={currentBrand}
-          onOpenQuote={onOpenQuote}
-        />
-      ) : (
+      ) : activeBrandId === 'squeasy' ? (
         /* Squeasy: Tactile 3D Hero Levitation Stage with Floating Ingredient Graphics */
         <StickyScrollyHero
           key={activeBrandId + '-hero-' + language}
           brand={currentBrand}
           onOpenQuote={onOpenQuote}
         />
-      )}
+      ) : null}
 
       {/* 3. Interactive Middle Experience */}
       {activeBrandId === 'sweet-and-slim' && (
