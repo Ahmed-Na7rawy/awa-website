@@ -29,7 +29,7 @@ export const ExportsPage: React.FC = () => {
         ? ['المملكة العربية السعودية', 'الإمارات العربية المتحدة', 'الكويت', 'الأردن', 'العراق', 'سلطنة عمان'] 
         : ['Saudi Arabia', 'United Arab Emirates', 'Kuwait', 'Jordan', 'Iraq', 'Oman'],
       agreement: isAr ? 'اتفاقية التجارة الحرة العربية الكبرى (GAFTA) — إعفاء جمركي 0%' : 'GAFTA Free Trade Agreement — 0% Customs Duty',
-      icon: '🌍'
+      icon: <Globe2 size={24} />
     },
     {
       region: isAr ? 'شمال وشرق إفريقيا (COMESA & Africa)' : 'North & East Africa (COMESA & Africa)',
@@ -37,7 +37,7 @@ export const ExportsPage: React.FC = () => {
         ? ['ليبيا', 'السودان', 'كينيا', 'الجزائر', 'تونس', 'المغرب'] 
         : ['Libya', 'Sudan', 'Kenya', 'Algeria', 'Tunisia', 'Morocco'],
       agreement: isAr ? 'اتفاقية الكوميسا (COMESA) واتفاقية أغادير — تعريفات تفضيلية' : 'COMESA & Agadir Agreements — Preferential Tariffs',
-      icon: '🚢'
+      icon: <Ship size={24} />
     },
     {
       region: isAr ? 'أوروبا والمشاريع الدولية (Europe & Strategic JVs)' : 'Europe & Strategic JVs',
@@ -45,7 +45,7 @@ export const ExportsPage: React.FC = () => {
         ? ['إستونيا (Ingreva JV)', 'تركيا (Turkphos JV)', 'شركاء وسط أوروبا'] 
         : ['Estonia (Ingreva JV)', 'Türkiye (Turkphos JV)', 'Central European Partners'],
       agreement: isAr ? 'شهادة الحركة EUR.1 والتعاون التكنولوجي المشترك' : 'EUR.1 Movement Certificate & Technology Joint Ventures',
-      icon: '🇪🇺'
+      icon: <Building2 size={24} />
     }
   ];
 
@@ -210,7 +210,7 @@ export const ExportsPage: React.FC = () => {
                     boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
                   }}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{m.icon}</div>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#ECFDF5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>{m.icon}</div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>
                     {m.region}
                   </h3>

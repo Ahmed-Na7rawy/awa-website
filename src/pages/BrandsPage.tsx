@@ -148,7 +148,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             </a>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <div className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* Sweet & Slim Card */}
             <div 
               style={{
@@ -387,7 +387,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             </p>
           </div>
 
-          <div style={{
+          <div className="awa-split-grid" style={{
             background: '#FFFFFF',
             borderRadius: '24px',
             border: '1px solid var(--border-color)',
