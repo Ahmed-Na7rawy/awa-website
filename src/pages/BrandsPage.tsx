@@ -4,6 +4,7 @@ import { ArrowRight, ShoppingBag, Sparkles, CheckCircle2, Award, ExternalLink } 
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { AwaBrandShowcase } from '../components/AwaBrandShowcase';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 import { v9Assets, brandData } from '../data/v9Data';
 
 interface BrandsPageProps {
@@ -76,8 +77,9 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
       </section>
 
       {/* 2. AWA-Owned Brands Section */}
-      <section className="section scroll-margin" id="owned">
+      <Reveal as="section" className="section scroll-margin" id="owned">
         <div className="wrap">
+          <Reveal>
           <div className="section-heading">
             <div>
               <div className="kicker">{isAr ? 'علامات AWA المملوكة' : 'AWA-OWNED BRANDS'}</div>
@@ -95,6 +97,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 : 'Our owned brands serve different consumer occasions, from sugar-free choices and ready-to-prepare beverages to convenient culinary preparations.'}
             </p>
           </div>
+          </Reveal>
 
           {/* Official Shopping Site Announcement Banner */}
           <div style={{
@@ -148,8 +151,9 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             </a>
           </div>
 
-          <div className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <StaggerParent className="awa-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* Sweet & Slim Card */}
+            <StaggerChild>
             <div 
               style={{
                 background: '#FFFFFF',
@@ -158,7 +162,8 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 boxShadow: 'var(--shadow-subtle)',
                 overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                height: '100%'
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #059669 0%, #10B981 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
@@ -218,8 +223,10 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 </div>
               </div>
             </div>
+            </StaggerChild>
 
             {/* Yalla Drinks Card */}
+            <StaggerChild>
             <div 
               style={{
                 background: '#FFFFFF',
@@ -228,7 +235,8 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 boxShadow: 'var(--shadow-subtle)',
                 overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                height: '100%'
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
@@ -290,8 +298,10 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 </div>
               </div>
             </div>
+            </StaggerChild>
 
             {/* Squ'easy Card (Exact V9 Content) */}
+            <StaggerChild>
             <div 
               style={{
                 background: '#FFFFFF',
@@ -300,7 +310,8 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 boxShadow: 'var(--shadow-subtle)',
                 overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                height: '100%'
               }}
             >
               <div style={{ height: '220px', background: 'linear-gradient(135deg, #DC2626 0%, #EF4444 100%)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', color: '#FFFFFF' }}>
@@ -362,12 +373,13 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
                 </div>
               </div>
             </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* 3. Partnered Retail Products Section (SIRRI Foods - Exact V9 Content) */}
-      <section className="section tint scroll-margin" id="partnered" style={{ borderTop: '1px solid var(--border-color)', padding: '5.5rem 0' }}>
+      <Reveal as="section" className="section tint scroll-margin" id="partnered" style={{ borderTop: '1px solid var(--border-color)', padding: '5.5rem 0' }}>
         <div className="wrap">
           <div className="section-heading" style={{ marginBottom: '3rem' }}>
             <div>
@@ -474,10 +486,10 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* 4. Closing CTA (Exact V9 Content) */}
-      <section className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
+      <Reveal as="section" className="closing-cta" style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%)', padding: '5.5rem 0', color: '#FFFFFF' }}>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem' }}>
           <div>
             <div className="kicker on-dark" style={{ color: '#4ADE80', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
@@ -510,7 +522,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
             <ArrowRight size={17} />
           </Link>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };
