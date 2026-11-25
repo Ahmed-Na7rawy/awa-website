@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { 
   ArrowUpRight,
   ArrowRight,
@@ -230,7 +231,13 @@ export const HomePage: React.FC<HomeProps> = () => {
       {/* SECTION 01: EXPLORE OUR EXPERTISE YOUR WAY          */}
       {/* (IMAGE 1 SPECIFICATION: EXACT 1:1 REPRODUCTION)    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-expertise">
+      <motion.section
+        className="ref-sec-expertise"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Soft Organic Pale Mint Background Wave */}
         <div className="ref-expertise-wave" aria-hidden="true">
           <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -374,13 +381,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 02: TECHNICAL EXPERTISE, TAILORED (SPLIT)   */}
       {/* (IMAGE 1 SPECIFICATION: FULL BLEED LEFT PHOTO)      */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-technical">
+      <motion.section
+        className="ref-sec-technical"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="ref-tech-bleed-wrap">
           {/* Left: Stainless Steel Dairy Pouring Machine Photo (Full Bleed to Left Edge) */}
           <div className="ref-tech-photo-wrap">
@@ -442,13 +455,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 03: DESIGNED FOR PERFORMANCE & VALUE        */}
       {/* (IMAGE 1 SPECIFICATION: LEFT TEXT + 3 COL DIVIDERS) */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-perf">
+      <motion.section
+        className="ref-sec-perf"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Organic Light Mint Wave Behind 3 Pillars */}
         <div className="ref-perf-wave" aria-hidden="true">
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -520,13 +539,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 04: INTERNATIONAL STANDARDS (MINT SURFACE)  */}
       {/* (IMAGE 1 SPECIFICATION: MINT BG + REAL LOGO ROW)    */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-certs">
+      <motion.section
+        className="ref-sec-certs"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="ref-container">
           <div className="ref-certs-layout">
             {/* Left Header */}
@@ -624,13 +649,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 05: RESPONSIBLE GROWTH. LASTING IMPACT.     */}
       {/* (IMAGE 1 SPECIFICATION: FULL BLEED LEFT SPROUT)     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-sustain">
+      <motion.section
+        className="ref-sec-sustain"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="ref-sustain-bleed-wrap">
           {/* Left: Seedling Sprout Photo (Full Bleed to Left Edge) */}
           <div className="ref-sustain-photo-wrap">
@@ -683,13 +714,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 06: KNOWLEDGE THAT SUPPORTS PROGRESS        */}
       {/* (IMAGE 1 SPECIFICATION: LEFT TEXT + 3 EQUAL CARDS)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-knowledge">
+      <motion.section
+        className="ref-sec-knowledge"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="ref-container">
           <div className="ref-know-layout">
             {/* Left Content */}
@@ -746,13 +783,19 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ═══════════════════════════════════════════════════ */}
       {/* SECTION 07: FINAL CTA (DEEP NAVY WITH GREEN WAVE)   */}
       {/* (IMAGE 1 SPECIFICATION: NAVY BG + WHITE BUTTON)     */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="ref-sec-cta">
+      <motion.section
+        className="ref-sec-cta"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Subtle Decorative Flowing Wave Lines */}
         <div className="ref-cta-wave" aria-hidden="true">
           <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1440 280">
@@ -787,7 +830,7 @@ export const HomePage: React.FC<HomeProps> = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

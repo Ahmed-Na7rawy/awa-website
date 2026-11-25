@@ -1,6 +1,8 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
+import React, { useState, Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { MotionConfig, motion, useScroll, useSpring } from 'framer-motion';
+import { LenisProvider } from './context/LenisContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
@@ -72,21 +74,11 @@ const LegacySolutionsRedirect: React.FC = () => {
 
 function AppContent() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const { isRTL } = useLanguage();
   const navigate = useNavigate();
-
-  // Scroll progress tracker
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setScrollProgress(progress);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 260, damping: 30, restDelta: 0.001 });
 
   const handleNavigate = (pageId: string, subId?: string) => {
     if (pageId === 'home') {
@@ -107,8 +99,15 @@ function AppContent() {
         Skip to main content
       </a>
 
-      {/* Scroll Progress Bar */}
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
+      {/* GPU-composited Framer Motion Scroll Progress Bar */}
+      <motion.div
+        className="scroll-progress"
+        style={{
+          width: '100%',
+          scaleX,
+          transformOrigin: isRTL ? '100% 50%' : '0% 50%',
+        }}
+      />
 
       <Navbar
         currentPage=""
@@ -117,7 +116,13 @@ function AppContent() {
       />
 
       <main id="main-content" tabIndex={-1}>
-        <div className="page-transition-wrapper">
+        <motion.div
+          key={location.pathname}
+          className="page-transition-wrapper"
+          initial={{ opacity: 0.96, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+        >
           <Suspense fallback={
             <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFFFFF' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '3px solid #E2E8F0', borderTopColor: '#00A84F', animation: 'spin 0.8s linear infinite' }} aria-label="Loading" />
@@ -189,7 +194,7 @@ function AppContent() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           </Suspense>
-        </div>
+        </motion.div>
       </main>
 
       <Footer onNavigate={handleNavigate} />
@@ -207,11 +212,15 @@ function AppContent() {
 export function App() {
   return (
     <HelmetProvider>
-      <LanguageProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </LanguageProvider>
+      <MotionConfig reducedMotion="user">
+        <LanguageProvider>
+          <LenisProvider>
+            <BrowserRouter>
+              <AppContent />
+            </BrowserRouter>
+          </LenisProvider>
+        </LanguageProvider>
+      </MotionConfig>
     </HelmetProvider>
   );
 }
