@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, CheckCircle2, Activity, Coffee, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Activity, Coffee, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './BrandShowcase.css';
 
@@ -296,11 +296,6 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
       <div className="ss-wellness-container-light">
         {/* Editorial Section Header */}
         <div className="ss-editorial-header">
-          <div className="ss-eyebrow">
-            <Award size={14} style={{ color: '#059669' }} />
-            <span>{isAr ? 'منظومة أسلوب الحياة الصحي بدون سكر' : 'The Sugar-Free Lifestyle Ecosystem'}</span>
-          </div>
-
           <h2 className="ss-editorial-title">
             {isAr ? 'حلاوة حقيقية. بدون أدنى تنازل.' : 'PURE SWEETNESS. ZERO COMPROMISE.'}
           </h2>
