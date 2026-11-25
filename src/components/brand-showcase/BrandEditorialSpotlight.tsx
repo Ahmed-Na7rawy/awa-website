@@ -66,9 +66,9 @@ export const BrandEditorialSpotlight: React.FC<BrandEditorialSpotlightProps> = (
       <div className="ss-wellness-container-light">
         {/* Editorial Section Header */}
         <div className="ss-editorial-header">
-          <h2 className="ss-editorial-title">
+          <h1 className="ss-editorial-title">
             {isAr ? headlineAr : headlineEn}
-          </h2>
+          </h1>
 
           <p className="ss-editorial-subtitle">
             {isAr ? subtitleAr : subtitleEn}
