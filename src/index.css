@@ -460,7 +460,15 @@ img {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  max-width: 100%;
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .btn-primary {
@@ -1079,7 +1087,15 @@ img {
   border-bottom: 1px solid var(--border-color);
   padding: 1.25rem 0;
   overflow: hidden;
+  max-width: 100%;
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .text-marquee-track {
@@ -2618,12 +2634,15 @@ img {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
   transition: var(--transition);
 }
 
 .mobile-menu-overlay.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-drawer {
