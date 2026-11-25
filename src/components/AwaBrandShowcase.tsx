@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getFmcgBrandData, FmcgBrandData } from '../data/fmcgBrandsData';
 import { useLanguage } from '../context/LanguageContext';
 import { BrandNavBar } from './brand-showcase/BrandNavBar';
+import { SEO } from './SEO';
 import { SweetSlimWellnessShowcase } from './brand-showcase/SweetSlimWellnessShowcase';
 import { BrandEditorialSpotlight, EditorialSpotlightTab } from './brand-showcase/BrandEditorialSpotlight';
 import { SkuGrid3D } from './brand-showcase/SkuGrid3D';
@@ -328,8 +329,33 @@ export const AwaBrandShowcase: React.FC<AwaBrandShowcaseProps> = ({
 
   const currentBrand: FmcgBrandData = getFmcgBrandData(activeBrandId, language);
 
+  const brandSeoMap: Record<'squeasy' | 'sweet-and-slim' | 'yalla-drinks', { title: string; desc: string; image: string }> = {
+    'sweet-and-slim': {
+      title: language === 'ar' ? 'Sweet & Slim • محليات خالية من السكر ومشروبات صحية' : 'Sweet & Slim • Zero-Sugar Sweeteners & Functional Beverages',
+      desc: 'Explore Sweet & Slim zero-calorie sucralose and stevia sweeteners, sugar-free mints, functional smoothies, and 3-in-1 coffee mixes from AWA Group.',
+      image: '/artwork/sweet-and-slim/3d/classic-100-box.webp',
+    },
+    'yalla-drinks': {
+      title: language === 'ar' ? 'Yalla Drinks • مشروبات الكافيه المثلجة والساخنة' : 'Yalla Drinks • Café-Style Frappes, Smoothies & Instant Coffee',
+      desc: 'Explore Yalla Drinks instant café beverage systems including Yalla Frapp it, Yalla Smoozy fruit smoothies, Yalla Koffi, and Italian Yalla Choco.',
+      image: '/images/yalla-drinks/banners/yalla_main_web_hero_banner.webp',
+    },
+    squeasy: {
+      title: language === 'ar' ? 'SquEasy • معجون الثوم والهريسة الجاهزة للطهي' : 'SquEasy • Ready-to-Use Garlic Paste & Spicy Harissa Pouches',
+      desc: 'Discover SquEasy convenient culinary garlic paste jars, squeeze pouches, and spicy harissa sauces crafted for home kitchens and foodservice.',
+      image: '/artwork/squeasy/3d/squeasy-garlic-paste-250g.png',
+    },
+  };
+  const brandSeo = brandSeoMap[activeBrandId];
+
   return (
     <div className="fmcg-root">
+      <SEO
+        title={brandSeo.title}
+        description={brandSeo.desc}
+        path={`/brands/${activeBrandId}`}
+        image={brandSeo.image}
+      />
       {/* 1. Global Glassmorphic Brand Nav */}
       <BrandNavBar
         currentBrand={currentBrand}
