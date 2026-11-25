@@ -70,13 +70,14 @@ export const ContactPage: React.FC = () => {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        // Fallback: If service returns non-200, still mark as submitted and offer mailto
-        setSubmitted(true);
+        throw new Error(`HTTP ${response.status}`);
       }
-    } catch (err) {
-      // Graceful fallback: show submitted with mailto alternative
-      console.warn('Form submission encountered network error, falling back:', err);
-      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        isAr
+          ? `تعذر إرسال الرسالة تلقائياً. يرجى مراسلتنا مباشرة على ${COMPANY_CONTACT.email}.`
+          : `Unable to submit automatically right now. Please email ${COMPANY_CONTACT.email} directly.`
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -667,6 +668,13 @@ export const ContactPage: React.FC = () => {
                             : 'I agree that AWA Group may review this information and respond via the provided business email or phone.'}
                         </label>
                       </div>
+
+                      {submitError && (
+                        <div role="alert" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.85rem 1rem', borderRadius: '10px', background: '#FEF2F2', border: '1px solid #FECACA', color: '#991B1B', fontSize: '0.85rem', fontWeight: 600 }}>
+                          <AlertCircle size={17} style={{ flexShrink: 0 }} />
+                          <span>{submitError}</span>
+                        </div>
+                      )}
 
                       {/* SUBMIT BUTTON */}
                       <button
