@@ -729,6 +729,8 @@ export const PRODUCTS_LIST: ProductItem[] = [
 
 export const COMPANY_CONTACT = {
   email: 'info@awa-group.net',
+  emailB2B: 'awab2b@awa-group.net',
+  emailB2C: 'awab2c@awa-group.net',
   phoneMain: '+202 22681519',
   phoneAlt: '+202 22690728',
   phoneAlex: '+202 22681519',

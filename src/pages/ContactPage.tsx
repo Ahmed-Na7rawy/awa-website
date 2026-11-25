@@ -36,6 +36,13 @@ export const ContactPage: React.FC = () => {
     }
   }, [searchParams]);
 
+  const targetEmail =
+    inquiryType === 'brands'
+      ? COMPANY_CONTACT.emailB2C
+      : inquiryType === 'other'
+      ? COMPANY_CONTACT.email
+      : COMPANY_CONTACT.emailB2B;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -58,7 +65,7 @@ export const ContactPage: React.FC = () => {
     };
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@awa-group.net', {
+      const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,8 +82,8 @@ export const ContactPage: React.FC = () => {
     } catch {
       setSubmitError(
         isAr
-          ? `تعذر إرسال الرسالة تلقائياً. يرجى مراسلتنا مباشرة على ${COMPANY_CONTACT.email}.`
-          : `Unable to submit automatically right now. Please email ${COMPANY_CONTACT.email} directly.`
+          ? `تعذر إرسال الرسالة تلقائياً. يرجى مراسلتنا مباشرة على ${targetEmail}.`
+          : `Unable to submit automatically right now. Please email ${targetEmail} directly.`
       );
     } finally {
       setIsSubmitting(false);
@@ -357,7 +364,7 @@ export const ContactPage: React.FC = () => {
                       <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0 }}>
                         {isAr
                           ? 'يتم إرسال رسالتك مباشرة إلى info@awa-group.net'
-                          : 'Your message will be delivered directly to info@awa-group.net'}
+                          : `Your message will be delivered directly to ${targetEmail}`}
                       </p>
                     </div>
                     <span
@@ -398,13 +405,13 @@ export const ContactPage: React.FC = () => {
                       </h4>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '440px', margin: '0 auto 1.75rem', lineHeight: 1.65 }}>
                         {isAr
-                          ? `شكراً لتواصلك يا ${formData.name || 'عزيزنا'}. تم إرسال طلبك إلى فريق AWA Group عبر info@awa-group.net وسنقوم بالرد عليك في غضون 24 ساعة.`
-                          : `Thank you, ${formData.name || 'partner'}. Your project inquiry has been sent to info@awa-group.net. Our technical team will review and reply within 24 hours.`}
+                          ? `شكراً لتواصلك يا ${formData.name || 'عزيزنا'}. تم إرسال طلبك إلى فريق AWA Group عبر ${targetEmail} وسنقوم بالرد عليك في غضون 24 ساعة.`
+                          : `Thank you, ${formData.name || 'partner'}. Your project inquiry has been sent to ${targetEmail}. Our technical team will review and reply within 24 hours.`}
                       </p>
 
                       <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a
-                          href={`mailto:info@awa-group.net?subject=Inquiry from ${encodeURIComponent(formData.company || formData.name)}&body=${encodeURIComponent(formData.message)}`}
+                          href={`mailto:${targetEmail}?subject=Inquiry from ${encodeURIComponent(formData.company || formData.name)}&body=${encodeURIComponent(formData.message)}`}
                           className="btn btn-secondary"
                           style={{ fontSize: '0.85rem' }}
                         >
