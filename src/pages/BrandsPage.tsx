@@ -46,7 +46,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenQuote }) => {
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
           <img 
-            src={v9Assets.v8Assets['food-hotel'] || v9Assets.foodVisuals.hotel} 
+            src="/images/pages/products/consumer-portfolio-hero.jpg" 
             alt="AWA Consumer Portfolio" 
             loading="eager" 
           />
