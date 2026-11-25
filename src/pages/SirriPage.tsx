@@ -321,16 +321,29 @@ export const SirriPage: React.FC = () => {
                     }}
                   >
                     <div>
-                      <div style={{ height: '220px', background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: '16px' }}>
-                        <img 
-                          src={p.image} 
-                          alt={p.name}
-                          style={{ maxHeight: '190px', maxWidth: '100%', objectFit: 'contain', filter: 'none' }}
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/images/2026/1.png';
-                          }}
-                        />
-                        <span style={{ position: 'absolute', top: '14px', right: '14px', fontSize: '11px', fontWeight: 800, color: '#EA580C', background: '#FFFFFF', padding: '4px 10px', borderRadius: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+                      <div style={{ height: '240px', background: '#FFF7ED', borderBottom: '1px solid #FED7AA', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: '18px' }}>
+                        <div style={{
+                          width: '100%',
+                          height: '100%',
+                          background: '#FFFFFF',
+                          borderRadius: '14px',
+                          padding: '14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          border: '1px solid rgba(234, 88, 12, 0.1)',
+                          boxShadow: '0 10px 24px -8px rgba(15, 23, 42, 0.1)'
+                        }}>
+                          <img 
+                            src={p.image} 
+                            alt={p.name}
+                            style={{ maxHeight: '170px', maxWidth: '100%', objectFit: 'contain', filter: 'none' }}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/2026/1.png';
+                            }}
+                          />
+                        </div>
+                        <span style={{ position: 'absolute', top: '12px', right: '12px', fontSize: '11px', fontWeight: 800, color: '#EA580C', background: '#FFFFFF', border: '1px solid #FED7AA', padding: '4px 10px', borderRadius: '8px' }}>
                           {p.size}
                         </span>
                       </div>
