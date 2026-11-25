@@ -1,186 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
+  <!-- Core -->
   <url>
     <loc>https://awagroup.net/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/" />
   </url>
-
-  <!-- About -->
   <url>
     <loc>https://awagroup.net/about</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/about" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/about" />
+    <priority>0.85</priority>
   </url>
 
-  <!-- Solutions & Sub-routes -->
+  <!-- Industry Solutions & Food Services -->
   <url>
     <loc>https://awagroup.net/solutions</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions" />
   </url>
   <url>
-    <loc>https://awagroup.net/solutions/dairy</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/dairy" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/dairy" />
-  </url>
-  <url>
-    <loc>https://awagroup.net/solutions/meat</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/meat" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/meat" />
-  </url>
-  <url>
-    <loc>https://awagroup.net/solutions/bakery</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/bakery" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/bakery" />
-  </url>
-  <url>
-    <loc>https://awagroup.net/solutions/beverage</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/beverage" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/beverage" />
-  </url>
-  <url>
-    <loc>https://awagroup.net/solutions/sauces</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/sauces" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/sauces" />
-  </url>
-  <url>
-    <loc>https://awagroup.net/solutions/rnd</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/solutions/rnd" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/solutions/rnd" />
-  </url>
-
-  <!-- Trading -->
-  <url>
-    <loc>https://awagroup.net/trading</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/solutions/catalogue</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/trading" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/trading" />
   </url>
-
-  <!-- Manufacturing / Industries -->
   <url>
-    <loc>https://awagroup.net/industries</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/solutions/industry/dairy-cheese</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/solutions/industry/meat-seafood</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/solutions/industry/bakery</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/solutions/industry/beverages</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/solutions/industry/culinary</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/solutions/industry/snacks</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/food-services</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/industries" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/industries" />
   </url>
 
-  <!-- Products & Brand Sub-routes -->
+  <!-- Consumer Portfolio -->
   <url>
-    <loc>https://awagroup.net/products</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/brands</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/products" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/products" />
   </url>
   <url>
-    <loc>https://awagroup.net/products/sweet-and-slim</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/brands/sweet-and-slim</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/products/sweet-and-slim" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/products/sweet-and-slim" />
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://awagroup.net/products/squeasy</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/brands/yalla-drinks</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/products/squeasy" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/products/squeasy" />
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://awagroup.net/products/yalla-drinks</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/brands/squeasy</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/products/yalla-drinks" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/products/yalla-drinks" />
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://awagroup.net/products/industrial</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/brands/sirri</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/products/industrial" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/products/industrial" />
+    <priority>0.85</priority>
   </url>
 
-  <!-- Logistics -->
+  <!-- Capabilities -->
   <url>
-    <loc>https://awagroup.net/logistics</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://awagroup.net/capabilities</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/capabilities/sourcing</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/logistics" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/logistics" />
+  </url>
+  <url>
+    <loc>https://awagroup.net/capabilities/rd</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/capabilities/formulations</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/capabilities/manufacturing</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/capabilities/strategic-manufacturing</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Sustainability -->
+  <!-- Quality, Network & Knowledge -->
+  <url>
+    <loc>https://awagroup.net/quality</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://awagroup.net/sustainability</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/sustainability" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/sustainability" />
+  </url>
+  <url>
+    <loc>https://awagroup.net/global</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/global/principals</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/global/exports</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/knowledge</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Careers -->
+  <!-- Strategic Entities -->
+  <url>
+    <loc>https://awagroup.net/turkphos</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://awagroup.net/ingreva</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Operations & Contact -->
   <url>
     <loc>https://awagroup.net/careers</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/careers" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/careers" />
   </url>
-
-  <!-- Contact -->
   <url>
     <loc>https://awagroup.net/contact</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://awagroup.net/contact" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://awagroup.net/contact" />
   </url>
 
 </urlset>

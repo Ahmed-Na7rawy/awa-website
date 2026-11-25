@@ -52,10 +52,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     document.documentElement.dir = dir;
     if (language === 'ar') {
       document.body.classList.add('rtl-mode');
-      document.title = 'مجموعة AWA | حلول الصناعات الغذائية، التوريد وسلاسل الإمداد المبردة';
     } else {
       document.body.classList.remove('rtl-mode');
-      document.title = 'AWA Group | Food Solutions, Trading & Cold Chain Logistics';
     }
   }, [language, dir]);
 

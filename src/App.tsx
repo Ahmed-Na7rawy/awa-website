@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
@@ -9,32 +9,34 @@ import { FloatingSocialBar } from './components/FloatingSocialBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { JsonLd } from './components/JsonLd';
 
-// V9 Core Pages
+// Eagerly loaded landing page for instant First Contentful Paint
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { SolutionsPage } from './pages/SolutionsPage';
-import { CataloguePage } from './pages/CataloguePage';
-import { SolutionDetailPage } from './pages/SolutionDetailPage';
-import { FoodServicesPage } from './pages/FoodServicesPage';
-import { BrandsPage } from './pages/BrandsPage';
-import { CapabilitiesPage } from './pages/CapabilitiesPage';
-import { SourcingPage } from './pages/SourcingPage';
-import { RdPage } from './pages/RdPage';
-import { FormulationsPage } from './pages/FormulationsPage';
-import { ManufacturingPage } from './pages/ManufacturingPage';
-import { StrategicManufacturingPage } from './pages/StrategicManufacturingPage';
-import { QualityPage } from './pages/QualityPage';
-import { SustainabilityPage } from './pages/SustainabilityPage';
-import { GlobalPage } from './pages/GlobalPage';
-import { KnowledgePage } from './pages/KnowledgePage';
-import { TurkphosPage } from './pages/TurkphosPage';
-import { IngrevaPage } from './pages/IngrevaPage';
-import { SirriPage } from './pages/SirriPage';
-import { PrincipalsPage } from './pages/PrincipalsPage';
-import { ExportsPage } from './pages/ExportsPage';
-import { ContactPage } from './pages/ContactPage';
-import { CareersPage } from './pages/CareersPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+
+// Route-level code splitting for secondary pages
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage').then(m => ({ default: m.SolutionsPage })));
+const CataloguePage = lazy(() => import('./pages/CataloguePage').then(m => ({ default: m.CataloguePage })));
+const SolutionDetailPage = lazy(() => import('./pages/SolutionDetailPage').then(m => ({ default: m.SolutionDetailPage })));
+const FoodServicesPage = lazy(() => import('./pages/FoodServicesPage').then(m => ({ default: m.FoodServicesPage })));
+const BrandsPage = lazy(() => import('./pages/BrandsPage').then(m => ({ default: m.BrandsPage })));
+const CapabilitiesPage = lazy(() => import('./pages/CapabilitiesPage').then(m => ({ default: m.CapabilitiesPage })));
+const SourcingPage = lazy(() => import('./pages/SourcingPage').then(m => ({ default: m.SourcingPage })));
+const RdPage = lazy(() => import('./pages/RdPage').then(m => ({ default: m.RdPage })));
+const FormulationsPage = lazy(() => import('./pages/FormulationsPage').then(m => ({ default: m.FormulationsPage })));
+const ManufacturingPage = lazy(() => import('./pages/ManufacturingPage').then(m => ({ default: m.ManufacturingPage })));
+const StrategicManufacturingPage = lazy(() => import('./pages/StrategicManufacturingPage').then(m => ({ default: m.StrategicManufacturingPage })));
+const QualityPage = lazy(() => import('./pages/QualityPage').then(m => ({ default: m.QualityPage })));
+const SustainabilityPage = lazy(() => import('./pages/SustainabilityPage').then(m => ({ default: m.SustainabilityPage })));
+const GlobalPage = lazy(() => import('./pages/GlobalPage').then(m => ({ default: m.GlobalPage })));
+const KnowledgePage = lazy(() => import('./pages/KnowledgePage').then(m => ({ default: m.KnowledgePage })));
+const TurkphosPage = lazy(() => import('./pages/TurkphosPage').then(m => ({ default: m.TurkphosPage })));
+const IngrevaPage = lazy(() => import('./pages/IngrevaPage').then(m => ({ default: m.IngrevaPage })));
+const SirriPage = lazy(() => import('./pages/SirriPage').then(m => ({ default: m.SirriPage })));
+const PrincipalsPage = lazy(() => import('./pages/PrincipalsPage').then(m => ({ default: m.PrincipalsPage })));
+const ExportsPage = lazy(() => import('./pages/ExportsPage').then(m => ({ default: m.ExportsPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const CareersPage = lazy(() => import('./pages/CareersPage').then(m => ({ default: m.CareersPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -100,6 +102,11 @@ function AppContent() {
     <div className={`app-root ${isRTL ? 'rtl' : 'ltr'}`}>
       <JsonLd />
       <ScrollToTop />
+      {/* Accessibility Skip Link */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
+
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
@@ -109,8 +116,13 @@ function AppContent() {
         onOpenQuote={() => setIsQuoteModalOpen(true)}
       />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <div className="page-transition-wrapper">
+          <Suspense fallback={
+            <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFFFFF' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '3px solid #E2E8F0', borderTopColor: '#00A84F', animation: 'spin 0.8s linear infinite' }} aria-label="Loading" />
+            </div>
+          }>
           <Routes>
             {/* Core V9 Routes */}
             <Route path="/" element={<HomePage onNavigate={handleNavigate} onOpenQuote={() => setIsQuoteModalOpen(true)} />} />
@@ -176,6 +188,7 @@ function AppContent() {
             {/* 404 — Branded Not Found */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
+          </Suspense>
         </div>
       </main>
 

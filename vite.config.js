@@ -20,5 +20,13 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     copyPublicDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          'motion-icons': ['framer-motion', 'lucide-react'],
+        },
+      },
+    },
   },
 })
