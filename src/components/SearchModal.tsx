@@ -148,6 +148,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
               <div
                 key={idx}
                 className="search-item"
+                role="button"
+                tabIndex={0}
                 style={{
                   padding: '0.85rem 1.25rem',
                   borderBottom: '1px solid var(--border-color)',
@@ -163,6 +165,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                 onClick={() => {
                   onClose();
                   navigate(item.route);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onClose();
+                    navigate(item.route);
+                  }
                 }}
               >
                 <div>
