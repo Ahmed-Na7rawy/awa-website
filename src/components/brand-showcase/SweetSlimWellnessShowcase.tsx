@@ -5,6 +5,7 @@ import './BrandShowcase.css';
 
 interface SweetSlimPillar {
   id: string;
+  tabLabel: string;
   title: string;
   badge: string;
   tagline: string;
@@ -23,6 +24,7 @@ interface SweetSlimPillar {
 const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
   {
     id: 'sachets',
+    tabLabel: 'Sweeteners',
     title: 'Zero-Calorie Tabletop Sweeteners',
     badge: 'Sugar Line',
     tagline: 'Made from corn and sucralose (plus 100% pure Stevia options) to deliver the clean taste of regular sugar.',
@@ -49,6 +51,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
   },
   {
     id: 'mints',
+    tabLabel: 'Pocket Mints',
     title: 'Sugar-Free Pocket Mints (40 Pcs)',
     badge: 'Candy Line',
     tagline: 'Refreshing sugar-free candy tins with zero calories, tooth-friendly formula, and long-lasting freshness.',
@@ -75,6 +78,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
   },
   {
     id: 'liquid',
+    tabLabel: 'Syrup Lite',
     title: 'Syrup Lite (300 ml Bottle)',
     badge: 'Dessert Syrup',
     tagline: 'Low-calorie, sugar-free syrup specially crafted for preparing traditional Middle Eastern desserts.',
@@ -100,6 +104,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
   },
   {
     id: 'hotdrinks',
+    tabLabel: 'Hot Beverages',
     title: 'Sugar-Free Hot Chocolate & 3in1 Coffee',
     badge: 'Hot Beverages',
     tagline: 'Trans-fat free and hydrogenated-oil free hot cocoa & instant coffee made with coconut oil and skimmed milk.',
@@ -126,6 +131,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
   },
   {
     id: 'colddrinks',
+    tabLabel: 'Cold Drinks',
     title: 'Cold Drinks & Functional Smoothies',
     badge: 'Cold Beverages',
     tagline: 'Refreshing 20g smoothie sachets sweetened exclusively with Sweet & Slim Stevia and fortified with functional wellness actives.',
@@ -155,6 +161,7 @@ const SWEET_SLIM_PILLARS_EN: SweetSlimPillar[] = [
 const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
   {
     id: 'sachets',
+    tabLabel: 'المحليات',
     title: 'محليات المائدة الخالية من السعرات',
     badge: 'خط المحليات',
     tagline: 'مصنوع من الذرة والسكرالوز (مع خيارات ستيفيا طبيعية 100%) ليمنحك مذاق السكر العادي بدون سعرات.',
@@ -181,6 +188,7 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
   },
   {
     id: 'mints',
+    tabLabel: 'حلوى النعناع',
     title: 'حلوى النعناع الخالية من السكر (40 قطعة)',
     badge: 'خط الحلوى',
     tagline: 'حلوى نعناع منعشة خالية من السكر والسعرات، صديقة للأسنان وتمنحك انتعاشاً يدوم طويلاً.',
@@ -207,6 +215,7 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
   },
   {
     id: 'liquid',
+    tabLabel: 'سيرب لايت',
     title: 'سيرب لايت (عبوة 300 مل)',
     badge: 'شراب الحلويات',
     tagline: 'شراب منخفض السعرات الحرارية وخالي من السكر، مخصص لتحضير الحلويات الشرقية وجاهز للاستخدام.',
@@ -232,6 +241,7 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
   },
   {
     id: 'hotdrinks',
+    tabLabel: 'المشروبات الساخنة',
     title: 'هوت شوكليت وقهوة 3في1 بدون سكر',
     badge: 'المشروبات الساخنة',
     tagline: 'مشروبات ساخنة خالية من الزيوت المهدرجة والدهون المتحولة، ببديل كريمر صحي من زيت جوز الهند والحليب خالي الدسم.',
@@ -258,6 +268,7 @@ const SWEET_SLIM_PILLARS_AR: SweetSlimPillar[] = [
   },
   {
     id: 'colddrinks',
+    tabLabel: 'المشروبات الباردة',
     title: 'المشروبات الباردة والسموذي الوظيفي',
     badge: 'المشروبات الباردة',
     tagline: 'أظرف سموذي منعشة (20 جم) محلاة حصرياً بسكر ستيفيا Sweet & Slim ومدعمة بمكونات وظيفية للهضم ونضارة البشرة.',
@@ -340,7 +351,7 @@ export const SweetSlimWellnessShowcase: React.FC<SweetSlimWellnessShowcaseProps>
                     className="ss-pillar-dot"
                     style={{ backgroundColor: isSelected ? '#FFFFFF' : p.color }}
                   />
-                  <span>{p.title.split(' ').slice(0, 2).join(' ')}</span>
+                  <span>{p.tabLabel}</span>
                 </button>
               );
             })}
