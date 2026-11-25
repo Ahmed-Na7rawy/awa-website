@@ -259,16 +259,18 @@ export const SolutionsPage: React.FC = () => {
       {/* 3. TECHNICAL PARTNERSHIP (Exact V9 Content) */}
       <section className="section" id="technical-partnership" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', padding: '5.5rem 0' }}>
         <div className="wrap">
-          <div className="section-heading" style={{ marginBottom: '3rem' }}>
-            <div className="kicker">{isAr ? 'الشراكة التقنية' : 'TECHNICAL PARTNERSHIP'}</div>
-            <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.5rem 0 1rem', lineHeight: 1.25 }}>
-              {isAr ? (
-                <>تحدياتكم. خبراتنا.<br /><span className="accent">حلول تحقق الأداء الأمثل.</span></>
-              ) : (
-                <>Your Challenges. Our Expertise.<br /><span className="accent">Solutions That Perform.</span></>
-              )}
-            </h2>
-            <div style={{ maxWidth: '820px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+            <div>
+              <div className="kicker">{isAr ? 'الشراكة التقنية' : 'TECHNICAL PARTNERSHIP'}</div>
+              <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.75rem 0 0', lineHeight: 1.2 }}>
+                {isAr ? (
+                  <>تحدياتكم. خبراتنا.<br /><span className="accent">حلول تحقق الأداء الأمثل.</span></>
+                ) : (
+                  <>Your Challenges. Our Expertise.<br /><span className="accent">Solutions That Perform.</span></>
+                )}
+              </h2>
+            </div>
+            <div>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.025rem', marginBottom: '1rem' }}>
                 {isAr
                   ? 'يقدم كل منتج غذائي تحديات فريدة، من تحقيق القوام والمذاق والاستقرار المطلوب إلى تحسين كفاءة المعالجة، وترشيد التكلفة، والحفاظ على الجودة الثابتة. تعمل AWA جنباً إلى جنب مع المصنعين لفهم متطلبات إنتاجهم وتطوير حلول سليمة تقنياً.'
