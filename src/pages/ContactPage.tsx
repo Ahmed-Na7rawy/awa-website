@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, ArrowRight
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Reveal } from '../components/Reveal';
 import { v9Assets } from '../data/v9Data';
 
 export const ContactPage: React.FC = () => {
@@ -209,7 +210,7 @@ export const ContactPage: React.FC = () => {
               className="contact-layout-grid"
             >
               {/* LEFT COLUMN: CONTACT DETAILS & OFFICES */}
-              <div>
+              <Reveal direction="right">
                 <div style={{ marginBottom: '2.5rem' }}>
                   <div className="eyebrow">{isAr ? 'بيانات التواصل المباشر' : 'DIRECT CHANNELS'}</div>
                   <h2 style={{ fontSize: '1.85rem', fontWeight: 800, color: 'var(--dark-navy)', lineHeight: 1.25, marginBottom: '1rem' }}>
@@ -343,10 +344,10 @@ export const ContactPage: React.FC = () => {
                     <span>{isAr ? 'مراسلة مباشرة' : 'Email Directly'}</span>
                   </a>
                 </div>
-              </div>
+              </Reveal>
 
               {/* RIGHT COLUMN: QUALIFICATION & INQUIRY FORM */}
-              <div>
+              <Reveal direction="left" delay={0.1}>
                 <div
                   style={{
                     background: '#FFFFFF',
@@ -712,7 +713,7 @@ export const ContactPage: React.FC = () => {
                     </form>
                   )}
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { Settings, Cpu, Award, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 
 interface IndustriesProps {
   onOpenQuote: () => void;
@@ -12,8 +12,6 @@ interface IndustriesProps {
 
 export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavigate }) => {
   const { t, translations } = useLanguage();
-  const sectionRef1 = useScrollReveal();
-  const sectionRef2 = useScrollReveal();
   return (
     <div className="industries-page">
       <SEO
@@ -31,10 +29,10 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
       />
 
       {/* Main Overview */}
-      <section className="section" ref={sectionRef1}>
+      <Reveal as="section" className="section">
         <div className="container">
           <div className="editorial-grid">
-            <div className="reveal-fade-left">
+            <Reveal direction="right">
               <div className="eyebrow">{translations.industries.overview.eyebrow}</div>
               <h2 className="section-title">
                 {translations.industries.overview.title}
@@ -55,9 +53,9 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
                   <span>{translations.industries.overview.ctaSecondary}</span>
                 </button>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
+            <Reveal direction="left" delay={0.1} className="editorial-img-container">
               <img 
                 src="/images/pages/industries/image33.jpg" 
                 alt="AWA Borg El Arab Manufacturing Plant" 
@@ -66,70 +64,76 @@ export const IndustriesPage: React.FC<IndustriesProps> = ({ onOpenQuote, onNavig
                   (e.target as HTMLImageElement).src = '/images/pages/home/customercare.jpg';
                 }}
               />
-            </div>
+            </Reveal>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Manufacturing Capabilities */}
-      <section className="section section-stone" ref={sectionRef2}>
+      <Reveal as="section" className="section section-stone">
         <div className="container">
-          <div className="section-header reveal-fade-up">
+          <Reveal className="section-header">
             <div className="eyebrow">{translations.industries.capabilities.eyebrow}</div>
             <h2 className="section-title">{translations.industries.capabilities.title}</h2>
             <p className="section-desc">
               {translations.industries.capabilities.desc}
             </p>
-          </div>
+          </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            <div className="reveal-fade-up" style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Settings size={26} />
+          <StaggerParent style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <Settings size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.industries.capabilities.item1Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                  {translations.industries.capabilities.item1Desc}
+                </p>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
+                  {translations.industries.capabilities.item1Cap}
+                </div>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.industries.capabilities.item1Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {translations.industries.capabilities.item1Desc}
-              </p>
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {translations.industries.capabilities.item1Cap}
-              </div>
-            </div>
+            </StaggerChild>
 
-            <div className="reveal-fade-up" style={{ animationDelay: '0.1s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Cpu size={26} />
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <Cpu size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.industries.capabilities.item2Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                  {translations.industries.capabilities.item2Desc}
+                </p>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
+                  {translations.industries.capabilities.item2Cap}
+                </div>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.industries.capabilities.item2Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {translations.industries.capabilities.item2Desc}
-              </p>
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {translations.industries.capabilities.item2Cap}
-              </div>
-            </div>
+            </StaggerChild>
 
-            <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Award size={26} />
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <Award size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.industries.capabilities.item3Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                  {translations.industries.capabilities.item3Desc}
+                </p>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
+                  {translations.industries.capabilities.item3Cap}
+                </div>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.industries.capabilities.item3Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                {translations.industries.capabilities.item3Desc}
-              </p>
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
-                {translations.industries.capabilities.item3Cap}
-              </div>
-            </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };

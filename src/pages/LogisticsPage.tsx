@@ -1,9 +1,9 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { PageHero } from '../components/PageHero';
 import { Truck, ThermometerSnowflake, Clock, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 
 interface LogisticsProps {
   onOpenQuote: () => void;
@@ -11,9 +11,6 @@ interface LogisticsProps {
 
 export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
   const { t, translations } = useLanguage();
-  const sectionRef1 = useScrollReveal();
-  const sectionRef2 = useScrollReveal();
-  const sectionRef3 = useScrollReveal();
 
   return (
     <div className="logistics-page">
@@ -32,10 +29,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
       />
 
       {/* Main Logistics Overview */}
-      <section className="section" ref={sectionRef1}>
+      <Reveal as="section" className="section">
         <div className="container">
           <div className="editorial-grid">
-            <div className="reveal-fade-left">
+            <Reveal direction="right">
               <div className="eyebrow">{translations.logistics.overview.eyebrow}</div>
               <h2 className="section-title">
                 {translations.logistics.overview.title}
@@ -51,9 +48,9 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                 <span>{translations.logistics.overview.cta}</span>
                 <ArrowRight size={16} />
               </button>
-            </div>
+            </Reveal>
 
-            <div className="editorial-img-container reveal-fade-right reveal-delay-2">
+            <Reveal direction="left" delay={0.1} className="editorial-img-container">
               <img 
                 src="/images/pages/logistics/Image30.jpg" 
                 alt="AWA Logistics Warehouse Facility" 
@@ -62,72 +59,77 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
                   (e.target as HTMLImageElement).src = '/images/pages/home/logistics.jpg';
                 }}
               />
-            </div>
+            </Reveal>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Core Logistics Capabilities */}
-      <section className="section section-stone" ref={sectionRef2}>
+      <Reveal as="section" className="section section-stone">
         <div className="container">
-          <div className="section-header reveal-fade-up">
+          <Reveal className="section-header">
             <div className="eyebrow">{translations.logistics.specs.eyebrow}</div>
             <h2 className="section-title">{translations.logistics.specs.title}</h2>
             <p className="section-desc">
               {translations.logistics.specs.desc}
             </p>
-          </div>
+          </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            <div className="reveal-fade-up" style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <ThermometerSnowflake size={26} />
+          <StaggerParent style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <ThermometerSnowflake size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.logistics.specs.item1Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
+                  {translations.logistics.specs.item1Desc}
+                </p>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.logistics.specs.item1Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {translations.logistics.specs.item1Desc}
-              </p>
-            </div>
+            </StaggerChild>
 
-            <div className="reveal-fade-up" style={{ animationDelay: '0.1s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Truck size={26} />
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <Truck size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.logistics.specs.item2Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
+                  {translations.logistics.specs.item2Desc}
+                </p>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.logistics.specs.item2Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {translations.logistics.specs.item2Desc}
-              </p>
-            </div>
+            </StaggerChild>
 
-            <div className="reveal-fade-up" style={{ animationDelay: '0.2s', background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Clock size={26} />
+            <StaggerChild>
+              <div style={{ background: '#FFFFFF', padding: '2.5rem 2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', height: '100%' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <Clock size={26} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
+                  {translations.logistics.specs.item3Title}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
+                  {translations.logistics.specs.item3Desc}
+                </p>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--dark-navy)', marginBottom: '0.75rem' }}>
-                {translations.logistics.specs.item3Title}
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: '1.6' }}>
-                {translations.logistics.specs.item3Desc}
-              </p>
-            </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
 
       {/* Warehouse Logistics Showcase */}
-      <section className="section" ref={sectionRef3}>
+      <Reveal as="section" className="section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem' }}>
-            <div className="reveal-fade-up">
+          <StaggerParent style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem' }}>
+            <StaggerChild>
               <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
                 <img 
                   src="/images/pages/logistics/Image31.jpg" 
                   alt="AWA Distribution Center High Density Racking" 
-                  className="reveal-zoom"
                   style={{ width: '100%', height: '320px', objectFit: 'cover' }}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = '/images/pages/logistics/Image2-7.jpg';
@@ -140,14 +142,13 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
                 {translations.logistics.showcase.item1Desc}
               </p>
-            </div>
+            </StaggerChild>
 
-            <div className="reveal-fade-up" style={{ animationDelay: '0.2s' }}>
+            <StaggerChild>
               <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
                 <img 
                   src="/images/pages/logistics/Image32.jpg" 
                   alt="AWA Cold Storage Sanitation" 
-                  className="reveal-zoom"
                   style={{ width: '100%', height: '320px', objectFit: 'cover' }}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = '/images/pages/home/logistics.jpg';
@@ -160,10 +161,10 @@ export const LogisticsPage: React.FC<LogisticsProps> = ({ onOpenQuote }) => {
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
                 {translations.logistics.showcase.item2Desc}
               </p>
-            </div>
-          </div>
+            </StaggerChild>
+          </StaggerParent>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 };
