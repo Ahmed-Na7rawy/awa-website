@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2 } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/siteData';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,6 +11,7 @@ interface QuoteModalProps {
 export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
   const { t, language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: '',
     company: '',
@@ -22,13 +23,23 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
     try {
-      await fetch('https://formsubmit.co/ajax/info@awa-group.net', {
+      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_CONTACT.email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,24 +56,31 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
           requirement: formData.requirement || 'N/A',
         }),
       });
-    } catch (err) {
-      console.warn('Form submit error:', err);
-    } finally {
-      setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
         onClose();
       }, 3500);
+    } catch {
+      setSubmitError(
+        language === 'ar'
+          ? `تعذر إرسال الطلب حالياً. يرجى التواصل مباشرة عبر ${COMPANY_CONTACT.email}.`
+          : `Unable to send request right now. Please email ${COMPANY_CONTACT.email} directly.`
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111a2e' }}>
+            <h3 id="quote-modal-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111a2e' }}>
               {t('quoteModal.title', 'Request a Formulation or Quote')}
             </h3>
             <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
@@ -165,6 +183,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                   onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                 />
               </div>
+
+              {submitError && (
+                <div role="alert" style={{ padding: '0.75rem 1rem', borderRadius: '10px', background: '#FEF2F2', border: '1px solid #FECACA', color: '#991B1B', fontSize: '0.85rem', fontWeight: 600, marginBottom: '1rem' }}>
+                  {submitError}
+                </div>
+              )}
 
               <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: isSubmitting ? 0.7 : 1 }}>
                 <Send size={16} /> <span>{isSubmitting ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...') : t('quoteModal.submit', 'Submit Inquiry')}</span>

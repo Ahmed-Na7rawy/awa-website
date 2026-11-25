@@ -5,8 +5,11 @@ import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 
 export const CareersPage: React.FC = () => {
-  const { t, translations } = useLanguage();
+  const { t, translations, language } = useLanguage();
+  const isAr = language === 'ar';
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [careerForm, setCareerForm] = useState({
     fullName: '',
     email: '',
@@ -16,11 +19,35 @@ export const CareersPage: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_CONTACT.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `Career Application: ${careerForm.fullName} [${careerForm.department}]`,
+          _template: 'table',
+          fullName: careerForm.fullName,
+          email: careerForm.email,
+          phone: careerForm.phone,
+          department: careerForm.department,
+          experience: careerForm.experience,
+          message: careerForm.message || 'N/A',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      setSubmitted(true);
       setCareerForm({
         fullName: '',
         email: '',
@@ -29,7 +56,15 @@ export const CareersPage: React.FC = () => {
         experience: '3-5 years',
         message: ''
       });
-    }, 3500);
+    } catch {
+      setSubmitError(
+        isAr
+          ? `تعذر إرسال الطلب تلقائياً. يرجى الإرسال مباشرة عبر البريد الإلكتروني ${COMPANY_CONTACT.email}.`
+          : `Unable to submit automatically right now. Please email your CV directly to ${COMPANY_CONTACT.email}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const openings = [
@@ -274,8 +309,14 @@ export const CareersPage: React.FC = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                    <span>{translations.careers.form.submit}</span>
+                  {submitError && (
+                    <div role="alert" style={{ padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', background: '#FEF2F2', border: '1px solid #FECACA', color: '#991B1B', fontSize: '0.85rem', fontWeight: 600 }}>
+                      {submitError}
+                    </div>
+                  )}
+
+                  <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem', opacity: isSubmitting ? 0.7 : 1 }}>
+                    <span>{isSubmitting ? (isAr ? 'جاري الإرسال...' : 'Submitting...') : translations.careers.form.submit}</span>
                     <Send size={16} />
                   </button>
 
