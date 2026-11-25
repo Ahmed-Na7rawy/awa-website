@@ -118,7 +118,7 @@ export const FoodServicesPage: React.FC = () => {
               <div 
                 key={cat.id}
                 id={cat.id}
-                className="scroll-margin"
+                className="scroll-margin fs-card-grid"
                 style={{
                   background: '#FFFFFF',
                   borderRadius: '24px',
@@ -126,19 +126,19 @@ export const FoodServicesPage: React.FC = () => {
                   border: '1px solid var(--border-color)',
                   boxShadow: 'var(--shadow-subtle)',
                   display: 'grid',
-                  gridTemplateColumns: idx % 2 === 0 ? '1fr 1.2fr' : '1.2fr 1fr',
+                  gridTemplateColumns: idx % 2 === 0 ? 'minmax(0, 1fr) minmax(0, 1.2fr)' : 'minmax(0, 1.2fr) minmax(0, 1fr)',
                   alignItems: 'center'
                 }}
               >
-                <div style={{ order: idx % 2 === 0 ? 1 : 2, height: '100%', minHeight: '380px', overflow: 'hidden' }}>
+                <div className="fs-card-media" style={{ order: idx % 2 === 0 ? 1 : 2, height: '100%', minHeight: '380px', overflow: 'hidden', minWidth: 0 }}>
                   <img 
                     src={categoryImages[cat.id] || v9Assets.foodVisuals.smoothies} 
                     alt={cat.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                 </div>
 
-                <div style={{ order: idx % 2 === 0 ? 2 : 1, padding: '3rem' }}>
+                <div className="fs-card-body" style={{ order: idx % 2 === 0 ? 2 : 1, padding: '3rem', minWidth: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', color: 'var(--primary)' }}>
                     {categoryIcons[cat.id]}
                     <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
