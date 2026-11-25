@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   ArrowUpRight,
   ArrowRight,
@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { Reveal, StaggerParent, StaggerChild } from '../components/Reveal';
 import { Link } from 'react-router-dom';
 import { 
   v9Assets
@@ -37,6 +38,12 @@ export const HomePage: React.FC<HomeProps> = () => {
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroVideoY = useTransform(heroScroll, [0, 1], ['0%', '16%']);
 
   const toggleVideoPlayback = () => {
     if (!videoRef.current) return;
@@ -121,8 +128,8 @@ export const HomePage: React.FC<HomeProps> = () => {
       {/* 1. CINEMATIC VIDEO HERO                              */}
       {/* (APPROVED AND UNMODIFIED PER ABSOLUTE RESTRICTIONS)  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="awa-video-hero">
-        <div className="awa-video-bg-wrap" aria-hidden="true">
+      <section ref={heroRef} className="awa-video-hero">
+        <motion.div className="awa-video-bg-wrap" aria-hidden="true" style={{ y: heroVideoY, willChange: 'transform' }}>
           <video
             ref={videoRef}
             className="awa-video-bg"
@@ -136,18 +143,28 @@ export const HomePage: React.FC<HomeProps> = () => {
             <source src="/videos/awa-hero.mp4" type="video/mp4" />
           </video>
           <div className="awa-video-overlay" />
-        </div>
+        </motion.div>
 
         <div className="container awa-video-hero-container">
           <div className="awa-video-hero-content">
-            <div className="awa-editorial-eyebrow reveal-fade-up">
+            <motion.div
+              className="awa-editorial-eyebrow"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            >
               <span className="awa-eyebrow-accent-line" />
               <span className="awa-eyebrow-text">
                 {isAr ? 'مجموعة AWA / حلول الصناعات الغذائية' : 'AWA GROUP / FOOD INDUSTRY SOLUTIONS'}
               </span>
-            </div>
+            </motion.div>
 
-            <h1 className="awa-editorial-headline reveal-fade-up reveal-delay-1">
+            <motion.h1
+              className="awa-editorial-headline"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+            >
               {isAr ? (
                 <>
                   حلول غذائية مخصصة.
@@ -161,15 +178,26 @@ export const HomePage: React.FC<HomeProps> = () => {
                   <span className="awa-highlight-green">Built to Perform.</span>
                 </>
               )}
-            </h1>
+            </motion.h1>
 
-            <p className="awa-editorial-desc reveal-fade-up reveal-delay-2" style={{ marginBottom: '2.75rem' }}>
+            <motion.p
+              className="awa-editorial-desc"
+              style={{ marginBottom: '2.75rem' }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            >
               {isAr
                 ? 'تجمع مجموعة AWA بين الخبرة العالمية في التوريد، والبحث والتطوير القائم على التطبيقات، والقدرات التصنيعية لتطوير حلول غذائية مخصصة. نعمل بشكل وثيق مع مصنعي الأغذية لمعالجة التحديات التقنية، وتحسين التركيبات وتقديم حلول مصممة خصيصاً لتلبية متطلبات الإنتاج لديهم.'
                 : 'AWA Group combines global sourcing expertise, application-driven R&D and manufacturing capabilities to develop customized food solutions. We work closely with food manufacturers to address technical challenges, optimize formulations and deliver solutions tailored to their production requirements.'}
-            </p>
+            </motion.p>
 
-            <div className="awa-editorial-actions reveal-fade-up reveal-delay-3">
+            <motion.div
+              className="awa-editorial-actions"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
               <Link to="/solutions" className="awa-editorial-btn-primary">
                 <span>{isAr ? 'استكشف حلول الصناعات' : 'Explore Industry Solutions'}</span>
                 <ArrowUpRight size={17} />
@@ -178,7 +206,7 @@ export const HomePage: React.FC<HomeProps> = () => {
                 <span>{isAr ? 'اكتشف مجموعة AWA' : 'Discover AWA Group'}</span>
                 <ArrowUpRight size={17} />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -193,7 +221,12 @@ export const HomePage: React.FC<HomeProps> = () => {
         </button>
 
         {/* Credibility / Trust Strip */}
-        <div className="awa-video-credibility-strip">
+        <motion.div
+          className="awa-video-credibility-strip"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.36, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="container">
             <div className="awa-video-credibility-inner">
               <div className="awa-video-credibility-item">
@@ -222,7 +255,7 @@ export const HomePage: React.FC<HomeProps> = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ═══════════════════════════════════════════════════ */}
@@ -250,7 +283,7 @@ export const HomePage: React.FC<HomeProps> = () => {
         <div className="ref-container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="ref-expertise-grid">
             {/* Left Content */}
-            <div className="ref-expertise-left">
+            <Reveal direction="right" className="ref-expertise-left">
               <span className="ref-dash" />
               <h2 className="ref-title">
                 {isAr ? 'استكشف خبراتنا' : 'Explore our expertise'} <br />
@@ -265,10 +298,10 @@ export const HomePage: React.FC<HomeProps> = () => {
                 <span>{isAr ? 'استعراض كافة الحلول' : 'Explore all solutions'}</span>
                 <ArrowRight size={13} className="rtl:rotate-180" />
               </Link>
-            </div>
+            </Reveal>
 
             {/* Right Asymmetric Photo Composition */}
-            <div className="ref-mosaic">
+            <Reveal direction="left" delay={0.08} className="ref-mosaic">
               {/* Dominant Featured Category: Dairy & Cheese */}
               <Link 
                 to="/solutions/industry/dairy-cheese"
@@ -352,7 +385,7 @@ export const HomePage: React.FC<HomeProps> = () => {
                   </div>
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* Horizontal Subcategory Navigation Bar */}
@@ -434,10 +467,10 @@ export const HomePage: React.FC<HomeProps> = () => {
           </div>
 
           {/* Right: 3 Horizontally Aligned Items with Mint Circle Icons */}
-          <div className="ref-tech-right">
+          <StaggerParent className="ref-tech-right">
             {capabilitiesList.map((cap) => (
+              <StaggerChild key={cap.id}>
               <Link
-                key={cap.id}
                 to={cap.route}
                 className="ref-tech-item"
               >
@@ -450,8 +483,9 @@ export const HomePage: React.FC<HomeProps> = () => {
                 </div>
                 <span className="ref-tech-arrow">↗</span>
               </Link>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
         </div>
       </motion.section>
 
@@ -504,37 +538,37 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
 
             {/* Right: 3 Columns with Thin Line Dividers */}
-            <div className="ref-perf-right">
+            <StaggerParent className="ref-perf-right">
               {/* Principle 1 */}
-              <div className="ref-perf-col">
+              <StaggerChild className="ref-perf-col">
                 <div className="ref-perf-icon">
                   <Cog size={36} strokeWidth={1.8} />
                 </div>
                 <h3 className="ref-perf-name">
                   {isAr ? 'الأداء\nالوظيفي' : 'Functional\nPerformance'}
                 </h3>
-              </div>
+              </StaggerChild>
 
               {/* Principle 2 */}
-              <div className="ref-perf-col">
+              <StaggerChild className="ref-perf-col">
                 <div className="ref-perf-icon">
                   <Boxes size={36} strokeWidth={1.8} />
                 </div>
                 <h3 className="ref-perf-name">
                   {isAr ? 'التوافق\nالإنتاجي' : 'Production\nCompatibility'}
                 </h3>
-              </div>
+              </StaggerChild>
 
               {/* Principle 3 */}
-              <div className="ref-perf-col">
+              <StaggerChild className="ref-perf-col">
                 <div className="ref-perf-icon">
                   <TrendingUp size={36} strokeWidth={1.8} />
                 </div>
                 <h3 className="ref-perf-name">
                   {isAr ? 'القيمة\nالتجارية' : 'Commercial\nValue'}
                 </h3>
-              </div>
-            </div>
+              </StaggerChild>
+            </StaggerParent>
           </div>
         </div>
       </motion.section>
@@ -692,7 +726,7 @@ export const HomePage: React.FC<HomeProps> = () => {
           </div>
 
           {/* Right: 5 Horizontal Columns with Thin Line Dividers */}
-          <div className="ref-sustain-pillars">
+          <StaggerParent className="ref-sustain-pillars">
             {[
               { num: '01', title: isAr ? 'التوريد المستدام' : 'Sustainable\nSourcing', icon: <Leaf size={22} strokeWidth={1.8} /> },
               { num: '02', title: isAr ? 'المسؤولية البيئية' : 'Environmental\nResponsibility', icon: <Recycle size={22} strokeWidth={1.8} /> },
@@ -700,7 +734,7 @@ export const HomePage: React.FC<HomeProps> = () => {
               { num: '04', title: isAr ? 'سلامة الغذاء والجودة' : 'Food Safety\n& Quality', icon: <ShieldCheck size={22} strokeWidth={1.8} /> },
               { num: '05', title: isAr ? 'الابتكار لغد أفضل' : 'Innovation\nfor a Better\nTomorrow', icon: <Lightbulb size={22} strokeWidth={1.8} /> },
             ].map((pillar) => (
-              <div key={pillar.num} className="ref-sustain-col">
+              <StaggerChild key={pillar.num} className="ref-sustain-col">
                 <span className="ref-sustain-num">{pillar.num}</span>
                 <div className="ref-sustain-icon">
                   {pillar.icon}
@@ -708,9 +742,9 @@ export const HomePage: React.FC<HomeProps> = () => {
                 <strong className="ref-sustain-name">
                   {pillar.title}
                 </strong>
-              </div>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
         </div>
       </motion.section>
 
@@ -745,10 +779,10 @@ export const HomePage: React.FC<HomeProps> = () => {
             </div>
 
             {/* Right: 3 Equal Article Cards */}
-            <div className="ref-know-cards">
+            <StaggerParent className="ref-know-cards">
               {insightArticles.map((art) => (
+                <StaggerChild key={art.id}>
                 <Link
-                  key={art.id}
                   to={art.link}
                   className="ref-article-card"
                 >
@@ -777,8 +811,9 @@ export const HomePage: React.FC<HomeProps> = () => {
                     </span>
                   </div>
                 </Link>
+                </StaggerChild>
               ))}
-            </div>
+            </StaggerParent>
           </div>
         </div>
       </motion.section>
