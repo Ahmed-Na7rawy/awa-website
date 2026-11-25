@@ -106,7 +106,7 @@
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 800;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
   border: none;
   cursor: pointer;
   display: flex;
@@ -114,6 +114,14 @@
   gap: 0.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.fmcg-nav-cta--outline {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .fmcg-nav-cta:hover {
