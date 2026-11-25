@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "oxlint",
     "preview": "vite preview",
+    "test:e2e": "node --experimental-websocket tests/e2e.mjs",
     "deploy": "node scripts/deploy-vercel.js"
   },
   "dependencies": {

@@ -3,12 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowRight, Search, Layers, Sparkles, Filter, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-import { 
-  v9Assets, 
-  industryData, 
-  challengeData, 
-  familyData, 
-  solutionRecords 
+import {
+  v9Assets,
+  industryData,
+  challengeData,
+  familyData,
+  solutionRecords
 } from '../data/v9Data';
 
 export const SolutionsPage: React.FC = () => {
@@ -36,10 +36,10 @@ export const SolutionsPage: React.FC = () => {
       {/* 1. Page Hero */}
       <section className="page-hero page-hero--visual">
         <div className="page-hero-media">
-          <img 
-            src={v9Assets.v8Assets['food-cuisine'] || v9Assets.v7Assets.hero} 
-            alt="Food Industry Solutions" 
-            loading="eager" 
+          <img
+            src={v9Assets.v8Assets['food-cuisine'] || v9Assets.v7Assets.hero}
+            alt="Food Industry Solutions"
+            loading="eager"
           />
         </div>
         <div className="wrap page-hero-content">
@@ -114,25 +114,25 @@ export const SolutionsPage: React.FC = () => {
 
           {/* Discovery Tabs */}
           <div className="browser-tabs" role="tablist">
-            <button 
-              type="button" 
-              role="tab" 
+            <button
+              type="button"
+              role="tab"
               aria-selected={activeTab === 'industry'}
               onClick={() => setActiveTab('industry')}
             >
               <span className="approach-icon" aria-hidden="true">▦</span> {isAr ? 'حسب الصناعة' : 'By Industry'}
             </button>
-            <button 
-              type="button" 
-              role="tab" 
+            <button
+              type="button"
+              role="tab"
               aria-selected={activeTab === 'challenge'}
               onClick={() => setActiveTab('challenge')}
             >
               <span className="approach-icon" aria-hidden="true">◎</span> {isAr ? 'حسب التحدي التقني' : 'By Challenge'}
             </button>
-            <button 
-              type="button" 
-              role="tab" 
+            <button
+              type="button"
+              role="tab"
               aria-selected={activeTab === 'family'}
               onClick={() => setActiveTab('family')}
             >
@@ -143,10 +143,10 @@ export const SolutionsPage: React.FC = () => {
           {/* Tab Content Display */}
           <div style={{ marginTop: '2.5rem' }}>
             {activeTab === 'industry' && (
-              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '1.5rem' }}>
                 {industryData.map((ind) => (
-                  <Link 
-                    key={ind.id} 
+                  <Link
+                    key={ind.id}
                     to={`/solutions/industry/${ind.id}`}
                     className="browser-card industry-photo-card"
                     style={{
@@ -161,9 +161,9 @@ export const SolutionsPage: React.FC = () => {
                     }}
                   >
                     <div style={{ height: '190px', overflow: 'hidden', position: 'relative' }}>
-                      <img 
-                        src={v9Assets.v7Assets[ind.id as keyof typeof v9Assets.v7Assets] || v9Assets.v7Assets.hero} 
-                        alt={ind.title} 
+                      <img
+                        src={v9Assets.v7Assets[ind.id as keyof typeof v9Assets.v7Assets] || v9Assets.v7Assets.hero}
+                        alt={ind.title}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
@@ -189,10 +189,10 @@ export const SolutionsPage: React.FC = () => {
             )}
 
             {activeTab === 'challenge' && (
-              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: '1.5rem' }}>
                 {challengeData.map((ch) => (
-                  <Link 
-                    key={ch.id} 
+                  <Link
+                    key={ch.id}
                     to={`/solutions/challenge/${ch.id}`}
                     className="browser-card discovery-card"
                     style={{
@@ -217,10 +217,10 @@ export const SolutionsPage: React.FC = () => {
             )}
 
             {activeTab === 'family' && (
-              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
+              <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: '1.5rem' }}>
                 {familyData.map((fam) => (
-                  <Link 
-                    key={fam.id} 
+                  <Link
+                    key={fam.id}
                     to={`/solutions/family/${fam.id}`}
                     className="browser-card discovery-card"
                     style={{
@@ -236,7 +236,7 @@ export const SolutionsPage: React.FC = () => {
                     <span className="tiny-icon" style={{ fontSize: '1.8rem', color: 'var(--primary-blue)', display: 'block', marginBottom: '0.75rem' }}>{fam.icon}</span>
                     <strong style={{ fontSize: '1.25rem', color: 'var(--text-main)', display: 'block', marginBottom: '0.5rem' }}>{fam.title}</strong>
                     <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.25rem', flexGrow: 1 }}>{fam.desc}</p>
-                    
+
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1.25rem' }}>
                       {fam.subfamilies?.slice(0, 3).map((sf, idx) => (
                         <span key={idx} style={{ fontSize: '0.75rem', padding: '2px 8px', background: 'var(--bg-soft)', borderRadius: '6px', color: 'var(--text-muted)' }}>
@@ -259,7 +259,7 @@ export const SolutionsPage: React.FC = () => {
       {/* 3. TECHNICAL PARTNERSHIP (Exact V9 Content) */}
       <section className="section" id="technical-partnership" style={{ background: '#F8FAFC', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', padding: '5.5rem 0' }}>
         <div className="wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
             <div>
               <div className="kicker">{isAr ? 'الشراكة التقنية' : 'TECHNICAL PARTNERSHIP'}</div>
               <h2 style={{ fontSize: '2.4rem', color: 'var(--text-main)', margin: '0.75rem 0 0', lineHeight: 1.2 }}>
@@ -290,7 +290,7 @@ export const SolutionsPage: React.FC = () => {
           </div>
 
           {/* 4-Stage Process: UNDERSTAND, SOURCE, DEVELOP, VALIDATE */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
             <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-subtle)' }}>
               <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
                 01 · {isAr ? 'فهم الاحتياج' : 'UNDERSTAND'}
@@ -378,9 +378,9 @@ export const SolutionsPage: React.FC = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(360px, 100%), 1fr))', gap: '1.5rem' }}>
             {solutionRecords.slice(0, 6).map((sol, idx) => (
-              <div 
+              <div
                 key={idx}
                 style={{
                   background: '#FFFFFF',
@@ -438,14 +438,14 @@ export const SolutionsPage: React.FC = () => {
               {isAr ? 'أخبرنا عن تطبيقك أو مشروعك وتواصل مع الفريق المختص.' : 'Tell us about your application or project and connect with the right team.'}
             </p>
           </div>
-          <Link 
-            to="/contact?type=technical" 
-            className="btn" 
-            style={{ 
-              background: '#FFFFFF', 
-              color: 'var(--navy)', 
-              fontWeight: 800, 
-              padding: '1rem 2rem', 
+          <Link
+            to="/contact?type=technical"
+            className="btn"
+            style={{
+              background: '#FFFFFF',
+              color: 'var(--navy)',
+              fontWeight: 800,
+              padding: '1rem 2rem',
               borderRadius: '12px',
               display: 'inline-flex',
               alignItems: 'center',
