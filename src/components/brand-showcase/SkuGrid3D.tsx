@@ -64,7 +64,7 @@ export const SkuGrid3D: React.FC<SkuGrid3DProps> = ({ brand, onOpenQuote }) => {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 style={{
-                  padding: '0.4rem 1rem',
+                  padding: '0.55rem 1.05rem',
                   borderRadius: '10px',
                   fontSize: '0.8rem',
                   fontWeight: 700,

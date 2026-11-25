@@ -350,7 +350,7 @@ export const KnowledgePage: React.FC = () => {
 
         {/* CATEGORY FILTER TABS */}
         <section style={{ borderBottom: '1px solid #E2E8F0', background: '#F8FAFC', padding: '1rem 0' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             {[
               { id: 'all', label: isAr ? 'جميع الرؤى والأخبار' : 'All Insights & News' },
               { id: 'formulation', label: isAr ? 'علم التركيبات والبحث والتطوير' : 'Formulation Science' },

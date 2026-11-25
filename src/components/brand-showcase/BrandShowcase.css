@@ -1349,6 +1349,18 @@
     gap: 0.75rem;
   }
 
+  .fmcg-switcher-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .fmcg-switcher-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
   .fmcg-hero-badges-row,
   .ss-hero-badges-row {
     grid-template-columns: 1fr;
