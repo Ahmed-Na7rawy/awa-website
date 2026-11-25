@@ -34,12 +34,17 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const targetEmail =
+    formData.sector === 'Consumer Retail Brands'
+      ? COMPANY_CONTACT.emailB2C
+      : COMPANY_CONTACT.emailB2B;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_CONTACT.email}`, {
+      const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,8 +72,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     } catch {
       setSubmitError(
         language === 'ar'
-          ? `تعذر إرسال الطلب حالياً. يرجى التواصل مباشرة عبر ${COMPANY_CONTACT.email}.`
-          : `Unable to send request right now. Please email ${COMPANY_CONTACT.email} directly.`
+          ? `تعذر إرسال الطلب حالياً. يرجى التواصل مباشرة عبر ${targetEmail}.`
+          : `Unable to send request right now. Please email ${targetEmail} directly.`
       );
     } finally {
       setIsSubmitting(false);
@@ -100,7 +105,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 {t('quoteModal.successHeading', 'Thank You!')}
               </h4>
               <p style={{ color: '#64748b', fontSize: '0.95rem' }}>
-                {t('quoteModal.successText', `Your request has been forwarded to our technical team at ${COMPANY_CONTACT.email}. We will contact you within 24 hours.`)}
+                {t('quoteModal.successText', `Your request has been forwarded to our team at ${targetEmail}. We will contact you within 24 hours.`)}
               </p>
             </div>
           ) : (
