@@ -89,17 +89,10 @@ export const BrandNavBar: React.FC<BrandNavBarProps> = ({
             href={`https://awa-shopping-chi.vercel.app/${language === 'ar' ? 'ar' : 'en'}/${activeBrandId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="fmcg-nav-cta"
-            style={{ 
-              backgroundColor: '#FFFFFF', 
-              color: '#0F172A',
-              border: '1px solid rgba(0,0,0,0.12)',
-              textDecoration: 'none',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
-            }}
+            className="fmcg-nav-cta fmcg-nav-cta--outline"
           >
             <ShoppingBag size={14} style={{ color: currentBrand.theme.primary }} />
-            <span>{language === 'ar' ? 'المتجر الإلكتروني ↗' : 'Shop Online ↗'}</span>
+            <span style={{ color: '#0F172A' }}>{language === 'ar' ? 'المتجر الإلكتروني ↗' : 'Shop Online ↗'}</span>
           </a>
 
           <button
